@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+        
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Aéroports des Comores</title>
+    <link rel="icon" type="image/png" href="img/Airport-32.png"/>
+    
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" >
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
+    
+    <!-- Plugin CSS -->
+    <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="css/creative.min.css" rel="stylesheet">
+    <link href="css/personal.css" rel="stylesheet">
+    
+    <!-- Footer CSS -->
+    <link href="css/footer-distributed-with-address-and-phones.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+        <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header myNav">
+                        <button type="button" class="navbar-toggle collapsed second" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="AfficheMenuMobile();">
+                            <span class="sr-only">Toggle navigation</span> Aéroports <i id="rotateElem" class="fa fa-plane"></i>
+                        </button>
+                        <div class="useless"></div>                
+                        <a class="navbar-brand page-scroll first" href="#page-top">Aéroports des Comores</a>
+                    </div>
+        
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a class="page-scroll" href="#about">Anjouan</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#services">Moroni</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#portfolio">Mohéli</a>
+                            </li>
+                            <li>
+                                <a class="page-scroll" href="#contact">Mayotte</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.navbar-collapse -->
+                </div>
+                <!-- /.container-fluid -->
+        </nav>
+
+        <header>
+                <div class="header-content">
+                    <div class="header-content-inner">
+                        <h1 id="homeHeading">Your Favorite Source of Free Bootstrap Themes</h1>
+                        <hr>
+                        <p>Start Bootstrap can help you build better websites using the Bootstrap CSS framework! Just download your template and start going, no strings attached!</p>
+                        <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
+                    </div>
+                </div>
+        </header>
+
+        <section class="bg-primary search-flight" id="about">
+                <div class="container">
+                        <div class="row">
+                        <form name="zoneRecherche" class="form-flight-search">
+                                <h2 class="section-heading">Rechercher un vol</h2>
+                                <div class="form-recherche-vol_principal">
+                                        <div class="form-recherche-avion_vol-content">
+                                                <div class="form-recherche-vol-search_box">
+                                                        <div class="form-recherche-vol-search_box-inner form-group">
+                                                                <input class="form-recherche-vol_input form-control" id="search_area" placeholder="Entrez un numéro du vol" type="text"/>
+                                                                <button class="form-recherche-vol_submit">
+                                                                        <span class="form-recherche-vol_sumbit-inner">
+                                                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                                                        </span>
+                                                                </button>
+                                                        </div>
+                                                </div>
+                                        </div>
+                                </div>
+                                <div class="form-button-departures-arrivals">
+                                        <div class="form-button-departures-arrivals-inner">
+                                                <div class="button_dep"><a href="departure.html" class="button_dep_arr_label">Départs</a></div>
+                                                <div class="button_arr"><a href="arrivals.html" class="button_dep_arr_label">Arrivés</a></div>
+                                        </div>
+                                </div>
+                        </form>
+                    </div>
+                </div>
+        </section>
+
+        <section id="services">
+                <div class="container suiviAndAlert">
+                        <div class="row suiviBagages">
+                                <div class="col-lg-12 service-box">
+                                        <h2 class="section-heading">Suivi de vos bagages</h2>
+                                        <form name="zoneSuiviBagages" class="SuiviBagages_form">
+                                                <div class="SuiviBagages_form-content col-lg-12">
+                                                        <div class="SuiviBagages-num_vol"> 
+                                                                <label for="num_vol" class="SuiviBagages_num_vol-label">
+                                                                        <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
+                                                                </label>
+                                                                <div class="SuiviBagages-num_vol-search_box">
+                                                                        <div class="SuiviBagages-num_vol-search_box-inner form-group">
+                                                                                <input class="SuiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="SuiviBagages_coordonnées">
+                                                                <div class="SuiviBagages_nom">
+                                                                </div>
+                                                                <div class="SuiviBagages_prenom">
+                                                                        
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                        </form>
+                                </div>
+                        </div>
+                        <hr class="primary">
+                        <div class="row flash-alert">
+                                <div class="col-lg-12 nopadding">
+                                        <form name="zoneFlashAlert" class="flash_alert-form">
+                                                <h2 class="section-heading">Alerte flash vol</h2>
+                                                <div class="flash_alert-num_vol">
+                                                        <div class="flash_alert-num_vol-content">
+                                                                <label for="num_vol" class="flash_alert-num_vol-label">
+                                                                        <span class="flash_alert-num_vol-label-inner">N° vol</span>
+                                                                </label>
+                                                                <div class="flash_alert-num_vol-search_box">
+                                                                        <div class="flash_alert-num_vol-search_box-inner form-group">
+                                                                                <input class="flash_alert-num_vol-input form-control" id="num_vol" placeholder="Entrez un numéro du vol" type="text"/>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                </div>
+                                                <div class="flash_alert-coordonnees">
+                                                        <div class="flash_alert-coordonnees-wraper">
+                                                                <label for="num_vol" class="flash_alert-num_vol-label">
+                                                                        <span class="flash_alert-coordoonnees-label-inner">Vos coordonnés : e-mail et/ou tel</span>
+                                                                </label>
+                                                                <div class="flash_alert-coordonnees-inner">
+                                                                        <div class="flash_alert-email form-group">
+                                                                                <input class="flash_alert-input-inner form-control" placeholder="Entrez votre e-mail" type="email"/>
+                                                                        </div>
+                                                                        <div class="flash_alert-tel form-group">
+                                                                                <input class="flash_alert-input-inner form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
+                                                                        </div>
+                                                                </div>
+                                                        </div>
+                                                        <div class="flash_alert-submit">
+                                                                <a href="javascript:void(0);" class="flash_alert-button-label" onclick="Submit();">Envoyer</a>
+                                                        </div>
+                                                </div>
+                                        </form>
+                                </div>
+                        </div>
+                </div>
+        </section>
+        <aside class="bg-dark general-news">
+                <div class="container nopadding news">
+                        <div class="title_news">
+                                <div class="button">
+                                        <a href="javascript:void(0);" class="hidebutton" onclick="CacherMenu();"><i class="fa fa-chevron-down fa-2x rotate rotateButton" aria-hidden="true"></i></a>
+                                </div>
+                                <h2>News Aéroport</h2>
+                        </div>
+                        <div id="hide" class="news_container">
+                                <table class="news_table">
+                                        <tr class="title_column_news">
+                                                <th>Date Info</th>
+                                                <th>News</th>
+                                        </tr>
+                                        <tr class="news_normal">
+                                                <td>date</td>
+                                                <td>News normal</td>
+                                        </tr>
+                                        <tr class="news_important">
+                                                <td>date</td>
+                                                <td>News important</td>
+                                        </tr>
+                                        <tr class="news_mineur">
+                                                <td>date</td>
+                                                <td>News mineur</td>
+                                        </tr>
+                                </table>
+                        </div>
+                </div>
+        </aside>
+
+        <section id="contact">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2 text-center">
+                            <h2 class="section-heading">Let's Get In Touch!</h2>
+                            <hr class="primary">
+                            <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    
+        <!-- pied de page -->
+        <footer class="footer-distributed">
+                <div class="footer-left">
+                        <p class="footer-links">
+                                <a href="#">Home</a>
+                                ·
+                                <a href="#">Blog</a>
+                                ·
+                                <a href="#">Pricing</a>
+                                ·
+                                <a href="#">About</a>
+                                ·
+                                <a href="#">Faq</a>
+                                ·
+                                <a href="#">Contact</a>
+                        </p>
+                        <p class="footer-company-name">Company Name &copy; 2017</p>
+                </div>
+                <div class="footer-center">
+                        <div>
+                                <i class="fa fa-map-marker"></i>
+                                <p><span>21 Revolution Street</span> Paris, France</p>
+                        </div>
+        
+                        <div>
+                                <i class="fa fa-phone"></i>
+                                <p>+1 555 123456</p>
+                        </div>
+        
+                        <div>
+                                <i class="fa fa-envelope"></i>
+                                <p><a href="mailto:support@company.com">support@company.com</a></p>
+                        </div>
+        
+                </div>
+        
+                <div class="footer-right">
+                        <p class="footer-company-about">
+                                <span>About the company</span>
+                                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                        </p>
+                        <div class="footer-icons">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-github"></i></a>
+                        </div>
+                </div>
+        </footer>
+
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+    <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="js/creative.min.js"></script>
+    
+    <!-- A transformer -> Angular -->
+    <script src="js/afficheMenuMobile.js"></script>
+    <script src="js/CacherMenu.js"></script>
+</body>
+
+</html>
