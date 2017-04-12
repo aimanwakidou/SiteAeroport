@@ -42,7 +42,7 @@
                           <button type="button" class="navbar-toggle collapsed second" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="AfficheMenuMobile();">
                               <span class="sr-only">Toggle navigation</span> Aéroports <i id="rotateElem" class="fa fa-plane"></i>
                           </button>
-                          <div class="useless"></div>                
+                          <div class="uselessNav"></div>                
                           <a class="navbar-brand page-scroll first" href="#page-top">Aéroports des Comores</a>
                       </div>
           
@@ -151,7 +151,7 @@
             </header>
               
             <!-- Zone : Rechercher un vol -->
-            <section class="bg-primary search-flight" id="about">
+            <section class="bg-primary search-flight" id="search-flight">
                   <div class="container">
                         <div class="row">
                               <form name="zoneRecherche" class="form-flight-search">
@@ -172,8 +172,8 @@
                                     </div>
                                     <div class="form-button-departures-arrivals">
                                           <div class="form-button-departures-arrivals-inner">
-                                                <div class="button_dep"><a href="departure.html" class="button_dep_arr_label">Départs</a></div>
-                                                <div class="button_arr"><a href="arrivals.html" class="button_dep_arr_label">Arrivés</a></div>
+                                                <div class="button_arr"><a href="#" class="btn btn-block button_dep_arr_label" role="button">Arrivés</a></div>
+                                                <div class="button_dep"><a href="#" class="btn btn-block button_dep_arr_label" role="button">Départs</a></div>
                                           </div>
                                     </div>
                               </form>
@@ -182,20 +182,20 @@
             </section>
       
             <!-- Zone : Alerte flash vol + Suivi bagages -->
-            <section id="services">
+            <section id="suiviAndAlertBox">
                   <div class="container suiviAndAlert">
                         <div class="row suiviBagages">
-                              <div class="col-lg-12 service-box">
+                              <div class="col-lg-12 suiviBagages_content">
                                     <h2 class="section-heading">Suivi de vos bagages</h2>
                                     <form name="zoneSuiviBagages" class="SuiviBagages_form">
                                           <div class="SuiviBagages_form-content col-lg-12">
                                                 <div class="SuiviBagages-num_vol"> 
-                                                      <label for="num_vol" class="SuiviBagages_num_vol-label">
+                                                      <label for="num_vol" class="suiviBagages_num_vol-label">
                                                             <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
                                                       </label>
                                                       <div class="SuiviBagages-num_vol-search_box">
                                                             <div class="SuiviBagages-num_vol-search_box-inner form-group">
-                                                                  <input class="SuiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
+                                                                  <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
                                                             </div>
                                                       </div>
                                                 </div>
@@ -239,7 +239,7 @@
                                                       </div>
                                                 </div>
                                                 <div class="flash_alert-submit">
-                                                        <a href="javascript:void(0);" class="flash_alert-button-label" onclick="Submit();">Envoyer</a>
+                                                      <a href="javascript:void(0);" class="btn btn-success btn-block flash_alert-button-label" onclick="Submit();">Envoyer</a>
                                                 </div>
                                           </div>
                                     </form>
