@@ -59,6 +59,10 @@ body{
 	}
 }
 
+/*CSS : Surchage caroussel*/
+#slider{
+	padding:0;
+}
 
 /*CSS : suivi bagages + Alrte flash Vol*/
 .suiviAndAlert{
@@ -302,11 +306,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	flex:1 1 auto;
 	margin:0;
 	text-decoration:none;
-	-moz-transition-duration:0.5s;
-	-moz-transition-timing-function:ease-in-out;
+	transition-duration:0.5s;
+	transition-timing-function:ease-in-out;
 	-webkit-box-flex:1;
-	-webkit-transition-duration:0.5s;
-	-webkit-transition-timing-function:ease-in-out;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -360,13 +362,35 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	-webkit-box-flex:1;
 }
 
-/*CSS : Alerte Flash Vol*/
-/*.flash_alert-email:after,.flash_alert-tel:after{
-	font-family:'FontAwesome';
+/*CSS : Style pour les inputs*/
+.flash_alert-tel,.flash_alert-email{
 	position:relative;
-	content:"\f00c";
-	line-height:15px;
-}*/
+}
+
+/*CSS : Style pour les inputs*/
+.flash_alert-email:before{
+	font-family:'FontAwesome';
+	font-size:25px;
+	position:absolute;
+	left:5px;
+	top:11px;
+	content:"\f1fa";
+}
+
+/*CSS : Style pour les inputs*/
+.flash_alert-tel:before{
+	font-family:'FontAwesome';
+	font-size:25px;
+	position:absolute;
+	left:5px;
+	top:12px;
+	content:"\f095";
+}
+
+/*CSS : Style pour les inputs*/
+.flash_alert-input-inner{
+	text-indent:25px;
+}
 
 /*CSS : Météo + Suivi Bagages*/
 .météo_SuiviBagages{
@@ -432,12 +456,17 @@ input[type="email"],input[type="tel"],input[type="text"]{
 		margin-left:0px;
 		margin-top:20px;	 
 	}
+	
+	.form-wrapper{
+		padding-right:0px;
+	}
 }
 
 /*CSS : News général*/
 .title_column_news{
 	display:none;	
 }
+
 
 /*CSS : classe générique*/
 .nopadding{
@@ -458,34 +487,4 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	.service-box{
 		padding-left:0px;
 	}
-}
-
-/*CSS : Style pour les inputs*/
-.flash_alert-tel,.flash_alert-email{
-	position:relative;
-}
-
-/*CSS : Style pour les inputs*/
-.flash_alert-email:before{
-	font-family:'FontAwesome';
-	font-size:25px;
-	position:absolute;
-	left:5px;
-	top:11px;
-	content:"\f1fa";
-}
-
-/*CSS : Style pour les inputs*/
-.flash_alert-tel:before{
-	font-family:'FontAwesome';
-	font-size:25px;
-	position:absolute;
-	left:5px;
-	top:12px;
-	content:"\f095";
-}
-
-/*CSS : Style pour les inputs*/
-.flash_alert-input-inner{
-	text-indent:25px;
 }
