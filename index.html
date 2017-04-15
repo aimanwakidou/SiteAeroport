@@ -186,7 +186,7 @@
                   <div class="container suiviAndAlert">
                         <div class="row suiviBagages">
                               <div class="col-lg-12 suiviBagages_content">
-                                    <h2 class="section-heading">Suivi de vos bagages</h2>
+                                    <h2 class="section-heading"><i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i><span>Suivi de vos bagages</span></h2>
                                     <form name="zoneSuiviBagages" class="SuiviBagages_form">
                                           <div class="SuiviBagages_form-content col-lg-12">
                                                 <div class="SuiviBagages-num_vol"> 
@@ -199,9 +199,20 @@
                                                             </div>
                                                       </div>
                                                 </div>
-                                                <div class="SuiviBagages_coordonnées">
-                                                      <div class="SuiviBagages_nom"></div>
-                                                      <div class="SuiviBagages_prenom"></div>                  
+                                                <div class="SuiviBagages-coordonnees">
+                                                      <div class="SuiviBagages-coordonnees-wrapper">
+                                                            <label for="coordonnées" class="coordonnees-label">
+                                                                  <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés</span>
+                                                            </label>
+                                                            <div class="flash_alert-coordonnees-inner">
+                                                                  <div class="flash_alert-email form-group">
+                                                                        <input id="coordonnées" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text"/>
+                                                                  </div>
+                                                                  <div class="flash_alert-tel form-group">
+                                                                        <input id="coordonnées" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text"/>
+                                                                  </div>
+                                                            </div>
+                                                      </div>
                                                 </div>
                                           </div>
                                     </form>
@@ -225,9 +236,9 @@
                                                 </div>
                                           </div>
                                           <div class="flash_alert-coordonnees">
-                                                <div class="flash_alert-coordonnees-wraper">
-                                                      <label for="num_vol" class="flash_alert-num_vol-label">
-                                                            <span class="flash_alert-coordoonnees-label-inner">Vos coordonnés : e-mail et/ou tel</span>
+                                                <div class="flash_alert-coordonnees-wrapper">
+                                                      <label class="coordonnees-label">
+                                                            <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés : e-mail et/ou tel</span>
                                                       </label>
                                                       <div class="flash_alert-coordonnees-inner">
                                                             <div class="flash_alert-email form-group">
