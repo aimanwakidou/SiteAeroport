@@ -690,7 +690,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	content:"\f058";
 	color:green;
 	right:10px;
-	top:5px;
+	top:6px;
 }
 
 .success > input:focus{
