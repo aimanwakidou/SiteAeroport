@@ -287,10 +287,21 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Recherche-vol + Alerte Flash Vol*/
-.form-button-departures-arrivals-inner,.flash_alert-coordonnees-inner{
+.form-button-departures-arrivals-inner,.flash_alert-coordonnees-inner,.SuiviBagages-coordonnees-inner{
 	display:flex;
 	font-size:15px;
 	justify-content:space-between;
+}
+
+/*CSS : Suivi Bagages*/
+.SuiviBagages-coordonnees-inner{
+	padding-top:15px;
+}
+
+/*CSS : Suivi Bagages*/
+.SuiviBagages-nom-label,.SuiviBagages-prénom-label{
+	font-weight:normal;
+	font-size:16px;
 }
 
 /*CSS : Recherche-vol + Alerte Flash Vol*/
@@ -313,7 +324,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Recherche-vol*/
-.button_arr,.SuviBagages-nom{
+.button_arr,.SuiviBagages-nom{
 	margin-right:5px;
 }
 
@@ -372,30 +383,20 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	word-wrap:break-word;
 }
 
-/*CSS : Alerte Flash Vol*/
-.SuviBagages-nom,.SuviBagages-prénom{
-	background-color:white;
-	color:rgb(45,42,44);
-	display:flex;
-	flex:1 0 auto;
-	font-size:15px;
-	text-align:center;
-	-webkit-box-flex:1;
-}
 
-/*CSS : Alerte Flash Vol*/
-.flash_alert-tel,.flash_alert-email{
+/*CSS : SuiviBagages + Alerte Flash Vol*/
+.flash_alert-tel,.flash_alert-email,.SuiviBagages-nom,.SuiviBagages-prénom{
 	background-color:white;
 	color:rgb(45,42,44);
 	display:flex;
+	flex-direction:column;
 	flex:1 0 auto;
 	font-size:15px;
-	text-align:center;
 	-webkit-box-flex:1;
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-tel,.flash_alert-email,.SuviBagages-prénom,.SuviBagages-nom,.flash_alert-num_vol-search_box-inner,.SuiviBagages-num_vol-search_box-inner,.form-recherche-vol-search_box-inner{
+.flash_alert-tel,.flash_alert-email,.SuiviBagages-prénom,.SuiviBagages-nom,.flash_alert-num_vol-search_box-inner,.SuiviBagages-num_vol-search_box-inner,.form-recherche-vol-search_box-inner{
 	position:relative;
 }
 
@@ -468,7 +469,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 /*CSS : Flash Alert -> Mobile + Tablette*/
 @media screen and (max-width:1000px){
-	.flash_alert-coordonnees-inner{
+	.flash_alert-coordonnees-inner,.SuiviBagages-coordonnees-inner{
 		flex-direction:column;
 	}
 	
@@ -498,6 +499,13 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 	.suiviBagages{
 		margin-left:-15px;
+	}
+}
+
+/*CSS : alerte --> PC */
+@media screen and (min-width:1000px){
+	.form-wrapper{
+		padding-right:0px;
 	}
 }
 
@@ -544,4 +552,49 @@ input[type="email"],input[type="tel"],input[type="text"]{
 		padding-left:15px;
 		padding-right:5px;
 	}
+
+	h2{
+		font-size:25px;
+	}
+}
+
+/*CSS : classe fail*/
+.fail{
+	background-color:rgba(200,0,0,0.3);
+	color:red;
+	border-color:red;
+	font-weight:bold;
+}
+
+.fail:focus{
+	border-color:red;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
+}
+
+.fail::-webkit-input-placeholder{
+	color:white;
+}
+
+/*CSS : class success*/
+.success{
+	position:relative;
+}
+
+.success::after{
+	font-family:'FontAwesome';
+	font-size:30px;
+	position:absolute;
+	content:"\f058";
+	color:green;
+	right:10px;
+	top:5px;
+}
+
+.success > input:focus{
+	border-color:#1E9E1E;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
+}
+
+.success > input{
+	border-color:#1E9E1E;
 }
