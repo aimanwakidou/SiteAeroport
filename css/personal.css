@@ -14,6 +14,10 @@ body{
 	padding:0;
 }
 
+header{
+	background-image:none;
+}
+
 /*Surcharge bootstrap*/
 .bg-primary{
 	padding-bottom:20px;
@@ -83,10 +87,21 @@ body{
 /*CSS : Suivi bagages*/
 .suitcase{
 	margin-right:10px;
-	vertical-align: baseline
+	vertical-align: baseline;
+}
+
+.section-heading-title{
+	vertical-align:middle;
+}
+
+.plane{
+	margin-right:20px;
+	transform:rotate(45deg);
+	vertical-align:middle;
 }
 
 .coordonnees-label{
+	color:black;
 	line-height:15px;
 	margin-bottom:10px;
 }
@@ -298,7 +313,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Recherche-vol*/
-.button_arr,.flash_alert-email{
+.button_arr,.SuviBagages-nom{
 	margin-right:5px;
 }
 
@@ -333,7 +348,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Alerte flash Vol*/
-.flash_alert-input-inner,.SuiviBagages-coordonnees-input{
+.flash_alert-coordonnees-input,.SuiviBagages-coordonnees-input{
 	color:rgb(45,42,44);
 	font-size:14px;
 	font-weight:100;
@@ -358,7 +373,18 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Alerte Flash Vol*/
-.flash_alert-email,.flash_alert-tel{
+.SuviBagages-nom,.SuviBagages-prénom{
+	background-color:white;
+	color:rgb(45,42,44);
+	display:flex;
+	flex:1 0 auto;
+	font-size:15px;
+	text-align:center;
+	-webkit-box-flex:1;
+}
+
+/*CSS : Alerte Flash Vol*/
+.flash_alert-tel,.flash_alert-email{
 	background-color:white;
 	color:rgb(45,42,44);
 	display:flex;
@@ -369,7 +395,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-tel,.flash_alert-email,.flash_alert-num_vol-search_box-inner,.SuiviBagages-num_vol-search_box-inner,.form-recherche-vol-search_box-inner{
+.flash_alert-tel,.flash_alert-email,.SuviBagages-prénom,.SuviBagages-nom,.flash_alert-num_vol-search_box-inner,.SuiviBagages-num_vol-search_box-inner,.form-recherche-vol-search_box-inner{
 	position:relative;
 }
 
@@ -406,7 +432,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-input-inner,.suiviBagages-num_vol-input,.flash_alert-num_vol-input,.form-recherche-vol_input{
+.flash_alert-coordonnees-input,.suiviBagages-num_vol-input,.flash_alert-num_vol-input,.form-recherche-vol_input{
 	text-indent:35px;
 }
 
@@ -427,7 +453,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding-right:10px;
 }
 
-@media screen and (min-width:1200px){
+@media screen and (min-width:1000px){
 	.suiviBagages_content{
 		padding-left:0px;
 		margin-left:-15px;
@@ -452,6 +478,16 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	}
 	
 	.flash_alert-tel{
+		margin-top:5px;
+		margin-left:0px;
+	}
+
+	.SuiviBagages-nom{
+		margin-bottom:5px;
+		margin-right:0px;
+	}
+	
+	.SuiviBagages-prénom{
 		margin-top:5px;
 		margin-left:0px;
 	}
