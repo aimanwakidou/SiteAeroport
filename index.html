@@ -18,6 +18,7 @@
             
             <!-- Plugin CSS -->
             <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+            <link href="vendor/weather-icons-master/css/weather-icons.min.css" rel="stylesheet">
         
             <!-- Theme CSS -->
             <link href="css/creative.min.css" rel="stylesheet" type="text/css">
@@ -224,7 +225,6 @@
                                     </form>
                               </div>
                         </div>
-                        <hr class="primary">
                         <div class="row flash-alert">
                               <div class="col-lg-12 form-wrapper">
                                     <form name="zoneFlashAlert" class="flash_alert-form">
@@ -266,11 +266,13 @@
             </section>
             <aside class="bg-dark general-news">
                   <div class="container nopadding news">
-                        <div class="title_news">
+                        <div class="title_news">       
                               <div class="button">
-                                    <a href="javascript:void(0);" class="hidebutton" onclick="CacherMenu();"><i class="fa fa-chevron-down fa-2x rotate rotateButton" aria-hidden="true"></i></a>
+                                    <a href="javascript:void(0);" class="hidebutton" onclick="CacherMenu();">
+                                      <i class="fa fa-chevron-down fa-2x rotate rotateButton" aria-hidden="true"></i>
+                                    </a>
+                                    <h2>News Aéroport</h2>
                               </div>
-                              <h2>News Aéroport</h2>
                         </div>
                         <div id="hide" class="news_container">
                               <table class="news_table">
@@ -295,15 +297,33 @@
                   </div>
             </aside>
       
-            <section id="contact">
+            <section id="météo">
                   <div class="container">
-                        <div class="row">
-                              <div class="col-lg-8 col-lg-offset-2 text-center">
-                                  <h2 class="section-heading">Let's Get In Touch!</h2>
-                                  <hr class="primary">
-                                  <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
-                              </div>
+                      <div class="title_météo">
+                        <h2 class="section-heading">Météo du jour</h2>
+                      </div>
+                      <div class="row météoWrapper">
+                        <div id="Anjouan">
+                          <h3>Anjouan</h3>
+                          <div class="météoContent">
+                            <div class="day">
+                              <span class="temperature"> <mark>Jour</mark> : 15°C </span>
+                            </div>
+                            <div class="night">
+                               <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                            </div>
+                          </div>
                         </div>
+                        <div id="Moroni">
+                          <h3>Moroni</h3>
+                        </div>
+                        <div id="Mohéli">
+                          <h3>Mohéli</h3>
+                        </div>      
+                        <div id="Mayotte">
+                          <h3>Mayotte</h3>
+                        </div>
+                      </div>
                   </div>
             </section>
           
