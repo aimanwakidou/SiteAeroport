@@ -1,7 +1,7 @@
 /*Fonction pour afficher le menu en mode mobile*/
 function AfficheMenuMobile(){
 	var rotateElem = $("#rotateElem");
-	if(rotateElem.attr('class') === "fa fa-plane clicked"){
+	if(rotateElem.hasClass("clicked")){
 		rotateElem.css('transform','rotate('+0+'deg)');
 		rotateElem.removeClass("clicked");
 	}
