@@ -226,7 +226,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Recherche-vol + Alerte Flash Vol*/
 .form-recherche-vol-search_box-inner,.flash_alert-num_vol-search_box-inner,.SuiviBagages-num_vol-search_box-inner{
-	color:rgb(45,42,44);
 	display:flex;
 }
 
@@ -256,7 +255,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	font-weight:100;
 	margin:0;
 	padding:0;
-	text-align:center;
 	text-decoration:none;
 	transition-duration:0.5s;
 	transition-timing-function:ease-in-out;
@@ -449,11 +447,115 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding-right:0px;
 }
 
-/*CSS : News général + Météo + Suivi Bagages*/
-.general-news,.météo_content{
+/*CSS : News général*/
+.general-news{
 	padding-right:10px;
 }
 
+
+/*CSS : Météo*/
+#météo{
+	padding:20px 0px;
+}
+
+#météo > .container{
+	padding-left:0px;
+}
+
+/*CSS : Météo*/
+.title_météo{
+	display:flex;
+	justify-content:space-between;
+	line-height:30px;
+}
+
+.title_météo > button{
+	vertical-align:middle;
+}
+
+/*CSS : Météo*/
+.météoWrapper{
+	display:flex;
+	justify-content:space-between;
+}
+
+/*CSS : météo*/
+.météoWrapper > #Anjouan{
+	padding-left:20px;
+}
+
+/*CSS : Météo*/
+.météoWrapper > div:not(:first-child){
+	padding-left:30px;
+}
+
+/*CSS : Météo*/
+.météoWrapper > div{
+	flex-grow:1;
+}
+
+/*CSS : Météo*/
+.day,.night{
+	line-height:30px;
+}
+
+/*CSS : Météo*/
+.temperature{
+	font-size:22px;
+}
+
+/*CSS : Météo*/
+.day,.night{
+	padding:15px 0;
+	position:relative;
+}
+
+/*CSS : Météo*/
+.day::after,.night::after{
+	position:absolute;
+	font-size:40px;
+	font-family:'weathericons';
+	right:0px;
+}
+
+/*CSS : Météo*/
+.day::after{
+	content:"\f00d";
+	color:#E9AB17;
+}
+
+/*CSS : Météo*/
+.night::after{
+	content:"\f001";
+	color:gray;
+}
+
+/*CSS : Météo*/
+.temperature > mark{
+	background-color:white;
+	font-size:20px;
+}
+
+/*CSS : Météo --> Tablette et mobile*/
+@media screen and (max-width:768px){
+	.météoWrapper{
+		flex-direction:column;
+	}
+
+	#météo > .container{
+		padding-left:15px;
+	}
+
+	.météoWrapper > div:not(:first-child){
+		padding-left:15px;
+	}
+
+	.météoWrapper > div{
+		padding-right:15px;
+	}
+}
+
+/*CSS : Suivi Bagages*/
 @media screen and (min-width:1000px){
 	.suiviBagages_content{
 		padding-left:0px;
@@ -461,6 +563,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 		margin-right:-15px;
 	}
 }
+
 /*CSS : Flash Alert -> PC*/
 @media screen and (max-width:1400px){
 	.form-wrapper{
