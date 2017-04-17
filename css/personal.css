@@ -18,20 +18,105 @@ header{
 	background-image:none;
 }
 
+main{
+	display:flex;
+	flex-direction:column;
+	padding:0;
+	margin:0;
+}
+
+/*Structure Mobile et tablette*/
+#search-flight{
+	order:1;
+}
+
+#météo{
+	order:0;
+}
+
+#vols_du_jour,#suiviAndAlertBox,.general-news{
+	order:2;
+}
+
 /*Surcharge bootstrap*/
 .bg-primary{
 	padding-bottom:20px;
 	padding-top:20px;
 }
 
-/*Surcharge bootstrap*/
-.bg-dark{
-	padding-top:5px;
-}
-
 /*Surcharge header*/
 .uselessNav{
 	display:none;
+}
+
+/*Surcharge bootstrap*/
+@media screen and (max-width:1000px){
+	.container{
+		padding:0 15px;
+	}
+}
+
+/*Surcharge Bootstrap*/
+@media screen and (min-width:800px){
+	.container{
+		width:770px;
+	}
+}
+
+/*Surcharge Bootstrap*/
+@media screen and (min-width:900px){
+	.container{
+		width:870px;
+	}
+}
+
+/*Surcharge Bootstrap*/
+@media screen and (min-width:1000px){
+	.container{
+		width:970px;
+	}
+}
+
+/*Surcharge Bootstrap*/
+@media screen and (min-width:1100px){
+	.container{
+		width:1070px;
+	}
+}
+
+/*Surcharge Bootstrap*/
+@media screen and (min-width:1200px){
+	.container{
+		width:1170px;
+	}
+}
+
+/*Surcharge bootstrap*/
+@media screen and (min-width:1300px){
+	.container{
+		width:1270px;
+	}
+}
+
+/*Sucharge bootstrap*/
+@media screen and (min-width:1400px){
+	.container{
+		width:1370px;
+	}
+}
+
+/*Surcharge bootstrap*/
+@media screen and (min-width:1600px){
+	.container{
+		width:1570px;
+	}
+}
+
+/*Surcharge Bootstrap*/
+@media screen and (min-width:1800px){
+	.container{
+		width:1770px;
+	}
 }
 
 /*Surcharge header --> Vue mobile*/
@@ -75,6 +160,7 @@ header{
 	margin:50px 0px 20px 0px;	
 }
 
+/*CSS : classe générique*/
 .section-heading{
 	line-height:25px;
 	margin-bottom:10px;
@@ -136,11 +222,15 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	margin:0;
 }
 
+/*CSS : Recherche vol*/
+.search-flight{
+	padding:20px 0;
+}
+
 /*CSS : Recherche-vol + Alerte Flash Vol*/
 .form-flight-search,.flash_alert-form{
 	display:flex;
 	flex-wrap:wrap;
-	font-size:15px;
 	justify-content:space-between;
 	margin:0px 0px 5px 0px;
 }
@@ -148,11 +238,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 /*CSS : Recherche vol*/
 .form-flight-search{
 	flex-direction:column;
-}
-
-/*CSS : Surchrge thème -> Recherche-vol*/
-.form-flight-search > .section-heading{
-	color:white;
 }
 
 /*Recherche Vol*/
@@ -179,14 +264,29 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding:13px 10px 13px 10px;
 }
 
-/*Rechercher Vol*/
+/*Recherche Vol*/
 .RechercherVol{
-	background-color:rgba(0,206,206,0.8);
+	background-color:#337AB7;
 	border-radius:4px;
+	color:white;
 	line-height:54px;
+	transition:all 0.3s ease-in-out;
 }
 
-/*Rechercher Vol*/
+/*CSS : Recherche Vol*/
+.RechercherVol:hover{
+	background-color:rgba(0,0,0,0.9);
+	color:white;
+	transition:all 0.3s ease-in-out;
+}
+
+/*CSS : Rechercher Vol*/
+.RechercherVol:focus{
+	background-color:black;
+	color:white;
+}
+
+/*Recherche Vol*/
 .Rechercher{
 	position:relative;
 	line-height:54px;
@@ -194,6 +294,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*Rechercher Vol*/
 .Rechercher::after{
+	color:white;
 	font-family:'FontAwesome';
 	font-size:40px;
 	position:absolute;
@@ -223,33 +324,35 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .flash_alert-num_vol,.SuiviBagages_form-content{
-	background-color:rgba(0,0,0,0);
-	color:white;
 	flex:0 0 100%;
 	flex-wrap:wrap;
-	font-size:15px;
 	padding:10px 0px 0px 0px;
 	word-wrap:break-word;
 }
 
 /*CSS : News Général*/
-.hidebutton i{
-	display:none;
+.title_news{
+	display:flex;
+	justify-content:space-between;
+}
+
+/*CSS : News Général*/
+.hidebutton{
+	cursor:pointer;
 	color:white;
-	float:right;
-	font-size:2em;
+	display:none;
 	line-height:40px;
 	vertical-align:middle;
 }
 
 /*CSS : News Général*/
 .rotate{
-	transition: all 0.2s ease;
+	transition:all 0.3s ease;
 }
 
 /*CSS : News Général -> mobile*/
 @media screen and (max-width:768px){
-	.hidebutton i{
+	.hidebutton{
 		display:block;
 	}
 	
@@ -264,25 +367,12 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
-.flash_alert-num_vol-label,.SuiviBagages_num_vol-label,.title_alert_flash{
-	color:rgb(45,42,44);
+.flash_alert-num_vol-label,.suiviBagages_num_vol-label{
 	flex:0 0 100%;
-	font-size:25px;
-	font-weight:bold;
-	white-space:nowrap;
-	word-wrap:break-word;
-}
-
-/*CSS : Alerte Flash Vol*/
-.flash_alert-num_vol-label{
 	font-size:18px;
 	font-weight:normal;
-}
-
-/*CSS : Alerte Flash Vol*/
-.flash_alert-num_vol-label-inner{
-	cursor:default;
-	padding:5px 0px 15px 0px;
+	white-space:nowrap;
+	word-wrap:break-word;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
@@ -317,7 +407,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 /*CSS : Vols du jour --> Mobile + tablette*/
 @media screen and (max-width:768px){
 	#vols_du_jour{
-		padding:30px 15px 30px 15px;
+		padding:30px 0;
 	}
 }
 
@@ -349,17 +439,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Alerte Flash Vol + Vols du jour*/
-.button_dep,.button_arr,.flash_alert-submit{
+.button_dep,.button_arr{
 	display:flex;
-	flex:1 0 auto;
-}
-
-/*CSS : Recherche vol -> Tablette et mobile*/
-@media screen and (max-width:768px){
-	.bg-primary{
-		padding-left:15px;
-		padding-right:15px;
-	}
+	flex-grow:1;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -368,34 +450,63 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Vols du jour + Suivi Bagages*/
-.button_arr,.SuiviBagages-nom{
+.button_arr{
 	margin-right:5px;
 }
 
+/*CSS : Suivi Bagages*/
+.SuiviBagages-nom{
+	margin-right:10px; 
+}
+
 /*CSS : Alerte Flash Vol + Vols du jour*/
-.button_dep,.flash_alert-tel{
+.button_dep{
 	margin-left:5px;
 	margin-right:0px;
 }
 
-/*CSS : Recherche vol*/
-.button_dep_arr_label{
-	background-color:rgba(0,0,0,0.5);	
+/*CSS : Alerte Flash Vol*/
+.flash_alert-tel{
+	margin-left:10px;
 }
 
-/*CSS : Recherche vol*/
-.button_dep_arr_label:hover{
+/*CSS : Vols du jour + Alerte flash Vol */
+.button_dep_arr_label,.flash_alert-button-label{
+	background-color:#337AB7;
+	border-radius:4px;
+	color:white;
+	line-height:54px;
+}
+
+/*CSS : Vols du jour*/
+.button_dep_arr_label{
+	background-color:rgba(0,0,0,0.6);
+}
+
+/*CSS : Vols du jour*/
+.button_dep_arr_label > span{
+	margin-left:15px;
+}
+
+/*CSS : Vols du jour*/
+.button_dep_arr_label > img{
+	margin-right:15px;
+}
+
+/*CSS : Vols du jour*/
+.button_dep_arr_label:hover,.flash_alert-button-label:hover{
 	background-color:rgba(0,0,0,0.9);
 	color:white;
 }
 
-/*CSS : Recherche vol + Alerte flash Vol */
-.button_dep_arr_label,.flash_alert-button-label{
-	border-radius:8px;
+/*CSS : Vols du jour*/
+.button_dep_arr_label:focus{
+	outline:none;
+	background-color:black;
 	color:white;
-	line-height:54px;
 }
-	
+
+
 /*CSS : Suivi + Alerte flash Vol*/
 #suiviAndAlertBox{
 	padding-top:20px;
@@ -404,13 +515,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Alerte flash Vol*/
 .flash_alert-coordonnees-input,.SuiviBagages-coordonnees-input{
-	color:rgb(45,42,44);
-	font-size:14px;
-	font-weight:100;
 	line-height:19.6px;
 	min-height:55px;
 	padding:13px 10px 13px 10px;
-	text-align:start;
 }
 
 /*CSS : Alerte flash vol*/
@@ -430,11 +537,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : SuiviBagages + Alerte Flash Vol*/
 .flash_alert-tel,.flash_alert-email,.SuiviBagages-nom,.SuiviBagages-prénom{
-	background-color:white;
-	color:rgb(45,42,44);
 	display:flex;
+	flex-grow:1;
 	flex-direction:column;
-	flex:1 0 auto;
 	font-size:15px;
 	-webkit-box-flex:1;
 }
@@ -482,13 +587,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Suivi Bagages*/
-.suiviBagages_num_vol-label{
-	color:black;
-	font-size:18px;
-	font-weight:normal;
-}
-
-/*CSS : Suivi Bagages*/
 .suiviBagages_content{
 	padding-right:0px;
 }
@@ -498,14 +596,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding-right:10px;
 }
 
-
 /*CSS : Météo*/
 #météo{
 	padding:20px 0px;
-}
-
-#météo > .container{
-	padding-left:0px;
 }
 
 /*CSS : Météo*/
@@ -515,8 +608,21 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	line-height:30px;
 }
 
-.title_météo > button{
+.title_météo > h2{
+	line-height:30px;
 	vertical-align:middle;
+}
+
+/*CSS : Météo*/
+.choixIles{
+	display:none;
+	padding:5px 10px 5px 10px;
+	min-height:30px;
+}
+
+/*CSS : Météo*/
+.choixIles > option:hover{
+	background-color:rgba(0,0,240,0.7);
 }
 
 /*CSS : Météo*/
@@ -537,6 +643,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Météo*/
 .météoWrapper > div{
+	display:block;
 	flex-grow:1;
 }
 
@@ -578,9 +685,10 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Météo*/
 .temperature > mark{
-	background-color:white;
+	background-color:inherit;
 	font-size:20px;
 }
+
 
 /*CSS : Météo --> Tablette et mobile*/
 @media screen and (max-width:768px){
@@ -588,15 +696,16 @@ input[type="email"],input[type="tel"],input[type="text"]{
 		flex-direction:column;
 	}
 
-	#météo > .container{
-		padding-left:15px;
-	}
-
 	.météoWrapper > div:not(:first-child){
 		padding-left:15px;
 	}
 
+	.choixIles{
+		display:block;
+	}
+
 	.météoWrapper > div{
+		display:none;
 		padding-right:15px;
 	}
 }
@@ -605,8 +714,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 @media screen and (min-width:1000px){
 	.suiviBagages_content{
 		padding-left:0px;
-		margin-left:-15px;
-		margin-right:-15px;
 	}
 }
 
@@ -640,14 +747,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	.SuiviBagages-prénom{
 		margin-top:5px;
 		margin-left:0px;
-	}
-
-	.flash-alert{
-		padding-left:15px;
-	}
-
-	.suiviBagages{
-		margin-left:-15px;
 	}
 }
 
@@ -689,19 +788,8 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	display:none;	
 }
 
-
-/*CSS : classe générique*/
-.nopadding{
-	padding-left:0px;
-}
-
-/*CSS : classe générique mobile*/
+/*CSS : Surcharge bootstrap*/
 @media screen and (max-width:640px){
-	.nopadding{
-		padding-left:15px;
-		padding-right:5px;
-	}
-
 	h2{
 		font-size:25px;
 	}
@@ -715,13 +803,30 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	font-weight:bold;
 }
 
-.fail:focus{
+.fail:hover,.fail:focus{
 	border-color:red;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
 }
 
-.fail::-webkit-input-placeholder{
-	color:white;
+/*CSS : class fail2*/
+.fail2{
+	position:relative;
+}
+
+.fail2::after{
+	font-family:'FontAwesome';
+	font-size:30px;
+	position:absolute;
+	content:"\f057";
+	color:red;
+	right:10px;
+	top:6px;
+}
+
+.fail2 > input:hover,.fail2 > input:focus,.fail2 > input{
+	background-color:white;
+	border-color:red;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
 }
 
 /*CSS : class success*/
@@ -739,11 +844,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	top:6px;
 }
 
-.success > input:focus{
+.success > input:hover,.success > input:focus,.success > input{
 	border-color:#1E9E1E;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
-}
-
-.success > input{
-	border-color:#1E9E1E;
 }
