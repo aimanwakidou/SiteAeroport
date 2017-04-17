@@ -151,205 +151,285 @@
                   </div>
             </header>
               
-            <!-- Zone : Rechercher un vol -->
-            <section class="bg-primary search-flight" id="search-flight">
-                  <div class="container">
-                        <div class="row">
-                              <form name="zoneRecherche" class="form-flight-search">
-                                    <h2 class="section-heading">Rechercher un vol</h2>
-                                    <div class="DepartsArrivésContainer">
-                                        <div class="Departs">
-                                            <label for="Provenance" class="Provenance-label">
-                                                <span>Provenance</span>
-                                            </label>
-                                            <div class="DepartsInput form-group">
-                                                <input id="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
-                                            </div>
-                                        </div> 
-                                        <div class="Arrivés">
-                                            <label for="Destination" class="Destination-label">
-                                                <span>Destination</span>
-                                            </label>
-                                            <div class="ArrivésInput form-group">
-                                                <input id="Destination" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
-                                            </div>
-                                        </div> 
-                                    </div>
-                                    <div class="Rechercher">
-                                        <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher"/>
-                                    </div>  
-                              </form>
-                        </div>
-                  </div>
-            </section>
+            <!-- Contenu de la page -->
+            <main>
 
-            <!-- Vols du jour -->
-            <section id="vols_du_jour">
-                <div class="container">
-                    <div class="row">
-                        <h2 class="section-heading">Vols du jour</h2>
+                <!-- Zone : Rechercher un vol -->
+                <section class="bg-primary search-flight" id="search-flight">
+                    <div class="container">
+                        <form name="zoneRecherche" class="form-flight-search">
+                              <h2 class="section-heading">Rechercher un vol</h2>
+                              <div class="DepartsArrivésContainer">
+                                  <div class="Departs">
+                                      <label for="Provenance" class="Provenance-label">
+                                          <span>Provenance</span>
+                                      </label>
+                                      <div class="DepartsInput form-group">
+                                          <input id="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
+                                      </div>
+                                  </div> 
+                                  <div class="Arrivés">
+                                      <label for="Destination" class="Destination-label">
+                                          <span>Destination</span>
+                                      </label>
+                                      <div class="ArrivésInput form-group">
+                                          <input id="Destination" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
+                                      </div>
+                                  </div> 
+                              </div>
+                              <div class="Rechercher">
+                                  <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher"/>
+                              </div>  
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Vols du jour -->
+                <section id="vols_du_jour">
+                    <div class="container">
+                        <h2 class="section-heading title_vols">Vols du jour</h2>
                         <div class="form-button-departures-arrivals">
                             <div class="form-button-departures-arrivals-inner">
                                 <div class="button_arr">
-                                    <a href="#" class="btn btn-block button_dep_arr_label" role="button">Arrivés</a>
+                                    <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal"
+                                    data-target="#Arrivés" role="button">
+                                      <img src="img/arrivals.svg" alt="Avion arrivée" height="55px" width="55px"/>
+                                      <span>Arrivés</span>
+                                    </a>
                                 </div>
                                 <div class="button_dep">
-                                    <a href="#" class="btn btn-block button_dep_arr_label" role="button">Départs</a>
+                                    <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal" data-target="#Départs" role="button">
+                                      <img src="img/departures.svg" alt="Avion départ" height="55px" width="55px"/>
+                                      <span>Départs</span>
+                                    </a>
                                 </div>
                             </div>
+                        </div> 
+                    </div>
+                </section>
+
+                <!-- Fenêtre modal : Arrivés et départ -->
+                <!-- Arrivés -->
+                <div id="Arrivés" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Arrivés</h4>
+                        </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                         </div>
                     </div>
+                  </div>
                 </div>
-            </section>
 
-      
-            <!-- Zone : Alerte flash vol + Suivi bagages -->
-            <section id="suiviAndAlertBox">
-                  <div class="container suiviAndAlert">
-                        <div class="row suiviBagages">
-                              <div class="col-lg-12 suiviBagages_content">
-                                    <h2 class="section-heading"><i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i><span>Suivi de vos bagages</span></h2>
-                                    <form name="zoneSuiviBagages" class="SuiviBagages_form">
-                                          <div class="SuiviBagages_form-content col-lg-12">
-                                                <div class="SuiviBagages-num_vol"> 
-                                                      <label for="num_vol" class="suiviBagages_num_vol-label">
-                                                            <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
-                                                      </label>
-                                                      <div class="SuiviBagages-num_vol-search_box">
-                                                            <div class="SuiviBagages-num_vol-search_box-inner form-group">
-                                                                  <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                                <div class="SuiviBagages-coordonnees">
-                                                      <div class="SuiviBagages-coordonnees-wrapper">
-                                                            <label class="coordonnees-label">
-                                                              <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés</span>
-                                                            </label>
-                                                            <div class="SuiviBagages-coordonnees-inner">
-                                                                  <div class="SuiviBagages-nom form-group">
-                                                                      <label for="nom" class="SuiviBagages-nom-label">
-                                                                        <span>Nom</span>
-                                                                      </label>
-                                                                      <input id="nom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text"/>
-                                                                  </div>
-                                                                  <div class="SuiviBagages-prénom form-group">
-                                                                      <label for="prénom" class="SuiviBagages-prénom-label">
-                                                                        <span>Prénom</span>
-                                                                      </label>
-                                                                      <input id="prénom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text"/>
-                                                                  </div>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </form>
-                              </div>
+                <!-- Départs -->
+                <div id="Départs" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">Départs</h4>
                         </div>
-                        <div class="row flash-alert">
-                              <div class="col-lg-12 form-wrapper">
-                                    <form name="zoneFlashAlert" class="flash_alert-form">
-                                          <h2 class="section-heading"><i class="fa fa-2x fa-plane plane" aria-hidden="true"></i><span class="section-heading-title">Alerte flash vol</span></h2>
-                                          <div class="flash_alert-num_vol">
-                                                <div class="flash_alert-num_vol-content">
-                                                      <label for="num_vol" class="flash_alert-num_vol-label">
-                                                            <span class="flash_alert-num_vol-label-inner">N° vol</span>
-                                                      </label>
-                                                      <div class="flash_alert-num_vol-search_box">
-                                                            <div class="flash_alert-num_vol-search_box-inner form-group">
-                                                                  <input class="flash_alert-num_vol-input form-control" id="num_vol" placeholder="Entrez un numéro du vol" type="text"/>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                          </div>
-                                          <div class="flash_alert-coordonnees">
-                                                <div class="flash_alert-coordonnees-wrapper">
-                                                      <label class="coordonnees-label">
-                                                            <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés : e-mail et/ou tel</span>
-                                                      </label>
-                                                      <div class="flash_alert-coordonnees-inner">
-                                                            <div class="flash_alert-email form-group">
-                                                                  <input id="email" class="flash_alert-coordonnees-input form-control" placeholder="Entrez votre e-mail" type="email"/>
-                                                            </div>
-                                                            <div class="flash_alert-tel form-group">
-                                                                  <input id="tel" class="flash_alert-coordonnees-input form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
-                                                            </div>
-                                                      </div>
-                                                </div>
-                                                <div class="flash_alert-submit">
-                                                      <a href="javascript:void(0);" class="btn btn-success btn-block flash_alert-button-label" onclick="Submit();">Envoyer</a>
-                                                </div>
-                                          </div>
-                                    </form>
-                              </div>
+                        <div class="modal-body">
+                            <p>Some text in the modal.</p>
                         </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
                   </div>
-            </section>
-            <aside class="bg-dark general-news">
-                  <div class="container nopadding news">
-                        <div class="title_news">       
-                              <div class="button">
-                                    <a href="javascript:void(0);" class="hidebutton" onclick="CacherMenu();">
-                                      <i class="fa fa-chevron-down fa-2x rotate rotateButton" aria-hidden="true"></i>
-                                    </a>
-                                    <h2>News Aéroport</h2>
-                              </div>
-                        </div>
-                        <div id="hide" class="news_container">
-                              <table class="news_table">
-                                    <tr class="title_column_news">
-                                          <th>Date Info</th>
-                                          <th>News</th>
-                                    </tr>
-                                    <tr class="news_normal">
-                                          <td>date</td>
-                                          <td>News normal</td>
-                                    </tr>
-                                    <tr class="news_important">
-                                          <td>date</td>
-                                          <td>News important</td>
-                                    </tr>
-                                    <tr class="news_mineur">
-                                            <td>date</td>
-                                            <td>News mineur</td>
-                                    </tr>
-                              </table>
-                        </div>
-                  </div>
-            </aside>
-      
-            <section id="météo">
-                  <div class="container">
-                      <div class="title_météo">
-                        <h2 class="section-heading">Météo du jour</h2>
-                      </div>
-                      <div class="row météoWrapper">
-                        <div id="Anjouan">
-                          <h3>Anjouan</h3>
-                          <div class="météoContent">
-                            <div class="day">
-                              <span class="temperature"> <mark>Jour</mark> : 15°C </span>
+                </div>
+
+                <!-- Zone : Alerte flash vol + Suivi bagages -->
+                <section id="suiviAndAlertBox">
+                      <div class="container suiviAndAlert">
+                            <div class="suiviBagages">
+                                  <div class="suiviBagages_content">
+                                        <h2 class="section-heading"><i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i><span>Suivi de vos bagages</span></h2>
+                                        <form name="zoneSuiviBagages" class="SuiviBagages_form">
+                                              <div class="SuiviBagages_form-content">
+                                                    <div class="SuiviBagages-num_vol"> 
+                                                          <label for="num_vol" class="suiviBagages_num_vol-label">
+                                                                <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
+                                                          </label>
+                                                          <div class="SuiviBagages-num_vol-search_box">
+                                                                <div class="SuiviBagages-num_vol-search_box-inner form-group">
+                                                                      <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
+                                                                </div>
+                                                          </div>
+                                                    </div>
+                                                    <div class="SuiviBagages-coordonnees">
+                                                          <div class="SuiviBagages-coordonnees-wrapper">
+                                                                <label class="coordonnees-label">
+                                                                  <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés</span>
+                                                                </label>
+                                                                <div class="SuiviBagages-coordonnees-inner">
+                                                                      <div class="SuiviBagages-nom form-group">
+                                                                          <label for="nom" class="SuiviBagages-nom-label">
+                                                                            <span>Nom</span>
+                                                                          </label>
+                                                                          <input id="nom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text"/>
+                                                                      </div>
+                                                                      <div class="SuiviBagages-prénom form-group">
+                                                                          <label for="prénom" class="SuiviBagages-prénom-label">
+                                                                            <span>Prénom</span>
+                                                                          </label>
+                                                                          <input id="prénom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text"/>
+                                                                      </div>
+                                                                </div>
+                                                          </div>
+                                                    </div>
+                                              </div>
+                                        </form>
+                                  </div>
                             </div>
-                            <div class="night">
-                               <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                            <div class="flash-alert">
+                                  <div class="form-wrapper">
+                                        <form name="zoneFlashAlert" class="flash_alert-form">
+                                              <h2 class="section-heading"><i class="fa fa-2x fa-plane plane" aria-hidden="true"></i><span class="section-heading-title">Alerte flash vol</span></h2>
+                                              <div class="flash_alert-num_vol">
+                                                    <div class="flash_alert-num_vol-content">
+                                                          <label for="num_vol" class="flash_alert-num_vol-label">
+                                                                <span class="flash_alert-num_vol-label-inner">N° vol</span>
+                                                          </label>
+                                                          <div class="flash_alert-num_vol-search_box">
+                                                                <div class="flash_alert-num_vol-search_box-inner form-group">
+                                                                      <input class="flash_alert-num_vol-input form-control" id="num_vol" placeholder="Entrez un numéro du vol" type="text"/>
+                                                                </div>
+                                                          </div>
+                                                    </div>
+                                              </div>
+                                              <div class="flash_alert-coordonnees">
+                                                    <div class="flash_alert-coordonnees-wrapper">
+                                                          <label class="coordonnees-label">
+                                                                <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés : e-mail et/ou tel</span>
+                                                          </label>
+                                                          <div class="flash_alert-coordonnees-inner">
+                                                                <div class="flash_alert-email form-group">
+                                                                      <input id="email" class="flash_alert-coordonnees-input form-control" placeholder="Entrez votre e-mail" type="email"/>
+                                                                </div>
+                                                                <div class="flash_alert-tel form-group">
+                                                                      <input id="tel" class="flash_alert-coordonnees-input form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
+                                                                </div>
+                                                          </div>
+                                                    </div>
+                                                    <div class="flash_alert-submit">
+                                                          <a href="javascript:void(0);" class="btn btn-block flash_alert-button-label" onclick="Submit();">Envoyer</a>
+                                                    </div>
+                                              </div>
+                                        </form>
+                                  </div>
+                            </div>
+                      </div>
+                </section>
+
+                <!-- News Général -->
+                <aside class="bg-primary general-news">
+                      <div class="container news">
+                            <div class="title_news">       
+                                  <span><h2 class="section-heading">News Aéroport</h2></span>
+                                  <span class="hidebutton" onclick="CacherMenu();">
+                                    <i class="fa fa-chevron-down fa-2x rotate rotateButton" aria-hidden="true"></i>
+                                  </span> 
+                            </div>
+                            <div id="hide" class="news_container">
+                                  <table class="news_table">
+                                        <tr class="title_column_news">
+                                              <th>Date Info</th>
+                                              <th>News</th>
+                                        </tr>
+                                        <tr class="news_normal">
+                                              <td>date</td>
+                                              <td>News normal</td>
+                                        </tr>
+                                        <tr class="news_important">
+                                              <td>date</td>
+                                              <td>News important</td>
+                                        </tr>
+                                        <tr class="news_mineur">
+                                                <td>date</td>
+                                                <td>News mineur</td>
+                                        </tr>
+                                  </table>
+                            </div>
+                      </div>
+                </aside>
+                
+                <!-- Météo -->
+                <section id="météo">
+                      <div class="container">
+                          <div class="title_météo">
+                            <h2 class="section-heading">Météo du jour</h2>
+                            <div class="form-group">
+                                <select name="choixIles" class="hideMétéo choixIles form-control" data-live-search="true">
+                                    <option selected="selected">Iles</option>
+                                    <option value="Anjouan">Anjouan</option>
+                                    <option value="Moroni">Moroni</option>
+                                    <option value="Mohéli">Mohéli</option>
+                                    <option value="Mayotte">Mayotte</option>
+                                </select>
                             </div>
                           </div>
-                        </div>
-                        <div id="Moroni">
-                          <h3>Moroni</h3>
-                        </div>
-                        <div id="Mohéli">
-                          <h3>Mohéli</h3>
-                        </div>      
-                        <div id="Mayotte">
-                          <h3>Mayotte</h3>
-                        </div>
+                          <div class="row météoWrapper">
+                            <div id="Anjouan">
+                              <h3>Anjouan</h3>
+                              <div class="météoContent">
+                                <div class="day">
+                                  <span class="temperature"> <mark>Jour</mark> : 15°C </span>
+                                </div>
+                                <div class="night">
+                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="Moroni">
+                              <h3>Moroni</h3>
+                              <div class="météoContent">
+                                <div class="day">
+                                  <span class="temperature"> <mark>Jour</mark> : 20°C </span>
+                                </div>
+                                <div class="night">
+                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                </div>
+                              </div>
+                            </div>
+                            <div id="Mohéli">
+                              <h3>Mohéli</h3>
+                              <div class="météoContent">
+                                <div class="day">
+                                  <span class="temperature"> <mark>Jour</mark> : 18°C </span>
+                                </div>
+                                <div class="night">
+                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                </div>
+                              </div>
+                            </div>      
+                            <div id="Mayotte">
+                              <h3>Mayotte</h3>
+                              <div class="météoContent">
+                                <div class="day">
+                                  <span class="temperature"> <mark>Jour</mark> : 25°C </span>
+                                </div>
+                                <div class="night">
+                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                       </div>
-                  </div>
-            </section>
-          
+                </section>
+            </main>
+
             <!-- pied de page -->
             <footer class="footer-distributed">
+                <div class="container">
                   <div class="footer-left">
                         <p class="footer-links">
                               <a href="#">Home</a>
@@ -384,7 +464,13 @@
                   <div class="footer-right">
                         <p class="footer-company-about">
                               <span>About the company</span>
-                              Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+                              <div style="color:white;">
+                                Icons made by 
+                                <a href="http://www.flaticon.com/authors/polyarix" title="Polyarix">Polyarix</a> from 
+                                <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> 
+                                is licensed by 
+                                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                                </div>                 
                         </p>
                         <div class="footer-icons">
                               <a href="#"><i class="fa fa-facebook"></i></a>
@@ -393,6 +479,7 @@
                               <a href="#"><i class="fa fa-github"></i></a>
                         </div>
                   </div>
+                </div>
             </footer>
       
             <!-- jQuery -->
@@ -416,5 +503,6 @@
             <script src="js/afficheMenuMobile.js"></script>
             <script src="js/CacherMenu.js"></script>
             <script src="js/Controle.js"></script>
+            <script src="js/Popup.js"></script>
       </body>
 </html>
