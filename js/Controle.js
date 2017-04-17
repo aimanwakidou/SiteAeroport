@@ -1,12 +1,12 @@
 /*Controle formulaire*/
-function ControleEmail(){
+$('#email').blur(function(){
 	var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	Controle($("#email"),emailRegex);
-}
+	Controle($(this),emailRegex);
+});
 
-function ControleTel(){
-	Controle($("#tel"),/[0-9]{10}/);
-}
+$('#tel').blur(function(){
+	Controle($(this),/[0-9]{10}/);
+});
 
 /*Fonction de controle*/
 function Controle(elementJQuery,regex){
