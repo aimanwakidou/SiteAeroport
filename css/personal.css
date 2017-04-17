@@ -394,7 +394,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	font-weight:100;
 	min-height:55px;
 	padding:13px 10px 13px 10px;
-	text-align:start;
 	-webkit-box-flex:1;
 }
 
@@ -506,7 +505,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	color:white;
 }
 
-
 /*CSS : Suivi + Alerte flash Vol*/
 #suiviAndAlertBox{
 	padding-top:20px;
@@ -533,6 +531,19 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding:10px 0px 10px 0px;
 	word-wrap:break-word;
 }
+
+/*CSS : Vols du jour*/
+@media screen and (max-width:768px){
+	.button_dep_arr_label > span{
+		margin-left:7px;
+	}
+
+	/*CSS : Vols du jour*/
+	.button_dep_arr_label > img{
+		margin-right:7px;
+	}
+}
+
 
 
 /*CSS : SuiviBagages + Alerte Flash Vol*/
