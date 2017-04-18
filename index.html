@@ -7,20 +7,22 @@
             <title>Aéroports des Comores</title>
             <link rel="icon" type="image/png" href="img/Airport-32.png"/>
             
+
             <!-- Bootstrap Core CSS -->
             <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
             
             <!-- Custom Fonts -->
-            <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" >
-            <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker3.min.css">
+            <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
             <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
             <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
             
             <!-- Plugin CSS -->
             <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-            <link href="vendor/weather-icons-master/css/weather-icons.min.css" rel="stylesheet">
-        
+            <link href="css/JQuery_UI_css/jquery-ui.min.css" rel="stylesheet">
+            <link href="css/JQuery_UI_css/jquery-ui.structure.min.css" rel="stylesheet">
+            <link href="css/JQuery_UI_css/jquery-ui.theme.min.css" rel="stylesheet">
+            
             <!-- Theme CSS -->
             <link href="css/creative.min.css" rel="stylesheet" type="text/css">
             <link href="css/css_caroussel.css" rel="stylesheet" type="text/css">
@@ -161,22 +163,32 @@
                         <form name="zoneRecherche" class="form-flight-search">
                               <h2 class="section-heading">Rechercher un vol</h2>
                               <div class="DepartsArrivésContainer">
-                                  <div class="Departs">
-                                      <label for="Provenance" class="Provenance-label">
-                                          <span>Provenance</span>
-                                      </label>
-                                      <div class="DepartsInput form-group">
-                                          <input id="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
+                                  <div class="WrapperDépartsArrivés">
+                                    <div class="Departs">
+                                        <label for="Provenance" class="Provenance-label">
+                                            <span>Provenance</span>
+                                        </label>
+                                        <div class="DepartsInput form-group">
+                                            <input id="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
+                                        </div>
+                                    </div> 
+                                    <div class="Arrivés">
+                                        <label for="Destination" class="Destination-label">
+                                            <span>Destination</span>
+                                        </label>
+                                        <div class="ArrivésInput form-group">
+                                            <input id="Destination" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
+                                        </div>
+                                    </div>
+                                  </div>
+                                  <div class="DatePicker">
+                                    <div class="form-group"> <!-- Date input -->
+                                      <label class="control-label" for="datepicker">Jour</label>
+                                      <div class="DatePickerInput">
+                                        <input type="text" id="datepicker" name="date" class="form-control" placeholder="jj/mm/aaaa">
                                       </div>
-                                  </div> 
-                                  <div class="Arrivés">
-                                      <label for="Destination" class="Destination-label">
-                                          <span>Destination</span>
-                                      </label>
-                                      <div class="ArrivésInput form-group">
-                                          <input id="Destination" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
-                                      </div>
-                                  </div> 
+                                    </div>
+                                  </div>
                               </div>
                               <div class="Rechercher">
                                   <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher"/>
@@ -384,9 +396,11 @@
                               <div class="météoContent">
                                 <div class="day">
                                   <span class="temperature"> <mark>Jour</mark> : 15°C </span>
+                                  <img class="sun" src="img/sun.svg" height="30" width="30"/>
                                 </div>
                                 <div class="night">
                                    <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
                                 </div>
                               </div>
                             </div>
@@ -395,9 +409,11 @@
                               <div class="météoContent">
                                 <div class="day">
                                   <span class="temperature"> <mark>Jour</mark> : 20°C </span>
+                                  <img class="sun" src="img/sun.svg" height="30" width="30"/>
                                 </div>
                                 <div class="night">
                                    <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
                                 </div>
                               </div>
                             </div>
@@ -406,9 +422,11 @@
                               <div class="météoContent">
                                 <div class="day">
                                   <span class="temperature"> <mark>Jour</mark> : 18°C </span>
+                                  <img class="sun" src="img/sun.svg" height="30" width="30"/>
                                 </div>
                                 <div class="night">
                                    <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
                                 </div>
                               </div>
                             </div>      
@@ -417,9 +435,11 @@
                               <div class="météoContent">
                                 <div class="day">
                                   <span class="temperature"> <mark>Jour</mark> : 25°C </span>
+                                  <img class="sun" src="img/sun.svg" height="30" width="30"/>
                                 </div>
                                 <div class="night">
                                    <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
+                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
                                 </div>
                               </div>
                             </div>
@@ -467,7 +487,9 @@
                               <span>About the company</span>
                               <div style="color:white;">
                                 Icons made by 
-                                <a href="http://www.flaticon.com/authors/polyarix" title="Polyarix">Polyarix</a> from 
+                                <a href="http://www.flaticon.com/authors/polyarix" title="Polyarix">Polyarix</a>
+                                ,<a href="http://www.freepik.com" title="Freepik">Freepik</a> and
+                                <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a>from 
                                 <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> 
                                 is licensed by 
                                 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
@@ -485,6 +507,7 @@
       
             <!-- jQuery -->
             <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+            <script src="vendor/jquery/jquery-ui.min.js"></script>
             
             <!-- Bootstrap Core JavaScript -->
             <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -499,11 +522,13 @@
             
             <!-- Script Caroussel -->
             <script src="js/slide.js"></script>
+
+            <!-- Script DatePicker -->
+            <script src="js/datePicker.js"></script>
             
             <!-- Script personnel -->
             <script src="js/afficheMenuMobile.js"></script>
             <script src="js/CacherMenu.js"></script>
             <script src="js/Controle.js"></script>
-            <script src="js/Popup.js"></script>
       </body>
 </html>
