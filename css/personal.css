@@ -261,6 +261,16 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*Recherche Vol*/
+.WrapperDépartsArrivés{
+	display:flex;
+}
+
+/*Recherche Vol*/
+.WrapperDépartsArrivés > div{
+	flex-grow:1;
+}
+
+/*Recherche Vol*/
 .Departs{
 	margin-right:10px;
 }
@@ -270,6 +280,41 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	line-height:19.6px;
 	min-height:55px;
 	padding:13px 10px 13px 10px;
+}
+
+/*Recherche vol*/
+.DatePicker{
+	margin-left:10px;
+	flex-shrink:1;
+	max-width:180px;
+}
+
+/*Recherche Vol*/
+.DatePickerInput{
+	position:relative;
+}
+
+/*Recherche Vol*/
+.DatePickerInput::after{
+	position:absolute;
+	font-family:'FontAwesome';
+	font-size:25px;
+	content:"\f073";
+	right:10px;
+	top:10px;
+	color:#F05F40;
+}
+
+/*Recherche Vol*/
+#datepicker{
+	line-height:19.6px;
+	min-height:55px;
+	padding:13px 10px 13px 10px;
+}
+
+/*Recherche Vol*/
+.ui-datepicker{
+	font-size:15px;
 }
 
 /*Recherche Vol*/
@@ -318,14 +363,31 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	text-transform:capitalize;
 }
 
+/*Recherche Vol --> Tablette*/
+@media screen and (max-width:768px){
+	.DepartsArrivésContainer{
+		flex-direction:column;
+	}
+
+	.DatePicker{
+		margin-left:0px;
+		max-width:100%;
+	}
+
+}
+
 /*Recherche Vol --> Mobile*/
 @media screen and (max-width:640px){
-	.DepartsArrivésContainer{
+	.WrapperDépartsArrivés{
 		flex-direction:column;
 	}
 
 	.Departs{
 		margin-right:0px;
+	}
+
+	.ui-datepicker{
+		font-size:12px;
 	}
 }
 
@@ -683,23 +745,19 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Météo*/
-.day::after,.night::after{
+.day > img,.night > img{
 	position:absolute;
-	font-size:40px;
-	font-family:'weathericons';
 	right:0px;
 }
 
 /*CSS : Météo*/
 .day::after{
-	content:"\f00d";
-	color:#E9AB17;
+	background:url('../img/sun.svg') no-repeat;
 }
 
 /*CSS : Météo*/
 .night::after{
-	content:"\f001";
-	color:gray;
+	background:url('../img/moon.svg');
 }
 
 /*CSS : Météo*/
