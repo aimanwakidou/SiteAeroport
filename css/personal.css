@@ -25,6 +25,17 @@ main{
 	margin:0;
 }
 
+input{
+	margin-bottom:5px;
+	line-height:19.6px;
+	min-height:55px;
+	padding:13px 10px 13px 10px;
+}
+
+label{
+	font-weight:normal;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -34,7 +45,7 @@ input:-webkit-autofill:active {
 }
 
 /*Structure Mobile et tablette*/
-#search-flight{
+#vols_du_jour{
 	order:1;
 }
 
@@ -42,7 +53,7 @@ input:-webkit-autofill:active {
 	order:0;
 }
 
-#vols_du_jour,#suiviAndAlertBox,.general-news{
+#search-flight,#suiviAndAlertBox,.general-news{
 	order:2;
 }
 
@@ -202,7 +213,6 @@ input:-webkit-autofill:active {
 
 .coordonnees-label > span{
 	font-size:18px;
-	font-weight:normal;
 	vertical-align:baseline;
 	white-space:nowrap;
 	word-wrap:break-word;
@@ -218,11 +228,6 @@ input:-webkit-autofill:active {
 /*CSS : Alerte flash vol*/
 .flash-alert{
 	order:1;
-}
-
-/*CSS : BootStrap surcharge*/
-input[type="email"],input[type="tel"],input[type="text"]{
-	margin-bottom:0px;
 }
 
 /*CSS : Recherche-vol + Alerte flash Vol*/
@@ -275,17 +280,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	margin-right:10px;
 }
 
-/*Recherche Vol*/
-.Provenance-input,.Destination-input{
-	line-height:19.6px;
-	min-height:55px;
-	padding:13px 10px 13px 10px;
-}
-
 /*Recherche vol*/
 .DatePicker{
 	margin-left:10px;
-	flex-shrink:1;
 	max-width:180px;
 }
 
@@ -307,9 +304,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*Recherche Vol*/
 #datepicker{
-	line-height:19.6px;
-	min-height:55px;
-	padding:13px 10px 13px 10px;
+	background-color:white;
 }
 
 /*Recherche Vol*/
@@ -373,7 +368,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 		margin-left:0px;
 		max-width:100%;
 	}
-
 }
 
 /*Recherche Vol --> Mobile*/
@@ -387,7 +381,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	}
 
 	.ui-datepicker{
-		font-size:12px;
+		font-size:13px;
 	}
 }
 
@@ -438,9 +432,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .flash_alert-num_vol-label,.suiviBagages_num_vol-label{
-	flex:0 0 100%;
 	font-size:18px;
-	font-weight:normal;
 	white-space:nowrap;
 	word-wrap:break-word;
 }
@@ -462,8 +454,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 .flash_alert-num_vol-input,.suiviBagages-num_vol-input{
 	flex:1 1 auto;
 	font-weight:100;
-	min-height:55px;
-	padding:13px 10px 13px 10px;
 	-webkit-box-flex:1;
 }
 
@@ -472,18 +462,8 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding:30px 0;
 }
 
-
-/*CSS : Vols du jour --> Mobile + tablette*/
-@media screen and (max-width:768px){
-	#vols_du_jour{
-		padding:30px 0;
-	}
-}
-
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
 .form-button-departures-arrivals,.flash_alert-coordonnees-wrapper,.SuiviBagages-coordonnees-wrapper{
-	display:block;
-	flex:0 0 100%;
 	font-size:15px;
 	padding:10px 0px 10px 0px;
 	word-wrap:break-word;
@@ -492,7 +472,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
 .form-button-departures-arrivals-inner,.flash_alert-coordonnees-inner,.SuiviBagages-coordonnees-inner{
 	display:flex;
-	font-size:15px;
 	justify-content:space-between;
 }
 
@@ -503,7 +482,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Suivi Bagages*/
 .SuiviBagages-nom-label,.SuiviBagages-prénom-label{
-	font-weight:normal;
 	font-size:16px;
 }
 
@@ -524,7 +502,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Suivi Bagages*/
-.SuiviBagages-nom{
+.SuiviBagages-nom,.flash_alert-email{
 	margin-right:10px; 
 }
 
@@ -532,11 +510,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 .button_dep{
 	margin-left:5px;
 	margin-right:0px;
-}
-
-/*CSS : Alerte Flash Vol*/
-.flash_alert-tel{
-	margin-left:10px;
 }
 
 /*CSS : Vols du jour + Alerte flash Vol */
@@ -581,13 +554,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	padding-bottom:20px;
 }
 
-/*CSS : Alerte flash Vol*/
-.flash_alert-coordonnees-input,.SuiviBagages-coordonnees-input{
-	line-height:19.6px;
-	min-height:55px;
-	padding:13px 10px 13px 10px;
-}
-
 /*CSS : Alerte flash vol*/
 .flash_alert-form{
 	margin-bottom:0px;
@@ -595,8 +561,7 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Alerte flash vol*/
 .flash_alert-coordonnees{
-	display:block;
-	flex:0 0 100%;
+	flex-grow:1;
 	font-size:15px;
 	padding:10px 0px 10px 0px;
 	word-wrap:break-word;
@@ -614,8 +579,6 @@ input[type="email"],input[type="tel"],input[type="text"]{
 	}
 }
 
-
-
 /*CSS : SuiviBagages + Alerte Flash Vol*/
 .flash_alert-tel,.flash_alert-email,.SuiviBagages-nom,.SuiviBagages-prénom{
 	display:flex;
@@ -631,10 +594,14 @@ input[type="email"],input[type="tel"],input[type="text"]{
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-email::before{
+.flash_alert-email::before,.flash_alert-tel::before{
 	font-family:'FontAwesome';
 	font-size:25px;
 	position:absolute;
+}
+
+/*CSS : Style pour les inputs*/
+.flash_alert-email::before{
 	left:10px;
 	top:11px;
 	content:"\f1fa";
@@ -642,13 +609,9 @@ input[type="email"],input[type="tel"],input[type="text"]{
 
 /*CSS : Style pour les inputs*/
 .flash_alert-tel::before{
-	font-family:'FontAwesome';
-	font-size:25px;
-	position:absolute;
 	left:10px;
 	top:12px;
 	content:"\f095";
-	
 }
 
 /*CSS : Style pour les inputs*/

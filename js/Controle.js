@@ -35,7 +35,7 @@ $(".choixIles").change(function(){
 	var selected = $(".choixIles option:selected");
 	$(".météoWrapper div").each(function(){
 		if(($(this).attr('id') == selected.val()) && (selected.val() != "Iles")){
-			$(this).show(300);
+			$(this).show(100);
 			$(this).addClass('activeIle');
 		}
 		else{
