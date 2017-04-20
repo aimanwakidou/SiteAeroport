@@ -826,6 +826,17 @@ input:-webkit-autofill:active {
     }
 }
 
+/*CSS : Mobile*/
+@media screen and (max-width:400px){
+    #Column400{
+        flex-direction:column;
+    }
+
+    .SuiviBagages-nom{
+        margin-right:0px;
+    }
+}
+
 /*CSS : News général*/
 .title_column_news {
     display:none;
