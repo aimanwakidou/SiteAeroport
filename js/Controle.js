@@ -110,6 +110,31 @@ function Nettoyage(elementJQuery){
 		elementJQuery.parent().removeClass('success');
 }
 
+/*Controle bouton*/
+$(".RadioButton button").each(function () {
+    $(this).click(function () {
+        if ($(this).hasClass("KO")) {
+            $(this).siblings().removeClass("OK");
+            $(this).siblings().addClass("KO");
+            $(this).addClass("OK");
+            $(this).removeClass("KO");
+        }
+
+        var test = $(this).hasClass("OK");
+
+        if ($(this).attr("id") == "oui" && test) {
+            $(".SuiviBagages-EmailTel").show(200);
+            $("#submit").css("padding-top", "0px");
+        }
+
+        if ($(this).attr("id") == "non" && test) {
+            $(".SuiviBagages-EmailTel").hide(200);
+            $("#submit").css("padding-top", "20px");
+        }
+    });
+});
+
+
 
 
 

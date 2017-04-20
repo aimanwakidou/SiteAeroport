@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
       <head>        
             <meta charset="utf-8">
@@ -283,7 +283,7 @@
                                                                 <label class="coordonnees-label">
                                                                   <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés</span>
                                                                 </label>
-                                                                <div id="CoteACote-inner" class="CoteACote-inner">
+                                                                <div id="Ch" class="CoteACote-inner">
                                                                       <div class="SuiviBagages-nom form-group">
                                                                           <label for="nom" class="SuiviBagages-nom-label">
                                                                             <span>Nom</span>
@@ -299,6 +299,28 @@
                                                                 </div>
                                                           </div>
                                                     </div>
+                                                    <div class="ChoixSuivi">
+                                                        <span>Notification par E-mail/Tel ? </span>
+                                                        <div class="RadioButton">
+                                                            <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
+                                                            <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="SuiviBagages-EmailTel">
+                                                        <div class="CoteACote">                            
+                                                            <div id="Column" class="CoteACote-inner">
+                                                                <div id="ColumnEmail" class="email form-group">
+                                                                    <input id="email" class="form-control" placeholder="Entrez votre e-mail" type="email" />
+                                                                </div>
+                                                                <div class="tel form-group">
+                                                                    <input id="tel" class="form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                      <div id="submit" class="submit">
+                                                          <a href="javascript:void(0);" class="btn btn-block submit-button" onclick="Submit();">Envoyer</a>
+                                                      </div>
                                               </div>
                                         </form>
                                   </div>
@@ -325,16 +347,16 @@
                                                                 <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés : e-mail et/ou tel</span>
                                                           </label>
                                                           <div id="CoteACote-inner" class="CoteACote-inner">
-                                                                <div class="flash_alert-email form-group">
-                                                                      <input id="email" class="flash_alert-coordonnees-input form-control" placeholder="Entrez votre e-mail" type="email"/>
+                                                                <div class="email form-group">
+                                                                      <input id="email" class="form-control" placeholder="Entrez votre e-mail" type="email"/>
                                                                 </div>
-                                                                <div class="flash_alert-tel form-group">
-                                                                      <input id="tel" class="flash_alert-coordonnees-input form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
+                                                                <div class="tel form-group">
+                                                                      <input id="tel" class="form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
                                                                 </div>
                                                           </div>
                                                     </div>
-                                                    <div class="flash_alert-submit">
-                                                          <a href="javascript:void(0);" class="btn btn-block flash_alert-button-label" onclick="Submit();">Envoyer</a>
+                                                    <div class="submit">
+                                                          <a href="javascript:void(0);" class="btn btn-block submit-button" onclick="Submit();">Envoyer</a>
                                                     </div>
                                               </div>
                                         </form>

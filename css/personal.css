@@ -51,6 +51,18 @@ input:-webkit-autofill:active {
 	line-height:54px;
 }
 
+.form-group{
+    margin-bottom:8px;
+}
+
+#Column {
+    flex-direction:column;
+}
+
+#ColumnEmail{
+    margin-right:0px;
+}
+
 /*Structure Mobile et tablette*/
 #vols_du_jour{
 	order:1;
@@ -155,12 +167,23 @@ input:-webkit-autofill:active {
 	margin:50px 0px 20px 0px;	
 }
 
+/*CSS : Alerte flash vol*/
+.flash-alert {
+    order: 1;
+}
+
 /*CSS : classe générique*/
 .section-heading{
 	line-height:25px;
 	margin-bottom:10px;
 }
 
+/*CSS : classe générique*/
+.section-heading-title {
+    vertical-align: middle;
+}
+
+/*CSS : classe générique*/
 .section-heading > span{
 	vertical-align: baseline;
 }
@@ -171,22 +194,20 @@ input:-webkit-autofill:active {
 	vertical-align: baseline;
 }
 
-.section-heading-title{
-	vertical-align:middle;
-}
-
 .plane{
 	margin-right:20px;
 	transform:rotate(45deg);
 	vertical-align:middle;
 }
 
+/*CSS : Suivi Bagages*/
 .coordonnees-label{
 	color:black;
 	line-height:15px;
 	margin-bottom:10px;
 }
 
+/*CSS : SuiviBagages*/
 .coordonnees-label > span{
 	font-size:18px;
 	vertical-align:baseline;
@@ -194,21 +215,54 @@ input:-webkit-autofill:active {
 	word-wrap:break-word;
 }
 
+/*CSS : SuiviBagages*/
 .user{
 	font-size:25px;
 	margin-right:10px;
 	vertical-align:baseline;
 }
 
+/*CSS : SuiviBagages*/
+.ChoixSuivi{
+    display:flex;
+}
 
-/*CSS : Alerte flash vol*/
-.flash-alert{
-	order:1;
+/*CSS : SuiviBagages*/
+.ChoixSuivi > span{
+    font-size:18px;
+    font-style:italic;
+}
+
+/*CSS : SuiviBagages*/
+.RadioButton{
+    display:flex;
+    padding-left:15px;
+}
+
+/*CSS : SuiviBagages*/
+.RadioButton > span{
+    display:block;
+}
+
+/*CSS : SuiviBagages*/
+.RadioButton > button{
+    width:100px;
+    line-height:20px;
+}
+
+/*CSS : SuiviBagages*/
+.RadioButton > button:first-child{
+    margin-right:15px;
+}
+
+/*CSS : SuiviBagages*/
+.RadioButton > button:focus{
+    border:none;
 }
 
 /*CSS : Recherche-vol + Alerte flash Vol*/
-.search-flight,.flash_alert,footer{
-	margin:0;
+.search-flight, .flash_alert, footer {
+    margin: 0;
 }
 
 /*CSS : Recherche vol*/
@@ -367,15 +421,9 @@ input:-webkit-autofill:active {
 	transition:all 0.3s ease;
 }
 
-/*CSS : News Général -> mobile*/
-@media screen and (max-width:768px){
-	.hidebutton{
-		display:block;
-	}
-	
-	.news_container{
-		display:none;
-	}
+/*CSS : Suivi Bagages*/
+#submit{
+    padding-top:20px;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -435,8 +483,8 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Alerte Flash Vol*/
-.flash_alert-submit{
-	margin-top:5px;
+.submit{
+	margin-top:0px;
 }
 
 /*CSS : Vols du jour + Suivi Bagages*/
@@ -445,7 +493,7 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Suivi Bagages*/
-.SuiviBagages-nom,.flash_alert-email{
+.SuiviBagages-nom,.email{
 	margin-right:10px; 
 }
 
@@ -456,7 +504,7 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Vols du jour + Alerte flash Vol */
-.button_dep_arr_label,.flash_alert-button-label{
+.button_dep_arr_label,.submit-button{
 	background-color:#337AB7;
 	color:white;
 }
@@ -501,55 +549,44 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Alerte flash vol*/
-.flash_alert-coordonnees{
+.flash_alert-coordonnees,.SuiviBagages-EmailTel{
 	flex-grow:1;
 	font-size:15px;
 	padding:10px 0px 10px 0px;
 	word-wrap:break-word;
 }
 
-/*CSS : Vols du jour*/
-@media screen and (max-width:768px){
-	.button_dep_arr_label > span{
-		margin-left:7px;
-	}
-
-	/*CSS : Vols du jour*/
-	.button_dep_arr_label > img{
-		margin-right:7px;
-	}
-}
-
-/*CSS : SuiviBagages + Alerte Flash Vol*/
-.flash_alert-tel,.flash_alert-email,.SuiviBagages-nom,.SuiviBagages-prénom{
-	display:flex;
-	flex-grow:1;
-	flex-direction:column;
-	font-size:15px;
-	-webkit-box-flex:1;
+/*CSS : Style pour les inputs*/
+.tel,.email, .SuiviBagages-prénom,.SuiviBagages-nom {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    font-size: 15px;
+    -webkit-box-flex: 1;
+    position: relative;
 }
 
 /*CSS : Style pour les inputs*/
-.search-box,.flash_alert-tel,.flash_alert-email,.SuiviBagages-prénom,.SuiviBagages-nom{
-	position:relative;
+.search-box{
+    position: relative;
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-email::before,.flash_alert-tel::before,.search-box-inner::before{
+.email::before,.tel::before,.search-box-inner::before{
 	font-family:'FontAwesome';
 	font-size:25px;
 	position:absolute;
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-email::before{
+.email::before{
 	left:10px;
 	top:11px;
 	content:"\f1fa";
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-tel::before{
+.tel::before{
 	left:10px;
 	top:12px;
 	content:"\f095";
@@ -564,7 +601,7 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Style pour les inputs*/
-.flash_alert-coordonnees-input,.suiviBagages-num_vol-input,.flash_alert-num_vol-input{
+#email,#tel,.suiviBagages-num_vol-input,.flash_alert-num_vol-input{
 	text-indent:35px;
 }
 
@@ -689,7 +726,7 @@ input:-webkit-autofill:active {
 		flex-direction:column;
 	}
 	
-	.flash_alert-email,.SuiviBagages-nom{
+	.email{
 		margin-bottom:5px;
 		margin-right:0px;
 	}
@@ -698,6 +735,27 @@ input:-webkit-autofill:active {
 		padding:0 15px;
 	}
 }
+
+/*CSS : Vols du jour*/
+@media screen and (max-width:768px) {
+    .button_dep_arr_label > span {
+        margin-left: 7px;
+    }
+
+    /*CSS : Vols du jour*/
+    .button_dep_arr_label > img {
+        margin-right: 7px;
+    }
+
+    .hidebutton {
+        display: block;
+    }
+
+    .news_container {
+        display: none;
+    }
+}
+
 
 /*CSS : Mobile*/
 @media screen and (max-width:640px){
@@ -718,7 +776,7 @@ input:-webkit-autofill:active {
 	}
 	
 	.suiviBagages{
-		margin-top:20px;	 
+		margin-top:30px;	 
 	}
 
 	h2{
@@ -744,11 +802,33 @@ input:-webkit-autofill:active {
 	.second{
 		order:3;
 	}
+ 
+}
+
+/*CSS : Mobile*/
+@media screen and (max-width:550px){
+    /*CSS : SuiviBagages*/
+    .ChoixSuivi {
+        flex-direction: column;
+    }
+
+    /*CSS : SuiviBagages*/
+    .RadioButton{
+        padding-left:0px;
+        padding-top:10px;
+    }
+    
+    /*CSS : SuiviBagages*/
+    .RadioButton > button{
+        max-width:100%;
+        flex-grow:1;
+        justify-content:space-between;
+    }
 }
 
 /*CSS : News général*/
-.title_column_news{
-	display:none;	
+.title_column_news {
+    display:none;
 }
 
 /*CSS : classe fail*/
@@ -797,3 +877,16 @@ input:-webkit-autofill:active {
 	border-color:#1E9E1E;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
 }
+
+/*CSS : class KO*/
+.KO,.KO:hover,.KO:focus{
+    background-color: rgba(127,127,127,0.3);
+    color: black;
+}
+
+/*CSS : class OK*/
+.OK,.OK:hover,.OK:focus{
+    background-color:darkgreen;
+    color:white;
+}
+
