@@ -1,25 +1,31 @@
 /*Controle formulaire*/
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-$('#email1').blur(function () {
+$('#email1').bind("change blur",function () {
     Controle($(this), emailRegex);
+    ControleSubmit(1);
 });
-
-$('#email2').blur(function () {
+$('#email2').bind("change blur",function () {
     Controle($(this), emailRegex);
+    ControleSubmit(2);
+});
+$('#tel1').bind("change blur",function () {
+    Controle($(this), /[0-9]{10}/);
+    ControleSubmit(1);
+});
+$('#tel2').bind("change blur",function () {
+    Controle($(this), /[0-9]{10}/);
+    ControleSubmit(2);
 });
 
-$('#tel1').blur(function () {
-    Controle($(this), /[0-9]{10}/);
-});
-
-$('#tel2').blur(function () {
-    Controle($(this), /[0-9]{10}/);
-});
+$("#email1").click(ControleSubmit(1));
+$("#email2").click(ControleSubmit(2));
+$("#tel1").click(ControleSubmit(1));
+$("#tel2").click(ControleSubmit(2));  
 
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/
 $("input").each(function(){
 	$(this).click(function(){
-		Nettoyage($(this));
+        Nettoyage($(this));
 	});
 
 	$(this).blur(function(){
@@ -29,8 +35,8 @@ $("input").each(function(){
 });
 
 /*Contrôle Recherche vol*/
-$("#Provenance").blur(function(){
-	ControleAeroport($(this));
+$("#Provenance").blur(function () {
+    ControleAeroport($(this));
 });
 
 $("#Destination").blur(function(){
@@ -144,7 +150,30 @@ $(".RadioButton button").each(function () {
 });
 
 /*Contrôle submit*/
+function ControleSubmit(numero) {
+    var email = $("#email" + numero);
+    var tel = $("#tel" + numero);
+    var submitButton = $("#submit" + numero);
+    if (email.val() && tel.val()) {
+        var classToAdd = (email.parent().hasClass("success") && tel.parent().hasClass("success")) ? "EnvoiOK" : "EnvoiNonOK";
+        var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
 
+        if (classToAdd == "EnvoiOK")
+            submitButton.removeAttr("disabled");
+
+        if (submitButton.hasClass(classToRemove))
+            submitButton.removeClass(classToRemove);
+        submitButton.addClass(classToAdd);  
+    }
+    else {
+        submitButton.attr("disabled",true);
+        if (submitButton.hasClass("EnvoiOK"))
+            submitButton.removeClass("EnvoiOK");
+
+        if (submitButton.hasClass("EnvoiNonOK"))
+            submitButton.removeClass("EnvoiNonOK");
+    }  
+}
 
 
 
