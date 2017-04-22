@@ -666,7 +666,7 @@ input:-webkit-autofill:active {
 
 /*CSS : Météo*/
 .météoContent{
-	line-height:30px;
+	line-height:50px;
 	padding:15px 0;
 	position:relative;
 }
@@ -675,6 +675,7 @@ input:-webkit-autofill:active {
 .météoContent > img{
 	position:absolute;
 	right:10px;
+    vertical-align:middle;
 }
 
 /*CSS : Météo*/
