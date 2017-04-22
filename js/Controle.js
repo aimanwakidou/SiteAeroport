@@ -1,12 +1,19 @@
 /*Controle formulaire*/
-$('#email').blur(function(){
-	var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	Controle($(this),emailRegex);
-	
+var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+$('#email1').blur(function () {
+    Controle($(this), emailRegex);
 });
 
-$('#tel').blur(function(){
-	Controle($(this),/[0-9]{10}/);
+$('#email2').blur(function () {
+    Controle($(this), emailRegex);
+});
+
+$('#tel1').blur(function () {
+    Controle($(this), /[0-9]{10}/);
+});
+
+$('#tel2').blur(function () {
+    Controle($(this), /[0-9]{10}/);
 });
 
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/
@@ -58,9 +65,11 @@ function Controle(elementJQuery,regex){
 
 /*Fonction de controle --> Non regex*/
 function ControleAeroport(elementJQuery){
-	var aeroports = ['Anjouan','Mohéli','Moroni','Mayotte'];
-	if(elementJQuery.val().length)
-		AjoutResult(elementJQuery,(aeroports.indexOf(elementJQuery.val()) !== -1),true);
+	var aeroports = ['anjouan','mohéli','moroni','mayotte'];
+    if (elementJQuery.val().length) {
+        var value = elementJQuery.val().toLowerCase();
+        AjoutResult(elementJQuery, (aeroports.indexOf(value) !== -1), true);
+    }
 	else
 		ToggleClassControle(elementJQuery);
 }
@@ -133,6 +142,10 @@ $(".RadioButton button").each(function () {
         }
     });
 });
+
+/*Contrôle submit*/
+
+
 
 
 

@@ -421,11 +421,6 @@ input:-webkit-autofill:active {
 	transition:all 0.3s ease;
 }
 
-/*CSS : Suivi Bagages*/
-#submit{
-    padding-top:20px;
-}
-
 /*CSS : Alerte Flash Vol*/
 .flash_alert-num_vol-content{
 	justify-content:space-between;
@@ -507,6 +502,19 @@ input:-webkit-autofill:active {
 .button_dep_arr_label,.submit-button{
 	background-color:#337AB7;
 	color:white;
+}
+
+/*CSS : Vols du jour*/
+.submit-button {
+    background-color: gray;
+    transition: all 0.3s ease-in-out;
+}
+
+/*CSS : Vols du jour*/
+.submit-button:hover {
+    background-color:rgba(0,0,0,0.9);
+    color:white;
+    transition: all 0.3s ease-in-out;
 }
 
 /*CSS : Vols du jour*/
@@ -601,8 +609,8 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Style pour les inputs*/
-#email,#tel,.suiviBagages-num_vol-input,.flash_alert-num_vol-input{
-	text-indent:35px;
+.emailInput, .telInput, .suiviBagages-num_vol-input, .flash_alert-num_vol-input {
+    text-indent: 35px;
 }
 
 /*CSS : News général*/
@@ -896,8 +904,22 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : class OK*/
-.OK,.OK:hover,.OK:focus{
-    background-color:darkgreen;
+.OK, .OK:hover, .OK:focus {
+    background-color: #1E9E1E;
+    color: white;
+}
+
+/*CSS : class EnvoiOK*/
+.EnvoiOK,.EnvoiOK:hover,.EnvoiOK:focus {
+    border-color: #1E9E1E;
+    background-color: #1E9E1E;
+    color: white;
+}
+
+/*CSS : class EnvoiNonOK*/
+.EnvoiNonOK,.EnvoiNonOK:hover,.EnvoiNonOK:focus{
+    border-color:red;
+    background-color:red;
     color:white;
 }
 

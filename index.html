@@ -185,7 +185,7 @@
                                     <div class="form-group"> <!-- Date input -->
                                       <label class="control-label" for="datepicker">Jour</label>
                                       <div class="DatePickerInput">
-                                        <input readonly="true" type="text" id="datepicker" name="date" class="form-control" placeholder="jj/mm/aaaa">
+                                        <input readonly="readonly" type="text" id="datepicker" name="date" class="form-control" placeholder="jj/mm/aaaa">
                                       </div>
                                     </div>
                                   </div>
@@ -206,13 +206,13 @@
                                 <div class="button_arr">
                                     <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal"
                                     data-target="#Arrivés" role="button">
-                                      <img src="img/arrivals.svg" alt="Avion arrivée" height="55px" width="55px"/>
+                                      <img src="img/arrivals.svg" alt="Avion arrivée" height="55" width="55"/>
                                       <span>Arrivés</span>
                                     </a>
                                 </div>
                                 <div class="button_dep">
                                     <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal" data-target="#Départs" role="button">
-                                      <img src="img/departures.svg" alt="Avion départ" height="55px" width="55px"/>
+                                      <img src="img/departures.svg" alt="Avion départ" height="55" width="55"/>
                                       <span>Départs</span>
                                     </a>
                                 </div>
@@ -310,16 +310,16 @@
                                                         <div class="CoteACote">                            
                                                             <div id="Column" class="CoteACote-inner">
                                                                 <div id="ColumnEmail" class="email form-group">
-                                                                    <input id="email" class="form-control" placeholder="Entrez votre e-mail" type="email" />
+                                                                    <input id="email1" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
                                                                 </div>
                                                                 <div class="tel form-group">
-                                                                    <input id="tel" class="form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
+                                                                    <input id="tel1" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                       <div id="submit" class="submit">
-                                                          <a href="javascript:void(0);" class="btn btn-block submit-button" onclick="Submit();">Envoyer</a>
+                                                          <input type="submit" class="btn btn-block submit-button" disabled value="Envoyer" />
                                                       </div>
                                               </div>
                                         </form>
@@ -348,15 +348,15 @@
                                                           </label>
                                                           <div id="CoteACote-inner" class="CoteACote-inner">
                                                                 <div class="email form-group">
-                                                                      <input id="email" class="form-control" placeholder="Entrez votre e-mail" type="email"/>
+                                                                      <input id="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email"/>
                                                                 </div>
                                                                 <div class="tel form-group">
-                                                                      <input id="tel" class="form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
+                                                                      <input id="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
                                                                 </div>
                                                           </div>
                                                     </div>
                                                     <div class="submit">
-                                                          <a href="javascript:void(0);" class="btn btn-block submit-button" onclick="Submit();">Envoyer</a>
+                                                          <input type="submit" class="btn btn-block submit-button" disabled value="Envoyer"/>
                                                     </div>
                                               </div>
                                         </form>
@@ -417,12 +417,8 @@
                               <h3>Anjouan</h3>
                               <div class="météoContent">
                                 <div class="day">
-                                  <span class="temperature"> <mark>Jour</mark> : 15°C </span>
+                                  <span class="temperature"> <mark class="DayOrNight">Jour</mark> : 15°C </span>
                                   <img class="sun" src="img/sun.svg" height="30" width="30"/>
-                                </div>
-                                <div class="night">
-                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
-                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
                                 </div>
                               </div>
                             </div>
@@ -433,10 +429,6 @@
                                   <span class="temperature"> <mark>Jour</mark> : 20°C </span>
                                   <img class="sun" src="img/sun.svg" height="30" width="30"/>
                                 </div>
-                                <div class="night">
-                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
-                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
-                                </div>
                               </div>
                             </div>
                             <div id="Mohéli">
@@ -446,10 +438,6 @@
                                   <span class="temperature"> <mark>Jour</mark> : 18°C </span>
                                   <img class="sun" src="img/sun.svg" height="30" width="30"/>
                                 </div>
-                                <div class="night">
-                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
-                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
-                                </div>
                               </div>
                             </div>      
                             <div id="Mayotte">
@@ -458,10 +446,6 @@
                                 <div class="day">
                                   <span class="temperature"> <mark>Jour</mark> : 25°C </span>
                                   <img class="sun" src="img/sun.svg" height="30" width="30"/>
-                                </div>
-                                <div class="night">
-                                   <span class="temperature"> <mark>Nuit</mark> : 7°C </span>
-                                   <img class="moon" src="img/moon.svg" height="30" width="30"/>
                                 </div>
                               </div>
                             </div>
