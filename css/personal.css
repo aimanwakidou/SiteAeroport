@@ -347,17 +347,6 @@ input:-webkit-autofill:active {
 }
 
 /*Recherche Vol*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    border: none;
-}
-
-/*Recherche Vol*/
-.ui-datepicker td {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-/*Recherche Vol*/
 .RechercherVol{
 	background-color:#337AB7;	
 	color:white;
@@ -658,35 +647,16 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Météo*/
-.choixIles > option:hover{
-	background-color:rgba(0,0,240,0.7);
-}
-
-/*CSS : Météo*/
 .météoWrapper{
 	display:flex;
 	justify-content:space-between;
 }
 
-/*CSS : météo*/
-.météoWrapper > #Anjouan{
-	padding-left:20px;
-}
-
 /*CSS : Météo*/
-.météoWrapper > div:not(:first-child){
-	padding-left:30px;
-}
-
-/*CSS : Météo*/
-.météoWrapper > div{
-	display:block;
-	flex-grow:1;
-}
-
-/*CSS : Météo*/
-.day,.night{
-	line-height:30px;
+.météoWrapper > div {
+    padding-left: 20px;
+    display: block;
+    flex-grow: 1;
 }
 
 /*CSS : Météo*/
@@ -695,25 +665,16 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Météo*/
-.day,.night{
+.météoContent{
+	line-height:30px;
 	padding:15px 0;
 	position:relative;
 }
 
 /*CSS : Météo*/
-.day > img,.night > img{
+.météoContent > img{
 	position:absolute;
-	right:0px;
-}
-
-/*CSS : Météo*/
-.day::after{
-	background:url('../img/sun.svg') no-repeat;
-}
-
-/*CSS : Météo*/
-.night::after{
-	background:url('../img/moon.svg');
+	right:10px;
 }
 
 /*CSS : Météo*/
@@ -741,6 +702,14 @@ input:-webkit-autofill:active {
 		display:none;
 		padding-right:15px;
 	}
+
+}
+
+/*CSS : Météo --> PC*/
+@media screen and (min-width:768px){
+    header{
+        min-height:0%;
+    }
 }
 
 /*CSS : Mobile + Tablette*/
@@ -907,7 +876,6 @@ input:-webkit-autofill:active {
 	color:green;
 }
 
-/*CSS : class success*/
 .success > input:hover,.success > input:focus,.success > input{
 	border-color:#1E9E1E;
     background-color:white;
