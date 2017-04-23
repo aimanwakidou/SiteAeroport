@@ -1,0 +1,94 @@
+
+{
+  "response": {
+  "version":"0.1",
+  "termsofService":"http://www.wunderground.com/weather/api/d/terms.html",
+  "features": {
+  "conditions": 1
+  }
+	}
+  ,	"current_observation": {
+		"image": {
+		"url":"http://icons.wxug.com/graphics/wu2/logo_130x80.png",
+		"title":"Weather Underground",
+		"link":"http://www.wunderground.com"
+		},
+		"display_location": {
+		"full":"Mamoudzou, Mayotte",
+		"city":"Mamoudzou",
+		"state":"",
+		"state_name":"Mayotte",
+		"country":"XX_YT",
+		"country_iso3166":"YT",
+		"zip":"00000",
+		"magic":"120",
+		"wmo":"67005",
+		"latitude":"-12.77999973",
+		"longitude":"45.22999954",
+		"elevation":"0.9"
+		},
+		"observation_location": {
+		"full":"Dzaoudzi, ",
+		"city":"Dzaoudzi",
+		"state":"",
+		"country":"KM",
+		"country_iso3166":"YT",
+		"latitude":"-12.80000019",
+		"longitude":"45.27999878",
+		"elevation":"23 ft"
+		},
+		"estimated": {
+		},
+		"station_id":"FMCZ",
+		"observation_time":"Last Updated on April 23, 1:00 PM EAT",
+		"observation_time_rfc822":"Sun, 23 Apr 2017 13:00:00 +0300",
+		"observation_epoch":"1492941600",
+		"local_time_rfc822":"Sun, 23 Apr 2017 13:20:00 +0300",
+		"local_epoch":"1492942800",
+		"local_tz_short":"EAT",
+		"local_tz_long":"Indian/Mayotte",
+		"local_tz_offset":"+0300",
+		"weather":"Partly Cloudy",
+		"temperature_string":"86 F (30 C)",
+		"temp_f":86,
+		"temp_c":30,
+		"relative_humidity":"66%",
+		"wind_string":"From the South at 12 MPH",
+		"wind_dir":"South",
+		"wind_degrees":180,
+		"wind_mph":12,
+		"wind_gust_mph":0,
+		"wind_kph":18,
+		"wind_gust_kph":0,
+		"pressure_mb":"1011",
+		"pressure_in":"29.86",
+		"pressure_trend":"-",
+		"dewpoint_string":"73 F (23 C)",
+		"dewpoint_f":73,
+		"dewpoint_c":23,
+		"heat_index_string":"93 F (34 C)",
+		"heat_index_f":93,
+		"heat_index_c":34,
+		"windchill_string":"NA",
+		"windchill_f":"NA",
+		"windchill_c":"NA",
+		"feelslike_string":"93 F (34 C)",
+		"feelslike_f":"93",
+		"feelslike_c":"34",
+		"visibility_mi":"6.2",
+		"visibility_km":"10.0",
+		"solarradiation":"--",
+		"UV":"10","precip_1hr_string":"-9999.00 in (-9999.00 mm)",
+		"precip_1hr_in":"-9999.00",
+		"precip_1hr_metric":"--",
+		"precip_today_string":"0.00 in (0.0 mm)",
+		"precip_today_in":"0.00",
+		"precip_today_metric":"0.0",
+		"icon":"partlycloudy",
+		"icon_url":"http://icons.wxug.com/i/c/k/partlycloudy.gif",
+		"forecast_url":"http://www.wunderground.com/global/stations/67005.html",
+		"history_url":"http://www.wunderground.com/history/airport/FMCZ/2017/4/23/DailyHistory.html",
+		"ob_url":"http://www.wunderground.com/cgi-bin/findweather/getForecast?query=-12.80000019,45.27999878",
+		"nowcast":""
+	}
+}
