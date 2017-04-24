@@ -86,10 +86,22 @@ input:-webkit-autofill:active {
 	padding-top:20px;
 }
 
-/*Surcharge header*/
+/*Surcharge bootstrap*/
+.modal-footer{
+    display:flex;
+    justify-content:space-between;
+}
+
+/*Surcharge header + modal footer*/
 .uselessNav{
 	display:none;
 }
+
+/*Modal footer*/
+.useless{
+    flex-grow:1;
+}
+
 
 /*Surcharge Bootstrap*/
 @media screen and (min-width:800px){
@@ -103,6 +115,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:870px;
 	}
+
+    #ContentArrivesDepart {
+        width:750px;
+    }
 }
 
 /*Surcharge Bootstrap*/
@@ -110,6 +126,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:970px;
 	}
+
+    #ContentArrivesDepart {
+        width: 850px;
+    }
 }
 
 /*Surcharge Bootstrap*/
@@ -117,6 +137,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:1070px;
 	}
+
+    #ContentArrivesDepart {
+        width: 950px;
+    }
 }
 
 /*Surcharge Bootstrap*/
@@ -124,6 +148,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:1170px;
 	}
+
+    #ContentArrivesDepart {
+        width: 1050px;
+    }
 }
 
 /*Surcharge bootstrap*/
@@ -131,6 +159,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:1270px;
 	}
+
+    #ContentArrivesDepart {
+        width: 1150px;
+    }
 }
 
 /*Sucharge bootstrap*/
@@ -138,6 +170,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:1370px;
 	}
+
+    #ContentArrivesDepart {
+        width: 1250px;
+    }
 }
 
 /*Surcharge bootstrap*/
@@ -145,6 +181,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:1570px;
 	}
+
+    #ContentArrivesDepart {
+        width: 1450px;
+    }
 }
 
 /*Surcharge Bootstrap*/
@@ -152,6 +192,10 @@ input:-webkit-autofill:active {
 	.container{
 		width:1770px;
 	}
+
+    #ContentArrivesDepart {
+        width: 1650px;
+    }
 }
 
 /*CSS : Surchage caroussel*/
@@ -462,6 +506,104 @@ input:-webkit-autofill:active {
 	padding:30px 0;
 }
 
+/*CSS : Vols du jour*/
+#ArrivesDepart {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/*CSS : Vols du jour*/
+.ArrivesDepartTitreColumn > th {
+    font-size: 17px;
+}
+
+/*CSS : Vols du Jour*/
+.ArrivesDepartTitreColumn > th, .ArrivesDepartData > tr > td {
+    padding: 0px 20px 20px 20px;
+    text-align: center;
+}
+
+/*CSS : Vols du jour*/
+.ArrivesDepartTitreColumn > th:first-child, .ArrivesDepartData > tr > td:first-child {
+    padding-left: 5px;
+}
+
+/*CSS : Vols du jour*/
+.ArrivesDepartTitreColumn > th:last-child, .ArrivesDepartData > tr > td:last-child {
+    padding-right: 5px;
+}
+
+/*CSS : Vols du jour*/
+.ArrivesDepartData > tr > td {
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+/*CSS : Vols du jour*/
+#EnvoiOkArrivesDepart:hover {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
+}
+
+/*CSS : Vols du jour*/
+#EnvoiOkArrivesDepart{
+    display:none;
+}
+
+/*CSS : Vols du jour*/
+.logoCompagny {
+    padding-bottom: 10px;
+}
+
+/*CSS : Vols du jour*/
+@media screen and (min-width:768px){
+    #ContentArrivesDepart {
+        width:750px;
+    }
+}
+/*CSS : Vols du jour*/
+@media screen and (max-width:850px){
+    .ArrivesDepartTitreColumn > th{
+        font-size:14px;
+    }
+
+    .ArrivesDepartData > tr > td{
+        font-size:12px;
+    }
+
+    .ArrivesDepartTitreColumn > th, .ArrivesDepartData > tr > td {
+        padding: 0px 15px 10px 15px;
+    }
+}
+
+/*CSS : Vols du jour*/
+@media screen and (max-width:600px) {
+    .ArrivesDepartTitreColumn > th {
+        font-size: 13px;
+    }
+
+    .ArrivesDepartData > tr > td {
+        font-size: 11px;
+    }
+
+    .ArrivesDepartTitreColumn > th, .ArrivesDepartData > tr > td {
+        padding: 0px 2px 10px 0px;
+        text-align: center;
+    }
+
+    .ArrivesDepartTitreColumn > th:first-child, .ArrivesDepartData > tr > td:first-child {
+        padding-left:0px;
+    }
+
+    .ArrivesDepartTitreColumn > th:last-child, .ArrivesDepartData > tr > td:last-child {
+        padding-right:0px;
+    }
+}
+
+
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
 .CoteACote{
 	font-size:15px;
@@ -634,6 +776,7 @@ input:-webkit-autofill:active {
 	line-height:30px;
 }
 
+/*CSS : Météo*/
 .title_météo > h2{
 	line-height:30px;
 	vertical-align:middle;
@@ -674,7 +817,7 @@ input:-webkit-autofill:active {
 /*CSS : Météo*/
 .météoContent > img{
 	position:absolute;
-	right:10px;
+	right:0px;
     vertical-align:middle;
 }
 
@@ -683,7 +826,6 @@ input:-webkit-autofill:active {
 	background-color:inherit;
 	font-size:20px;
 }
-
 
 /*CSS : Météo --> Tablette et mobile*/
 @media screen and (max-width:768px){
