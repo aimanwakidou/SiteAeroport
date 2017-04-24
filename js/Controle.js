@@ -60,6 +60,98 @@ $(".choixIles").change(function(){
 	});
 });
 
+/*Controle bouton*/
+$(".RadioButton button").each(function () {
+    $(this).click(function () {
+        if ($(this).hasClass("KO")) {
+            $(this).siblings().removeClass("OK");
+            $(this).siblings().addClass("KO");
+            $(this).addClass("OK");
+            $(this).removeClass("KO");
+        }
+
+        var test = $(this).hasClass("OK");
+
+        if ($(this).attr("id") == "oui" && test) {
+            $(".SuiviBagages-EmailTel").show(200);
+            $("#submit").css("padding-top", "0px");
+        }
+
+        if ($(this).attr("id") == "non" && test) {
+            $(".SuiviBagages-EmailTel").hide(200);
+            $("#submit").css("padding-top", "20px");
+        }
+    });
+});
+
+/*Contrôle submit*/
+function ControleSubmit(numero) {
+    var email = $("#email" + numero);
+    var tel = $("#tel" + numero);
+    var submitButton = $("#submit" + numero);
+    if (email.val() && tel.val()) {
+        var classToAdd = (email.parent().hasClass("success") && tel.parent().hasClass("success")) ? "EnvoiOK" : "EnvoiNonOK";
+        var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
+
+        if (classToAdd == "EnvoiOK")
+            submitButton.removeAttr("disabled");
+
+        if (submitButton.hasClass(classToRemove))
+            submitButton.removeClass(classToRemove);
+        submitButton.addClass(classToAdd);
+    }
+    else {
+        submitButton.attr("disabled", true);
+        if (submitButton.hasClass("EnvoiOK"))
+            submitButton.removeClass("EnvoiOK");
+
+        if (submitButton.hasClass("EnvoiNonOK"))
+            submitButton.removeClass("EnvoiNonOK");
+    }
+}
+
+/*Contrôle fenetre modal*/
+$(".AlertArrivee").each(function () {
+    var EnvoiOk = $(".EnvoiOkArrive");
+    $(this).change(function () {
+        CheckButtonCheckBox(EnvoiOk, $(this));
+        ControleCheckBox(EnvoiOk, true);
+    });
+});
+
+$(".AlertDepart").each(function () {
+    var EnvoiOk = $(".EnvoiOkDepart");
+    $(this).change(function () {
+        CheckButtonCheckBox(EnvoiOk, $(this));
+        ControleCheckBox(EnvoiOk, false);
+    });
+});
+
+/*Fonction de controle --> checkBok = ok*/
+function CheckButtonCheckBox(envoinButtonJQuery,checkButtonJQuery) {
+    if (checkButtonJQuery.is(':checked') && envoinButtonJQuery.hasClass("noDisplay")) {
+        envoinButtonJQuery.show(70);
+        envoinButtonJQuery.removeClass("noDisplay");
+    }
+}
+
+/*Fonction de controle --> Si aucun bouton n'est checké*/
+function ControleCheckBox(envoiButtonJQuery,ArriveDepart) {
+    if (typeof ArriveDepart === "boolean") {
+        var selector = (ArriveDepart) ? "Arrivee" : "Depart";
+        var checkedInput = $(".Alert" + selector);
+        var flag = true;
+        checkedInput.each(function () {
+            if ($(this).is(":checked"))
+                flag = false;
+        });
+        if (!envoiButtonJQuery.hasClass("noDisplay") && flag) {
+            envoiButtonJQuery.hide(70);
+            envoiButtonJQuery.addClass("noDisplay");
+        }
+    }
+}
+
 /*Fonction de controle --> regex*/
 function Controle(elementJQuery,regex){
 	var result = elementJQuery.val().match(regex);
@@ -125,55 +217,6 @@ function Nettoyage(elementJQuery){
 		elementJQuery.parent().removeClass('success');
 }
 
-/*Controle bouton*/
-$(".RadioButton button").each(function () {
-    $(this).click(function () {
-        if ($(this).hasClass("KO")) {
-            $(this).siblings().removeClass("OK");
-            $(this).siblings().addClass("KO");
-            $(this).addClass("OK");
-            $(this).removeClass("KO");
-        }
-
-        var test = $(this).hasClass("OK");
-
-        if ($(this).attr("id") == "oui" && test) {
-            $(".SuiviBagages-EmailTel").show(200);
-            $("#submit").css("padding-top", "0px");
-        }
-
-        if ($(this).attr("id") == "non" && test) {
-            $(".SuiviBagages-EmailTel").hide(200);
-            $("#submit").css("padding-top", "20px");
-        }
-    });
-});
-
-/*Contrôle submit*/
-function ControleSubmit(numero) {
-    var email = $("#email" + numero);
-    var tel = $("#tel" + numero);
-    var submitButton = $("#submit" + numero);
-    if (email.val() && tel.val()) {
-        var classToAdd = (email.parent().hasClass("success") && tel.parent().hasClass("success")) ? "EnvoiOK" : "EnvoiNonOK";
-        var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
-
-        if (classToAdd == "EnvoiOK")
-            submitButton.removeAttr("disabled");
-
-        if (submitButton.hasClass(classToRemove))
-            submitButton.removeClass(classToRemove);
-        submitButton.addClass(classToAdd);  
-    }
-    else {
-        submitButton.attr("disabled",true);
-        if (submitButton.hasClass("EnvoiOK"))
-            submitButton.removeClass("EnvoiOK");
-
-        if (submitButton.hasClass("EnvoiNonOK"))
-            submitButton.removeClass("EnvoiNonOK");
-    }  
-}
 
 
 
