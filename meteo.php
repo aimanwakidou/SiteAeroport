@@ -1,6 +1,8 @@
 <?php
 header( 'Content-Type: application/json' );
 ini_set("allow_url_fopen", 1);
+
+
 $iles = array('Moutsamoudou','Mamoudzou','Moheli','Moroni');
 
 foreach($iles as $ile) {
