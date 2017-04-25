@@ -14,6 +14,14 @@ $( function() {
     	weekHeader:'Sem.',
     	dateFormat:'dd/mm/yy'
     });
+
+    $("#bootstrap-touch-slider").swiperight(function () {
+        $(this).carousel('prev');
+    });
+
+    $("#bootstrap-touch-slider").swipeleft(function () {
+        $(this).carousel('next');
+    });
 });
 
 
