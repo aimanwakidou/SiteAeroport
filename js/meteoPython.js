@@ -3,8 +3,6 @@ $(document).ready(function () {
 
     iles.forEach(function (ile) {
         var url = ile + ".json";
-        console.log(url);
-
         $.getJSON(url, {
             tags: "mount rainier",
             tagmode: "any",
