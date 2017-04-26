@@ -487,16 +487,17 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
-.search-box{
-	color:rgb(45,42,44);
-	flex:1 1 auto;
-	font-size:15px;
-	-webkit-box-flex:1;
+.search-box {
+    color: rgb(45,42,44);
+    flex: 1 1 auto;
+    font-size: 15px;
+    -webkit-box-flex: 1;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
-.search-box-inner{
-	display:flex;
+.search-box-inner {
+    display: flex;
+    position: relative;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
@@ -504,6 +505,44 @@ input:-webkit-autofill:active {
 	flex:1 1 auto;
 	font-weight:100;
 	-webkit-box-flex:1;
+}
+
+/*CSS : Alerte Flash Vol*/
+.buttonAjoutSuppr {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    line-height:34px;
+    vertical-align:middle;
+}
+
+/*CSS : Alerte Flash Vol*/
+.buttonAjoutSuppr > span {
+    cursor:pointer;
+    font-size:50px;   
+}
+
+/*CSS : Alerte Flash Vol*/
+.Ajout {
+    padding-right:15px;
+    color: #1E9E1E;
+    vertical-align: middle;
+}
+
+/*CSS : Alerte Flash Vol*/
+.Ajout:hover {
+    text-shadow: 0px 0px 1px #1E9E1E;
+}
+
+/*CSS : Alerte Flash Vol*/
+.Suppr {
+    color: red;
+    vertical-align: middle;
+}
+
+/*CSS : Alerte Flash Vol*/
+.Suppr:hover {
+    text-shadow: 0px 0px 1px red;
 }
 
 /*CSS : Vols du jour*/
@@ -725,10 +764,6 @@ input:-webkit-autofill:active {
     position: relative;
 }
 
-/*CSS : Style pour les inputs*/
-.search-box{
-    position: relative;
-}
 
 /*CSS : Style pour les inputs*/
 .email::before,.tel::before,.search-box-inner::before{

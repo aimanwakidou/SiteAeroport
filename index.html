@@ -334,9 +334,9 @@
                                                                 <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
                                                           </label>
                                                           <div class="SuiviBagages-num_vol-search_box search-box">
-                                                                <div class="search-box-inner SuiviBagages-num_vol-search_box-inner form-group">
-                                                                      <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
-                                                                </div>
+                                                              <div class="search-box-inner SuiviBagages-num_vol-search_box-inner form-group">
+                                                                  <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
+                                                              </div>
                                                           </div>
                                                     </div>
                                                     <div class="SuiviBagages-coordonnees">
@@ -395,9 +395,13 @@
                                                           <label for="num_vol" class="flash_alert-num_vol-label">
                                                                 <span class="flash_alert-num_vol-label-inner">N° vol</span>
                                                           </label>
-                                                          <div class="search-box">
-                                                                <div class="search-box-inner form-group">
-                                                                      <input class="flash_alert-num_vol-input form-control" id="num_vol" placeholder="Entrez un numéro du vol" type="text"/>
+                                                          <div id="BoxFlashAlert" class="search-box">
+                                                                <div id="first_vol" class="search-box-inner form-group">
+                                                                      <input class="flash_alert-num_vol-input form-control " id="num_vol" placeholder="Entrez un numéro du vol" type="text" />
+                                                                      <div class="buttonAjoutSuppr">
+                                                                          <span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>
+                                                                          <span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>
+                                                                      </div>
                                                                 </div>
                                                           </div>
                                                     </div>
@@ -592,5 +596,6 @@
             <script src="js/CacherMenu.js"></script>
             <script src="js/Controle.js"></script>
             <script src="js/meteoPython.js"></script>
+            <script src="js/AjoutSupprVol.js"></script>
       </body>
 </html>
