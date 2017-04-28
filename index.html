@@ -243,27 +243,27 @@
                                     </tr>
                                 </thead>
                                 <tbody class="ArrivesDepartData">
-                                    <tr class="example">
-                                        <td class="logoCompagny"><img src="img/air-austral-2014.jpg" width="100" height="50"/></td>
-                                        <td><span>JIX8452</span></td>
-                                        <td><span>La Réunion</span></td>
-                                        <td><span>Mayotte</span></td>
-                                        <td><span>22:00</span></td>
-                                        <td><span><input type="checkbox" name="Alert" class="AlertArrivee"/></span></td>
+                                    <tr class="avionArrive">
+                                        <td class="logoCompagny"><img src="img/air-austral-2014.jpg"/></td>
+                                        <td class="numVol">JIX8451</td>
+                                        <td>La Réunion</td>
+                                        <td>Mayotte</td>
+                                        <td>22:00</td>
+                                        <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
                                     </tr>
-                                    <tr class="example">
-                                        <td class="logoCompagny"><img src="img/ethiopian-airlines.gif" width="100" height="50" /></td>
-                                        <td><span>JIX8452</span></td>
-                                        <td><span>Addis Adeba</span></td>
-                                        <td><span>Moroni</span></td>
-                                        <td><span>20:00</span></td>
-                                        <td><span><input type="checkbox" name="Alert" class="AlertArrivee"/></span></td>
+                                    <tr class="avionArrive">
+                                        <td class="logoCompagny"><img src="img/ethiopian-airlines.gif"/></td>
+                                        <td class="numVol">JIX8452</td>
+                                        <td>Addis Adeba</td>
+                                        <td>Moroni</td>
+                                        <td>20:00</td>
+                                        <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK noDisplay EnvoiOkArrive" data-dismiss="modal">Envoyer</button>
+                            <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkArrive noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
                             <div class="useless"></div>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                         </div>
@@ -293,27 +293,27 @@
                                     </tr>
                                 </thead>
                                 <tbody class="ArrivesDepartData">
-                                    <tr class="example">
+                                    <tr class="avionDepart">
                                         <td class="logoCompagny"><img src="img/air-austral-2014.jpg" width="100" height="50" /></td>
-                                        <td><span>JIX8452</span></td>
-                                        <td><span>La Réunion</span></td>
-                                        <td><span>Mayotte</span></td>
-                                        <td><span>20:00</span></td>
-                                        <td><span><input type="checkbox" name="Alert" class="AlertDepart"/></span></td>
+                                        <td class="numVol">JIX8453</td>
+                                        <td>La Réunion</td>
+                                        <td>Mayotte</td>
+                                        <td>20:00</td>
+                                        <td><input type="checkbox" name="Alert" class="AlertDepart"/></td>
                                     </tr>
-                                    <tr class="example">
+                                    <tr class="avionDepart">
                                         <td class="logoCompagny"><img src="img/ethiopian-airlines.gif" width="100" height="50" /></td>
-                                        <td><span>JIX8452</span></td>
-                                        <td><span>Addis Adeba</span></td>
-                                        <td><span>Moroni</span></td>
-                                        <td><span>15:00</span></td>
-                                        <td><span><input type="checkbox" name="Alert" class="AlertDepart" /></span></td>
+                                        <td class="numVol">JIX8454</td>
+                                        <td>Addis Adeba</td>
+                                        <td>Moroni</td>
+                                        <td>15:00</td>
+                                        <td><input type="checkbox" name="Alert" class="AlertDepart" /></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </form>
                         <div class="modal-footer">
-                            <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK noDisplay EnvoiOkDepart" data-dismiss="modal">Envoyer</button>
+                            <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
                             <div class="useless"></div>
                             <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                         </div>
@@ -367,7 +367,7 @@
                                                             <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
                                                         </div>
                                                     </div>
-                                                    <div class="SuiviBagages-EmailTel">
+                                                    <div class="SuiviBagages-EmailTel displayEmailTel">
                                                         <div class="CoteACote">                            
                                                             <div id="Column" class="CoteACote-inner">
                                                                 <div id="ColumnEmail" class="email form-group">
@@ -434,12 +434,12 @@
                 <aside class="bg-primary general-news">
                       <div class="container news">
                             <div class="title_news">       
-                                  <span><h2 class="section-heading">News Aéroport</h2></span>
+                                  <h2 class="section-heading">News Aéroport</h2>
                                   <span class="hidebutton" onclick="CacherMenu();">
-                                    <i class="fa fa-chevron-down fa-2x rotate rotateButton" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-down fa-2x rotate" aria-hidden="true"></i>
                                   </span> 
                             </div>
-                            <div id="hide" class="news_container">
+                            <div id="hide" class="news_container noDisplay">
                                   <table class="news_table">
                                         <tr class="title_column_news">
                                               <th>Date Info</th>
@@ -551,8 +551,7 @@
                               <div style="color:white;">
                                 Icons made by 
                                 <a href="http://www.flaticon.com/authors/polyarix" title="Polyarix">Polyarix</a>
-                                ,<a href="http://www.freepik.com" title="Freepik">Freepik</a> and
-                                <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a>from 
+                                from 
                                 <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> 
                                 is licensed by 
                                 <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>

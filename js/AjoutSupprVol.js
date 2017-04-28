@@ -7,6 +7,34 @@ $("#first_vol .buttonAjoutSuppr .SupprWrapper").click(function () {
     Suppression();
 });
 
+/*Contrôle fenetre modal*/
+$(".AlertArrivee").each(function () {
+    var EnvoiOk = $(".EnvoiOkArrive");
+    $(this).change(function () {
+        CheckButtonCheckBox(EnvoiOk, $(this));
+        ControleCheckBox(EnvoiOk, true);
+    });
+});
+
+$(".AlertDepart").each(function () {
+    var EnvoiOk = $(".EnvoiOkDepart");
+    $(this).change(function () {
+        CheckButtonCheckBox(EnvoiOk, $(this));
+        ControleCheckBox(EnvoiOk, false);
+    });
+});
+
+/*Bind*/
+$(".bindAlert").each(function () {
+    $(this).click(function () {
+        var Vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(".avionArrive");
+        Vols.each(function () {
+            if ($(this).find("td input").is(":checked"))
+                BindModalAlert($(this));
+        });
+
+    });
+});
 
 /*Fonction : Ajout d'un bouton*/
 function Ajout() {
@@ -27,3 +55,53 @@ function Suppression() {
     if (!(lastButton.attr('id') == "first_vol"))
         lastButton.remove();
 }
+
+/*Fonction de liaison Modal --> Alerte Flash*/
+function BindModalAlert(caseTable) {
+    var num_vol = caseTable.find(".numVol").html();
+    var inputsNumVol = $("#BoxFlashAlert .search-box-inner");
+    var flag = false;
+
+    inputsNumVol.each(function () {
+        var input = $(this).find("input");
+        if (input.val().length == 0 && !flag) {
+            input.val(num_vol);
+            flag = true;
+        }
+    });
+
+    if (flag)
+        return;
+
+    Ajout();
+    var inputsNumVolLast = $("#BoxFlashAlert .search-box-inner").last().find("input");
+    inputsNumVolLast.val(num_vol);
+}
+
+/*Fonction de controle --> checkBok = ok*/
+function CheckButtonCheckBox(envoiButtonJQuery, checkButtonJQuery) {
+    if (checkButtonJQuery.is(':checked') && envoiButtonJQuery.hasClass("noDisplayButton")) {
+        envoiButtonJQuery.removeClass("noDisplayButton");
+        envoiButtonJQuery.addClass("displayButton");
+    }
+}
+
+/*Fonction de controle --> Si aucun bouton n'est checké*/
+function ControleCheckBox(envoiButtonJQuery, ArriveDepart) {
+    if (typeof ArriveDepart === "boolean") {
+        var selector = (ArriveDepart) ? "Arrivee" : "Depart";
+        var checkedInput = $(".Alert" + selector);
+        var flag = true;
+
+        checkedInput.each(function () {
+            if ($(this).is(":checked"))
+                flag = false;
+        });
+
+        if (envoiButtonJQuery.hasClass("displayButton") && flag) {
+            envoiButtonJQuery.removeClass("displayButton");
+            envoiButtonJQuery.addClass("noDisplayButton");
+        }
+    }
+}
+
