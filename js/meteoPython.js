@@ -19,7 +19,8 @@ $(document).ready(function () {
     });
 
     /*Mis à jour titre météo*/
-    $("#DayOrNight").text((hour < 18 && hour > 6) ? "jour" : "soir");
+    $("#DayOrNightVol").text((hour < 18 && hour > 6) ? "jour" : "soir");
+    $("#DayOrNightMeteo").text((hour < 18 && hour > 6) ? "jour" : "soir");
 });
 
  

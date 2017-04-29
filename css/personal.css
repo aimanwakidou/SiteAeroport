@@ -822,6 +822,17 @@ input:-webkit-autofill:active {
     display: none;
 }
 
+/*CSS : News général*/
+.news_table{
+    border-collapse:collapse;
+    width:100%;
+}
+
+/*CSS : News Général*/
+.news_table > tr > th,.news_table > tr > td{
+    padding:0 15px;
+}
+
 /*CSS : Météo*/
 #météo{
 	padding:20px 0px;
