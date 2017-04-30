@@ -50,8 +50,7 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
-	-webkit-transition-delay:9999s;
-	-webkit-transition:background-color 9999s ease-out;
+	transition:background-color 9999s ease-out;
 }
 
 .btn{
@@ -1055,11 +1054,19 @@ input:-webkit-autofill:active {
 	color:red;
 	border-color:red;
 	font-weight:bold;
+    transition:background-color 0.5s ease-in-out !important;
 }
 
-.fail:hover,.fail:focus{
-	border-color:red;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
+/*CSS : classe fail*/
+.fail:hover, .fail:focus {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
+    transition: background-color 0.5s ease-in-out !important;
+}
+
+/*CSS : classe fail*/
+.fail:-webkit-autofill {
+    transition: transition:background-color 0.5s ease-in-out !important;
 }
 
 /*CSS : class fail2*/
@@ -1106,7 +1113,7 @@ input:-webkit-autofill:active {
 
 /*CSS : class OK*/
 .OK, .OK:hover, .OK:focus {
-    background-color: #1E9E1E;
+    background-color: #337AB7;
     color: white;
 }
 
@@ -1118,15 +1125,15 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : class EnvoiNonOK*/
-.EnvoiNonOK,.EnvoiNonOK:focus{
-    border-color:red;
-    background-color:red;
-    color:white;
+.EnvoiNonOK, .EnvoiNonOK:focus {
+    border-color: rgba(255,0,0,0.8);
+    background-color: rgba(255,0,0,0.8);
+    color: white;
 }
 
 /*CSS : class EnvoiNonOK*/
 .EnvoiNonOK:hover {
-    border-color:rgba(255,0,0,0.6);
-    background-color: rgba(255,0,0,0.6);
+    border-color: red;
+    background-color: red;
 }
 

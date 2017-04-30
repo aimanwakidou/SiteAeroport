@@ -1,26 +1,27 @@
 /*Controle formulaire*/
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-$('#email1').bind("change blur",function () {
-    Controle($(this), emailRegex);
+var checkNomPrenom = /([a-z]|[A-Z])+/;
+
+$('#email1,#tel1').bind("change blur", function () {
+    var regex = ($(this).attr("id") == "tel1") ? /[0-9]{10}/ : emailRegex;
+    Controle($(this), regex);
     ControleSubmit(1);
 });
-$('#email2').bind("change blur",function () {
-    Controle($(this), emailRegex);
-    ControleSubmit(2);
-});
-$('#tel1').bind("change blur",function () {
-    Controle($(this), /[0-9]{10}/);
-    ControleSubmit(1);
-});
-$('#tel2').bind("change blur",function () {
-    Controle($(this), /[0-9]{10}/);
+$('#email2,#tel2').bind("change blur", function () {
+    var regex = ($(this).attr("id") == "tel2") ? /[0-9]{10}/ : emailRegex;
+    Controle($(this), regex);
     ControleSubmit(2);
 });
 
-$("#email1").click(ControleSubmit(1));
-$("#email2").click(ControleSubmit(2));
-$("#tel1").click(ControleSubmit(1));
-$("#tel2").click(ControleSubmit(2));  
+$("#email1,#tel1").click(ControleSubmit(1));
+$("#email2,#tel2").click(ControleSubmit(2));
+
+/*Controle nom et prénom*/
+$("#nom,#prénom").bind("change blur", function () {
+    Controle($(this), checkNomPrenom);
+    if (!$(this).parent().hasClass("success") && $("#submit1").hasClass("EnvoiOK"))
+        $("#submit1").removeClass("EnvoiOK");
+});
 
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/
 $("input").each(function(){
@@ -35,12 +36,8 @@ $("input").each(function(){
 });
 
 /*Contrôle Recherche vol*/
-$("#Provenance").blur(function () {
+$("#Provenance,#Destination").blur(function () {
     ControleAeroport($(this));
-});
-
-$("#Destination").blur(function(){
-	ControleAeroport($(this));
 });
 
 /*Contrôle pour la météo*/
@@ -72,12 +69,17 @@ $(".RadioButton button").each(function () {
 
         var test = $(this).hasClass("OK");
         var emailTel = $(".SuiviBagages-EmailTel");
+        var submitButton = $("#submit1");
 
         if ($(this).attr("id") == "oui" && test) {
             if (emailTel.hasClass("noDisplayEmailTel")){
                 emailTel.removeClass("noDisplayEmailTel");
                 emailTel.addClass("displayEmailTel");
-                $("#submit").css("padding-top", "0px");
+                if (!submitButton.attr("disabled")) {
+                    submitButton.attr("disabled", true);
+                    if (submitButton.hasClass("EnvoiNonOK"))
+                        submitButton.removeClass("EnvoiNonOK");
+                }
             }
         }
 
@@ -85,7 +87,15 @@ $(".RadioButton button").each(function () {
             if (emailTel.hasClass("displayEmailTel")) {
                 emailTel.removeClass("displayEmailTel");
                 emailTel.addClass("noDisplayEmailTel");
-                $("#submit").css("padding-top", "20px");
+                if ($("#nom").parent().hasClass("success") && $("#prénom").parent().hasClass("success")) {
+                    if (submitButton.hasClass("EnvoiNonOK"))
+                        submitButton.removeClass("EnvoiNonOK");
+                    submitButton.addClass("EnvoiOK");
+                }
+                else {
+                    if (submitButton.hasClass("EnvoiOK"))
+                        submitButton.removeClass("EnvoiOK");
+                }
             }
         }
     });
@@ -183,7 +193,6 @@ function Nettoyage(elementJQuery){
 	if(elementJQuery.parent().hasClass('success'))
 		elementJQuery.parent().removeClass('success');
 }
-
 
 
 

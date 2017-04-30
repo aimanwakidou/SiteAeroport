@@ -3,7 +3,8 @@
     "",
     "\\css",
     "\\js",
-    "\\pagesAeroport\\css"
+    "\\pagesAeroport\\css",
+    "\\vendor"
   ],
   "SelectedNode": "\\js\\Controle.js",
   "PreviewInSolutionExplorer": false
