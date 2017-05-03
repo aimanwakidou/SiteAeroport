@@ -341,7 +341,7 @@
                                                           </label>
                                                           <div class="SuiviBagages-num_vol-search_box search-box">
                                                               <div class="search-box-inner SuiviBagages-num_vol-search_box-inner form-group">
-                                                                  <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
+                                                                  <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
                                                               </div>
                                                           </div>
                                                     </div>
@@ -398,7 +398,7 @@
                             </div>
                             <div class="flash-alert">
                                   <div class="form-wrapper">
-                                        <form name="zoneFlashAlert" class="flash_alert-form">
+                                        <form name="zoneFlashAlert" id ="zoneFlashAlert" class="flash_alert-form"  method="POST">
                                               <h2 class="section-heading"><i class="fa fa-2x fa-plane plane" aria-hidden="true"></i><span class="section-heading-title">Alerte flash vol</span></h2>
                                               <div class="flash_alert-num_vol">
                                                     <div class="flash_alert-num_vol-content">
@@ -407,7 +407,7 @@
                                                           </label>
                                                           <div id="BoxFlashAlert" class="search-box">
                                                                 <div id="first_vol" class="search-box-inner form-group">
-                                                                      <input class="flash_alert-num_vol-input form-control " id="num_vol" placeholder="Entrez un numéro du vol" type="text" />
+                                                                      <input class="flash_alert-num_vol-input form-control " id="num_vol_flash" placeholder="Entrez un numéro du vol" type="text" />
                                                                       <div class="buttonAjoutSuppr">
                                                                           <span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>
                                                                           <span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>
@@ -423,10 +423,10 @@
                                                           </label>
                                                           <div id="CoteACote-inner" class="CoteACote-inner">
                                                                 <div class="email form-group">
-                                                                      <input id="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email"/>
+                                                                      <input id="email2"  name ="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email"/>
                                                                 </div>
                                                                 <div class="tel form-group">
-                                                                      <input id="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
+                                                                      <input id="tel2" name="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
                                                                 </div>
                                                           </div>
                                                     </div>
@@ -606,5 +606,6 @@
             <script src="js/Controle.js"></script>
             <script src="js/meteo.js"></script>
             <script src="js/AjoutSupprVol.js"></script>
+            <script src="js/flash.js"></script>
       </body>
 </html>
