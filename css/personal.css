@@ -250,6 +250,7 @@ input:-webkit-autofill:active {
 	vertical-align: baseline;
 }
 
+/*CSS : Suivi bagages*/
 .plane{
 	margin-right:20px;
 	transform:rotate(45deg);
@@ -272,20 +273,13 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : SuiviBagages*/
-.user{
-	font-size:25px;
-	margin-right:10px;
-	vertical-align:baseline;
-}
-
-/*CSS : SuiviBagages*/
 .ChoixSuivi{
     display:flex;
 }
 
 /*CSS : SuiviBagages*/
 .ChoixSuivi > span{
-    font-size:18px;
+    font-size:17px;
     font-style:italic;
 }
 
@@ -477,11 +471,6 @@ input:-webkit-autofill:active {
 	transition:all 0.4s ease-in-out;
 }
 
-/*CSS : Alerte Flash Vol*/
-.flash_alert-num_vol-content{
-	justify-content:space-between;
-}
-
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .flash_alert-num_vol-label,.suiviBagages_num_vol-label{
 	font-size:18px;
@@ -546,6 +535,11 @@ input:-webkit-autofill:active {
 /*CSS : Alerte Flash Vol*/
 .Suppr:hover {
     text-shadow: 0px 0px 1px red;
+}
+
+/*CSS : Alerte Flash Vol*/
+#EmailTel{
+    flex-direction:column;
 }
 
 /*CSS : Vols du jour*/
@@ -617,6 +611,7 @@ input:-webkit-autofill:active {
         width:760px;
     }
 }
+
 /*CSS : Vols du jour*/
 @media screen and (max-width:850px){
     .ArrivesDepartTitreColumn > th{
@@ -632,6 +627,7 @@ input:-webkit-autofill:active {
     }
 }
 
+/*CSS : Vols du jour*/
 @media screen and (max-width:600px){
     .ArrivesDepartData > tr{
         width:600px;
@@ -640,14 +636,25 @@ input:-webkit-autofill:active {
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
 .CoteACote{
 	font-size:15px;
-	padding:10px 0px 10px 0px;
+	padding:10px 0;
 	word-wrap:break-word;
 }
 
+/*CSS : Alerte Flash Vol + Suivi Bagages*/
+.flash_alert-coordonnees > .CoteACote, .SuiviBagages-coordonnees > .CoteACote{
+    margin-top:25px;
+}
+
+/*CSS : SuiviBagages*/
+.SuiviBagages-EmailTel > .CoteACote{
+    padding-bottom:0px;
+}
+
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
-.CoteACote-inner{
-	display:flex;
-	justify-content:space-between;
+.CoteACote-inner {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
 }
 
 /*CSS : Alerte Flash Vol + Vols du jour*/
@@ -661,13 +668,21 @@ input:-webkit-autofill:active {
 	margin-top:0px;
 }
 
+/*CSS : Alerte Flash Vol*/
+.titleNomPrenomFlash{
+    display:block;
+    margin:15px 0;
+    font-size:17px;
+    font-style:italic;
+}
+
 /*CSS : Vols du jour + Suivi Bagages*/
-.button_arr{
-	margin-right:5px;
+.button_arr {
+    margin-right: 5px;
 }
 
 /*CSS : Suivi Bagages*/
-.SuiviBagages-nom,.email{
+.NomInput{
 	margin-right:10px; 
 }
 
@@ -691,10 +706,30 @@ input:-webkit-autofill:active {
 	margin-right:0px;
 }
 
+/*CSS : Alerte Flash Vol + Suivi Bagages*/
+.WrapperNom,.WrapperPrénom{
+    position:relative;
+}
+
+/*CSS : Alerte Flash Vol + Suivi Bagages*/
+.WrapperNom::before,.WrapperPrénom::before{
+    position:absolute;
+    font-family:'FontAwesome';
+    font-size:25px;
+    left:10px;
+    top:11px;
+    content:"\f2be";
+}
+
+/*CSS : Alerte Flash Vol + Suivi Bagages*/
+.WrapperNom > input, .WrapperPrénom > input{
+    text-indent:35px;
+}
+
 /*CSS : Vols du jour + Alerte flash Vol */
 .button_dep_arr_label,.submit-button{
-	background-color:#337AB7;
-	color:white;
+    background-color:#337AB7;
+    color:white;
 }
 
 /*CSS : Vols du jour*/
@@ -753,7 +788,7 @@ input:-webkit-autofill:active {
 .flash_alert-coordonnees,.SuiviBagages-EmailTel{
 	flex-grow:1;
 	font-size:15px;
-	padding:10px 0px 10px 0px;
+    padding-bottom:10px;
 	word-wrap:break-word;
 }
 
@@ -763,7 +798,7 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Style pour les inputs*/
-.tel,.email, .SuiviBagages-prénom,.SuiviBagages-nom {
+.tel,.email, .PrénomInput,.NomInput {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -1044,7 +1079,7 @@ input:-webkit-autofill:active {
         flex-direction:column;
     }
 
-    .SuiviBagages-nom{
+    .NomInput{
         margin-right:0px;
     }
 }
@@ -1063,11 +1098,6 @@ input:-webkit-autofill:active {
     border-color: red;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
     transition: background-color 0.5s ease-in-out !important;
-}
-
-/*CSS : classe fail*/
-.fail:-webkit-autofill {
-    transition: transition:background-color 0.5s ease-in-out !important;
 }
 
 /*CSS : class fail2*/
