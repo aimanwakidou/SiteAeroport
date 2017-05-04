@@ -1,6 +1,6 @@
 /*Controle formulaire*/
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var checkNomPrenom = /([a-z]|[A-Z])+/;
+var checkNomPrenom = /^[a-zA-Zéè]+$/;
 
 $('#email1,#tel1').bind("change blur", function () {
     var regex = ($(this).attr("id") == "tel1") ? /[0-9]{10}/ : emailRegex;
@@ -17,7 +17,7 @@ $("#email1,#tel1").click(ControleSubmit(1));
 $("#email2,#tel2").click(ControleSubmit(2));
 
 /*Controle nom et prénom*/
-$("#nom,#prénom").bind("change blur", function () {
+$("#nomFlash,#nomSuivi,#prénomSuivi,#prénomFlash").bind("change blur", function () {
     Controle($(this), checkNomPrenom);
     if (!$(this).parent().hasClass("success") && $("#submit1").hasClass("EnvoiOK"))
         $("#submit1").removeClass("EnvoiOK");

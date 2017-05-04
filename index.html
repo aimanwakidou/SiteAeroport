@@ -339,8 +339,8 @@
                                                           <label for="num_vol" class="suiviBagages_num_vol-label">
                                                                 <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
                                                           </label>
-                                                          <div class="SuiviBagages-num_vol-search_box search-box">
-                                                              <div class="search-box-inner SuiviBagages-num_vol-search_box-inner form-group">
+                                                          <div class="search-box">
+                                                              <div class="search-box-inner form-group">
                                                                   <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
                                                               </div>
                                                           </div>
@@ -348,23 +348,23 @@
                                                     <div class="SuiviBagages-coordonnees">
                                                           <div class="CoteACote">
                                                                 <label class="coordonnees-label">
-                                                                  <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés</span>
+                                                                  <span>Vos coordonnés</span>
                                                                 </label>
                                                                 <div id="Column400" class="CoteACote-inner">
-                                                                      <div class="SuiviBagages-nom form-group">
-                                                                            <label for="nom" class="SuiviBagages-nom-label">
+                                                                      <div class="NomInput form-group">
+                                                                            <label for="nomSuivi" class="SuiviBagages-nom-label">
                                                                                 <span>Nom</span>
                                                                             </label>
                                                                             <div class="WrapperNom">
-                                                                                <input id="nom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text"/>
+                                                                                <input id="nomSuivi" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text"/>
                                                                             </div>
                                                                       </div>
-                                                                      <div class="SuiviBagages-prénom form-group">
-                                                                          <label for="prénom" class="SuiviBagages-prénom-label">
+                                                                      <div class="PrénomInput form-group">
+                                                                          <label for="prénomSuivi" class="SuiviBagages-prénom-label">
                                                                             <span>Prénom</span>
                                                                           </label>
                                                                           <div class="WrapperPrénom">
-                                                                              <input id="prénom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text" />
+                                                                              <input id="prénomSuivi" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text" />
                                                                           </div>
                                                                       </div>
                                                                 </div>
@@ -418,17 +418,46 @@
                                               </div>
                                               <div class="flash_alert-coordonnees">
                                                     <div class="CoteACote">
-                                                          <label class="coordonnees-label">
-                                                                <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés : e-mail et/ou tel</span>
-                                                          </label>
-                                                          <div id="CoteACote-inner" class="CoteACote-inner">
+                                                        <label class="coordonnees-label">
+                                                           <span>Vos coordonnés</span>
+                                                        </label>
+                                                        <div id="EmailTel" class="CoteACote-inner">
+                                                            <div class="EmailInput">
+                                                                <label for="email2">
+                                                                    <span>E-mail</span>
+                                                                </label>
                                                                 <div class="email form-group">
-                                                                      <input id="email2"  name ="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email"/>
+                                                                    <input id="email2" name="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
                                                                 </div>
+                                                            </div>
+                                                            <div class="TelInput">
+                                                                <label for="tel2">
+                                                                    <span>Téléphone</span>
+                                                                </label>
                                                                 <div class="tel form-group">
-                                                                      <input id="tel2" name="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel"/>
+                                                                    <input id="tel2" name="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
                                                                 </div>
-                                                          </div>
+                                                            </div>
+                                                        </div>
+                                                        <span class="titleNomPrenomFlash">Facultatif : nom et prénom</span>
+                                                        <div id="Column400" class="CoteACote-inner">
+                                                            <div class="NomInput form-group">
+                                                                <label for="nomFlash" class="SuiviBagages-nom-label">
+                                                                    <span>Nom</span>
+                                                                </label>
+                                                                <div class="WrapperNom">
+                                                                    <input id="nomFlash" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text" />
+                                                                </div>
+                                                            </div>
+                                                            <div class="PrénomInput form-group">
+                                                                <label for="prénomFlash" class="SuiviBagages-prénom-label">
+                                                                    <span>Prénom</span>
+                                                                </label>
+                                                                <div class="WrapperPrénom">
+                                                                    <input id="prénomFlash" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text" />
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="submit">
                                                           <input type="submit" id="submit2" class="btn btn-block submit-button" disabled value="Envoyer"/>
