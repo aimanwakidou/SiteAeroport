@@ -32,7 +32,6 @@ $(".bindAlert").each(function () {
             if ($(this).find("td input").is(":checked"))
                 BindModalAlert($(this));
         });
-
     });
 });
 
@@ -60,17 +59,25 @@ function Suppression() {
 function BindModalAlert(caseTable) {
     var num_vol = caseTable.find(".numVol").html();
     var inputsNumVol = $("#BoxFlashAlert .search-box-inner");
-    var flag = false;
+    var flagFree = false;
+    var flagFind = false;
 
     inputsNumVol.each(function () {
         var input = $(this).find("input");
-        if (input.val().length == 0 && !flag) {
-            input.val(num_vol);
-            flag = true;
+        if (input.val() == num_vol) {
+            flagFind = true;
+            return;
+        }
+        else{
+            if (input.val().length == 0 && !flagFree) {
+                input.val(num_vol);
+                flagFree = true;
+                return;
+            }
         }
     });
 
-    if (flag)
+    if (flagFree || flagFind)
         return;
 
     Ajout();
