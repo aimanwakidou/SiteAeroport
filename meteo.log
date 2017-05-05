@@ -543,3 +543,5 @@ Code de renvoi HTTP pour Moheli : 200
 Nom de l'ile : Moheli
 Code de renvoi HTTP pour Moroni : 200
 Nom de l'ile : Moroni
+Date d'éxécution : 05/05/2017 -> 18:00:02
+Une erreur est survenue : (2003, "Can't connect to MySQL server on '127.0.0.1' (111)")
