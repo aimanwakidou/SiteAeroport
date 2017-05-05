@@ -1097,6 +1097,11 @@ input:-webkit-autofill:active {
         flex-grow:1;
         justify-content:space-between;
     }
+
+    /*CSS : Alerte Flash Vol*/
+    .messageBox > div > span{
+        margin-right:10px;
+    }
 }
 
 /*CSS : Mobile*/
@@ -1137,6 +1142,7 @@ input:-webkit-autofill:active {
 	position:relative;
 }
 
+/*CSS : class fail2*/
 .fail2::after,.success::after{
 	font-family:'FontAwesome';
 	font-size:30px;
