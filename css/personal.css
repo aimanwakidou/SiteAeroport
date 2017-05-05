@@ -1100,6 +1100,12 @@ input:-webkit-autofill:active {
     transition: background-color 0.5s ease-in-out !important;
 }
 
+/*CSS : classe fail*/
+.fail::placeholder{
+    color:red;
+    font-weight:bold;
+}
+
 /*CSS : class fail2*/
 .fail2,.success{
 	position:relative;

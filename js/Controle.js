@@ -1,13 +1,13 @@
 /*Controle formulaire*/
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var checkNomPrenom = /^[a-zA-Zéè]+$/;
+var checkNomPrenom = /^[a-zA-Zéèïëêâî]+$/;
 
-$('#email1,#tel1').bind("change blur", function () {
+$('#email1,#tel1').on("change blur", function () {
     var regex = ($(this).attr("id") == "tel1") ? /[0-9]{10}/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(1);
 });
-$('#email2,#tel2').bind("change blur", function () {
+$('#email2,#tel2').on("change blur", function () {
     var regex = ($(this).attr("id") == "tel2") ? /[0-9]{10}/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(2);
@@ -17,10 +17,16 @@ $("#email1,#tel1").click(ControleSubmit(1));
 $("#email2,#tel2").click(ControleSubmit(2));
 
 /*Controle nom et prénom*/
-$("#nomFlash,#nomSuivi,#prénomSuivi,#prénomFlash").bind("change blur", function () {
+$("#nomFlash,#nomSuivi,#prénomSuivi,#prénomFlash").on("change blur", function () {
     Controle($(this), checkNomPrenom);
     if (!$(this).parent().hasClass("success") && $("#submit1").hasClass("EnvoiOK"))
         $("#submit1").removeClass("EnvoiOK");
+});
+
+/*Contrôle vol*/
+$("#first_vol input").click(function () {
+    if ($(this).hasClass("fail"))
+        $(this).removeClass("fail");
 });
 
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/
