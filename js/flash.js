@@ -17,8 +17,10 @@ $('#zoneFlashAlert').submit(function (event) {
                 tel: $("#tel2").val()
             },
 
-            function (data, status) {
-                console.log(data);
+            function (data) {
+                var message = (data.message == "OK") ? ".messageSuccess" : ".messageFail";
+                $(message).removeClass("noDisplayMessage");
+                $(message).addClass("displayMessage");
             });
     }
     else {

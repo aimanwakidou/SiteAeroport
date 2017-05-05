@@ -341,18 +341,13 @@ input:-webkit-autofill:active {
 }
 
 /*Recherche Vol*/
-.DepartsArrivésContainer > div{
-	flex-grow:1;
+.WrapperDépartsArrivés {
+    display: flex;
 }
 
 /*Recherche Vol*/
-.WrapperDépartsArrivés{
-	display:flex;
-}
-
-/*Recherche Vol*/
-.WrapperDépartsArrivés > div{
-	flex-grow:1;
+.DepartsArrivésContainer > div, .WrapperDépartsArrivés > div {
+    flex-grow: 1;
 }
 
 /*Recherche Vol*/
@@ -542,6 +537,33 @@ input:-webkit-autofill:active {
     flex-direction:column;
 }
 
+/*CSS : Alerte Flash Vol*/
+.messageBox{
+    padding-bottom:15px;
+}
+
+/*CSS : Alerte Flash Vol*/
+.messageBox > div{
+    font-size:28px;
+    text-align:center;
+    transition:all 0.5s ease-in-out;
+}
+
+/*CSS : Alerte Flash Vol*/
+.messageSuccess{
+    color:#1E9E1E;
+}
+
+/*CSS : Alerte Flash Vol*/
+.messageFail{
+    color:red;
+}
+
+/*CSS : Alerte Flash Vol*/
+.messageBox > div > span{
+    margin-right:30px;
+}
+
 /*CSS : Vols du jour*/
 #vols_du_jour{
 	padding:30px 0;
@@ -575,11 +597,15 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Vols du jour*/
+.ArrivesDepartData > tr > td:last-child{
+    padding-left:20px;
+}
+
+/*CSS : Vols du jour*/
 .ArrivesDepartData > tr > td {
     border-bottom: 1px solid black;
     border-top: 1px solid black;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: 10px 0;
     font-size: 16px;
     line-height: 30px;
 }
@@ -687,14 +713,14 @@ input:-webkit-autofill:active {
 }
 
 /*CSS : Suivi Bagages*/
-.noDisplayEmailTel, .noDisplayButton {
+.noDisplayEmailTel, .noDisplayButton ,.noDisplayMessage{
     height: 0;
     opacity: 0;
     overflow: hidden;
 }
 
 /*CSS : Suivi Bagages*/
-.displayEmailTel, .displayButton {
+.displayEmailTel, .displayButton , .displayMessage{
     height: 100%;
     opacity: 1;
     overflow: visible;
