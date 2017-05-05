@@ -8,18 +8,17 @@ $('#zoneFlashAlert').submit(function (event) {
         $('#BoxFlashAlert .search-box-inner input').each(function () {
             tabVols.push($(this).val());
         });
-
         $.post(url,
             {
                 vols: tabVols,
                 email: $("#email2").val(),
                 nom: $("#nomFlash").val(),
-                prenom: $("#prénomFlash").val(),
+                prenom: $("#prÃ©nomFlash").val(),
                 tel: $("#tel2").val()
             },
 
             function (data, status) {
-                console.log(status);
+                console.log(data);
             });
     }
     else {
