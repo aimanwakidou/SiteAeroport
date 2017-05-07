@@ -112,9 +112,10 @@ $(".RadioButton button").each(function () {
 function ControleSubmit(numero) {
     var email = $("#email" + numero);
     var tel = $("#tel" + numero);
+	var num_vol = (numero == 1) ? $(".suiviBagages-num_vol-input") : $("#first_vol input");
     var submitButton = $("#submit" + numero);
-
-    if (email.val() && tel.val()) {
+ 
+	if (email.val() && tel.val() && num_vol.val()) {
         var classToAdd = (email.parent().hasClass("success") && tel.parent().hasClass("success")) ? "EnvoiOK" : "EnvoiNonOK";
         var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
 
@@ -128,8 +129,10 @@ function ControleSubmit(numero) {
     }
 
     else {
-        submitButton.attr("disabled", true);
-        if (submitButton.hasClass("EnvoiOK"))
+		if(!submitButton.attr("disabled"))
+			submitButton.attr("disabled", true);
+        
+		if (submitButton.hasClass("EnvoiOK"))
             submitButton.removeClass("EnvoiOK");
 
         if (submitButton.hasClass("EnvoiNonOK"))
