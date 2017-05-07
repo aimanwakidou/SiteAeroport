@@ -1,12 +1,13 @@
 /*Controle formulaire*/
 var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-var checkNomPrenom = /^[a-zA-Zéèïëêâî]+$/;
+var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
 $('#email1,#tel1').on("change blur", function () {
     var regex = ($(this).attr("id") == "tel1") ? /[0-9]{10}/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(1);
 });
+
 $('#email2,#tel2').on("change blur", function () {
     var regex = ($(this).attr("id") == "tel2") ? /[0-9]{10}/ : emailRegex;
     Controle($(this), regex);
@@ -122,6 +123,7 @@ function ControleSubmit(numero) {
 
         if (submitButton.hasClass(classToRemove))
             submitButton.removeClass(classToRemove);
+			
         submitButton.addClass(classToAdd);
     }
 
@@ -139,7 +141,7 @@ function ControleSubmit(numero) {
 function Controle(elementJQuery,regex){
 	var result = elementJQuery.val().match(regex);
 	if(elementJQuery.val().length)
-		AjoutResult(elementJQuery,(result != null),false);
+		AjoutResult(elementJQuery,(result !== null),false);
 	else
 		ToggleClassControle(elementJQuery);
 }
