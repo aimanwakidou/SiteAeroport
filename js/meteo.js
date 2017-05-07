@@ -3,7 +3,7 @@ $(document).ready(function () {
     var hour = new Date().getHours();
 
     iles.forEach(function (ile) {
-        var url = "https://5.196.225.5/Meteo/"+ile;
+        var url = "https://5.196.225.5/api/Meteo/"+ile;
 
         $.getJSON(url, {
         })
