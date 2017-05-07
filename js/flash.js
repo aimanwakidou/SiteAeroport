@@ -2,7 +2,7 @@ $('#zoneFlashAlert').submit(function (event) {
     event.preventDefault();
     var first_vol = $("#first_vol input");
     if (first_vol.val().length) {
-        var url = "https://5.196.225.5/Flash/sendFlash";
+        var url = "https://5.196.225.5/api/Flash/";
         var tabVols = [];
 
         $('#BoxFlashAlert .search-box-inner input').each(function () {
