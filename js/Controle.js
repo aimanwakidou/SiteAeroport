@@ -3,13 +3,13 @@ var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.-_]+)@([a-zA-Z0-9à�
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
 $('#email1,#tel1').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel1") ? /[0-9]{10}/ : emailRegex;
+    var regex = ($(this).attr("id") == "tel1") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(1);
 });
 
 $('#email2,#tel2').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel2") ? /[0-9]{10}/ : emailRegex;
+    var regex = ($(this).attr("id") == "tel2") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(2);
 });
@@ -28,6 +28,10 @@ $("#nomFlash,#nomSuivi,#prénomSuivi,#prénomFlash").on("change blur", function 
 $("#first_vol input").click(function () {
     if ($(this).hasClass("fail"))
         $(this).removeClass("fail");
+});
+
+$("#first_vol input").on("change blur",function(){
+    ControleSubmit(2);
 });
 
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/

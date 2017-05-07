@@ -18,6 +18,7 @@ $('#zoneFlashAlert').submit(function (event) {
             },
 
             function (data) {
+                console.log(data);
                 var message = (data.message == "OK") ? ".messageSuccess" : ".messageFail";
                 $(message).removeClass("noDisplayMessage");
                 $(message).addClass("displayMessage");
