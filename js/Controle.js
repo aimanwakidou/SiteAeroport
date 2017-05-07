@@ -1,5 +1,5 @@
 /*Controle formulaire*/
-var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.-_]{2,})$/;
+var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]{2,})$/;
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
 $('#email1,#tel1').on("change blur", function () {
