@@ -286,18 +286,23 @@ section{
 }
 
 /*CSS : SuiviBagages*/
-.ChoixSuivi{
+.ChoixSuivi,.QuestionVol{
     display:flex;
 }
 
 /*CSS : SuiviBagages*/
-.ChoixSuivi > span{
+.QuestionVol{
+	padding:10px 0px 20px 0px;
+}
+
+/*CSS : SuiviBagages*/
+.ChoixSuivi > span,.QuestionVol > span{
     font-size:17px;
     font-style:italic;
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton{
+.RadioButton,.RadioButtonSuivi{
     display:flex;
     padding-left:15px;
 }
@@ -308,19 +313,47 @@ section{
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button{
+.RadioButton > button,.RadioButtonSuivi > button{
     width:100px;
     line-height:20px;
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button:first-child{
+.RadioButton > button:first-child,.RadioButtonSuivi > button:first-child{
     margin-right:15px;
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button:focus{
-    border:none;
+.RechercheVolSuivi{
+	display:flex;
+	justify-content:space-between;
+}
+
+/*CSS : SuiviBagages*/
+.RechercheVolSuivi > div{
+	flex-grow:1;
+}
+
+/*CSS : SuiviBagages*/
+.ProvenanceDestination{
+	display:flex;
+}
+
+/*CSS : SuiviBagages*/
+.JourInput,.HeureInput{
+	min-width:30px;
+	flex-grow:1;	
+}
+
+/*CSS : SuiviBagages*/
+.JourHeure{
+	display:flex;
+}
+
+/*CSS : Suivi Bagages*/
+.ProvenanceInput,.DestinationInput,.JourInput{
+	flex-grow:1;
+	margin-right:10px;
 }
 
 /*CSS : Recherche-vol + Alerte flash Vol*/
@@ -721,14 +754,14 @@ section{
 }
 
 /*CSS : Suivi Bagages*/
-.noDisplayEmailTel, .noDisplayButton ,.noDisplayMessage{
+.noDisplayGenerique, .noDisplayButton ,.noDisplayMessage{
     height: 0;
     opacity: 0;
     overflow: hidden;
 }
 
 /*CSS : Suivi Bagages*/
-.displayEmailTel, .displayButton , .displayMessage{
+.displayGenerique, .displayButton , .displayMessage{
     height: 100%;
     opacity: 1;
     overflow: visible;
@@ -824,11 +857,6 @@ section{
 	font-size:15px;
     padding-bottom:10px;
 	word-wrap:break-word;
-}
-
-/*CSS : Suivi bagages*/
-.SuiviBagages-EmailTel{
-    transition:all 0.4s ease-in-out;
 }
 
 /*CSS : Style pour les inputs*/
@@ -1009,6 +1037,27 @@ section{
 	}
 }
 
+/*CSS : Suivi Bagages*/
+@media screen and (max-width:820px){
+	.RechercheVolSuivi{
+		flex-direction:column;
+		justify-content:space-between;
+	}
+
+	.DestinationInput{
+		margin-right:0px;
+	}
+
+	.JourHeure{
+		margin-top:10px;
+		padding-bottom:15px;
+	}
+
+	.JourHeure > div{
+		width:100%;
+	}
+}
+
 /*CSS : Vols du jour*/
 @media screen and (max-width:768px) {
     .button_dep_arr_label > span {
@@ -1089,18 +1138,23 @@ section{
 /*CSS : Mobile*/
 @media screen and (max-width:550px){
     /*CSS : SuiviBagages*/
-    .ChoixSuivi {
+    .QuestionVol,.ChoixSuivi,.ProvenanceDestination {
         flex-direction: column;
     }
 
+    /*CSS : SuiviBagages*/;
+    .ProvenanceDestination{
+    	margin-right:0px;
+    }
+
     /*CSS : SuiviBagages*/
-    .RadioButton{
+    .RadioButton,.RadioButtonSuivi{
         padding-left:0px;
         padding-top:10px;
     }
     
     /*CSS : SuiviBagages*/
-    .RadioButton > button{
+    .RadioButton > button,.RadioButtonSuivi > button{
         max-width:100%;
         flex-grow:1;
         justify-content:space-between;
@@ -1109,6 +1163,11 @@ section{
     /*CSS : Alerte Flash Vol*/
     .messageBox > div > span{
         margin-right:10px;
+    }
+
+    /*CSS : SuiviBagages*/
+    .ProvenanceInput{
+    	margin-right:0px;
     }
 }
 
