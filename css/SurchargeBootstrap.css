@@ -1,0 +1,127 @@
+.btn{
+	border-radius:4px;
+	text-transform:capitalize;
+	line-height:54px;
+}
+
+.btn[disabled]{
+    opacity:0.8;
+}
+
+.form-group{
+    margin-bottom:8px;
+}
+
+.bg-primary{
+	padding:20px 0;
+}
+
+.modal-footer{
+    display:flex;
+    justify-content:space-between;
+}
+
+.uselessNav{
+	display:none;
+}
+
+.useless{
+    flex-grow:1;
+}
+
+/*CSS : Surchage caroussel*/
+#slider{
+	padding:0;
+}
+
+@media screen and (min-width:768px){
+    #ContentArrivesDepart {
+        width:760px;
+    }
+}
+
+@media screen and (min-width:800px){
+	.container{
+		width:770px;
+	}
+}
+
+@media screen and (min-width:900px){
+	.container{
+		width:870px;
+	}
+
+    #ContentArrivesDepart {
+        width:750px;
+    }
+}
+
+@media screen and (min-width:1000px){
+	.container{
+		width:970px;
+	}
+
+    #ContentArrivesDepart {
+        width: 850px;
+    }
+}
+
+@media screen and (min-width:1100px){
+	.container{
+		width:1070px;
+	}
+
+    #ContentArrivesDepart {
+        width: 950px;
+    }
+}
+
+@media screen and (min-width:1200px){
+	.container{
+		width:1170px;
+	}
+
+    #ContentArrivesDepart {
+        width: 1050px;
+    }
+}
+
+@media screen and (min-width:1300px){
+	.container{
+		width:1270px;
+	}
+
+    #ContentArrivesDepart {
+        width: 1150px;
+    }
+}
+
+@media screen and (min-width:1400px){
+	.container{
+		width:1370px;
+	}
+
+    #ContentArrivesDepart {
+        width: 1250px;
+    }
+}
+
+@media screen and (min-width:1600px){
+	.container{
+		width:1570px;
+	}
+
+    #ContentArrivesDepart {
+        width: 1450px;
+    }
+}
+
+@media screen and (min-width:1800px){
+	.container{
+		width:1770px;
+	}
+
+    #ContentArrivesDepart {
+        width: 1650px;
+    }
+}
