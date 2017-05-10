@@ -580,7 +580,17 @@ section{
 }
 
 /*CSS : Suivi Bagages*/
-.displayGenerique, .displayButton , .displayMessage{
+.SuiviBagages-EmailTel, .RechercheVolSuivi{
+    transition:all 0.4s ease-in-out;
+}
+
+/*CSS : Suivi Bagages*/
+.RechercheVolSuivi{
+    padding-bottom:10px;
+}
+
+/*CSS : Suivi Bagages*/
+.displayGenerique, .displayButton, .displayMessage {
     height: 100%;
     opacity: 1;
     overflow: visible;

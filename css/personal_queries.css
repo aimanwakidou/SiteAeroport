@@ -214,4 +214,8 @@
     .NomInput{
         margin-right:0px;
     }
+
+    .JourHeure{
+        flex-direction:column;
+    }
 }
