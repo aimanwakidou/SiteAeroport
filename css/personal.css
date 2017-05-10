@@ -590,6 +590,12 @@ section{
 }
 
 /*CSS : Suivi Bagages*/
+.JourInput > input,.HeureInput > input{
+    line-height:54px;
+    vertical-align:middle;
+}
+
+/*CSS : Suivi Bagages*/
 .displayGenerique, .displayButton, .displayMessage {
     height: 100%;
     opacity: 1;
