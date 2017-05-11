@@ -1,15 +1,15 @@
 /*Controle formulaire*/
-var emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]{2,})$/;
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
 $('#email1,#tel1').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel1") ? /[0-9]{10}/ : emailRegex;
+    var regex = ($(this).attr("id") == "tel1") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(1);
 });
 
 $('#email2,#tel2').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel2") ? /[0-9]{10}/ : emailRegex;
+    var regex = ($(this).attr("id") == "tel2") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(2);
 });
@@ -28,6 +28,10 @@ $("#nomFlash,#nomSuivi,#prénomSuivi,#prénomFlash").on("change blur", function 
 $("#first_vol input").click(function () {
     if ($(this).hasClass("fail"))
         $(this).removeClass("fail");
+});
+
+$("#first_vol input").on("change blur",function(){
+    ControleSubmit(2);
 });
 
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/
@@ -64,49 +68,23 @@ $(".choixIles").change(function(){
 	});
 });
 
-/*Controle bouton*/
+/*Controle bouton suivi choix notification*/
 $(".RadioButton button").each(function () {
     $(this).click(function () {
-        if ($(this).hasClass("KO")) {
-            $(this).siblings().removeClass("OK");
-            $(this).siblings().addClass("KO");
-            $(this).addClass("OK");
-            $(this).removeClass("KO");
-        }
-
-        var test = $(this).hasClass("OK");
-        var emailTel = $(".SuiviBagages-EmailTel");
-        var submitButton = $("#submit1");
-
-        if ($(this).attr("id") == "oui" && test) {
-            if (emailTel.hasClass("noDisplayEmailTel")){
-                emailTel.removeClass("noDisplayEmailTel");
-                emailTel.addClass("displayEmailTel");
-                if (!submitButton.attr("disabled")) {
-                    submitButton.attr("disabled", true);
-                    if (submitButton.hasClass("EnvoiNonOK"))
-                        submitButton.removeClass("EnvoiNonOK");
-                }
-            }
-        }
-
-        if ($(this).attr("id") == "non" && test) {
-            if (emailTel.hasClass("displayEmailTel")) {
-                emailTel.removeClass("displayEmailTel");
-                emailTel.addClass("noDisplayEmailTel");
-                if ($("#nom").parent().hasClass("success") && $("#prénom").parent().hasClass("success")) {
-                    if (submitButton.hasClass("EnvoiNonOK"))
-                        submitButton.removeClass("EnvoiNonOK");
-                    submitButton.addClass("EnvoiOK");
-                }
-                else {
-                    if (submitButton.hasClass("EnvoiOK"))
-                        submitButton.removeClass("EnvoiOK");
-                }
-            }
-        }
+        ToggleButton($(this));
+        ControleButton($(this),$(".SuiviBagages-EmailTel"),$(this).hasClass("OK"),true,$("#submit1"));
     });
 });
+
+/*Controle bouton suivi question*/
+$(".RadioButtonSuivi button").each(function(){
+    $(this).click(function(){
+        ToggleButton($(this));
+        ControleButtonWithoutSubmit($(this),$(".RechercheVolSuivi"),$(this).hasClass("OK"),false);
+    });
+});
+
+
 
 /*Contrôle submit*/
 function ControleSubmit(numero) {
@@ -137,6 +115,74 @@ function ControleSubmit(numero) {
 
         if (submitButton.hasClass("EnvoiNonOK"))
             submitButton.removeClass("EnvoiNonOK");
+    }
+}
+
+/*Fonction toggleButton*/
+function ToggleButton(buttonJQuery){
+    if (buttonJQuery.hasClass("KO")) {
+        buttonJQuery.siblings().removeClass("OK");
+        buttonJQuery.siblings().addClass("KO");
+        buttonJQuery.addClass("OK");
+        buttonJQuery.removeClass("KO");
+    }    
+}
+
+/*Fonction de contrôle des boutons Oui/Non sans submit*/
+function ControleButtonWithoutSubmit(button,elemToShow,test,onShow,onShow){
+    var testOnShow = onShow ? "oui" : "non";
+    var notToShow = (testOnShow == "oui") ? "non" : "oui";
+
+    if(test){
+        if (button.attr("id") == "non") {
+            if (elemToShow.hasClass("noDisplayGenerique")){
+                elemToShow.removeClass("noDisplayGenerique");
+                elemToShow.addClass("displayGenerique");
+            }
+        }
+
+        if (button.attr("id") == "oui") {
+            if (elemToShow.hasClass("displayGenerique")) {
+                elemToShow.removeClass("displayGenerique");
+                elemToShow.addClass("noDisplayGenerique");
+            }
+        }
+    }
+}
+
+/*Fonction de contrôle des boutons Oui/Non avec submit*/
+function ControleButton(button,elemToShow,test,onShow,submitButton){
+    var testOnShow = onShow ? "oui" : "non";
+    var notToShow = (testOnShow == "oui") ? "non" : "oui";
+
+    if(test){
+        if (button.attr("id") == testOnShow) {
+            if (elemToShow.hasClass("noDisplayGenerique")){
+                elemToShow.removeClass("noDisplayGenerique");
+                elemToShow.addClass("displayGenerique");
+                if (!submitButton.attr("disabled")) {
+                    submitButton.attr("disabled", true);
+                    if (submitButton.hasClass("EnvoiNonOK"))
+                        submitButton.removeClass("EnvoiNonOK");
+                }
+            }
+        }
+
+        if (button.attr("id") == notToShow) {
+            if (elemToShow.hasClass("displayGenerique")) {
+                elemToShow.removeClass("displayGenerique");
+                elemToShow.addClass("noDisplayGenerique");
+                if ($("#nom").parent().hasClass("success") && $("#prénom").parent().hasClass("success")) {
+                    if (submitButton.hasClass("EnvoiNonOK"))
+                        submitButton.removeClass("EnvoiNonOK");
+                    submitButton.addClass("EnvoiOK");
+                }
+                else {
+                    if (submitButton.hasClass("EnvoiOK"))
+                        submitButton.removeClass("EnvoiOK");
+                }
+            }
+        }
     }
 }
 

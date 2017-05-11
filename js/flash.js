@@ -18,9 +18,21 @@ $('#zoneFlashAlert').submit(function (event) {
             },
 
             function (data) {
-                var message = (data.message == "OK") ? ".messageSuccess" : ".messageFail";
-                $(message).removeClass("noDisplayMessage");
-                $(message).addClass("displayMessage");
+                console.log(data);
+                var messageAffiche = (data.message == "OK") ? ".messageSuccess" : ".messageFail";
+                var messageNonAffiche = (messageAffiche == ".messageSuccess") ? ".messageFail" : ".messageSuccess";
+
+                if($(messageNonAffiche).hasClass("displayMessage")){
+                    $(messageNonAffiche).removeClass("displayMessage");
+                    $(messageNonAffiche).addClass("noDisplayMessage");
+                }
+
+                $(messageAffiche).removeClass("noDisplayMessage");
+                $(messageAffiche).addClass("displayMessage");
+
+                /*Detail en cas d'erreur*/
+                $(".messageFail .messageInner mark").text(data.detail);
+
             });
     }
     else {

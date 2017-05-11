@@ -1,0 +1,106 @@
+/*CSS : classe générique*/
+.section-heading{
+    line-height:25px;
+    margin-bottom:10px;
+}
+
+/*CSS : classe générique*/
+.section-heading-title {
+    vertical-align: middle;
+}
+
+/*CSS : classe générique*/
+.section-heading > span{
+    vertical-align: baseline;
+}
+
+/*CSS : classe fail*/
+.fail{
+	background-color:rgba(200,0,0,0.3);
+	color:red;
+	border-color:red;
+	font-weight:bold;
+    transition:background-color 0.5s ease-in-out !important;
+}
+
+/*CSS : classe fail*/
+.fail:hover, .fail:focus {
+    border-color: red;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
+    transition: background-color 0.5s ease-in-out !important;
+}
+
+/*CSS : classe fail*/
+.fail::placeholder{
+    color:red;
+    font-weight:bold;
+}
+
+/*CSS : class fail2*/
+.fail2,.success{
+	position:relative;
+}
+
+/*CSS : class fail2*/
+.fail2::after,.success::after{
+	font-family:'FontAwesome';
+	font-size:30px;
+	position:absolute;
+	right:10px;
+	top:6px;
+}
+
+.fail2::after{
+	content:"\f057";
+	color:red;
+}
+
+.fail2 > input:hover,.fail2 > input:focus,.fail2 > input{
+	border-color:red;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
+}
+
+/*CSS : class success*/
+.success::after{
+	content:"\f058";
+	color:green;
+}
+
+/*CSS : class success*/
+.success > input:hover,.success > input:focus,.success > input{
+	border-color:#1E9E1E;
+    background-color:white;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
+}
+
+/*CSS : class KO*/
+.KO,.KO:hover,.KO:focus{
+    background-color: rgba(127,127,127,0.3);
+    color: black;
+}
+
+/*CSS : class OK*/
+.OK, .OK:hover, .OK:focus {
+    background-color: #337AB7;
+    color: white;
+}
+
+/*CSS : class EnvoiOK*/
+.EnvoiOK,.EnvoiOK:hover,.EnvoiOK:focus {
+    border-color: #1E9E1E;
+    background-color: #1E9E1E;
+    color: white;
+}
+
+/*CSS : class EnvoiNonOK*/
+.EnvoiNonOK, .EnvoiNonOK:focus {
+    border-color: rgba(255,0,0,0.8);
+    background-color: rgba(255,0,0,0.8);
+    color: white;
+}
+
+/*CSS : class EnvoiNonOK*/
+.EnvoiNonOK:hover {
+    border-color: red;
+    background-color: red;
+}

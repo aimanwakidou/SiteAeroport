@@ -1,3 +1,6 @@
+@import "SurchargeBootstrap.css" screen;
+@import "SuiviEtAlert.css" screen;
+
 @font-face{
 	font-family:'Segoe UI';
 	src:url('../font/segoeui.ttf');
@@ -33,6 +36,7 @@ input{
 }
 
 input[type=checkbox]{
+	height:20px;
     width:20px;
 }
 
@@ -56,20 +60,6 @@ input:-webkit-autofill:active {
 
 section{
 	padding:20px 0;
-}
-
-.btn{
-	border-radius:4px;
-	text-transform:capitalize;
-	line-height:54px;
-}
-
-.btn[disabled]{
-    opacity:0.8;
-}
-
-.form-group{
-    margin-bottom:8px;
 }
 
 #Column {
@@ -97,134 +87,13 @@ section{
 	order:3;
 }
 
-/*Surcharge bootstrap*/
-.bg-primary{
-	padding:20px 0;
-}
-
-/*Surcharge bootstrap*/
-.modal-footer{
-    display:flex;
-    justify-content:space-between;
-}
-
-/*Surcharge header + modal footer*/
-.uselessNav{
-	display:none;
-}
-
-/*Modal footer*/
-.useless{
-    flex-grow:1;
-}
-
-/*Surcharge Bootstrap*/
-@media screen and (min-width:800px){
-	.container{
-		width:770px;
-	}
-}
-
-/*Surcharge Bootstrap*/
-@media screen and (min-width:900px){
-	.container{
-		width:870px;
-	}
-
-    #ContentArrivesDepart {
-        width:750px;
-    }
-}
-
-/*Surcharge Bootstrap*/
-@media screen and (min-width:1000px){
-	.container{
-		width:970px;
-	}
-
-    #ContentArrivesDepart {
-        width: 850px;
-    }
-}
-
-/*Surcharge Bootstrap*/
-@media screen and (min-width:1100px){
-	.container{
-		width:1070px;
-	}
-
-    #ContentArrivesDepart {
-        width: 950px;
-    }
-}
-
-/*Surcharge Bootstrap*/
-@media screen and (min-width:1200px){
-	.container{
-		width:1170px;
-	}
-
-    #ContentArrivesDepart {
-        width: 1050px;
-    }
-}
-
-/*Surcharge bootstrap*/
-@media screen and (min-width:1300px){
-	.container{
-		width:1270px;
-	}
-
-    #ContentArrivesDepart {
-        width: 1150px;
-    }
-}
-
-/*Sucharge bootstrap*/
-@media screen and (min-width:1400px){
-	.container{
-		width:1370px;
-	}
-
-    #ContentArrivesDepart {
-        width: 1250px;
-    }
-}
-
-/*Surcharge bootstrap*/
-@media screen and (min-width:1600px){
-	.container{
-		width:1570px;
-	}
-
-    #ContentArrivesDepart {
-        width: 1450px;
-    }
-}
-
-/*Surcharge Bootstrap*/
-@media screen and (min-width:1800px){
-	.container{
-		width:1770px;
-	}
-
-    #ContentArrivesDepart {
-        width: 1650px;
-    }
-}
-
-/*CSS : Surchage caroussel*/
-#slider{
-	padding:0;
-}
-
-/*CSS : suivi bagages + Alrte flash Vol*/
+/*CSS : Suivi bagages + Alerte flash Vol*/
 .suiviAndAlert{
 	display:flex;
 	flex-direction:column;
 }
 
-/*CSS : suivi bagages*/
+/*CSS : Suivi bagages*/
 .suiviBagages{
 	order:2;
 	margin:50px 0px 20px 0px;	
@@ -233,22 +102,6 @@ section{
 /*CSS : Alerte flash vol*/
 .flash-alert {
     order: 1;
-}
-
-/*CSS : classe générique*/
-.section-heading{
-	line-height:25px;
-	margin-bottom:10px;
-}
-
-/*CSS : classe générique*/
-.section-heading-title {
-    vertical-align: middle;
-}
-
-/*CSS : classe générique*/
-.section-heading > span{
-	vertical-align: baseline;
 }
 
 /*CSS : Suivi bagages*/
@@ -286,18 +139,23 @@ section{
 }
 
 /*CSS : SuiviBagages*/
-.ChoixSuivi{
+.ChoixSuivi,.QuestionVol{
     display:flex;
 }
 
 /*CSS : SuiviBagages*/
-.ChoixSuivi > span{
+.QuestionVol{
+	padding:10px 0px 20px 0px;
+}
+
+/*CSS : SuiviBagages*/
+.ChoixSuivi > span,.QuestionVol > span{
     font-size:17px;
     font-style:italic;
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton{
+.RadioButton,.RadioButtonSuivi{
     display:flex;
     padding-left:15px;
 }
@@ -308,19 +166,74 @@ section{
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button{
+.RadioButton > button,.RadioButtonSuivi > button{
     width:100px;
     line-height:20px;
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button:first-child{
+.RadioButton > button:first-child,.RadioButtonSuivi > button:first-child{
     margin-right:15px;
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button:focus{
-    border:none;
+.RechercheVolSuivi{
+	display:flex;
+	justify-content:space-between;
+}
+
+/*CSS : SuiviBagages*/
+.RechercheVolSuivi > div{
+	flex-grow:1;
+}
+
+/*CSS : SuiviBagages*/
+.ProvenanceDestination{
+	display:flex;
+}
+
+/*CSS : SuiviBagages*/
+.JourInput,.HeureInput{
+	min-width:30px;
+	flex-grow:1;
+	position:relative;	
+}
+
+/*CSS :Suivi Bagages*/
+.JourInput > input,.HeureInput > input{
+	text-indent:20px;
+}
+
+/*CSS : SuiviBagages*/
+.JourHeure{
+	display:flex;
+}
+
+/*CSS : Suivi Bagages*/
+.ProvenanceInput,.DestinationInput,.JourInput{
+	flex-grow:1;
+	margin-right:10px;
+}
+
+/*CSS : Suivi Bagages*/
+.JourInput::before,.HeureInput::before{
+	position:absolute;
+	left:10px;
+	top:32px;
+	font-family:'FontAwesome';
+	font-size:30px;
+}
+
+/*CSS : SuiviBagages*/
+.JourInput::before{
+	content:"\f073";
+}
+
+/*CSS : SuiviBagages*/
+.HeureInput::before{
+	top:33px;
+	content:"\f017";
+	transform:rotate(30deg);
 }
 
 /*CSS : Recherche-vol + Alerte flash Vol*/
@@ -434,44 +347,12 @@ section{
 	vertical-align:middle;
 }
 
-/*Recherche Vol --> Tablette*/
-@media screen and (max-width:768px){
-	.DepartsArrivésContainer{
-		flex-direction:column;
-	}
-
-	.DatePicker{
-		margin-left:0px;
-		max-width:100%;
-	}
-}
-
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .flash_alert-num_vol,.SuiviBagages_form-content{
 	flex:0 0 100%;
 	flex-wrap:wrap;
 	padding:10px 0px 0px 0px;
 	word-wrap:break-word;
-}
-
-/*CSS : News Général*/
-.title_news{
-	display:flex;
-	justify-content:space-between;
-}
-
-/*CSS : News Général*/
-.hidebutton{
-	cursor:pointer;
-	color:white;
-	display:none;
-	line-height:40px;
-	vertical-align:middle;
-}
-
-/*CSS : News Général*/
-.rotate{
-	transition:all 0.4s ease-in-out;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
@@ -639,34 +520,6 @@ section{
     overflow-x:auto;
 }
 
-/*CSS : Vols du jour*/
-@media screen and (min-width:768px){
-    #ContentArrivesDepart {
-        width:760px;
-    }
-}
-
-/*CSS : Vols du jour*/
-@media screen and (max-width:850px){
-    .ArrivesDepartTitreColumn > th{
-        font-size:14px;
-    }
-
-    .ArrivesDepartData > tr > td{
-        font-size:12px;
-    }
-
-    .ArrivesDepartTitreColumn > th, .ArrivesDepartData > tr > td {
-        padding: 0px 15px 10px 15px;
-    }
-}
-
-/*CSS : Vols du jour*/
-@media screen and (max-width:600px){
-    .ArrivesDepartData > tr{
-        width:600px;
-    }
-}
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
 .CoteACote{
 	font-size:15px;
@@ -721,14 +574,30 @@ section{
 }
 
 /*CSS : Suivi Bagages*/
-.noDisplayEmailTel, .noDisplayButton ,.noDisplayMessage{
+.noDisplayGenerique, .noDisplayButton ,.noDisplayMessage{
     height: 0;
     opacity: 0;
     overflow: hidden;
 }
 
 /*CSS : Suivi Bagages*/
-.displayEmailTel, .displayButton , .displayMessage{
+.SuiviBagages-EmailTel, .RechercheVolSuivi{
+    transition:all 0.4s ease-in-out;
+}
+
+/*CSS : Suivi Bagages*/
+.RechercheVolSuivi{
+    padding-bottom:10px;
+}
+
+/*CSS : Suivi Bagages*/
+.JourInput > input,.HeureInput > input{
+    line-height:54px;
+    vertical-align:middle;
+}
+
+/*CSS : Suivi Bagages*/
+.displayGenerique, .displayButton, .displayMessage {
     height: 100%;
     opacity: 1;
     overflow: visible;
@@ -826,11 +695,6 @@ section{
 	word-wrap:break-word;
 }
 
-/*CSS : Suivi bagages*/
-.SuiviBagages-EmailTel{
-    transition:all 0.4s ease-in-out;
-}
-
 /*CSS : Style pour les inputs*/
 .tel,.email, .PrénomInput,.NomInput {
     display: flex;
@@ -874,6 +738,26 @@ section{
 /*CSS : Style pour les inputs*/
 .emailInput, .telInput, .suiviBagages-num_vol-input, .flash_alert-num_vol-input {
     text-indent: 35px;
+}
+
+/*CSS : News Général*/
+.title_news{
+	display:flex;
+	justify-content:space-between;
+}
+
+/*CSS : News Général*/
+.hidebutton{
+	cursor:pointer;
+	color:white;
+	display:none;
+	line-height:40px;
+	vertical-align:middle;
+}
+
+/*CSS : News Général*/
+.rotate{
+	transition:all 0.4s ease-in-out;
 }
 
 /*CSS : News Général*/
@@ -965,252 +849,5 @@ section{
 	font-size:20px;
 }
 
-/*CSS : Météo --> Tablette et mobile*/
-@media screen and (max-width:768px){
-	.météoWrapper{
-		flex-direction:column;
-	}
 
-	.météoWrapper > div:not(:first-child){
-		padding-left:15px;
-	}
-
-	.choixIles{
-		display:block;
-	}
-
-	.météoWrapper > div{
-		display:none;
-		padding-right:15px;
-	}
-
-}
-
-/*CSS : Météo --> PC*/
-@media screen and (min-width:768px){
-    header{
-        min-height:0%;
-    }
-}
-
-/*CSS : Mobile + Tablette*/
-@media screen and (max-width:1000px){
-	#CoteACote-inner{
-		flex-direction:column;
-	}
-	
-	.email{
-		margin-bottom:5px;
-		margin-right:0px;
-	}
-
-	.container{
-		padding:0 15px;
-	}
-}
-
-/*CSS : Vols du jour*/
-@media screen and (max-width:768px) {
-    .button_dep_arr_label > span {
-        margin-left: 7px;
-    }
-
-    /*CSS : Vols du jour*/
-    .button_dep_arr_label > img {
-        margin-right: 7px;
-    }
-
-    .hidebutton {
-        display: block;
-    }
-
-    .noDisplay {
-        height:0;
-        opacity:0;
-        overflow:hidden;
-    }
-
-    .display{
-        height:100%;
-        opacity:1;
-        overflow:visible;
-    }
-}
-
-
-/*CSS : Mobile*/
-@media screen and (max-width:640px){
-	.WrapperDépartsArrivés{
-		flex-direction:column;
-	}
-
-	.Departs{
-		margin-right:0px;
-	}
-
-	.ui-datepicker{
-		font-size:13px;
-	}
-
-	#suiviAndAlertBox{
-		margin-top:0px;
-	}
-	
-	.suiviBagages{
-		margin-top:30px;	 
-	}
-
-	h2{
-		font-size:25px;
-	}
-
-	.myNav{
-		display:flex;
-		justify-content:space-between;
-		word-wrap:break-word;
-	}
-	
-	.first{
-		order:1;
-	}
-	
-	.uselessNav{
-		display:block;
-		flex-grow:1;
-		order:2;
-	}
-	
-	.second{
-		order:3;
-	}
- 
-}
-
-/*CSS : Mobile*/
-@media screen and (max-width:550px){
-    /*CSS : SuiviBagages*/
-    .ChoixSuivi {
-        flex-direction: column;
-    }
-
-    /*CSS : SuiviBagages*/
-    .RadioButton{
-        padding-left:0px;
-        padding-top:10px;
-    }
-    
-    /*CSS : SuiviBagages*/
-    .RadioButton > button{
-        max-width:100%;
-        flex-grow:1;
-        justify-content:space-between;
-    }
-
-    /*CSS : Alerte Flash Vol*/
-    .messageBox > div > span{
-        margin-right:10px;
-    }
-}
-
-/*CSS : Mobile*/
-@media screen and (max-width:400px){
-    #Column400{
-        flex-direction:column;
-    }
-
-    .NomInput{
-        margin-right:0px;
-    }
-}
-
-/*CSS : classe fail*/
-.fail{
-	background-color:rgba(200,0,0,0.3);
-	color:red;
-	border-color:red;
-	font-weight:bold;
-    transition:background-color 0.5s ease-in-out !important;
-}
-
-/*CSS : classe fail*/
-.fail:hover, .fail:focus {
-    border-color: red;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
-    transition: background-color 0.5s ease-in-out !important;
-}
-
-/*CSS : classe fail*/
-.fail::placeholder{
-    color:red;
-    font-weight:bold;
-}
-
-/*CSS : class fail2*/
-.fail2,.success{
-	position:relative;
-}
-
-/*CSS : class fail2*/
-.fail2::after,.success::after{
-	font-family:'FontAwesome';
-	font-size:30px;
-	position:absolute;
-	right:10px;
-	top:6px;
-}
-
-.fail2::after{
-	content:"\f057";
-	color:red;
-}
-
-.fail2 > input:hover,.fail2 > input:focus,.fail2 > input{
-	border-color:red;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
-}
-
-/*CSS : class success*/
-.success::after{
-	content:"\f058";
-	color:green;
-}
-
-/*CSS : class success*/
-.success > input:hover,.success > input:focus,.success > input{
-	border-color:#1E9E1E;
-    background-color:white;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
-}
-
-/*CSS : class KO*/
-.KO,.KO:hover,.KO:focus{
-    background-color: rgba(127,127,127,0.3);
-    color: black;
-}
-
-/*CSS : class OK*/
-.OK, .OK:hover, .OK:focus {
-    background-color: #337AB7;
-    color: white;
-}
-
-/*CSS : class EnvoiOK*/
-.EnvoiOK,.EnvoiOK:hover,.EnvoiOK:focus {
-    border-color: #1E9E1E;
-    background-color: #1E9E1E;
-    color: white;
-}
-
-/*CSS : class EnvoiNonOK*/
-.EnvoiNonOK, .EnvoiNonOK:focus {
-    border-color: rgba(255,0,0,0.8);
-    background-color: rgba(255,0,0,0.8);
-    color: white;
-}
-
-/*CSS : class EnvoiNonOK*/
-.EnvoiNonOK:hover {
-    border-color: red;
-    background-color: red;
-}
 

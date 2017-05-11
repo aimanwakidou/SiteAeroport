@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
       <head>        
             <meta charset="utf-8">
@@ -26,6 +26,8 @@
             <link href="css/creative.min.css" rel="stylesheet" type="text/css">
             <link href="css/css_caroussel.css" rel="stylesheet" type="text/css">
             <link href="css/personal.css" rel="stylesheet" type="text/css">
+            <link href="css/GenericClass.css" rel="stylesheet" type="text/css">
+            <link href="css/personal_queries.css" rel="stylesheet" type="text/css">
             
             <!-- Footer CSS -->
             <link href="css/footer-distributed-with-address-and-phones.css" rel="stylesheet">
@@ -79,6 +81,7 @@
                             <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
                             <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
                             <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+                            <li data-target="#bootstrap-touch-slider" data-slide-to="3"></li>
                         </ol>
       
                         <!-- Wrapper For Slides -->
@@ -198,9 +201,9 @@
                                   </div>
                                   <div class="DatePicker">
                                     <div class="form-group"> <!-- Date input -->
-                                      <label class="control-label" for="datepicker">Jour</label>
+                                      <label class="control-label" for="datepicker">Jour du vol</label>
                                       <div class="DatePickerInput">
-                                        <input readonly="readonly" type="text" id="datepicker" name="date" class="form-control" placeholder="jj/mm/aaaa">
+                                        <input readonly="readonly" type="text" id="datepicker" name="date" class="form-control" placeholder="JJ/MM/AAAA">
                                       </div>
                                     </div>
                                   </div>
@@ -352,14 +355,43 @@
                                         <form name="zoneSuiviBagages" class="SuiviBagages_form">
                                               <div class="SuiviBagages_form-content">
                                                     <div class="SuiviBagages-num_vol"> 
-                                                          <label for="num_vol" class="suiviBagages_num_vol-label">
-                                                                <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
-                                                          </label>
-                                                          <div class="search-box">
-                                                              <div class="search-box-inner form-group">
-                                                                  <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
-                                                              </div>
+                                                        <div class="QuestionVol">
+                                                          <span>Avez-vous le numéro de vol ?</span>
+                                                          <div class="RadioButtonSuivi">
+                                                            <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
+                                                            <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
+                                                          </div> 
+                                                        </div>
+                                                        <div class="RechercheVolSuivi noDisplayGenerique">
+                                                          <div class="ProvenanceDestination">
+                                                            <div class="ProvenanceInput">
+                                                                <label for="provenance">Provenance</label>
+                                                                <input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/>
+                                                            </div>
+                                                            <div class="DestinationInput">
+                                                                <label for="destination">Destination</label>
+                                                                <input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/>
+                                                            </div>
                                                           </div>
+                                                          <div class="JourHeure">
+                                                            <div class="JourInput">
+                                                                <label for="jour">Jour du vol</label>
+                                                                <input name="jour" id="jour" class="form-control" type="date" placeholder="JJ/MM/AAAA"/>
+                                                            </div>
+                                                            <div class="HeureInput">
+                                                                <label for="heure">Heure de départ</label>
+                                                                <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
+                                                            </div>
+                                                          </div>
+                                                        </div>  
+                                                        <div class="search-box">
+                                                            <label for="num_vol" class="suiviBagages_num_vol-label">
+                                                              <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
+                                                            </label>
+                                                            <div class="search-box-inner form-group">
+                                                                <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                     <div class="SuiviBagages-coordonnees">
                                                           <div class="CoteACote">
@@ -393,7 +425,7 @@
                                                             <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
                                                         </div>
                                                     </div>
-                                                    <div class="SuiviBagages-EmailTel displayEmailTel">
+                                                    <div class="SuiviBagages-EmailTel displayGenerique">
                                                         <div class="CoteACote">                            
                                                             <div id="Column" class="CoteACote-inner">
                                                                 <div id="ColumnEmail" class="email form-group">
@@ -423,7 +455,7 @@
                                                           </label>
                                                           <div id="BoxFlashAlert" class="search-box">
                                                                 <div id="first_vol" class="search-box-inner form-group">
-                                                                      <input class="flash_alert-num_vol-input form-control " id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
+                                                                      <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
                                                                       <div class="buttonAjoutSuppr">
                                                                           <span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>
                                                                           <span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>
@@ -481,7 +513,7 @@
                                                             <i class="fa fa-thumbs-up" aria-hidden="true"></i>
                                                         </div>
                                                         <div class="messageFail noDisplayMessage">
-                                                            <span class="messageInner">Une erreur est survenue. Réessayez plus tard</span>
+                                                            <span class="messageInner">Une erreur est survenue. <mark></mark></span>
                                                             <i class="fa fa-frown-o" aria-hidden="true"></i>
                                                         </div>
                                                     </div>
