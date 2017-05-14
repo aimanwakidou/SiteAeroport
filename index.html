@@ -243,288 +243,239 @@
                 <!-- Arrivés -->
                 <div id="Arrivés" class="modal fade" role="dialog">
                     <div id="ContentArrivesDepart" class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Arrivés</h4>
-                        </div>
-                        <form class="modal-body">
-                            <table id="ArrivesDepart">
-                                <thead>
-                                    <tr class="ArrivesDepartTitreColumn">
-                                        <th>Compagnie</th>
-                                        <th>N° de Vol</th>
-                                        <th>Provenance</th>
-                                        <th>Destination</th>
-                                        <th>Heure d'arrivée</th>
-                                        <th>Statut</th>
-                                        <th>Alerte Flash Vol</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="ArrivesDepartData">
-                                    <tr class="avionArrive">
-                                        <td class="logoCompagny"><img src="img/air-austral-2014.jpg"/></td>
-                                        <td class="numVol">JIX8451</td>
-                                        <td>La Réunion</td>
-                                        <td>Mayotte</td>
-                                        <td>22:00</td>
-                                        <td></td>
-                                        <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
-                                    </tr>
-                                    <tr class="avionArrive">
-                                        <td class="logoCompagny"><img src="img/ethiopian-airlines.gif"/></td>
-                                        <td class="numVol">JIX8452</td>
-                                        <td>Addis Adeba</td>
-                                        <td>Moroni</td>
-                                        <td>20:00</td>
-                                        <td></td>
-                                        <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </form>
-                        <div class="modal-footer">
-                            <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkArrive noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
-                            <div class="useless"></div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Arrivés</h4>
+                            </div>
+                            <form class="modal-body">
+                                <table id="ArrivesDepart">
+                                    <thead>
+                                        <tr class="ArrivesDepartTitreColumn">
+                                            <th>Compagnie</th>
+                                            <th>N° de Vol</th>
+                                            <th>Provenance</th>
+                                            <th>Destination</th>
+                                            <th>Heure d'arrivée</th>
+                                            <th>Statut</th>
+                                            <th>Alerte Flash Vol</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="ArrivesDepartData">
+                                        <tr class="avionArrive">
+                                            <td class="logoCompagny"><img src="img/air-austral-2014.jpg"/></td>
+                                            <td class="numVol">JIX8451</td>
+                                            <td>La Réunion</td>
+                                            <td>Mayotte</td>
+                                            <td>22:00</td>
+                                            <td></td>
+                                            <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
+                                        </tr>
+                                        <tr class="avionArrive">
+                                            <td class="logoCompagny"><img src="img/ethiopian-airlines.gif"/></td>
+                                            <td class="numVol">JIX8452</td>
+                                            <td>Addis Adeba</td>
+                                            <td>Moroni</td>
+                                            <td>20:00</td>
+                                            <td></td>
+                                            <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkArrive noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                <div class="useless"></div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
                         </div>
                     </div>
-                  </div>
                 </div>
 
                 <!-- Départs -->
                 <div id="Départs" class="modal fade" role="dialog">
                     <div id="ContentArrivesDepart" class="modal-dialog">
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Départs</h4>
-                        </div>
-                        <form class="modal-body">
-                            <table id="ArrivesDepart">
-                                <thead>
-                                    <tr class="ArrivesDepartTitreColumn">
-                                        <th>Compagnie</th>
-                                        <th>N° de Vol</th>
-                                        <th>Provenance</th>
-                                        <th>Destination</th>
-                                        <th>Heure de départ</th>
-                                        <th>Statut</th>
-                                        <th>Alerte Flash Vol</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="ArrivesDepartData">
-                                    <tr class="avionDepart">
-                                        <td class="logoCompagny"><img src="img/air-austral-2014.jpg" width="100" height="50" /></td>
-                                        <td class="numVol">JIX8453</td>
-                                        <td>La Réunion</td>
-                                        <td>Mayotte</td>
-                                        <td>20:00</td>
-                                        <td></td>
-                                        <td><input type="checkbox" name="Alert" class="AlertDepart"/></td>
-                                    </tr>
-                                    <tr class="avionDepart">
-                                        <td class="logoCompagny"><img src="img/ethiopian-airlines.gif" width="100" height="50" /></td>
-                                        <td class="numVol">JIX8454</td>
-                                        <td>Addis Adeba</td>
-                                        <td>Moroni</td>
-                                        <td>15:00</td>
-                                        <td></td>
-                                        <td><input type="checkbox" name="Alert" class="AlertDepart" /></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </form>
-                        <div class="modal-footer">
-                            <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
-                            <div class="useless"></div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Départs</h4>
+                            </div>
+                            <form class="modal-body">
+                                <table id="ArrivesDepart">
+                                    <thead>
+                                        <tr class="ArrivesDepartTitreColumn">
+                                            <th>Compagnie</th>
+                                            <th>N° de Vol</th>
+                                            <th>Provenance</th>
+                                            <th>Destination</th>
+                                            <th>Heure de départ</th>
+                                            <th>Statut</th>
+                                            <th>Alerte Flash Vol</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="ArrivesDepartData">
+                                        <tr class="avionDepart">
+                                            <td class="logoCompagny"><img src="img/air-austral-2014.jpg" width="100" height="50" /></td>
+                                            <td class="numVol">JIX8453</td>
+                                            <td>La Réunion</td>
+                                            <td>Mayotte</td>
+                                            <td>20:00</td>
+                                            <td></td>
+                                            <td><input type="checkbox" name="Alert" class="AlertDepart"/></td>
+                                        </tr>
+                                        <tr class="avionDepart">
+                                            <td class="logoCompagny">
+                                              <img src="img/ethiopian-airlines.gif" width="100" height="50" />
+                                            </td>
+                                            <td class="numVol">JIX8454</td>
+                                            <td>Addis Adeba</td>
+                                            <td>Moroni</td>
+                                            <td>15:00</td>
+                                            <td></td>
+                                            <td><input type="checkbox" name="Alert" class="AlertDepart" /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                <div class="useless"></div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
                         </div>
                     </div>
-                  </div>
                 </div>
 
                 <!-- Zone : Alerte flash vol + Suivi bagages -->
                 <section id="suiviAndAlertBox">
-                      <div class="container suiviAndAlert">
+                    <form name="zoneAlerteSuivi" id="zoneAlerteSuivi" method="POST">
+                        <div class="container suiviAndAlert">
                             <div class="suiviBagages">
-                                  <div class="suiviBagages_content">
-                                        <h2 class="section-heading"><i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i><span>Suivi de vos bagages</span></h2>
-                                        <form name="zoneSuiviBagages" class="SuiviBagages_form">
-                                              <div class="SuiviBagages_form-content">
-                                                    <div class="SuiviBagages-num_vol"> 
-                                                        <div class="QuestionVol">
-                                                          <span>Avez-vous le numéro de vol ?</span>
-                                                          <div class="RadioButtonSuivi">
-                                                            <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
-                                                            <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
-                                                          </div> 
-                                                        </div>
-                                                        <div class="RechercheVolSuivi noDisplayGenerique">
-                                                          <div class="ProvenanceDestination">
-                                                            <div class="ProvenanceInput">
-                                                                <label for="provenance">Provenance</label>
-                                                                <input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/>
-                                                            </div>
-                                                            <div class="DestinationInput">
-                                                                <label for="destination">Destination</label>
-                                                                <input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/>
-                                                            </div>
-                                                          </div>
-                                                          <div class="JourHeure">
-                                                            <div class="JourInput">
-                                                                <label for="jour">Jour du vol</label>
-                                                                <input name="jour" id="jour" class="form-control" type="date" placeholder="JJ/MM/AAAA"/>
-                                                            </div>
-                                                            <div class="HeureInput">
-                                                                <label for="heure">Heure de départ</label>
-                                                                <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
-                                                            </div>
-                                                          </div>
-                                                        </div>  
-                                                        <div class="search-box">
-                                                            <label for="num_vol" class="suiviBagages_num_vol-label">
-                                                              <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
-                                                            </label>
-                                                            <div class="search-box-inner form-group">
-                                                                <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="SuiviBagages-coordonnees">
-                                                          <div class="CoteACote">
-                                                                <label class="coordonnees-label">
-                                                                  <i class="fa fa-address-card-o" aria-hidden="true"></i><span>Vos coordonnés</span>
-                                                                </label>
-                                                                <div id="Column400" class="CoteACote-inner">
-                                                                      <div class="NomInput form-group">
-                                                                            <label for="nomSuivi" class="SuiviBagages-nom-label">
-                                                                                <span>Nom</span>
-                                                                            </label>
-                                                                            <div class="WrapperNom">
-                                                                                <input id="nomSuivi" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text"/>
-                                                                            </div>
-                                                                      </div>
-                                                                      <div class="PrénomInput form-group">
-                                                                          <label for="prénomSuivi" class="SuiviBagages-prénom-label">
-                                                                            <span>Prénom</span>
-                                                                          </label>
-                                                                          <div class="WrapperPrénom">
-                                                                              <input id="prénomSuivi" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text" />
-                                                                          </div>
-                                                                      </div>
-                                                                </div>
-                                                          </div>
-                                                    </div>
-                                                    <div class="ChoixSuivi">
-                                                        <span>Notification par E-mail/Tel ? </span>
-                                                        <div class="RadioButton">
-                                                            <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
-                                                            <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
-                                                        </div>
-                                                    </div>
-                                                    <div class="SuiviBagages-EmailTel displayGenerique">
-                                                        <div class="CoteACote">                            
-                                                            <div id="Column" class="CoteACote-inner">
-                                                                <div id="ColumnEmail" class="email form-group">
-                                                                    <input id="email1" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
-                                                                </div>
-                                                                <div class="tel form-group">
-                                                                    <input id="tel1" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                      <div id="submit" class="submit">
-                                                          <input type="submit" id="submit1" class="btn btn-block submit-button" disabled value="Envoyer" />
-                                                      </div>
-                                              </div>
-                                        </form>
-                                  </div>
+                                <div class="suiviBagages_content">
+                                    <h2 class="section-heading">
+                                        <i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i>
+                                        <span>Suivi de vos bagages</span>
+                                    </h2>
+                                    <div class="SuiviBagages_form-content">
+                                        <div class="SuiviBagages-num_vol"> 
+                                            <div class="QuestionVol noDisplayGenerique">
+                                                <span>Avez-vous le numéro de vol ?</span>
+                                                <div class="RadioButtonSuivi">
+                                                  <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
+                                                  <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                        <div class="RechercheVolSuivi noDisplayGenerique">
+                                            <div class="ProvenanceDestination">
+                                                <div class="ProvenanceInput">
+                                                    <label for="provenance">Provenance</label>
+                                                    <input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/>
+                                                </div>
+                                                <div class="DestinationInput">
+                                                    <label for="destination">Destination</label>
+                                                    <input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/>
+                                                </div>
+                                            </div>
+                                            <div class="JourHeure">
+                                                <div class="JourInput">
+                                                    <label for="jour">Jour du vol</label>
+                                                    <input name="jour" id="jour" class="form-control" type="date" placeholder="JJ/MM/AAAA"/>
+                                                </div>
+                                                <div class="HeureInput">
+                                                    <label for="heure">Heure de départ</label>
+                                                    <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
+                                                </div>
+                                            </div>
+                                        </div>  
+                                        <div class="search-box">
+                                            <label for="num_vol" class="suiviBagages_num_vol-label">N° vol</label>  
+                                            <div class="search-box-inner form-group">
+                                                <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>
                             </div>
                             <div class="flash-alert">
-                                  <div class="form-wrapper">
-                                        <form name="zoneFlashAlert" id ="zoneFlashAlert" class="flash_alert-form"  method="POST">
-                                              <h2 class="section-heading"><i class="fa fa-2x fa-plane plane" aria-hidden="true"></i><span class="section-heading-title">Alerte flash vol</span></h2>
-                                              <div class="flash_alert-num_vol">
-                                                    <div class="flash_alert-num_vol-content">
-                                                          <label for="num_vol" class="flash_alert-num_vol-label">
-                                                                <span class="flash_alert-num_vol-label-inner">N° vol</span>
-                                                          </label>
-                                                          <div id="BoxFlashAlert" class="search-box">
-                                                                <div id="first_vol" class="search-box-inner form-group">
-                                                                      <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
-                                                                      <div class="buttonAjoutSuppr">
-                                                                          <span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>
-                                                                          <span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>
-                                                                      </div>
-                                                                </div>
-                                                          </div>
+                                <div class="form-wrapper">
+                                    <h2 class="section-heading">
+                                        <i class="fa fa-2x fa-plane plane" aria-hidden="true"></i>
+                                        <span class="section-heading-title">Alerte flash vol</span>
+                                    </h2>
+                                    <div class="flash_alert-num_vol">
+                                        <div class="flash_alert-num_vol-content">
+                                            <label for="num_vol" class="flash_alert-num_vol-label">N° vol</label>
+                                            <div id="BoxFlashAlert" class="search-box">
+                                                <div id="first_vol" class="search-box-inner form-group">
+                                                    <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
+                                                    <div class="buttonAjoutSuppr">
+                                                        <span class="AjoutWrapper">
+                                                            <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
+                                                        </span>
+                                                        <span class="SupprWrapper">
+                                                            <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
+                                                        </span>
                                                     </div>
-                                              </div>
-                                              <div class="flash_alert-coordonnees">
-                                                    <div class="CoteACote">
-                                                        <label class="coordonnees-label">
-                                                           <i class="fa fa-address-card-o" aria-hidden="true"></i><span>Vos coordonnés</span>
-                                                        </label>
-                                                        <div id="EmailTel" class="CoteACote-inner">
-                                                            <div class="EmailInput">
-                                                                <label for="email2">
-                                                                    <span>E-mail</span>
-                                                                </label>
-                                                                <div class="email form-group">
-                                                                    <input id="email2" name="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="TelInput">
-                                                                <label for="tel2">
-                                                                    <span>Téléphone</span>
-                                                                </label>
-                                                                <div class="tel form-group">
-                                                                    <input id="tel2" name="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <span class="titleNomPrenomFlash">Facultatif : nom et prénom</span>
-                                                        <div id="Column400" class="CoteACote-inner">
-                                                            <div class="NomInput form-group">
-                                                                <label for="nomFlash" class="SuiviBagages-nom-label">
-                                                                    <span>Nom</span>
-                                                                </label>
-                                                                <div class="WrapperNom">
-                                                                    <input id="nomFlash" name="nomFlash" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text" />
-                                                                </div>
-                                                            </div>
-                                                            <div class="PrénomInput form-group">
-                                                                <label for="prénomFlash" class="SuiviBagages-prénom-label">
-                                                                    <span>Prénom</span>
-                                                                </label>
-                                                                <div class="WrapperPrénom">
-                                                                    <input id="prénomFlash" name="prénomFlash" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text" />
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="messageBox">
-                                                        <div class="messageSuccess noDisplayMessage">
-                                                            <span class="messageInner">Les données ont bien été envoyés</span>
-                                                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-                                                        </div>
-                                                        <div class="messageFail noDisplayMessage">
-                                                            <span class="messageInner">Une erreur est survenue. <mark></mark></span>
-                                                            <i class="fa fa-frown-o" aria-hidden="true"></i>
-                                                        </div>
-                                                    </div>
-                                                    <div class="submit">
-                                                          <input type="submit" id="submit2" class="btn btn-block submit-button" disabled value="Envoyer"/>
-                                                    </div>
-                                              </div>
-                                        </form>
-                                  </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                      </div>
+                        </div>
+                        <div class="container coordonnees">
+                            <div class="CoteACote">
+                                <label class="coordonnees-label">
+                                    <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                                    <span>Vos coordonnés</span>
+                                </label>
+                                <div id="EmailTel" class="CoteACote-inner">
+                                    <div class="EmailInput">
+                                        <label for="email">E-mail</label>
+                                        <div class="email form-group">
+                                            <input id="email" name="email" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
+                                        </div>
+                                    </div>
+                                    <div class="TelInput">
+                                        <label for="tel">Téléphone</label>
+                                        <div class="tel form-group">
+                                            <input id="tel" name="tel" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="Column400" class="CoteACote-inner">
+                                    <div class="NomInput form-group">
+                                        <label for="nom">Nom</label>
+                                        <div class="WrapperNom">
+                                            <input id="nom" name="nom" class="form-control" placeholder="Entrez votre nom" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="PrénomInput form-group">
+                                        <label for="prénom">Prénom</label>
+                                        <div class="WrapperPrénom">
+                                            <input id="prénom" name="prénom" class="form-control" placeholder="Entrez votre prénom" type="text" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>   
+                        </div>
+                        <div class="container messageBox">
+                            <div class="messageSuccess noDisplayMessage">
+                              <span class="messageInner">Les données ont bien été envoyés</span>
+                              <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                            </div>
+                            <div class="messageFail noDisplayMessage">
+                                <span class="messageInner">Une erreur est survenue. <mark></mark></span>
+                                <i class="fa fa-frown-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <div class="container submit">
+                            <input type="submit" id="submit" class="btn btn-block submit-button" disabled value="Envoyer"/>
+                        </div>
+                    </form>
                 </section>
 
                 <!-- News Général -->
@@ -605,15 +556,7 @@
                             </div>
                           </div>
                       </div>
-                </section>
-                
-                <!-- Abonnement aux News -->
-                <section id="AbonnementNews">
-                    <div class="container">
-                        <h2 class="section-heading">S'abonner au news</h2>
-                    </div>
-                </section>
-                
+                </section>  
             </main>
 
             <!-- pied de page -->

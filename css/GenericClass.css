@@ -14,6 +14,16 @@
     vertical-align: baseline;
 }
 
+/*CSS : classe Highlight*/
+.highlight{
+    opacity:1;
+}
+
+/*CSS : class nonHighlight*/
+.nonHighlight{
+    opacity:0.4;
+}
+
 /*CSS : classe fail*/
 .fail{
 	background-color:rgba(200,0,0,0.3);

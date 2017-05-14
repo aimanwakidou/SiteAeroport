@@ -13,6 +13,16 @@
     }
 }
 
+@media screen and (max-width: 900px){
+	.flash_alert-num_vol-content{
+		padding-top:25px;
+	}
+
+	.RechercheVolSuivi{
+		padding-bottom:0px;
+	}
+}
+
 /*CSS : Mobile + Tablette*/
 @media screen and (max-width:1000px){
 	#CoteACote-inner{
@@ -28,7 +38,6 @@
 		padding:0 15px;
 	}
 }
-
 
 /*CSS : Vols du jour*/
 @media screen and (max-width:850px){
@@ -48,11 +57,6 @@
 
 /*CSS : Suivi Bagages*/
 @media screen and (max-width:820px){
-	.RechercheVolSuivi{
-		flex-direction:column;
-		justify-content:space-between;
-	}
-
 	.DestinationInput{
 		margin-right:0px;
 	}
@@ -84,6 +88,18 @@
 	.météoWrapper > div{
 		display:none;
 		padding-right:15px;
+	}
+
+	.flash_alert-num_vol-content{
+		padding-top:10px;
+	}
+
+	.flash_alert{
+		padding-bottom:20px;
+	}
+
+	.RechercheVolSuivi{
+		padding-bottom:10px;
 	}
 
 	.button_dep_arr_label > span {
@@ -118,6 +134,18 @@
 	.DatePicker{
 		margin-left:0px;
 		max-width:100%;
+	}
+
+	.suiviAndAlert{
+		flex-direction:column;
+	}
+
+	.suiviBagages{
+		margin-left:0px;
+	}
+
+	.QuestionVol{
+		padding-top:10px;
 	}
 
 }
@@ -180,7 +208,7 @@
 /*CSS : Mobile*/
 @media screen and (max-width:550px){
     /*CSS : SuiviBagages*/
-    .QuestionVol,.ChoixSuivi,.ProvenanceDestination {
+    .ChoixSuivi,.ProvenanceDestination {
         flex-direction: column;
     }
 

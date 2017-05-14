@@ -2,32 +2,26 @@
 var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]{2,})$/;
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
-$('#email1,#tel1').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel1") ? /^[0-9]{10}$/ : emailRegex;
-    Controle($(this), regex);
-    ControleSubmit(1);
-});
-
-$('#email2,#tel2').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel2") ? /^[0-9]{10}$/ : emailRegex;
+$('#email,#tel').on("change blur", function () {
+    var regex = ($(this).attr("id") == "tel") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
     ControleSubmit(2);
 });
 
-$("#email1,#tel1").click(ControleSubmit(1));
-$("#email2,#tel2").click(ControleSubmit(2));
+$("#email,#tel").click(ControleSubmit(2));
 
 /*Controle nom et prénom*/
-$("#nomFlash,#nomSuivi,#prénomSuivi,#prénomFlash").on("change blur", function () {
+$("#nom,#prénom").on("change blur", function () {
     Controle($(this), checkNomPrenom);
-    if (!$(this).parent().hasClass("success") && $("#submit1").hasClass("EnvoiOK"))
-        $("#submit1").removeClass("EnvoiOK");
+    if (!$(this).parent().hasClass("success") && $("#submit").hasClass("EnvoiOK"))
+        $("#submit").removeClass("EnvoiOK");
 });
 
 /*Contrôle vol*/
 $("#first_vol input").click(function () {
     if ($(this).hasClass("fail"))
         $(this).removeClass("fail");
+    ControleSubmit(2);
 });
 
 $("#first_vol input").on("change blur",function(){
@@ -84,14 +78,12 @@ $(".RadioButtonSuivi button").each(function(){
     });
 });
 
-
-
 /*Contrôle submit*/
 function ControleSubmit(numero) {
-    var email = $("#email" + numero);
-    var tel = $("#tel" + numero);
+    var email = $("#email");
+    var tel = $("#tel");
 	var num_vol = (numero == 1) ? $(".suiviBagages-num_vol-input") : $("#first_vol input");
-    var submitButton = $("#submit" + numero);
+    var submitButton = $("#submit");
  
 	if (email.val() && tel.val() && num_vol.val()) {
         var classToAdd = (email.parent().hasClass("success") && tel.parent().hasClass("success")) ? "EnvoiOK" : "EnvoiNonOK";

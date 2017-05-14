@@ -83,20 +83,21 @@ section{
 	order:2;
 }
 
-#abonnementNews{
-	order:3;
-}
-
 /*CSS : Suivi bagages + Alerte flash Vol*/
 .suiviAndAlert{
 	display:flex;
-	flex-direction:column;
+}
+
+/*CSS : Suivi bagages + Alerte flash vol*/
+.suiviAndAlert > div{
+	flex-grow:1;
+	flex-basis:0;
 }
 
 /*CSS : Suivi bagages*/
 .suiviBagages{
 	order:2;
-	margin:50px 0px 20px 0px;	
+	margin-left:20px;
 }
 
 /*CSS : Alerte flash vol*/
@@ -145,13 +146,19 @@ section{
 
 /*CSS : SuiviBagages*/
 .QuestionVol{
-	padding:10px 0px 20px 0px;
+	padding-bottom:10px;
 }
 
 /*CSS : SuiviBagages*/
 .ChoixSuivi > span,.QuestionVol > span{
     font-size:17px;
     font-style:italic;
+}
+
+/*CSS : SuiviBagages*/
+.QuestionVol > span{
+	line-height:30px;
+	vertical-align:middle;
 }
 
 /*CSS : SuiviBagages*/
@@ -166,9 +173,15 @@ section{
 }
 
 /*CSS : SuiviBagages*/
-.RadioButton > button,.RadioButtonSuivi > button{
+.RadioButton > button{
     width:100px;
     line-height:20px;
+}
+
+/*CSS : SuiviBagages*/
+.RadioButtonSuivi > button{
+	width:45px;
+	line-height:30px;
 }
 
 /*CSS : SuiviBagages*/
@@ -179,7 +192,9 @@ section{
 /*CSS : SuiviBagages*/
 .RechercheVolSuivi{
 	display:flex;
-	justify-content:space-between;
+	flex-direction:column;
+	padding-bottom:10px;
+    transition:all 0.4s ease-in-out;
 }
 
 /*CSS : SuiviBagages*/
@@ -192,10 +207,15 @@ section{
 	display:flex;
 }
 
+.ProvenanceDestination > div{
+	flex-basis:0;
+	flex-grow:1;
+}
+
 /*CSS : SuiviBagages*/
 .JourInput,.HeureInput{
-	min-width:30px;
 	flex-grow:1;
+	flex-basis:0;
 	position:relative;	
 }
 
@@ -210,7 +230,7 @@ section{
 }
 
 /*CSS : Suivi Bagages*/
-.ProvenanceInput,.DestinationInput,.JourInput{
+.ProvenanceInput,.JourInput{
 	flex-grow:1;
 	margin-right:10px;
 }
@@ -351,7 +371,7 @@ section{
 .flash_alert-num_vol,.SuiviBagages_form-content{
 	flex:0 0 100%;
 	flex-wrap:wrap;
-	padding:10px 0px 0px 0px;
+	padding-top:10px;
 	word-wrap:break-word;
 }
 
@@ -381,6 +401,11 @@ section{
 	flex:1 1 auto;
 	font-weight:100;
 	-webkit-box-flex:1;
+}
+
+/*CSS : Alerte flash vol*/
+.flash_alert-num_vol-content{
+	padding-top:20px;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -428,7 +453,7 @@ section{
 
 /*CSS : Alerte Flash Vol*/
 .messageBox{
-    padding-bottom:15px;
+    margin-bottom:15px;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -528,13 +553,8 @@ section{
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
-.flash_alert-coordonnees > .CoteACote, .SuiviBagages-coordonnees > .CoteACote{
+.coordonnees > .CoteACote{
     margin-top:25px;
-}
-
-/*CSS : SuiviBagages*/
-.SuiviBagages-EmailTel > .CoteACote{
-    padding-bottom:0px;
 }
 
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
@@ -563,14 +583,9 @@ section{
     font-style:italic;
 }
 
-/*CSS : Vols du jour + Suivi Bagages*/
+/*CSS : Vols du jour*/
 .button_arr {
     margin-right: 5px;
-}
-
-/*CSS : Suivi Bagages*/
-.NomInput{
-	margin-right:10px; 
 }
 
 /*CSS : Suivi Bagages*/
@@ -578,16 +593,6 @@ section{
     height: 0;
     opacity: 0;
     overflow: hidden;
-}
-
-/*CSS : Suivi Bagages*/
-.SuiviBagages-EmailTel, .RechercheVolSuivi{
-    transition:all 0.4s ease-in-out;
-}
-
-/*CSS : Suivi Bagages*/
-.RechercheVolSuivi{
-    padding-bottom:10px;
 }
 
 /*CSS : Suivi Bagages*/
@@ -683,12 +688,7 @@ section{
 }
 
 /*CSS : Alerte flash vol*/
-.flash_alert-form{
-	margin-bottom:0px;
-}
-
-/*CSS : Alerte flash vol*/
-.flash_alert-coordonnees,.SuiviBagages-EmailTel{
+.coordonnees{
 	flex-grow:1;
 	font-size:15px;
     padding-bottom:10px;
@@ -705,6 +705,9 @@ section{
     position: relative;
 }
 
+.NomInput{
+	margin-right:10px;
+}
 
 /*CSS : Style pour les inputs*/
 .email::before,.tel::before,.search-box-inner::before{
@@ -756,13 +759,8 @@ section{
 }
 
 /*CSS : News Général*/
-.rotate{
-	transition:all 0.4s ease-in-out;
-}
-
-/*CSS : News Général*/
-.news_container{
-    transition:all 0.3s ease-in-out;
+.rotate,.news_container{
+	transition:all 0.3s ease-in-out;
 }
 
 /*CSS : News général*/

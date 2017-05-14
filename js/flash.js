@@ -1,4 +1,4 @@
-$('#zoneFlashAlert').submit(function (event) {
+$('#zoneAlerteSuivi').submit(function (event) {
     event.preventDefault();
     var first_vol = $("#first_vol input");
     if (first_vol.val().length) {
@@ -8,13 +8,14 @@ $('#zoneFlashAlert').submit(function (event) {
         $('#BoxFlashAlert .search-box-inner input').each(function () {
             tabVols.push($(this).val());
         });
+
         $.post(url,
             {
                 vols: tabVols,
-                email: $("#email2").val(),
-                nom: $("#nomFlash").val(),
-                prenom: $("#prénomFlash").val(),
-                tel: $("#tel2").val()
+                email: $("#email").val(),
+                nom: $("#nom").val(),
+                prenom: $("#prénom").val(),
+                tel: $("#tel").val()
             },
 
             function (data) {
