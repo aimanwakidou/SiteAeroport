@@ -17,11 +17,13 @@
 /*CSS : classe Highlight*/
 .highlight{
     opacity:1;
+    transition:opacity 0.5s ease-in-out;
 }
 
 /*CSS : class nonHighlight*/
 .nonHighlight{
     opacity:0.4;
+    transition:opacity 0.5s ease-in-out;
 }
 
 /*CSS : classe fail*/

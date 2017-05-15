@@ -28,6 +28,23 @@ $("#first_vol input").on("change blur",function(){
     ControleSubmit(2);
 });
 
+/*Ajout highlight sur clique sur la div*/
+$(".flash-alert,.suiviBagages").click(function(){
+    if($(this).hasClass("nonHighlight")){
+        $(this).removeClass("nonHighlight");
+        $(this).addClass("highlight");
+    }
+
+    var divToRemoveHighlight = ($(this).hasClass("flash-alert")) ? $(".suiviBagages") : $(".flash-alert");
+
+    if(divToRemoveHighlight.hasClass("highlight")){
+        divToRemoveHighlight.removeClass("highlight");
+    }
+
+    divToRemoveHighlight.addClass("nonHighlight");
+
+});
+
 /*Nettoyage en cas de clique et si il y'a rien dans l'input*/
 $("input").each(function(){
 	$(this).click(function(){
