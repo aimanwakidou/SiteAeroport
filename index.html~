@@ -360,7 +360,7 @@
                                     </h2>
                                     <div class="SuiviBagages_form-content">
                                         <div class="SuiviBagages-num_vol"> 
-                                            <div class="QuestionVol">
+                                            <div class="QuestionVol noDisplayGenerique">
                                                 <span>Avez-vous le numéro de vol ?</span>
                                                 <div class="RadioButtonSuivi">
                                                   <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
