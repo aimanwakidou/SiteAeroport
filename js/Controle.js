@@ -5,27 +5,42 @@ var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 $('#email,#tel').on("change blur", function () {
     var regex = ($(this).attr("id") == "tel") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
-    ControleSubmit(2);
+    ControleSubmit($("#first_vol input"));
 });
 
-$("#email,#tel").click(ControleSubmit(2));
+$("#email,#tel").click(function(){
+    ControleSubmit($("#first_vol input"));
+    ClearWarning($(this));
+});
 
 /*Controle nom et prénom*/
 $("#nom,#prénom").on("change blur", function () {
     Controle($(this), checkNomPrenom);
-    if (!$(this).parent().hasClass("success") && $("#submit").hasClass("EnvoiOK"))
+    if (!$(this).parent().hasClass("success") && $("#submit").hasClass("EnvoiOK")){
         $("#submit").removeClass("EnvoiOK");
+    }
+});
+
+$("#nom,#prénom").click(function(){
+    ClearWarning($(this));
+});
+
+$("#nom,#prénom,#email,#tel").blur(function(){
+    var vol = ($(this).attr('id') == "nom" || $(this).attr('id') == "prénom") ? "#num_vol_suivi" : "#first_vol input";
+    Warning($(vol)); 
 });
 
 /*Contrôle vol*/
-$("#first_vol input").click(function () {
+$("#first_vol input,#num_vol_suivi").click(function () {
     if ($(this).hasClass("fail"))
         $(this).removeClass("fail");
-    ControleSubmit(2);
+    ControleSubmit($(this));
+    Warning($(this));
 });
 
-$("#first_vol input").on("change blur",function(){
-    ControleSubmit(2);
+$("#first_vol input,#num_vol_suivi").on("change blur",function(){
+    ControleSubmit($(this));
+    Warning($(this));
 });
 
 /*Ajout highlight sur clique sur la div*/
@@ -91,19 +106,33 @@ $(".RadioButton button").each(function () {
 $(".RadioButtonSuivi button").each(function(){
     $(this).click(function(){
         ToggleButton($(this));
-        ControleButtonWithoutSubmit($(this),$(".RechercheVolSuivi"),$(this).hasClass("OK"),false);
+        ControleButtonWithoutSubmit($(this),$(".RechercheVolSuivi"),$(this).hasClass("OK"));
     });
 });
 
 /*Contrôle submit*/
-function ControleSubmit(numero) {
-    var email = $("#email");
-    var tel = $("#tel");
-	var num_vol = (numero == 1) ? $(".suiviBagages-num_vol-input") : $("#first_vol input");
-    var submitButton = $("#submit");
- 
-	if (email.val() && tel.val() && num_vol.val()) {
-        var classToAdd = (email.parent().hasClass("success") && tel.parent().hasClass("success")) ? "EnvoiOK" : "EnvoiNonOK";
+function ControleSubmit(vol) {
+	var submitButton = $("#submit");
+    var infoRequired = (vol.attr('id') == "num_vol_flash") ? [$("#email"),$("#tel")] : [$("#nom"),$("#prénom")];
+    var testValue = true;
+    var testSuccess = true
+
+    for(var info of infoRequired){
+        if(!info.val().length){
+            testValue = false;
+            break;
+        }
+    }
+
+	if (testValue && vol.val().length) {
+        for(var info of infoRequired){
+            if(!info.parent().hasClass('success')){
+                testSuccess = false;
+                break;
+            }       
+        }
+
+        var classToAdd = (testSuccess) ? "EnvoiOK" : "EnvoiNonOK";
         var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
 
         if (classToAdd == "EnvoiOK")
@@ -138,10 +167,7 @@ function ToggleButton(buttonJQuery){
 }
 
 /*Fonction de contrôle des boutons Oui/Non sans submit*/
-function ControleButtonWithoutSubmit(button,elemToShow,test,onShow,onShow){
-    var testOnShow = onShow ? "oui" : "non";
-    var notToShow = (testOnShow == "oui") ? "non" : "oui";
-
+function ControleButtonWithoutSubmit(button,elemToShow,test){
     if(test){
         if (button.attr("id") == "non") {
             if (elemToShow.hasClass("noDisplayGenerique")){
@@ -260,10 +286,40 @@ function Nettoyage(elementJQuery){
 		elementJQuery.parent().removeClass('success');
 }
 
+/*Fonction pour les informations importantes*/
+function Warning(vol){
+    var infoWarning = (vol.attr('id') == 'num_vol_flash') ? $("#email,#tel") : $("#nom,#prénom");
+    var message = infoWarning.parent().siblings(".WarningMessage"); 
+    if(vol.val().length){
+        if(!(infoWarning.parent().hasClass('success') || infoWarning.hasClass('fail'))){
+            infoWarning.parent().addClass('Warning');
+            infoWarning.attr('required',true);
+
+            if(message.hasClass("noDisplayGenerique") && !message.hasClass("displayGenerique")){
+                message.removeClass("noDisplayGenerique");
+                message.addClass("displayGenerique"); 
+            }
+        }
+    }
+    else
+        ClearWarning(infoWarning);
+}
 
 
+/*Fonction pour nettoyer les warnings*/
+function ClearWarning(infoWarning){
+    var message = infoWarning.parent().siblings(".WarningMessage"); 
+    if(infoWarning.parent().hasClass('Warning'))
+        infoWarning.parent().removeClass('Warning');
 
+    if(infoWarning.attr('required'))
+        infoWarning.attr('required',false);
 
-
+    if(message.hasClass("displayGenerique") && !message.hasClass("noDisplayGenerique")){
+        message.removeClass("displayGenerique");
+        message.addClass("noDisplayGenerique");
+    }
+}
+    
 
 

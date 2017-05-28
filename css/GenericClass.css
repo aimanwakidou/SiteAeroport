@@ -49,12 +49,12 @@
 }
 
 /*CSS : class fail2*/
-.fail2,.success{
+.fail2,.success,.Warning{
 	position:relative;
 }
 
 /*CSS : class fail2*/
-.fail2::after,.success::after{
+.fail2::after,.success::after,.Warning::after{
 	font-family:'FontAwesome';
 	font-size:30px;
 	position:absolute;
@@ -62,27 +62,28 @@
 	top:6px;
 }
 
+/*CSS : class fail2*/
 .fail2::after{
-	content:"\f057";
-	color:red;
+	content:"\f057" !important;
+	color:red !important;
 }
 
+/*CSS : class fail2*/
 .fail2 > input:hover,.fail2 > input:focus,.fail2 > input{
-	border-color:red;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
+	border-color:red !important;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9) !important;
 }
 
 /*CSS : class success*/
 .success::after{
-	content:"\f058";
-	color:green;
+	content:"\f058" !important;
+	color:green !important;
 }
 
 /*CSS : class success*/
 .success > input:hover,.success > input:focus,.success > input{
-	border-color:#1E9E1E;
-    background-color:white;
-	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
+	border-color:#1E9E1E !important;
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E !important;
 }
 
 /*CSS : class KO*/
@@ -115,4 +116,38 @@
 .EnvoiNonOK:hover {
     border-color: red;
     background-color: red;
+}
+
+/*CSS : class Warning*/
+.Warning::after{
+    color:#F6DC12;
+    content:"\f071";
+}
+
+/*CSS : class Warning*/
+.Warning > input,.Warning > input:hover,.Warning > input:focus{
+    border-color:#F6DC12;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #F6DC12;
+}
+
+/*CSS : class Warning*/
+.WarningMessage{
+    color:#F6DC12;
+    font-style:italic;
+    padding:10px 0;
+    transition:all 0.3s ease-in-out;
+}
+
+/*CSS : Cach Message*/
+.noDisplayGenerique, .noDisplayButton ,.noDisplayMessage{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+/*CSS : Cache Message*/
+.displayGenerique, .displayButton, .displayMessage {
+    height: 100%;
+    opacity: 1;
+    overflow: visible;
 }
