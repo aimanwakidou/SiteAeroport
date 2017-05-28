@@ -72,11 +72,6 @@ $("input").each(function(){
 	});
 });
 
-/*Contrôle Recherche vol*/
-$("#Provenance,#Destination").blur(function () {
-    ControleAeroport($(this));
-});
-
 /*Contrôle pour la météo*/
 $(".choixIles").change(function(){
 	var selected = $(".choixIles option:selected");
@@ -231,11 +226,9 @@ function Controle(elementJQuery,regex){
 }
 
 /*Fonction de controle --> Non regex*/
-function ControleAeroport(elementJQuery){
-	var aeroports = ['anjouan','mohéli','moroni','mayotte'];
+function ControleAeroport(elementJQuery,source){
     if (elementJQuery.val().length) {
-        var value = elementJQuery.val().toLowerCase();
-        AjoutResult(elementJQuery, (aeroports.indexOf(value) !== -1), true);
+        AjoutResult(elementJQuery, (source.indexOf(elementJQuery.val()) !== -1), true);
     }
 	else
 		ToggleClassControle(elementJQuery);
