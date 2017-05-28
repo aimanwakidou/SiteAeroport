@@ -5,7 +5,10 @@ $(document).ready(function(){
 
     .done(function(data){
         $("#Provenance,#Destination,#provenance,#destination").autocomplete({
+            minLength:0,	   	
             source : data.Aeroports
+        }).focus(function(){
+	     $(this).autocomplete("search",$(this).val());
         }); 
 
         /*Contrôle Recherche vol*/
