@@ -44,7 +44,7 @@
                   <div class="container-fluid">
                       <!-- Brand and toggle get grouped for better mobile display -->
                       <div class="navbar-header myNav">
-                          <button type="button" class="navbar-toggle collapsed second" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" onclick="AfficheMenuMobile();">
+                          <button type="button" id="buttonMobile" class="navbar-toggle collapsed second" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                               <span class="sr-only">Toggle navigation</span> Aéroports <i id="rotateElem" class="fa fa-plane"></i>
                           </button>
                           <div class="uselessNav"></div>                
@@ -487,7 +487,7 @@
                       <div class="container news">
                             <div class="title_news">       
                                   <h2 class="section-heading">News Aéroport</h2>
-                                  <span class="hidebutton" onclick="CacherMenu();">
+                                  <span class="hidebutton">
                                     <i class="fa fa-chevron-down fa-2x rotate" aria-hidden="true"></i>
                                   </span> 
                             </div>
@@ -622,8 +622,8 @@
             <!-- jQuery -->
             <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
             <script src="vendor/jquery/jquery-ui.min.js"></script>
-			<script src="vendor/jquery/jquery-migrate-3.0.0.js"></script>
-			<script src="vendor/jQuery-Mobile/jquery.mobile.custom.js"></script>	
+			       <script src="vendor/jquery/jquery-migrate-3.0.0.js"></script>
+			     <script src="vendor/jQuery-Mobile/jquery.mobile.custom.js"></script>	
             
             <!-- Bootstrap Core JavaScript -->
             <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -639,15 +639,15 @@
             <!-- Script Caroussel -->
             <script src="js/slide.js"></script>
 
-            <!-- Script DatePicker -->
-            <script src="js/datePicker.js"></script>
+            <!-- Script jQuery Widget -->
+            <script src="js/jQueryWidget.js"></script>
             
             <!-- Script personnel -->
-            <script src="js/afficheMenuMobile.js"></script>
-            <script src="js/CacherMenu.js"></script>
+            <script src="js/flash.js"></script>
+            <script src="js/ShowHide.js"></script>
             <script src="js/Controle.js"></script>
             <script src="js/meteo.js"></script>
             <script src="js/AjoutSupprVol.js"></script>
-            <script src="js/flash.js"></script>
+            
       </body>
 </html>
