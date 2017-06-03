@@ -110,7 +110,7 @@ function ControleSubmit(vol) {
 	var submitButton = $("#submit");
     var infoRequired = (vol.attr('id') == "num_vol_flash") ? [$("#email"),$("#tel")] : [$("#nom"),$("#prénom")];
     var testValue = true;
-    var testSuccess = true
+    var testSuccess = true;
 
     for(var info of infoRequired){
         if(!info.val().length){
@@ -120,7 +120,7 @@ function ControleSubmit(vol) {
     }
 
 	if (testValue && vol.val().length) {
-        for(var info of infoRequired){
+        for(info of infoRequired){
             if(!info.parent().hasClass('success')){
                 testSuccess = false;
                 break;
@@ -243,13 +243,7 @@ function AjoutResult(elementJQuery,result,failType){
 				elementJQuery.removeClass('fail');
 		}
 		else{
-			if(!failType){
-				elementJQuery.addClass('fail');
-			}
-			else{
-				elementJQuery.parent().addClass('fail2');	
-			}
-
+			elementJQuery.addClass((failType) ? 'fail2' : 'fail');	
 			if(elementJQuery.hasClass('success'))
 				elementJQuery.removeClass('success');
 		}
@@ -297,7 +291,6 @@ function Warning(vol){
     else
         ClearWarning(infoWarning);
 }
-
 
 /*Fonction pour nettoyer les warnings*/
 function ClearWarning(infoWarning){

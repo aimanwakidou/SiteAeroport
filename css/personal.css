@@ -221,7 +221,7 @@ section{
 
 /*CSS :Suivi Bagages*/
 .JourInput > input,.HeureInput > input{
-	text-indent:20px;
+	text-indent:25px;
 }
 
 /*CSS : SuiviBagages*/
@@ -593,12 +593,6 @@ section{
     height: 0;
     opacity: 0;
     overflow: hidden;
-}
-
-/*CSS : Suivi Bagages*/
-.JourInput > input,.HeureInput > input{
-    line-height:54px;
-    vertical-align:middle;
 }
 
 /*CSS : Suivi Bagages*/

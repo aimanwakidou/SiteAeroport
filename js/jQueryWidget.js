@@ -12,7 +12,7 @@ $(document).ready(function(){
         }); 
 
         /*Contrôle Recherche vol*/
-        $("#Provenance,#Destination").blur(function () {
+        $("#Provenance,#Destination,#provenance,#destination").blur(function () {
             ControleAeroport($(this),data.Aeroports);
         });
     });
