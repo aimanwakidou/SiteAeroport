@@ -105,6 +105,33 @@ $(".RadioButtonSuivi button").each(function(){
     });
 });
 
+/*Controle Recherche Vol*/
+$("#Provenance,#Destination,#provenance,#destination").on("change blur",function(){
+	ControleValeurProvDest($(this));
+});
+
+/*Fonction de controle Recherche Vol*/
+function ControleValeurProvDest(elementJQuery){
+	var toCompare;
+	var result;
+	var id = elementJQuery.attr('id');
+	
+	if(id == "Provenance" || id == "Destination"){
+		toCompare = (id == "Provenance") ? "#Destination" : "#Provenance";
+	}
+	else{
+		toCompare = (id == "provenance") ? "#destination" : "#provenance";
+	}
+	
+	if(elementJQuery.val().length){
+		result = (elementJQuery.val() != $(toCompare).val());
+		AjoutResult(elementJQuery,result,(id == "Provenance" || id == "Destination"));
+		MessageErreurProvDest(id,result);
+	}
+	else
+		MessageErreurProvDest(id,true);
+}
+
 /*Contrôle submit*/
 function ControleSubmit(vol) {
 	var submitButton = $("#submit");
@@ -165,17 +192,11 @@ function ToggleButton(buttonJQuery){
 function ControleButtonWithoutSubmit(button,elemToShow,test){
     if(test){
         if (button.attr("id") == "non") {
-            if (elemToShow.hasClass("noDisplayGenerique")){
-                elemToShow.removeClass("noDisplayGenerique");
-                elemToShow.addClass("displayGenerique");
-            }
+			AfficheMessageGenerique(elemToShow,"displayGenerique");
         }
 
         if (button.attr("id") == "oui") {
-            if (elemToShow.hasClass("displayGenerique")) {
-                elemToShow.removeClass("displayGenerique");
-                elemToShow.addClass("noDisplayGenerique");
-            }
+			AfficheMessageGenerique(elemToShow,"noDisplayGenerique");
         }
     }
 }
@@ -281,11 +302,7 @@ function Warning(vol){
         if(!(infoWarning.parent().hasClass('success') || infoWarning.hasClass('fail'))){
             infoWarning.parent().addClass('Warning');
             infoWarning.attr('required',true);
-
-            if(message.hasClass("noDisplayGenerique") && !message.hasClass("displayGenerique")){
-                message.removeClass("noDisplayGenerique");
-                message.addClass("displayGenerique"); 
-            }
+			AfficheMessageGenerique(message,"displayGenerique");
         }
     }
     else
@@ -301,11 +318,19 @@ function ClearWarning(infoWarning){
     if(infoWarning.attr('required'))
         infoWarning.attr('required',false);
 
-    if(message.hasClass("displayGenerique") && !message.hasClass("noDisplayGenerique")){
-        message.removeClass("displayGenerique");
-        message.addClass("noDisplayGenerique");
-    }
+	AfficheMessageGenerique(message,"noDisplayGenerique");
 }
-    
 
+/*Fonction pour afficher/retirer le message d'erreur*/
+function MessageErreurProvDest(id,result){
+	var message = (id == "Provenance" || id == "Destination") ? $("#msgErrDepArr") : $("#msgErrSuivi");
+	AfficheMessageGenerique(message,(result) ? "noDisplayGenerique" : "displayGenerique");
+}
 
+function AfficheMessageGenerique(messageJQuery,classToAdd){
+	var classToRemove = (classToAdd == "displayGenerique") ? "noDisplayGenerique" : "displayGenerique";
+	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
+		messageJQuery.removeClass(classToRemove);
+		messageJQuery.addClass(classToAdd);
+	}
+}
