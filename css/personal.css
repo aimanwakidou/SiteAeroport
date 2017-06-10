@@ -220,7 +220,7 @@ section{
 }
 
 /*CSS :Suivi Bagages*/
-.JourInput > input,.HeureInput > input{
+.HeureInput > input{
 	text-indent:25px;
 }
 
@@ -236,22 +236,23 @@ section{
 }
 
 /*CSS : Suivi Bagages*/
-.JourInput::before,.HeureInput::before{
+.JourInput::after,.HeureInput::before{
 	position:absolute;
-	left:10px;
-	top:32px;
 	font-family:'FontAwesome';
 	font-size:30px;
 }
 
 /*CSS : SuiviBagages*/
-.JourInput::before{
+.JourInput::after{
 	content:"\f073";
+	right:10px;
+	top:32px;
 }
 
 /*CSS : SuiviBagages*/
 .HeureInput::before{
 	top:33px;
+	left:10px;
 	content:"\f017";
 	transform:rotate(30deg);
 }
@@ -319,7 +320,7 @@ section{
 }
 
 /*Recherche Vol*/
-#datepicker{
+#datepicker,.datepicker2{
 	background-color:white;
 }
 
