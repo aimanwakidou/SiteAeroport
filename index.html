@@ -266,8 +266,9 @@
                                             <th>Alerte Flash Vol</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="ArrivesDepartData">
-                                        <tr class="avionArrive">
+                                    <tbody id="ArriveeBody" class="ArrivesDepartData">
+                                        <!--<tr class="avionArrive">
+                                            <!--<img src="img/air-austral-2014.jpg"/>
                                             <td class="logoCompagny"><img src="img/air-austral-2014.jpg"/></td>
                                             <td class="numVol">JIX8451</td>
                                             <td>La Réunion</td>
@@ -284,7 +285,7 @@
                                             <td>20:00</td>
                                             <td></td>
                                             <td><input type="checkbox" name="Alert" class="AlertArrivee"/></td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
                                 </table>
                             </form>
@@ -319,27 +320,8 @@
                                             <th>Alerte Flash Vol</th>
                                         </tr>
                                     </thead>
-                                    <tbody class="ArrivesDepartData">
-                                        <tr class="avionDepart">
-                                            <td class="logoCompagny"><img src="img/air-austral-2014.jpg" width="100" height="50" /></td>
-                                            <td class="numVol">JIX8453</td>
-                                            <td>La Réunion</td>
-                                            <td>Mayotte</td>
-                                            <td>20:00</td>
-                                            <td></td>
-                                            <td><input type="checkbox" name="Alert" class="AlertDepart"/></td>
-                                        </tr>
-                                        <tr class="avionDepart">
-                                            <td class="logoCompagny">
-                                              <img src="img/ethiopian-airlines.gif" width="100" height="50" />
-                                            </td>
-                                            <td class="numVol">JIX8454</td>
-                                            <td>Addis Adeba</td>
-                                            <td>Moroni</td>
-                                            <td>15:00</td>
-                                            <td></td>
-                                            <td><input type="checkbox" name="Alert" class="AlertDepart" /></td>
-                                        </tr>
+                                    <tbody id="DepartBody" class="ArrivesDepartData">
+                                        
                                     </tbody>
                                 </table>
                             </form>
@@ -656,6 +638,6 @@
             <script src="js/Controle.js"></script>
             <script src="js/meteo.js"></script>
             <script src="js/AjoutSupprVol.js"></script>
-            
+            <script src="js/Vols.js"></script>
       </body>
 </html>
