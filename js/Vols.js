@@ -26,5 +26,13 @@ ArrDepTab.forEach(function(ArrDep){
 		Object.keys(data).forEach(function(code){
 			addVols(code,data[code].Provenance,data[code].Destination,data[code].Heure,data[code].Img,ArrDep);
 		});
+		/*Contrôle fenetre modal*/
+		$(".AlertArrivee,.AlertDepart").each(function () {
+			var EnvoiOk = $(this).hasClass("AlertArrivee") ? $(".EnvoiOkArrive") : $(".EnvoiOkDepart");
+			$(this).change(function () {
+				CheckButtonCheckBox(EnvoiOk, $(this));
+				ControleCheckBox(EnvoiOk, true);
+			});
+		});
 	});
 });

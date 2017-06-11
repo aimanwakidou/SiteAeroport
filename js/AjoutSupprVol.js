@@ -7,23 +7,6 @@ $("#first_vol .buttonAjoutSuppr .SupprWrapper").click(function () {
     Suppression();
 });
 
-/*Contrôle fenetre modal*/
-$(".AlertArrivee").each(function () {
-    var EnvoiOk = $(".EnvoiOkArrive");
-    $(this).change(function () {
-        CheckButtonCheckBox(EnvoiOk, $(this));
-        ControleCheckBox(EnvoiOk, true);
-    });
-});
-
-$(".AlertDepart").each(function () {
-    var EnvoiOk = $(".EnvoiOkDepart");
-    $(this).change(function () {
-        CheckButtonCheckBox(EnvoiOk, $(this));
-        ControleCheckBox(EnvoiOk, false);
-    });
-});
-
 /*Bind*/
 $(".bindAlert").each(function () {
     $(this).click(function () {
@@ -69,7 +52,7 @@ function BindModalAlert(caseTable) {
             return;
         }
         else{
-            if (input.val().length == 0 && !flagFree) {
+            if (input.val().length === 0 && !flagFree) {
                 input.val(num_vol);
                 flagFree = true;
                 return;
