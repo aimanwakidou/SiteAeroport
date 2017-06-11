@@ -28,10 +28,11 @@ ArrDepTab.forEach(function(ArrDep){
 		});
 		/*Contrôle fenetre modal*/
 		$(".AlertArrivee,.AlertDepart").each(function () {
-			var EnvoiOk = $(this).hasClass("AlertArrivee") ? $(".EnvoiOkArrive") : $(".EnvoiOkDepart");
+			var hasClass = $(this).hasClass("AlertArrivee");
+			var EnvoiOk = hasClass ? $(".EnvoiOkArrive") : $(".EnvoiOkDepart");
 			$(this).change(function () {
 				CheckButtonCheckBox(EnvoiOk, $(this));
-				ControleCheckBox(EnvoiOk, true);
+				ControleCheckBox(EnvoiOk,hasClass);
 			});
 		});
 	});
