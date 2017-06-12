@@ -292,6 +292,11 @@ section{
     flex-grow: 1;
 }
 
+/*Vols du jour*/
+.ArrivesDepartData > tr:last-child > td{
+	border-bottom:none;
+}
+
 /*Recherche Vol*/
 .Departs{
 	margin-right:10px;
