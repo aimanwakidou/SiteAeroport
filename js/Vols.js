@@ -23,8 +23,8 @@ ArrDepTab.forEach(function(ArrDep){
 	$.getJSON(url+ArrDep,{})
 	
 	.done(function(data){
-		Object.keys(data).forEach(function(code){
-			addVols(code,data[code].Provenance,data[code].Destination,data[code].Heure,data[code].Img,ArrDep);
+		Object.keys(data).forEach(function(key){
+			addVols(data[key].CodeVol,data[key].Provenance,data[key].Destination,data[key].Heure,data[key].Img,ArrDep);
 		});
 		/*Contrôle fenetre modal*/
 		$(".AlertArrivee,.AlertDepart").each(function () {
