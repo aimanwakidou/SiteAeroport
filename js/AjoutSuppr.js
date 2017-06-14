@@ -21,7 +21,7 @@ $(".bindAlert").each(function () {
     $(this).click(function () {
         var Vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(".avionArrive");
         Vols.each(function () {
-            if ($(this).find("td input").is(":checked"))
+            if ($(this).find("td div input").is(":checked"))
                 BindModalAlert($(this));
         });
     });

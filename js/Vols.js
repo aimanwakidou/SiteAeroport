@@ -9,7 +9,7 @@ function addVols(code,provenance,destination,heure,imgSrc,ArrDep){
 		'<td>'+destination+'</td>'+
 		'<td>'+heure+'</td>'+
 		'<td></td>'+
-		'<td><input type="checkbox" name="Alert" class="'+classAlert+'"/></td>'+
+		'<td><div class="checkbox"><input type="checkbox" name="Alert" class="'+classAlert+'"/></div></td>'+
 		'</tr>';
 	
 	var tr = $.parseHTML(trString);
