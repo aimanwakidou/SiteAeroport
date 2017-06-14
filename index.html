@@ -222,7 +222,7 @@
                 <!-- Vols du jour -->
                 <section id="vols_du_jour">
                     <div class="container">
-                        <h2 class="section-heading title_vols">Vols du <mark id="DayOrNightVol"></mark></h2>
+                        <h2 class="section-heading title_vols">Vols du jour</h2>
                         <div class="CoteACote">
                             <div class="CoteACote-inner">
                                 <div class="button_arr">
@@ -358,16 +358,32 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
-                                          <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                          <span>La provenance et la destination ne doivent pas être identiques</span>
-                                        </div>
-                                        <div class="search-box">
-                                            <label for="num_vol" class="suiviBagages_num_vol-label">N° vol</label>  
-                                            <div class="search-box-inner form-group">
-                                                <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
-                                            </div>
-                                        </div>
+                                          <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
+                                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                                <span>La provenance et la destination ne doivent pas être identiques</span>
+                                          </div>
+                                          <div class="search-box">
+                                                <label for="num_vol" class="suiviBagages_num_vol-label">N° vol</label>  
+                                                <div class="search-box-inner form-group">
+                                                      <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" placeholder="Entrez le numéro de vol" type="text"/>
+                                                </div>
+                                          </div>
+                                          <div class="BagagesBox">
+                                                <h3>Liste de vos bagages</h3>
+                                                <div id="BagagesBoxInner">
+                                                      <div id="BagagesFirst" class="BagagesInput form-group">
+                                                            <div class="BagagesWrapper"><input type="text" class="form-control" name="bagages" placeholder="Entrez un numéro de bagages"/></div>
+                                                            <div class="buttonAjoutSuppr">
+                                                                  <span class="AjoutWrapper">
+                                                                      <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
+                                                                  </span>
+                                                                  <span class="SupprWrapper">
+                                                                      <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
+                                                                  </span>
+                                                            </div>
+                                                      </div>
+                                                </div>
+                                          </div>
                                     </div>  
                                 </div>
                             </div>
@@ -379,18 +395,18 @@
                                     </h2>
                                     <div class="flash_alert-num_vol">
                                         <div class="flash_alert-num_vol-content">
-                                            <label for="num_vol" class="flash_alert-num_vol-label">N° vol</label>
+                                            <label for="num_vol" class="flash_alert-num_vol-label">Liste des numéros de vol</label>
                                             <div id="BoxFlashAlert" class="search-box">
                                                 <div id="first_vol" class="search-box-inner form-group">
                                                     <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
-                                                    <div class="buttonAjoutSuppr">
-                                                        <span class="AjoutWrapper">
-                                                            <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
-                                                        </span>
-                                                        <span class="SupprWrapper">
-                                                            <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
-                                                        </span>
-                                                    </div>
+                                                      <div class="buttonAjoutSuppr">
+                                                            <span class="AjoutWrapper">
+                                                                <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
+                                                            </span>
+                                                            <span class="SupprWrapper">
+                                                                <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
+                                                            </span>
+                                                      </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -619,7 +635,7 @@
             <script src="js/ShowHide.js"></script>
             <script src="js/Controle.js"></script>
             <script src="js/meteo.js"></script>
-            <script src="js/AjoutSupprVol.js"></script>
+            <script src="js/AjoutSuppr.js"></script>
             <script src="js/Vols.js"></script>
       </body>
 </html>

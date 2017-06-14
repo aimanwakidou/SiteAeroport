@@ -3,7 +3,6 @@ $(document).ready(function () {
     var hour = new Date().getHours();
 
     /*Mis à jour titre météo*/
-    $("#DayOrNightVol").text((hour < 18 && hour > 6) ? "jour" : "soir");
     $("#DayOrNightMeteo").text((hour < 18 && hour > 6) ? "jour" : "soir");
 
     iles.forEach(function (ile) {

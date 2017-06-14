@@ -1,10 +1,19 @@
 /*Ajout ou suppression de numero de vol*/
 $("#first_vol .buttonAjoutSuppr .AjoutWrapper").click(function () {
-    Ajout();
+    AjoutVol();
 });
 
 $("#first_vol .buttonAjoutSuppr .SupprWrapper").click(function () {
-    Suppression();
+    SuppressionVol();
+});
+
+/*Ajout ou suppression d'un bagages*/
+$("#BagagesFirst .buttonAjoutSuppr .AjoutWrapper").click(function(){
+   AjoutBagages(); 
+});
+
+$("#BagagesFirst .buttonAjoutSuppr .SupprWrapper").click(function(){
+   SuppressionBagages(); 
 });
 
 /*Bind*/
@@ -18,10 +27,30 @@ $(".bindAlert").each(function () {
     });
 });
 
+/*Fonction : Ajout d'un bagage*/
+function AjoutBagages(){
+    var bagagesHtmlString = '<div class="BagagesInput form-group">' +
+        '<div class="BagagesWrapper"><input name="bagages" class="form-control" type="text"/></div>'+
+        '<div class="buttonAjoutSuppr" style="visibility:hidden">'+
+        '<span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>'+
+        '<span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>'+
+        '</div>';
+    
+    var bagagesHtml = $.parseHTML(bagagesHtmlString);
+    $("#BagagesBoxInner").append(bagagesHtml);
+}
+
+/*Fonction : Suppression d'un bagages*/
+function SuppressionBagages(){
+    var lastBagages = $("#BagagesBoxInner .BagagesInput").last();
+    if(lastBagages.attr('id') != "BagagesFirst")
+        lastBagages.remove();
+}
+
 /*Fonction : Ajout d'un bouton*/
-function Ajout() {
+function AjoutVol() {
     var buttonHtmlString = "<div class=\"search-box-inner form-group\">" +
-        "<input class=\"flash_alert-num_vol-input form-control fisrt_vol\" id=\"num_vol\" name=\"num_vol\" placeholder=\"Entrez un num&#233ro du vol\" type=\"text\"/>" +
+        "<input class=\"flash_alert-num_vol-input form-control\" id=\"num_vol\" name=\"num_vol\" placeholder=\"Entrez un num&#233ro du vol\" type=\"text\"/>" +
         "<div class=\"buttonAjoutSuppr\" style=\"visibility:hidden;\">" +
         "<span class=\"AjoutWrapper\"><i class=\"fa fa-plus-circle Ajout\" aria-hidden=\"true\"></i></span>" +
         "<span class=\"SupprWrapper\"><i class=\"fa fa-minus-circle Suppr\" aria-hidden=\"true\"></i></span>" +
@@ -32,9 +61,9 @@ function Ajout() {
 }
 
 /*Fonction : Suppression d'un bouton*/
-function Suppression() {
+function SuppressionVol() {
     var lastButton = $("#BoxFlashAlert .search-box-inner").last();
-    if (!(lastButton.attr('id') == "first_vol"))
+    if (lastButton.attr('id') != "first_vol")
         lastButton.remove();
 }
 

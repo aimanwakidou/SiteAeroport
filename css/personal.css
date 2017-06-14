@@ -402,6 +402,36 @@ section{
     position: relative;
 }
 
+/*CSS : Suivi Bagages*/
+.BagagesInput{
+	display:flex;
+}
+
+/*CSS : Suivi Bagages*/
+.BagagesBox > h3{
+	font-size:19px;
+}
+
+/*CSS : Suivi Bagages*/
+.BagagesWrapper{
+	flex-grow:1;
+	position:relative;
+}
+
+.BagagesWrapper::before{
+	font-family:'FontAwesome';
+	font-size:27px;
+	position:absolute;
+	top:6px;
+	left:10px;
+	transform:rotate(25deg);
+	content:"\f0f2";
+}
+
+.BagagesWrapper > input{
+	text-indent:35px;
+}
+
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .flash_alert-num_vol-input,.suiviBagages-num_vol-input{
 	flex:1 1 auto;
