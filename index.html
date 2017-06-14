@@ -372,7 +372,7 @@
                                                 <h3>Liste de vos bagages</h3>
                                                 <div id="BagagesBoxInner">
                                                       <div id="BagagesFirst" class="BagagesInput form-group">
-                                                            <div class="BagagesWrapper"><input type="text" class="form-control" name="bagages" placeholder="Entrez un numéro de bagages"/></div>
+                                                            <div class="BagagesWrapper"><input type="text" class="form-control" name="bagages" placeholder="Entrez le numéro de votre bagage"/></div>
                                                             <div class="buttonAjoutSuppr">
                                                                   <span class="AjoutWrapper">
                                                                       <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
@@ -394,22 +394,28 @@
                                         <span class="section-heading-title">Alerte flash vol</span>
                                     </h2>
                                     <div class="flash_alert-num_vol">
-                                        <div class="flash_alert-num_vol-content">
-                                            <label for="num_vol" class="flash_alert-num_vol-label">Liste des numéros de vol</label>
-                                            <div id="BoxFlashAlert" class="search-box">
-                                                <div id="first_vol" class="search-box-inner form-group">
-                                                    <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
-                                                      <div class="buttonAjoutSuppr">
-                                                            <span class="AjoutWrapper">
-                                                                <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
-                                                            </span>
-                                                            <span class="SupprWrapper">
-                                                                <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
-                                                            </span>
+                                          <div id="Compagnies" class="form-group">
+                                                <h3>Liste des compagnies</h3>
+                                                <select name="compagnies" class="form-control" data-live-search="true">
+                                                      <option selected="selected">Selectionnez une compagnie </option>
+                                                </select>
+                                          </div>
+                                          <div class="flash_alert-num_vol-content">
+                                                <label for="num_vol" class="flash_alert-num_vol-label">Liste des numéros de vol</label>
+                                                <div id="BoxFlashAlert" class="search-box">
+                                                      <div id="first_vol" class="search-box-inner form-group">
+                                                            <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
+                                                            <div class="buttonAjoutSuppr">
+                                                                  <span class="AjoutWrapper">
+                                                                        <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
+                                                                  </span>
+                                                                  <span class="SupprWrapper">
+                                                                        <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
+                                                                  </span>
+                                                            </div>
                                                       </div>
                                                 </div>
-                                            </div>
-                                        </div>
+                                          </div>
                                     </div>
                                 </div>
                             </div>
@@ -637,5 +643,6 @@
             <script src="js/meteo.js"></script>
             <script src="js/AjoutSuppr.js"></script>
             <script src="js/Vols.js"></script>
+            <script src="js/Compagnies.js"></script>
       </body>
 </html>

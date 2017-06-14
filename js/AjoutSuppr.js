@@ -30,7 +30,7 @@ $(".bindAlert").each(function () {
 /*Fonction : Ajout d'un bagage*/
 function AjoutBagages(){
     var bagagesHtmlString = '<div class="BagagesInput form-group">' +
-        '<div class="BagagesWrapper"><input name="bagages" class="form-control" type="text"/></div>'+
+        '<div class="BagagesWrapper"><input name="bagages" class="form-control" placeholder="Entrez le numéro de votre bagage" type="text"/></div>'+
         '<div class="buttonAjoutSuppr" style="visibility:hidden">'+
         '<span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>'+
         '<span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>'+

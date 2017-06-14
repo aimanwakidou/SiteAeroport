@@ -46,6 +46,10 @@ mark{
     padding:0;
 }
 
+select{
+	min-height:55px;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -374,6 +378,11 @@ section{
 	flex-wrap:wrap;
 	padding-top:10px;
 	word-wrap:break-word;
+}
+
+/*CSS : Alerte Flash Vol*/
+.flash_alert-num_vol{
+	padding-bottom:15px;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
@@ -872,5 +881,14 @@ section{
 	font-size:20px;
 }
 
+/*CSS : Alerte Flash Vol*/
+#Compagnies{
+	padding-bottom:10px;
+}
+
+#Compagnies > h3{
+	font-size:18px;
+	margin-top:5px;
+}
 
 
