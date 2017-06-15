@@ -213,11 +213,55 @@
                                     <span>La provenance et la destination ne doivent pas être identiques</span>
                               </div>
                               <div class="Rechercher">
-                                  <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher"/>
+                                  <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher" data-toggle="modal" data-target="#ResultatVol" role="button"/>
                               </div>  
                         </form>
                     </div>
                 </section>
+
+                <!-- Résultat de la recherche vol -->
+                <div id="ResultatVol" class="modal fade" role="dialog">
+                    <div id="ContentArrivesDepart" class="modal-dialog">
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">Résultat de la recherche des vols</h4>
+                            </div>
+                            <form class="modal-body">
+                                <table id="ArrivesDepart">
+                                    <thead>
+                                        <tr class="ArrivesDepartTitreColumn">
+                                            <th>Compagnie</th>
+                                            <th>N° de Vol</th>
+                                            <th>Provenance</th>
+                                            <th>Destination</th>
+                                            <th>Date</th>
+                                            <th>Heure</th>
+                                            <th>Statut</th>
+                                            <th>
+                                                <select name="resultatVol" class="form-control" data-live-search="true">
+                                                    <option selected="selected">Selection : Arrivée ou Départ</option>
+                                                    <option value="Arrrivée">Arrivée</option>
+                                                    <option value="Départ">Départ</option>
+                                                </select>
+                                            </th>
+                                            <th>Alerte Flash Vol</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="RechercheVol" class="ArrivesDepartData">
+
+                                    </tbody>
+                                </table>
+                            </form>
+                            <div class="modal-footer">
+                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                <div class="useless"></div>
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Vols du jour -->
                 <section id="vols_du_jour">
