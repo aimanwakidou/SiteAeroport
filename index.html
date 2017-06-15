@@ -232,13 +232,6 @@
                                 <table id="ArrivesDepart">
                                     <thead>
                                         <tr class="ArrivesDepartTitreColumn">
-                                            <th>Compagnie</th>
-                                            <th>N° de Vol</th>
-                                            <th>Provenance</th>
-                                            <th>Destination</th>
-                                            <th>Date</th>
-                                            <th>Heure</th>
-                                            <th>Statut</th>
                                             <th>
                                                 <select name="resultatVol" class="form-control" data-live-search="true">
                                                     <option selected="selected">Selection : Arrivée ou Départ</option>
@@ -246,6 +239,13 @@
                                                     <option value="Départ">Départ</option>
                                                 </select>
                                             </th>
+                                            <th>Compagnie</th>
+                                            <th>N° de Vol</th>
+                                            <th>Provenance</th>
+                                            <th>Destination</th>
+                                            <th>Jour du vol</th>
+                                            <th>Heure</th>
+                                            <th>Statut</th>                                           
                                             <th>Alerte Flash Vol</th>
                                         </tr>
                                     </thead>
@@ -255,7 +255,7 @@
                                 </table>
                             </form>
                             <div class="modal-footer">
-                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkRechercheVol noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
                                 <div class="useless"></div>
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                             </div>
@@ -684,10 +684,10 @@
             <script src="js/flash.js"></script>
             <script src="js/ShowHide.js"></script>
             <script src="js/Controle.js"></script>
-            <script src="js/RechercheVol.js"></script>
             <script src="js/meteo.js"></script>
             <script src="js/AjoutSuppr.js"></script>
             <script src="js/Vols.js"></script>
+            <script src="js/RechercheVol.js"></script>
             <script src="js/Compagnies.js"></script>
       </body>
 </html>

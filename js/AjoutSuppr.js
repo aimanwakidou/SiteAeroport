@@ -19,7 +19,7 @@ $("#BagagesFirst .buttonAjoutSuppr .SupprWrapper").click(function(){
 /*Bind*/
 $(".bindAlert").each(function () {
     $(this).click(function () {
-        var Vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(".avionArrive");
+        var Vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(this).hasClass("EnvoiOkRechercheVol") ? $("#RechercheVol .Arrivée,#RechercheVol .Départ") : $(".avionArrive");
         Vols.each(function () {
             if ($(this).find("td div input").is(":checked"))
                 BindModalAlert($(this));
@@ -106,9 +106,9 @@ function CheckButtonCheckBox(envoiButtonJQuery, checkButtonJQuery) {
 }
 
 /*Fonction de controle --> Si aucun bouton n'est checké*/
-function ControleCheckBox(envoiButtonJQuery, ArriveDepart) {
-    if (typeof ArriveDepart === "boolean") {
-        var selector = (ArriveDepart) ? "Arrivee" : "Depart";
+function ControleCheckBox(envoiButtonJQuery, selector) {
+    var allowSelector = ['Arrivee','Depart','RechercheVol'];
+    if (allowSelector.indexOf(selector) !== -1){
         var checkedInput = $(".Alert" + selector);
         var flag = true;
 
