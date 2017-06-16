@@ -10,7 +10,7 @@ $(document).ready(function () {
 /*Ajout des vols dans la recherche*/
 function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep){
     var trString = '<tr class="'+ArrDep+'">'+
-                   '<td colspan="1">'+ArrDep+'</td>'+
+                   '<td>'+ArrDep+'</td>'+
                    '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
                    '<td class="numVol">'+code+'</td>'+
                    '<td>'+provenance+'</td>'+
