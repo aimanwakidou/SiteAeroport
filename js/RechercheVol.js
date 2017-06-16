@@ -1,7 +1,10 @@
-// JavaScript source code
+/*Création des cookies*/
+CreateCookies();
+
+/*Ajout des vols dans la recherche*/
 function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep){
     var trString = '<tr class="'+ArrDep+'">'+
-                   '<td></td>'+
+                   '<td>'+ArrDep+'</td>'+
                    '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
                    '<td class="numVol">'+code+'</td>'+
                    '<td>'+provenance+'</td>'+
@@ -16,6 +19,35 @@ function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,A
     $("#RechercheVol").append(tr);                  
 }
 
+/*Création des cookies*/
+function CreateCookies() {
+    Cookies.set('provenance', '');
+    Cookies.set('destination', '');
+    Cookies.set('dateVol', '');
+}
+
+/*Vérifier si les cookies existent*/
+function CookiesExists() {
+    return Cookies.get('provenance') != '' && Cookies.get('destination') != '' && Cookies.get('dateVol') != '';
+}
+
+/*Véfier si les cookies contiennent les données de la précédente recherche*/
+function IsSetCookies(prov, dest, date) {
+    return Cookies.get('provenance') == prov && Cookies.get('destination') == dest && Cookies.get('dateVol') == date;
+}
+
+/*Set Cookie*/
+function SetCookies(prov, dest, date) {
+    Cookies.set('provenance', prov);
+    Cookies.set('destination', dest);
+    Cookies.set('dateVol', date);
+}
+
+/*Nettoyage précédent résultat*/
+function NettoyageResult() {
+    $("#RechercheVol tr").remove();
+}
+
 $("#zoneRecherche").submit(function (event) {
     event.preventDefault();
     var provenance = $("#Provenance");
@@ -25,29 +57,41 @@ $("#zoneRecherche").submit(function (event) {
 
     if (provenance.parent().hasClass('success') && destination.parent().hasClass('success') && dateVol.length !== 0) {
         var url = "https://5.196.225.5/api/RechercheVols/" + provenance.val() + "/" + destination.val() + "/" + dateVol;
-        $.getJSON(url, {})
 
-            .done(function (data) {
-                Object.keys(data).forEach(function (key) {
-                    var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "ArrivÃ©e" : "DÃ©part";
-                    addResultVols(data[key].Compagnie,
-                                  data[key].CodeVol,
-                                  data[key].Provenance,
-                                  data[key].Destination,
-                                  data[key].Img,
-                                  data[key].Date,
-                                  (ArrDep == "ArrivÃ©e") ? data[key].Arr : data[key].Dep,
-                                  ArrDep);
-                });
-                /*ContrÃ´le fenetre modal*/
-                $(".AlertRechercheVol").each(function () {
-                    var EnvoiOk = $(".EnvoiOkRechercheVol");
-                    $(this).change(function () {
-                        CheckButtonCheckBox(EnvoiOk, $(this));
-                        ControleCheckBox(EnvoiOk,hasClass);
+        /*Lancement de la recherche*/
+        if (!CookiesExists() || !IsSetCookies(provenance.val(), destination.val(), dateVol)) {
+
+            /*Enregistrement des valeurs de la recherche*/
+            SetCookies(provenance.val(), destination.val(),dateVol);
+
+            /*Nettoyage précédente recherche*/
+            NettoyageResult();
+
+            /*Appel API*/
+            $.getJSON(url, {})
+
+                .done(function (data) {
+                    Object.keys(data).forEach(function (key) {
+                        var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "ArrivÃ©e" : "DÃ©part";
+                        addResultVols(data[key].Compagnie,
+                            data[key].CodeVol,
+                            data[key].Provenance,
+                            data[key].Destination,
+                            data[key].Img,
+                            data[key].Date,
+                            (ArrDep == "ArrivÃ©e") ? data[key].Arr : data[key].Dep,
+                            ArrDep);
                     });
-                });   
-            });
+                    /*ContrÃ´le fenetre modal*/
+                    $(".AlertRechercheVol").each(function () {
+                        var EnvoiOk = $(".EnvoiOkRechercheVol");
+                        $(this).change(function () {
+                            CheckButtonCheckBox(EnvoiOk, $(this));
+                            ControleCheckBox(EnvoiOk, hasClass);
+                        });
+                    });
+                });
+        }
     }
 
 });
