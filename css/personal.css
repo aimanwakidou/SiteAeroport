@@ -361,6 +361,7 @@ section{
 
 /*Recherche Vol*/
 .NoResultVol{
+    border-top:none !important;
     font-size:19px !important;
 }
 
