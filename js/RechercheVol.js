@@ -1,10 +1,16 @@
 /*Cr�ation des cookies*/
-CreateCookies();
+$(document).ready(function () {
+    CreateCookies();
+    $('input:not([type="submit"])').each(function () {
+        $(this).val('');
+    });
+});
+
 
 /*Ajout des vols dans la recherche*/
 function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep){
     var trString = '<tr class="'+ArrDep+'">'+
-                   '<td>'+ArrDep+'</td>'+
+                   '<td colspan="1">'+ArrDep+'</td>'+
                    '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
                    '<td class="numVol">'+code+'</td>'+
                    '<td>'+provenance+'</td>'+
@@ -16,7 +22,34 @@ function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,A
                    '</tr>';
     
     var tr = $.parseHTML(trString);
-    $("#RechercheVol").append(tr);                  
+    $("#RechercheVol").append(tr);       
+
+    var headerTable = $(".ResultatSearchVol thead");
+
+    if (headerTable.hasClass("noDisplayGenerique"))
+        headerTable.removeClass("noDisplayGenerique");
+
+    if (!headerTable.hasClass("displayGenerique"))
+        headerTable.addClass("displayGenerique");
+}
+
+/*Ajout message -> Aucun Vol*/
+function addNoVol() {
+    var trString = '<tr class="NoResultVol">' +
+        'Aucun vol ne correspond � la provenance et � la destination soumise' +
+        '</tr>';
+
+    var tr = $.parseHTML(trString);
+    $("#RechercheVol").append(tr);
+
+    var headerTable = $(".ResultatSearchVol thead");
+
+    if (headerTable.hasClass("displayGenerique"))
+        headerTable.removeClass("displayGenerique");
+
+    if (!headerTable.hasClass("noDisplayGenerique"))
+        headerTable.addClass("noDisplayGenerique");
+   
 }
 
 /*Cr�ation des cookies*/
@@ -71,25 +104,31 @@ $("#zoneRecherche").submit(function (event) {
             $.getJSON(url, {})
 
                 .done(function (data) {
-                    Object.keys(data).forEach(function (key) {
-                        var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "Arrivée" : "Départ";
-                        addResultVols(data[key].Compagnie,
-                            data[key].CodeVol,
-                            data[key].Provenance,
-                            data[key].Destination,
-                            data[key].Img,
-                            data[key].Date,
-                            (ArrDep == "Arrivée") ? data[key].Arr : data[key].Dep,
-                            ArrDep);
-                    });
-                    /*Contrôle fenetre modal*/
-                    $(".AlertRechercheVol").each(function () {
-                        var EnvoiOk = $(".EnvoiOkRechercheVol");
-                        $(this).change(function () {
-                            CheckButtonCheckBox(EnvoiOk, $(this));
-                            ControleCheckBox(EnvoiOk, hasClass);
+                    if (Object.keys(data).indexOf("message") == -1) {
+
+                        Object.keys(data).forEach(function (key) {
+                            var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "Arrivée" : "Départ";
+                            addResultVols(data[key].Compagnie,
+                                data[key].CodeVol,
+                                data[key].Provenance,
+                                data[key].Destination,
+                                data[key].Img,
+                                data[key].Date,
+                                (ArrDep == "Arrivée") ? data[key].Arr : data[key].Dep,
+                                ArrDep);
                         });
-                    });
+                        /*Contrôle fenetre modal*/
+                        $(".AlertRechercheVol").each(function () {
+                            var EnvoiOk = $(".EnvoiOkRechercheVol");
+                            $(this).change(function () {
+                                CheckButtonCheckBox(EnvoiOk, $(this));
+                                ControleCheckBox(EnvoiOk, hasClass);
+                            });
+                        });
+                    }
+                    else {
+                        addNoVol();
+                    }
                 });
         }
     }

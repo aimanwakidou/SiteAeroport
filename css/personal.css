@@ -359,6 +359,11 @@ section{
 	line-height:54px;
 }
 
+/*Recherche Vol*/
+.NoResultVol{
+    font-size:19px !important;
+}
+
 /*Rechercher Vol*/
 .Rechercher::after{
 	color:white;

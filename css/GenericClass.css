@@ -152,6 +152,16 @@
     overflow: visible;
 }
 
+/*Pour le thead*/
+thead.noDisplayGenerique{
+    display:none;
+}
+
+/*Pour les th*/
+thead.displayGenerique{
+    display:block;
+}
+
 /*CSS : Message Erreur Provenance Destination*/
 .erreurProvDest{
 	font-size:20px;
