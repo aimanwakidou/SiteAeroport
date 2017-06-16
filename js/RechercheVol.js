@@ -36,7 +36,7 @@ function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,A
 /*Ajout message -> Aucun Vol*/
 function addNoVol() {
     var trString = '<tr class="NoResultVol">' +
-        'Aucun vol ne correspond à la provenance et à la destination soumise' +
+        'Aucun vol ne correspond Ã  la provenance et Ã  la destination soumise' +
         '</tr>';
 
     var tr = $.parseHTML(trString);
@@ -64,7 +64,7 @@ function CookiesExists() {
     return Cookies.get('provenance') != '' && Cookies.get('destination') != '' && Cookies.get('dateVol') != '';
 }
 
-/*Véfier si les cookies contiennent les données de la précédente recherche*/
+/*Véfier si les cookies contiennent les donnÃ©es de la précédente recherche*/
 function IsSetCookies(prov, dest, date) {
     return Cookies.get('provenance') == prov && Cookies.get('destination') == dest && Cookies.get('dateVol') == date;
 }
@@ -76,11 +76,12 @@ function SetCookies(prov, dest, date) {
     Cookies.set('dateVol', date);
 }
 
-/*Nettoyage précédent résultat*/
+/*Nettoyage prÃ©cÃ©dent rÃ©sultat*/
 function NettoyageResult() {
     $("#RechercheVol tr").remove();
 }
 
+/* Recherche des vols */
 $("#zoneRecherche").submit(function (event) {
     event.preventDefault();
     var provenance = $("#Provenance");
