@@ -224,33 +224,34 @@
                     <div id="ContentArrivesDepart" class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Résultat de la recherche des vols</h4>
-                            </div>
+                              <div id="ResultatVolHeader" class="modal-header">
+                                    <div class="modal-title"><h4>Résultat de la recherche des vols</h4></div>
+                                    <div class="useless"></div>
+                                    <div class="switchArrivéeDépart">
+                                          <select name="resultatVol" class="form-control" data-live-search="true">
+                                              <option value="" selected="selected">Arrivée et Départ</option>
+                                              <option value="Arrivée">Arrivée</option>
+                                              <option value="Départ">Départ</option>
+                                          </select>
+                                    </div>
+                              </div>
                             <form class="modal-body">
                                 <table id="ArrivesDepart" class="ResultatSearchVol">
                                     <thead>
                                         <tr class="ArrivesDepartTitreColumn">
-                                            <th>
-                                                <select name="resultatVol" class="form-control" data-live-search="true">
-                                                    <option selected="selected">Selection : Arrivée ou Départ</option>
-                                                    <option value="Arrrivée">Arrivée</option>
-                                                    <option value="Départ">Départ</option>
-                                                </select>
-                                            </th>
-                                            <th>Compagnie</th>
-                                            <th>N° de Vol</th>
-                                            <th>Provenance</th>
-                                            <th>Destination</th>
-                                            <th>Jour du vol</th>
-                                            <th>Heure</th>
-                                            <th>Statut</th>                                           
-                                            <th>Alerte Flash Vol</th>
+                                                <th id="ResultArrivéeOuDépart">Arrivée et départ</th>
+                                                <th>Compagnie</th>
+                                                <th>N° de Vol</th>
+                                                <th>Provenance</th>
+                                                <th>Destination</th>
+                                                <th>Jour du vol</th>
+                                                <th>Heure</th>
+                                                <th>Statut</th>                                           
+                                                <th>Alerte Flash Vol</th>
                                         </tr>
                                     </thead>
                                     <tbody id="RechercheVol" class="ArrivesDepartData">
-
+                                          
                                     </tbody>
                                 </table>
                             </form>

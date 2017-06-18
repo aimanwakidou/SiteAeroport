@@ -89,6 +89,33 @@ $(".choixIles").change(function(){
 	});
 });
 
+/*Contrôle pour la recherche vol*/
+$('select[name="resultatVol"]').change(function(){
+	var selected = $('select[name="resultatVol"] option:selected');
+	var selectedValue = selected.val();
+	$("#ResultArrivéeOuDépart").text(selectedValue.length !== 0 ? selectedValue : selected.text());
+	
+	/*Affichage Arrivée Ou Départ*/
+	if(selectedValue.length === 0){
+		$("#RechercheVol tr").each(function(){
+			$(this).attr('active','OK');
+		});
+	}
+	else{
+		var oppositeValue = selectedValue == "Arrivée" ? "Départ" : "Arrivée";
+		$("#RechercheVol tr").each(function(){
+			if($(this).attr('active') == 'KO' && $(this).hasClass(selectedValue)){
+				$(this).attr('active','OK');
+			}
+			else{
+				if($(this).attr('active') == 'OK' && $(this).hasClass(oppositeValue)){
+					$(this).attr('active','KO');
+				}
+			}
+		});
+	}
+});
+
 /*Controle bouton suivi choix notification*/
 $(".RadioButton button").each(function () {
     $(this).click(function () {

@@ -61,6 +61,23 @@ section{
 	padding:20px 0;
 }
 
+select:-moz-focusring {
+	color: transparent;
+    text-shadow: 0 0 0 #000;
+}
+
+tr[active="OK"]{
+	display:table-row;
+}
+
+tr[active="KO"]{
+	display:none;
+}
+
+tr[active="OK"]:last-child > td{
+	border-bottom:none !important; 
+}
+
 #Column {
     flex-direction:column;
 }
@@ -365,6 +382,34 @@ section{
     font-size:19px !important;
 }
 
+/*Recherche Vol*/
+#ResultatVolHeader{
+	display:flex;
+	justify-content: space-between;
+}
+
+/*Recherche Vol*/
+#ResultatVolHeader > .modal-title{
+	flex-grow:1;
+}
+
+/*Recherche Vol*/
+.NoResultVol > td{
+	border-top:none !important;
+}
+
+/*Recherche Vol*/
+.switchArrivéeDépart{
+	flex-shrink:1;
+}
+
+/*Recherche Vol*/
+.imgArrDep{
+	height:75px;
+	width:80px;
+}
+
+
 /*Rechercher Vol*/
 .Rechercher::after{
 	color:white;
@@ -547,7 +592,7 @@ section{
 }
 
 /*CSS : Vols du jour*/
-.ArrivesDepartTitreColumn > th:first-child, .ArrivesDepartData > tr > td:first-child {
+.ArrivesDepartTitreColumn > th:first-child{
     padding-left: 10px;
 }
 
@@ -571,7 +616,7 @@ section{
 }
 
 /*CSS : Vols du jour*/
-.ArrivesDepartData > tr > td > img{
+.ArrivesDepartData > tr > .logoCompagny > img{
     height:50px;
     width:100px;
 }

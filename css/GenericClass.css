@@ -159,7 +159,7 @@ thead.noDisplayGenerique{
 
 /*Pour les th*/
 thead.displayGenerique{
-    display:block;
+    display:table-row;
 }
 
 /*CSS : Message Erreur Provenance Destination*/

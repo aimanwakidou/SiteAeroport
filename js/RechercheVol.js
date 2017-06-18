@@ -1,4 +1,4 @@
-/*Cr�ation des cookies*/
+/*Création des cookies*/
 $(document).ready(function () {
     CreateCookies();
     $('input:not([type="submit"])').each(function () {
@@ -8,63 +8,48 @@ $(document).ready(function () {
 
 
 /*Ajout des vols dans la recherche*/
-function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep){
-    var trString = '<tr class="'+ArrDep+'">'+
-                   '<td>'+ArrDep+'</td>'+
-                   '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
-                   '<td class="numVol">'+code+'</td>'+
-                   '<td>'+provenance+'</td>'+
-                   '<td>'+destination+'</td>'+
-                   '<td>'+date+'</td>'+
-                   '<td>'+heure+'</td>'+
-                   '<td></td>'+
-                   '<td><div class="checkbox"><input type="checkbox" name="Alert" class="AlertRechercheVol"/></div></td>'+
-                   '</tr>';
-    
+function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep,imgArrDep){    
+    var trString = '<tr class="'+ArrDep+'" active="OK">'+
+        '<td class="imgArrDep"><img src="'+imgArrDep+'"/></td>'+
+        '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
+        '<td class="numVol">'+code+'</td>'+
+        '<td>'+provenance+'</td>'+
+        '<td>'+destination+'</td>'+
+        '<td>'+date+'</td>'+
+        '<td>'+heure+'</td>'+
+        '<td></td>'+
+        '<td><div class="checkbox"><input type="checkbox" name="Alert" class="AlertRechercheVol"/></div></td>'+
+        '</tr>';
+        
     var tr = $.parseHTML(trString);
-    $("#RechercheVol").append(tr);       
+    $("#RechercheVol").append(tr);
 
-    var headerTable = $(".ResultatSearchVol thead");
-
-    if (headerTable.hasClass("noDisplayGenerique"))
-        headerTable.removeClass("noDisplayGenerique");
-
-    if (!headerTable.hasClass("displayGenerique"))
-        headerTable.addClass("displayGenerique");
 }
 
 /*Ajout message -> Aucun Vol*/
-function addNoVol() {
+function addNoVol() {      
     var trString = '<tr class="NoResultVol">' +
-        'Aucun vol ne correspond à la provenance et à la destination soumise' +
+        '<td>Aucun vol ne correspond à la provenance et à la destination soumise</td>' +
         '</tr>';
 
     var tr = $.parseHTML(trString);
     $("#RechercheVol").append(tr);
-
-    var headerTable = $(".ResultatSearchVol thead");
-
-    if (headerTable.hasClass("displayGenerique"))
-        headerTable.removeClass("displayGenerique");
-
-    if (!headerTable.hasClass("noDisplayGenerique"))
-        headerTable.addClass("noDisplayGenerique");
-   
+    
 }
 
-/*Cr�ation des cookies*/
+/*Création des cookies*/
 function CreateCookies() {
     Cookies.set('provenance', '');
     Cookies.set('destination', '');
     Cookies.set('dateVol', '');
 }
 
-/*V�rifier si les cookies existent*/
+/*Vérifier si les cookies existent*/
 function CookiesExists() {
-    return Cookies.get('provenance') != '' && Cookies.get('destination') != '' && Cookies.get('dateVol') != '';
+    return Cookies.get('provenance') !== '' && Cookies.get('destination') !== '' && Cookies.get('dateVol') !== '';
 }
 
-/*V�fier si les cookies contiennent les données de la pr�c�dente recherche*/
+/*Véfier si les cookies contiennent les données de la précédente recherche*/
 function IsSetCookies(prov, dest, date) {
     return Cookies.get('provenance') == prov && Cookies.get('destination') == dest && Cookies.get('dateVol') == date;
 }
@@ -98,7 +83,7 @@ $("#zoneRecherche").submit(function (event) {
             /*Enregistrement des valeurs de la recherche*/
             SetCookies(provenance.val(), destination.val(),dateVol);
 
-            /*Nettoyage pr�c�dente recherche*/
+            /*Nettoyage précédente recherche*/
             NettoyageResult();
 
             /*Appel API*/
@@ -116,7 +101,8 @@ $("#zoneRecherche").submit(function (event) {
                                 data[key].Img,
                                 data[key].Date,
                                 (ArrDep == "Arrivée") ? data[key].Arr : data[key].Dep,
-                                ArrDep);
+                                ArrDep,
+                                data[key].imgArrDep);
                         });
                         /*Contrôle fenetre modal*/
                         $(".AlertRechercheVol").each(function () {
