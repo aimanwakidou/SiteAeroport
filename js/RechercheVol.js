@@ -29,7 +29,7 @@ function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,A
 /*Ajout message -> Aucun Vol*/
 function addNoVol() {      
     var trString = '<tr class="NoResultVol">' +
-        '<td>Aucun vol ne correspond à la provenance et à la destination soumise</td>' +
+        '<td colspan="9" style="text-align:center;">Aucun vol ne correspond à la provenance et à la destination soumise</td>' +
         '</tr>';
 
     var tr = $.parseHTML(trString);
@@ -73,6 +73,11 @@ $("#zoneRecherche").submit(function (event) {
     var destination = $("#Destination");
     var dateVol = $('input[name="dateVol"]').val();
     dateVol = dateVol.replace(/[/]/g, '-');
+    
+    if(!CompareProvDest(provenance.val(),destination.val()))
+        return;
+    
+    $("#ResultatVol").modal("show");
 
     if (provenance.parent().hasClass('success') && destination.parent().hasClass('success') && dateVol.length !== 0) {
         var url = "https://5.196.225.5/api/RechercheVols/" + provenance.val() + "/" + destination.val() + "/" + dateVol;
@@ -91,7 +96,11 @@ $("#zoneRecherche").submit(function (event) {
 
                 .done(function (data) {
                     if (Object.keys(data).indexOf("message") == -1) {
-
+                        var selected = $('select[name="resultatVol"] option:selected');
+                        if(selected.attr('id') != "default"){
+                            selected.removeAttr("selected");
+                            $('select[name="resultatVol"] #default').attr('selected','selected');
+                        }
                         Object.keys(data).forEach(function (key) {
                             var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "Arrivée" : "Départ";
                             addResultVols(data[key].Compagnie,

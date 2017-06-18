@@ -152,6 +152,11 @@
     overflow: visible;
 }
 
+/*CSS : Body Relative*/
+.relativeBody{
+	position:relative;
+}
+
 /*Pour le thead*/
 thead.noDisplayGenerique{
     display:none;

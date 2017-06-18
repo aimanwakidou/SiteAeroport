@@ -1,14 +1,15 @@
 /*Activation css pour le chargement de requete CSS*/
 $(document).ajaxStart(function(){
 	var loader = '<tr id="Spinner">'+
-				 '<i class="fa fa-spinner fa-spin fa-3x"></i>'+
+				 '<div style="display:flex;align-items:center;">'+
+				 '<i class="fa fa-spinner fa-spin fa-4x" aria-hidden="true"></i></div>'+
 				 '</tr>';
 				 
-	$("#ArriveeBody,#DepartBody,#ResultatVol").append($.parseHTML(loader));
+	$("#ArriveeBody,#DepartBody,#RechercheVol").append($.parseHTML(loader));
 });
 
 $(document).ajaxComplete(function(){
-	$("#ArriveeBody #Spinner,#DepartBody #Spinner,#ResultatVol #Spinner").remove();
+	$("#ArriveeBody #Spinner,#DepartBody #Spinner,#RechercheVol #Spinner").remove();
 });
 
 /*Controle formulaire*/
@@ -146,26 +147,43 @@ $(".RadioButtonSuivi button").each(function(){
 });
 
 /*Controle Recherche Vol*/
-$("#Provenance,#Destination,#provenance,#destination").on("change blur",function(){
+$("#provenance,#destination").on("change blur",function(){
 	ControleValeurProvDest($(this));
 });
 
+$("#Provenance,#Destination").on("change blur",function(){
+	var toCompare = ($(this).attr('id') == "Provenance") ? $("#Destination") : $("#Provenance");
+	if($(this).val().length){
+		CompareProvDest($(this).val(),toCompare.val());
+	}	
+});
+
 /*Fonction de controle Recherche Vol*/
-function ControleValeurProvDest(elementJQuery){
-	var toCompare;
-	var result;
-	var id = elementJQuery.attr('id');
-	
-	if(id == "Provenance" || id == "Destination"){
-		toCompare = (id == "Provenance") ? "#Destination" : "#Provenance";
+function CompareProvDest(provenance,destination){
+	var message = $("#MessageErreurProvDest");
+	if(provenance == destination){
+		if($('body').hasClass("relativeBody"))
+			$('body').addClass("relativeBody");
+			
+		AfficheMessageGenerique(message,"displayGenerique");
 	}
 	else{
-		toCompare = (id == "provenance") ? "#destination" : "#provenance";
+		AfficheMessageGenerique(message,"noDisplayGenerique");
+		
+		if($("body").hasClass("relativeBody"))
+			$("body").removeClass("relativeBody");
 	}
-	
+	return (provenance != destination);
+}
+
+/*Fonction de controle Recherche Vol*/
+function ControleValeurProvDest(elementJQuery){
+	var id = elementJQuery.attr('id');
+	var toCompare = (id == "provenance") ? "#destination" : "#provenance";
+	var result;
 	if(elementJQuery.val().length){
 		result = (elementJQuery.val() != $(toCompare).val());
-		AjoutResult(elementJQuery,result,(id == "Provenance" || id == "Destination"));
+		AjoutResult(elementJQuery,result,false);
 		MessageErreurProvDest(id,result);
 	}
 	else
@@ -363,7 +381,7 @@ function ClearWarning(infoWarning){
 
 /*Fonction pour afficher/retirer le message d'erreur*/
 function MessageErreurProvDest(id,result){
-	var message = (id == "Provenance" || id == "Destination") ? $("#msgErrDepArr") : $("#msgErrSuivi");
+	var message = $("#msgErrSuivi");
 	AfficheMessageGenerique(message,(result) ? "noDisplayGenerique" : "displayGenerique");
 }
 

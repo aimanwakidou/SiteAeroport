@@ -175,53 +175,49 @@
             <!-- Contenu de la page -->
             <main>
 
-                <!-- Zone : Rechercher un vol -->
-                <section class="bg-primary search-flight" id="search-flight">
-                    <div class="container">
-                        <form name="zoneRecherche" id="zoneRecherche" class="form-flight-search">
-                              <h2 class="section-heading">Rechercher un vol</h2>
-                              <div class="DepartsArrivésContainer">
-                                  <div class="WrapperDépartsArrivés">
-                                    <div class="Departs">
-                                        <label for="Provenance" class="Provenance-label">
-                                            <span>Provenance</span>
-                                        </label>
-                                        <div class="DepartsInput form-group">
-                                            <input id="Provenance" name="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
-                                        </div>
-                                    </div> 
-                                    <div class="Arrivés">
-                                        <label for="Destination" class="Destination-label">
-                                            <span>Destination</span>
-                                        </label>
-                                        <div class="ArrivésInput form-group">
-                                            <input id="Destination" name="Destionation" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
-                                        </div>
+                  <!-- Zone : Rechercher un vol -->
+                  <section class="bg-primary search-flight" id="search-flight">
+                        <div class="container">
+                              <form name="zoneRecherche" id="zoneRecherche" class="form-flight-search">
+                                    <h2 class="section-heading">Rechercher un vol</h2>
+                                    <div class="DepartsArrivésContainer">
+                                          <div class="WrapperDépartsArrivés">
+                                                <div class="Departs">
+                                                      <label for="Provenance" class="Provenance-label">
+                                                            <span>Provenance</span>
+                                                      </label>
+                                                      <div class="DepartsInput form-group">
+                                                            <input id="Provenance" name="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
+                                                      </div>
+                                                </div> 
+                                                <div class="Arrivés">
+                                                      <label for="Destination" class="Destination-label">
+                                                            <span>Destination</span>
+                                                      </label>
+                                                      <div class="ArrivésInput form-group">
+                                                            <input id="Destination" name="Destionation" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
+                                                      </div>
+                                                </div>
+                                          </div>
+                                          <div class="DatePicker">
+                                                <div class="form-group"> <!-- Date input -->
+                                                      <label class="control-label" for="datepicker">Jour du vol</label>
+                                                      <div class="DatePickerInput">
+                                                            <input type="text" id="datepicker" name="dateVol" class="form-control" placeholder="JJ/MM/AAAA">
+                                                      </div>
+                                                </div>
+                                          </div>
                                     </div>
-                                  </div>
-                                  <div class="DatePicker">
-                                    <div class="form-group"> <!-- Date input -->
-                                      <label class="control-label" for="datepicker">Jour du vol</label>
-                                      <div class="DatePickerInput">
-                                        <input type="text" id="datepicker" name="dateVol" class="form-control" placeholder="JJ/MM/AAAA">
-                                      </div>
-                                    </div>
-                                  </div>
-                              </div>
-                              <div id="msgErrDepArr" class="noDisplayGenerique erreurProvDest">
-                                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                    <span>La provenance et la destination ne doivent pas être identiques</span>
-                              </div>
-                              <div class="Rechercher">
-                                  <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher" data-toggle="modal" data-target="#ResultatVol" role="button"/>
-                              </div>  
-                        </form>
-                    </div>
-                </section>
+                                    <div class="Rechercher">
+                                        <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher" data-target="#ResultatVol" role="button"/>
+                                    </div>  
+                              </form>
+                        </div>
+                  </section>
 
-                <!-- Résultat de la recherche vol -->
-                <div id="ResultatVol" class="modal fade" role="dialog">
-                    <div id="ContentArrivesDepart" class="modal-dialog">
+                  <!-- Résultat de la recherche vol -->
+                  <div id="ResultatVol" class="modal fade" role="dialog">
+                        <div id="ContentArrivesDepart" class="modal-dialog">
                         <!-- Modal content-->
                         <div class="modal-content">
                               <div id="ResultatVolHeader" class="modal-header">
@@ -229,7 +225,7 @@
                                     <div class="useless"></div>
                                     <div class="switchArrivéeDépart">
                                           <select name="resultatVol" class="form-control" data-live-search="true">
-                                              <option value="" selected="selected">Arrivée et Départ</option>
+                                              <option value="" selected="selected" id="default">Arrivée et Départ</option>
                                               <option value="Arrivée">Arrivée</option>
                                               <option value="Départ">Départ</option>
                                           </select>
@@ -262,7 +258,11 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                  </div>
+                  <div id="MessageErreurProvDest" class="noDisplayGenerique">
+                        <i class="fa fa-2x fa-exclamation-triangle" aria-hidden="true"></i>
+                        <span>La provenance et la destination ne doivent pas être identiques</span>
+                  </div>
 
                 <!-- Vols du jour -->
                 <section id="vols_du_jour">

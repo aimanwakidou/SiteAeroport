@@ -19,11 +19,17 @@ $("#BagagesFirst .buttonAjoutSuppr .SupprWrapper").click(function(){
 /*Bind*/
 $(".bindAlert").each(function () {
     $(this).click(function () {
-        var vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(this).hasClass("EnvoiOkRechercheVol") ? $("#RechercheVol .Arrivée,#RechercheVol .Départ") : $(".avionArrive");
-        var classToBind = ($(this).hasClass("EnvoiOkDepart") || $(this).hasClass("EnvoiOkArrive")) ? "VolsDuJour" : "RechercheVol";
+        var vols;
+        if($(this).hasClass("EnvoiOkRechercheVol")){
+            vols = $("#RechercheVol tr");  
+        }
+        else{
+            vols = $(this).hasClass("EnvoiOkDepart") ? $(".avionDepart") : $(".avionArrive");
+        }
+        
         vols.each(function () {
             if ($(this).find("td div input").is(":checked"))
-                BindModalAlert($(this),classToBind);
+                BindModalAlert($(this));
         });
     });
 });
