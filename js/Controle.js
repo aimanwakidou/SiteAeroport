@@ -1,3 +1,16 @@
+/*Activation css pour le chargement de requete CSS*/
+$(document).ajaxStart(function(){
+	var loader = '<tr id="Spinner">'+
+				 '<i class="fa fa-spinner fa-spin fa-3x"></i>'+
+				 '</tr>';
+				 
+	$("#ArriveeBody,#DepartBody,#ResultatVol").append($.parseHTML(loader));
+});
+
+$(document).ajaxComplete(function(){
+	$("#ArriveeBody #Spinner,#DepartBody #Spinner,#ResultatVol #Spinner").remove();
+});
+
 /*Controle formulaire*/
 var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]{2,})$/;
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;

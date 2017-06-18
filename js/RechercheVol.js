@@ -109,7 +109,7 @@ $("#zoneRecherche").submit(function (event) {
                             var EnvoiOk = $(".EnvoiOkRechercheVol");
                             $(this).change(function () {
                                 CheckButtonCheckBox(EnvoiOk, $(this));
-                                ControleCheckBox(EnvoiOk, hasClass);
+                                ControleCheckBox(EnvoiOk, 'RechercheVol');
                             });
                         });
                     }

@@ -616,7 +616,7 @@ tr[active="OK"]:last-child > td{
 }
 
 /*CSS : Vols du jour*/
-.ArrivesDepartData > tr > .logoCompagny > img{
+.logoCompagny > img{
     height:50px;
     width:100px;
 }

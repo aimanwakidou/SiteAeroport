@@ -19,10 +19,11 @@ $("#BagagesFirst .buttonAjoutSuppr .SupprWrapper").click(function(){
 /*Bind*/
 $(".bindAlert").each(function () {
     $(this).click(function () {
-        var Vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(this).hasClass("EnvoiOkRechercheVol") ? $("#RechercheVol .Arrivée,#RechercheVol .Départ") : $(".avionArrive");
-        Vols.each(function () {
+        var vols = ($(this).hasClass("EnvoiOkDepart")) ? $(".avionDepart") : $(this).hasClass("EnvoiOkRechercheVol") ? $("#RechercheVol .Arrivée,#RechercheVol .Départ") : $(".avionArrive");
+        var classToBind = ($(this).hasClass("EnvoiOkDepart") || $(this).hasClass("EnvoiOkArrive")) ? "VolsDuJour" : "RechercheVol";
+        vols.each(function () {
             if ($(this).find("td div input").is(":checked"))
-                BindModalAlert($(this));
+                BindModalAlert($(this),classToBind);
         });
     });
 });
@@ -113,8 +114,10 @@ function ControleCheckBox(envoiButtonJQuery, selector) {
         var flag = true;
 
         checkedInput.each(function () {
-            if ($(this).is(":checked"))
+            if ($(this).is(":checked")){
                 flag = false;
+                return;
+            }
         });
 
         if (envoiButtonJQuery.hasClass("displayButton") && flag) {
