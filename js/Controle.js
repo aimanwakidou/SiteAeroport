@@ -151,27 +151,55 @@ $("#provenance,#destination").on("change blur",function(){
 	ControleValeurProvDest($(this));
 });
 
+/*Controle Recherche Vol*/
 $("#Provenance,#Destination").on("change blur",function(){
 	var toCompare = ($(this).attr('id') == "Provenance") ? $("#Destination") : $("#Provenance");
-	if($(this).val().length){
-		CompareProvDest($(this).val(),toCompare.val());
-	}	
+	CompareProvDest($(this).val(),toCompare.val());
 });
+
+/*Controle Recherche Vol*/
+$('input[name="dateVol"]').on("change blur",function(){
+	MessageErreurRecherche($(this).val(),$("#MessageErreurProvDest"),'jour du vol');
+});
+
+/*Fonction d'affiche message erreur : Recherche Vol*/
+function MessageErreurRecherche(toCheckLength,message,messageText){
+	if(toCheckLength.length === 0){
+		var messageErreur = message.find('span[messageErreur="2"]');
+		messageErreur.find('mark').text(messageText);
+		AfficheMessageGenerique2(message.find('span[messageErreur="1"]'),'noDisplayGenerique2');
+		AfficheMessageGenerique(message,"displayGenerique");
+		AfficheMessageGenerique2(messageErreur,"displayGenerique2");
+	}
+	return toCheckLength.length !== 0;
+}
 
 /*Fonction de controle Recherche Vol*/
 function CompareProvDest(provenance,destination){
 	var message = $("#MessageErreurProvDest");
+	
+	/*Check Length*/
+	if(!MessageErreurRecherche(provenance,message,'provenance'))
+		return false;
+	
+	if(!MessageErreurRecherche(destination,message,'destination'))
+		return false;
+	
+	AfficheMessageGenerique(message,'noDisplayGenerique');
+	
 	if(provenance == destination){
-		if($('body').hasClass("relativeBody"))
-			$('body').addClass("relativeBody");
+		if($("#search-flight").hasClass("relativeBody"))
+			$("#search-flight").addClass("relativeBody");
 			
 		AfficheMessageGenerique(message,"displayGenerique");
+		AfficheMessageGenerique2(message.find('span[messageErreur="1"]'),"displayGenerique2");
 	}
 	else{
 		AfficheMessageGenerique(message,"noDisplayGenerique");
+		AfficheMessageGenerique2(message.find('span[messageErreur="1"]'),"noDisplayGenerique2");
 		
-		if($("body").hasClass("relativeBody"))
-			$("body").removeClass("relativeBody");
+		if($("#search-flight").hasClass("relativeBody"))
+			$("#search-flight").removeClass("relativeBody");
 	}
 	return (provenance != destination);
 }
@@ -387,6 +415,14 @@ function MessageErreurProvDest(id,result){
 
 function AfficheMessageGenerique(messageJQuery,classToAdd){
 	var classToRemove = (classToAdd == "displayGenerique") ? "noDisplayGenerique" : "displayGenerique";
+	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
+		messageJQuery.removeClass(classToRemove);
+		messageJQuery.addClass(classToAdd);
+	}
+}
+
+function AfficheMessageGenerique2(messageJQuery,classToAdd){
+	var classToRemove = (classToAdd == "displayGenerique2") ? "noDisplayGenerique2" : "displayGenerique2";
 	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
 		messageJQuery.removeClass(classToRemove);
 		messageJQuery.addClass(classToAdd);

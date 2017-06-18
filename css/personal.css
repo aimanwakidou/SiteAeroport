@@ -953,14 +953,18 @@ tr[active="OK"]:last-child > td{
 	font-size:20px;
 }
 
-/*CSS : Alerte Flash Vol*/
-#Compagnies{
+/*CSS : Alerte Flash Vol + Recherche Vol*/
+#Compagnies,#CompagniesRecherche{
 	padding-bottom:10px;
-}
 
-#Compagnies > h3{
+}
+/*CSS : Alerte Flash Vol + Recherche Vol*/
+#Compagnies > h3,#CompagniesRecherche > h3{
 	font-size:18px;
 	margin-top:5px;
 }
 
-
+/*CSS : Recherche Vol*/
+#zoneRechercheCompagnies > div{
+	display:flex;
+}

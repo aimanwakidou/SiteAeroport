@@ -177,7 +177,7 @@
 
                   <!-- Zone : Rechercher un vol -->
                   <section class="bg-primary search-flight" id="search-flight">
-                        <div class="container">
+                        <div id="RechercheProvDest" class="container">
                               <form name="zoneRecherche" id="zoneRecherche" class="form-flight-search">
                                     <h2 class="section-heading">Rechercher un vol</h2>
                                     <div class="DepartsArrivésContainer">
@@ -210,9 +210,35 @@
                                     </div>
                                     <div class="Rechercher">
                                         <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher" data-target="#ResultatVol" role="button"/>
-                                    </div>  
+                                    </div>
+                                    <div id="MessageErreurProvDest" class="noDisplayGenerique">
+                                          <i class="fa fa-2x fa-exclamation-triangle" aria-hidden="true"></i>
+                                          <span class="displayGenerique2" messageErreur="1">La provenance et la destination ne doivent pas être identiques</span>
+                                          <span class="noDisplayGenerique2" messageErreur="2">Un champs est manquant : <mark></mark></span>
+                                    </div>
                               </form>
                         </div>
+                        <!--<div id="RechercheCompagnie" class="container">
+                              <h2 class="section-heading">Rechercher les vols d'une compagnie</h2>
+                              <form name="zoneRechercheCompagnies" id="zoneRechercheCompagnies">
+                                    <div>
+                                          <div id="CompagniesRecherche" class="form-group">
+                                                <h3>Compagnies</h3>
+                                                <select name="compagnies" class="form-control" data-live-search="true">
+                                                      <option selected="selected">Selectionnez une compagnie </option>
+                                                </select>
+                                          </div>
+                                          <div class="DatePicker">
+                                                <div class="form-group"> <!-- Date input 
+                                                      <label class="control-label" for="datepicker3">Jour du vol (optionnel)</label>
+                                                      <div class="DatePickerInput">
+                                                            <input type="text" id="datepicker3" name="dateVolCompagnie" class="form-control" placeholder="JJ/MM/AAAA">
+                                                      </div>
+                                                </div>
+                                          </div>
+                                    </div>
+                              </form>
+                        </div>-->
                   </section>
 
                   <!-- Résultat de la recherche vol -->
@@ -259,11 +285,7 @@
                         </div>
                     </div>
                   </div>
-                  <div id="MessageErreurProvDest" class="noDisplayGenerique">
-                        <i class="fa fa-2x fa-exclamation-triangle" aria-hidden="true"></i>
-                        <span>La provenance et la destination ne doivent pas être identiques</span>
-                  </div>
-
+                  
                 <!-- Vols du jour -->
                 <section id="vols_du_jour">
                     <div class="container">

@@ -19,7 +19,7 @@ $(document).ready(function(){
 });
 
 $( function() {
-    $( "#datepicker,.datepicker2" ).datepicker({
+    $( "#datepicker,.datepicker2,#datepicker3" ).datepicker({
     	altField:"#datepicker",
     	closeText:'Fermer',
     	prevText:'Précédent',

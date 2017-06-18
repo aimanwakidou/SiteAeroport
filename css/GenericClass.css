@@ -152,8 +152,18 @@
     overflow: visible;
 }
 
-/*CSS : Body Relative*/
-.relativeBody{
+/*CSS : Cache Message2*/
+.noDisplayGenerique2{
+	display:none;
+}
+
+/*CSS : Cache Message 2*/
+.displayGenerique2{
+	display:block;
+}
+
+/*CSS : Section Relative*/
+.relativeSection{
 	position:relative;
 }
 

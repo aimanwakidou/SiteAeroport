@@ -37,8 +37,8 @@ $(".bindAlert").each(function () {
 /*Fonction : Ajout d'un bagage*/
 function AjoutBagages(){
     var bagagesHtmlString = '<div class="BagagesInput form-group">' +
-        '<div class="BagagesWrapper"><input name="bagages" class="form-control" placeholder="Entrez le numÈro de votre bagage" type="text"/></div>'+
-        '<div class="buttonAjoutSuppr" style="visibility:hidden">'+
+        '<div class="BagagesWrapper"><input name="bagages" class="form-control" placeholder="Entrez le num√©ro de votre bagage" type="text"/></div>'+
+        '<div class="buttonAjoutSuppr" style="visibility:hidden;">'+
         '<span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>'+
         '<span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>'+
         '</div>';
@@ -76,7 +76,7 @@ function SuppressionVol() {
 
 /*Fonction de liaison Modal --> Alerte Flash*/
 function BindModalAlert(caseTable) {
-    var num_vol = caseTable.find(".numVol").html();
+    var num_vol = caseTable.find(".numVol").text();
     var inputsNumVol = $("#BoxFlashAlert .search-box-inner");
     var flagFree = false;
     var flagFind = false;
@@ -112,7 +112,7 @@ function CheckButtonCheckBox(envoiButtonJQuery, checkButtonJQuery) {
     }
 }
 
-/*Fonction de controle --> Si aucun bouton n'est checkÈ*/
+/*Fonction de controle --> Si aucun bouton n'est check√©*/
 function ControleCheckBox(envoiButtonJQuery, selector) {
     var allowSelector = ['Arrivee','Depart','RechercheVol'];
     if (allowSelector.indexOf(selector) !== -1){

@@ -64,6 +64,22 @@ function SetCookies(prov, dest, date) {
 /*Nettoyage précédent résultat*/
 function NettoyageResult() {
     $("#RechercheVol tr").remove();
+    var envoiOk = $(".EnvoiOkRechercheVol");
+    
+    if(envoiOk.hasClass("displayButton"))
+        envoiOk.removeClass("displayButton");
+    
+    if(!envoiOk.hasClass('noDisplayButton'))
+        envoiOk.addClass('noDisplayButton');
+}
+
+/*Select -> set à défaut*/
+function DefaultSelect(){
+    var selected = $('select[name="resultatVol"] option:selected');
+    if(selected.attr('id') != "default"){
+        selected.removeAttr("selected");
+        $('select[name="resultatVol"] #default').attr('selected','selected');
+    }
 }
 
 /* Recherche des vols */
@@ -96,11 +112,7 @@ $("#zoneRecherche").submit(function (event) {
 
                 .done(function (data) {
                     if (Object.keys(data).indexOf("message") == -1) {
-                        var selected = $('select[name="resultatVol"] option:selected');
-                        if(selected.attr('id') != "default"){
-                            selected.removeAttr("selected");
-                            $('select[name="resultatVol"] #default').attr('selected','selected');
-                        }
+                        DefaultSelect();
                         Object.keys(data).forEach(function (key) {
                             var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "Arrivée" : "Départ";
                             addResultVols(data[key].Compagnie,

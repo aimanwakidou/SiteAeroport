@@ -239,6 +239,11 @@
     .ProvenanceInput{
     	margin-right:0px;
     }
+	
+	/*CSS : Recherche Vol*/
+	#MessageErreurProvDest{
+		left:10px;
+	}
 }
 
 /*CSS : Mobile*/
@@ -254,4 +259,9 @@
     .JourHeure{
         flex-direction:column;
     }
+	
+	/*CSS : Recherche Vol*/
+	#MessageErreurProvDest{
+		max-height:100px;
+	}
 }
