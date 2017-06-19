@@ -13,6 +13,22 @@
     }
 }
 
+/*CSS : Mobile + Tablette*/
+@media screen and (max-width:1000px){
+	#CoteACote-inner{
+		flex-direction:column;
+	}
+	
+	.email{
+		margin-bottom:5px;
+		margin-right:0px;
+	}
+
+	.container{
+		padding:0 15px;
+	}
+}
+
 @media screen and (max-width: 900px){
 	.flash_alert-num_vol-content{
 		padding-top:25px;
@@ -30,22 +46,28 @@
         margin-right: 0px;
         margin-bottom: 10px;
     }
-}
-
-/*CSS : Mobile + Tablette*/
-@media screen and (max-width:1000px){
-	#CoteACote-inner{
-		flex-direction:column;
+	
+	#CompagniesList > .bootstrap-select{
+		margin-bottom:30px;
 	}
 	
-	.email{
-		margin-bottom:5px;
+	#DateResultat{
+        flex-direction:column;
+    }
+	
+	.DateWrapper{
 		margin-right:0px;
+		margin-bottom:10px;
 	}
 
-	.container{
-		padding:0 15px;
-	}
+    .buttonValidate {
+        align-self:auto;
+        padding-top: 10px;
+    }
+
+    .buttonValidate > button{
+        justify-content:center;
+    }
 }
 
 /*CSS : Vols du jour*/
@@ -152,6 +174,24 @@
 	.QuestionVol{
 		padding-top:10px;
 	}
+	
+	#DateResultat{
+        flex-direction:row;
+    }
+	
+	#CompagniesList > .bootstrap-select {
+		margin-bottom:0px;
+	}
+	
+	.DateWrapper{
+		margin-right:10px;
+		margin-bottom:0px;
+	}
+
+    .buttonValidate {
+        align-self:flex-end;
+        padding-top:0px;
+    }
 
     #CompagniesWrapper{
         flex-direction:row;
@@ -176,6 +216,10 @@
 	
 	#CompagniesList{
 		margin-right:0px;
+	}
+	
+	#CompagniesList > .bootstrap-select{
+		margin-bottom:30px;
 	}
 }
 
@@ -271,12 +315,13 @@
 /*CSS : Mobile*/
 @media screen and (max-width:450px){
 	#DateResultat{
-        flex-direction:column;
-    }
-
-    .DateWrapper{
-		margin:30px 0px 10px 0px;
-    }
+		flex-direction:column;
+	}
+	
+	.DateWrapper{
+		margin-right:0px;
+		margin-bottom:10px;
+	}
 
     .buttonValidate {
         align-self:auto;
@@ -286,9 +331,6 @@
     .buttonValidate > button{
         justify-content:center;
     }
-	
-	
-	
 }
 
 /*CSS : Mobile*/
