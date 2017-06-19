@@ -527,8 +527,7 @@ tr[active="OK"]:last-child > td{
 
 /*CSS : Alerte flash vol*/
 .flash_alert-num_vol-content{
-    margin-top:20px;
-	padding-top:30px;
+	padding-top:10px;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -994,7 +993,6 @@ tr[active="OK"]:last-child > td{
 
 /*CSS : Alerte Flash Vol*/
 #CompagniesWrapper > div{
-    flex-basis:0;
     flex-grow:1;
 }
 
@@ -1007,7 +1005,6 @@ tr[active="OK"]:last-child > td{
 /*CSS : Alerte Flash Vol*/
 #CompagniesList{
     margin-right:10px;
-    /*align-self:flex-end;*/
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -1061,11 +1058,11 @@ tr[active="OK"]:last-child > td{
     display:flex;
     align-items:center;
     transition:all 0.3s ease-in-out;
+	text-transform:none;
 }
 
 /*CSS : Alerte Flash Vol*/
 .buttonValidate > button:hover {
-    transition: all 0.3s ease-in-out;
     color:white;
     background-color:black;
 }
@@ -1073,7 +1070,11 @@ tr[active="OK"]:last-child > td{
 /*CSS : Alerte Flash Vol*/
 .buttonValidate > button > i{
     font-size:40px;
-    padding-left:15px;
+}
+
+/*CSS : Alerte Flash Vol*/
+#FindResult > .bootstrap-select{
+	margin-bottom:15px;
 }
 
 

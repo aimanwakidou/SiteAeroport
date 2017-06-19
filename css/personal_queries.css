@@ -169,6 +169,14 @@
     .ArrivesDepartData > tr{
         width:600px;
     }
+	
+	#CompagniesWrapper{
+		flex-direction: column;
+	}
+	
+	#CompagniesList{
+		margin-right:0px;
+	}
 }
 
 /*CSS : Mobile*/
@@ -261,6 +269,29 @@
 }
 
 /*CSS : Mobile*/
+@media screen and (max-width:450px){
+	#DateResultat{
+        flex-direction:column;
+    }
+
+    .DateWrapper{
+		margin:30px 0px 10px 0px;
+    }
+
+    .buttonValidate {
+        align-self:auto;
+        padding-top: 10px;
+    }
+
+    .buttonValidate > button{
+        justify-content:center;
+    }
+	
+	
+	
+}
+
+/*CSS : Mobile*/
 @media screen and (max-width:400px){
     #Column400{
         flex-direction:column;
@@ -287,26 +318,4 @@
         margin-right: 0px;
         margin-bottom: 10px;
     }
-}
-
-/*CSS : Mobile*/
-@media screen and (max-width:350px){
-    #DateResultat{
-        flex-direction:column;
-    }
-
-    .DateWrapper{
-        margin-right:0px;
-        margin-bottom:10px;
-    }
-
-    .buttonValidate {
-        align-self:auto;
-        padding-top: 10px;
-    }
-
-    .buttonValidate > button{
-        justify-content:center;
-    }
-
 }
