@@ -204,10 +204,24 @@
 
 }
 
-/*CSS : Vols du jour*/
-@media screen and (max-width:600px){
-    .ArrivesDepartData > tr{
-        width:600px;
+/*CSS : Mobile*/
+@media screen and (max-width:650px){
+	#DateResultat{
+		flex-direction:column;
+	}
+	
+	.DateWrapper{
+		margin-right:0px;
+		margin-bottom:10px;
+	}
+
+    .buttonValidate {
+        align-self:auto;
+        padding-top: 10px;
+    }
+
+    .buttonValidate > button{
+        justify-content:center;
     }
 	
 	#CompagniesWrapper{
@@ -271,6 +285,13 @@
  
 }
 
+/*CSS : Vols du jour*/
+@media screen and (max-width:600px){
+    .ArrivesDepartData > tr{
+        width:600px;
+    }
+}
+
 /*CSS : Mobile*/
 @media screen and (max-width:550px){
     /*CSS : SuiviBagages*/
@@ -310,27 +331,6 @@
 	#MessageErreurProvDest{
 		left:10px;
 	}
-}
-
-/*CSS : Mobile*/
-@media screen and (max-width:450px){
-	#DateResultat{
-		flex-direction:column;
-	}
-	
-	.DateWrapper{
-		margin-right:0px;
-		margin-bottom:10px;
-	}
-
-    .buttonValidate {
-        align-self:auto;
-        padding-top: 10px;
-    }
-
-    .buttonValidate > button{
-        justify-content:center;
-    }
 }
 
 /*CSS : Mobile*/

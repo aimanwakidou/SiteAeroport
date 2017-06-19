@@ -1053,6 +1053,7 @@ tr[active="OK"]:last-child > td{
 
 /*CSS : Alerte Flash Vol*/
 .buttonValidate > button {
+	background-color:#E8E8E8;
     line-height: 19.6px;
     min-height: 55px;
     display:flex;
