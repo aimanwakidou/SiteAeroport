@@ -29,7 +29,7 @@ function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,A
 /*Ajout message -> Aucun Vol*/
 function addNoVol() {      
     var trString = '<tr class="NoResultVol">' +
-        '<td colspan="9" style="text-align:center;">Aucun vol ne correspond à la provenance et à la destination soumise</td>' +
+        '<td colspan="9" style="text-align:center;">Aucun vol ne correspond à la provenance et à la destination soumise ou à la date soumise </td>' +
         '</tr>';
 
     var tr = $.parseHTML(trString);
@@ -82,6 +82,7 @@ function DefaultSelect(){
         selected.removeAttr("selected");
         $('select[name="resultatVol"] #default').attr('selected','selected');
     }
+    $("#ResultArrivéeOuDépart").text($('select[name="resultatVol"] #default').text());
 }
 
 /* Message Erreur Invalide */

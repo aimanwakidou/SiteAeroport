@@ -386,6 +386,7 @@ tr[active="OK"]:last-child > td{
 #ResultatVolHeader{
 	display:flex;
 	justify-content: space-between;
+    align-items:center;
 }
 
 /*Recherche Vol*/

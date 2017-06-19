@@ -76,7 +76,7 @@ function SuppressionVol() {
 
 /*Fonction de liaison Modal --> Alerte Flash*/
 function BindModalAlert(caseTable) {
-    var num_vol = caseTable.find(".numVol").text();
+    var num_vol = caseTable.find(".numVol").html();
     var inputsNumVol = $("#BoxFlashAlert .search-box-inner");
     var flagFree = false;
     var flagFind = false;
@@ -99,7 +99,7 @@ function BindModalAlert(caseTable) {
     if (flagFree || flagFind)
         return;
 
-    Ajout();
+    AjoutVol();
     var inputsNumVolLast = $("#BoxFlashAlert .search-box-inner").last().find("input");
     inputsNumVolLast.val(num_vol);
 }

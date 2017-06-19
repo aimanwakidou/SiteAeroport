@@ -162,8 +162,8 @@
 	display:block;
 }
 
-/*CSS : Section Relative*/
-.relativeSection{
+/*CSS : Section Relative + Relative Modal*/
+.relativeSection,.relativeModal{
 	position:relative;
 }
 
@@ -181,4 +181,11 @@ thead.displayGenerique{
 .erreurProvDest{
 	font-size:20px;
 	padding-bottom:15px;
+}
+
+/*Fixed position*/
+.fixedThead{
+    position:fixed;
+    z-index:5;
+    top:2px;
 }
