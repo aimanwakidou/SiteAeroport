@@ -157,17 +157,13 @@ $("#Provenance,#Destination").on("change blur",function(){
 	CompareProvDest($(this).val(),toCompare.val());
 });
 
-/*Controle Recherche Vol*/
-$('input[name="dateVol"]').on("change blur",function(){
-	MessageErreurRecherche($(this).val(),$("#MessageErreurProvDest"),'jour du vol');
-});
-
 /*Fonction d'affiche message erreur : Recherche Vol*/
 function MessageErreurRecherche(toCheckLength,message,messageText){
 	if(toCheckLength.length === 0){
 		var messageErreur = message.find('span[messageErreur="2"]');
 		messageErreur.find('mark').text(messageText);
-		AfficheMessageGenerique2(message.find('span[messageErreur="1"]'),'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[messageErreur="1"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[messageErreur="3"]'), 'noDisplayGenerique2');
 		AfficheMessageGenerique(message,"displayGenerique");
 		AfficheMessageGenerique2(messageErreur,"displayGenerique2");
 	}
@@ -178,21 +174,14 @@ function MessageErreurRecherche(toCheckLength,message,messageText){
 function CompareProvDest(provenance,destination){
 	var message = $("#MessageErreurProvDest");
 	
-	/*Check Length*/
-	if(!MessageErreurRecherche(provenance,message,'provenance'))
-		return false;
-	
-	if(!MessageErreurRecherche(destination,message,'destination'))
-		return false;
-	
-	AfficheMessageGenerique(message,'noDisplayGenerique');
-	
 	if(provenance == destination){
 		if($("#search-flight").hasClass("relativeBody"))
 			$("#search-flight").addClass("relativeBody");
 			
 		AfficheMessageGenerique(message,"displayGenerique");
-		AfficheMessageGenerique2(message.find('span[messageErreur="1"]'),"displayGenerique2");
+        AfficheMessageGenerique2(message.find('span[messageErreur="1"]'), "displayGenerique2");
+        AfficheMessageGenerique2(message.find('span[messageErreur="2"]'), "noDisplayGenerique2");
+        AfficheMessageGenerique2(message.find('span[messageErreur="3"]'), 'noDisplayGenerique2');
 	}
 	else{
 		AfficheMessageGenerique(message,"noDisplayGenerique");
@@ -345,12 +334,19 @@ function ControleAeroport(elementJQuery,source){
 function AjoutResult(elementJQuery,result,failType){
 	if(typeof(result) == "boolean"){
 		if(result){
-			elementJQuery.parent().addClass('success');
-			if(elementJQuery.hasClass('fail'))
-				elementJQuery.removeClass('fail');
+            elementJQuery.parent().addClass('success');
+            if (!failType) {
+                if (elementJQuery.hasClass('fail'))
+                    elementJQuery.removeClass('fail');
+            }
+            else {
+                if (elementJQuery.parent().hasClass('fail2'))
+                    elementJQuery.parent().removeClass('fail2');
+            }
 		}
-		else{
-			elementJQuery.addClass((failType) ? 'fail2' : 'fail');	
+        else {
+            var elemToAddFail = (failType) ? elementJQuery.parent() : elementJQuery;
+			elemToAddFail.addClass((failType) ? 'fail2' : 'fail');	
 			if(elementJQuery.hasClass('success'))
 				elementJQuery.removeClass('success');
 		}

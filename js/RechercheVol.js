@@ -71,6 +71,8 @@ function NettoyageResult() {
     
     if(!envoiOk.hasClass('noDisplayButton'))
         envoiOk.addClass('noDisplayButton');
+
+    DefaultSelect();
 }
 
 /*Select -> set à défaut*/
@@ -82,20 +84,42 @@ function DefaultSelect(){
     }
 }
 
+/* Message Erreur Invalide */
+function MessageErreurInvalide(message, checkValid, messageText) {
+    if (!checkValid) {
+        var messageErreur = message.find('span[messageErreur="3"]');
+        messageErreur.find('mark').text(messageText);
+        AfficheMessageGenerique2(message.find('span[messageErreur="1"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[messageErreur="2"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique(message, "displayGenerique");
+        AfficheMessageGenerique2(messageErreur, "displayGenerique2");
+    }
+}
+
 /* Recherche des vols */
 $("#zoneRecherche").submit(function (event) {
     event.preventDefault();
     var provenance = $("#Provenance");
     var destination = $("#Destination");
     var dateVol = $('input[name="dateVol"]').val();
+    var message = $('#MessageErreurProvDest');
+    var provSuccess = provenance.parent().hasClass('success');
+    var destSuccess = destination.parent().hasClass('success');
+
     dateVol = dateVol.replace(/[/]/g, '-');
-    
+
+    if (!MessageErreurRecherche(provenance.val(), message, 'provenance') || !MessageErreurRecherche(destination.val(), message, 'destination') || !MessageErreurRecherche(dateVol, message, 'jour du vol'))
+        return;
+
+    AfficheMessageGenerique2(message, 'noDisplayGenerique2');
+
     if(!CompareProvDest(provenance.val(),destination.val()))
         return;
-    
-    $("#ResultatVol").modal("show");
 
-    if (provenance.parent().hasClass('success') && destination.parent().hasClass('success') && dateVol.length !== 0) {
+    AfficheMessageGenerique2(message, 'noDisplayGenerique2');
+   
+    if (provSuccess && destSuccess) {
+        $("#ResultatVol").modal("show");
         var url = "https://5.196.225.5/api/RechercheVols/" + provenance.val() + "/" + destination.val() + "/" + dateVol;
 
         /*Lancement de la recherche*/
@@ -136,9 +160,15 @@ $("#zoneRecherche").submit(function (event) {
                     }
                     else {
                         addNoVol();
+                        return;
                     }
                 });
         }
+    }
+    else {
+        MessageErreurInvalide(message, provSuccess, 'provenance invalide');
+        MessageErreurInvalide(message, destSuccess, 'destination invalide');
+        return;
     }
 
 });
