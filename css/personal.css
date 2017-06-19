@@ -1,14 +1,14 @@
 @import "SurchargeBootstrap.css" screen;
 @import "SuiviEtAlert.css" screen;
 
-@font-face{
-	font-family:'Segoe UI';
-	src:url('../font/segoeui.ttf');
+@font-face {
+    font-family: 'Segoe UI';
+    src: url('../font/segoeui.ttf');
 }
 
-@font-face{
-	font-family:'Tahoma';
-	src:url('../font/Tahoma.ttf');
+@font-face {
+    font-family: 'Tahoma';
+    src: url('../font/Tahoma.ttf');
 }
 
 body{
@@ -46,8 +46,13 @@ mark{
     padding:0;
 }
 
-select{
-	min-height:55px;
+select {
+    line-height: 19.6px;
+    min-height: 55px;
+}
+
+footer {
+    font-family: 'Trebuchet MS','Tahoma','Segoe UI',Verdana;
 }
 
 input:-webkit-autofill,
@@ -59,6 +64,10 @@ input:-webkit-autofill:active {
 
 section{
 	padding:20px 0;
+}
+
+h1,h2,h3,h4{
+    font-family:inherit;
 }
 
 select:-moz-focusring {
@@ -518,7 +527,8 @@ tr[active="OK"]:last-child > td{
 
 /*CSS : Alerte flash vol*/
 .flash_alert-num_vol-content{
-	padding-top:20px;
+    margin-top:20px;
+	padding-top:30px;
 }
 
 /*CSS : Alerte Flash Vol*/
@@ -659,10 +669,10 @@ tr[active="OK"]:last-child > td{
 }
 
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
-.CoteACote{
-	font-size:15px;
-	padding:10px 0;
-	word-wrap:break-word;
+.CoteACote {
+    font-size: 15px;
+    padding: 10px 0;
+    word-wrap: break-word;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
@@ -957,8 +967,13 @@ tr[active="OK"]:last-child > td{
 /*CSS : Alerte Flash Vol + Recherche Vol*/
 #Compagnies,#CompagniesRecherche{
 	padding-bottom:10px;
-
 }
+
+/*CSS : Alerte Flash Vol*/
+#Compagnies{
+    padding-top:10px;
+}
+
 /*CSS : Alerte Flash Vol + Recherche Vol*/
 #Compagnies > h3,#CompagniesRecherche > h3{
 	font-size:18px;
@@ -969,3 +984,98 @@ tr[active="OK"]:last-child > td{
 #zoneRechercheCompagnies > div{
 	display:flex;
 }
+
+/*CSS : Alerte Flash Vol*/
+#CompagniesWrapper{
+    display:flex;
+    justify-content:space-between;
+    padding-top:10px;
+}
+
+/*CSS : Alerte Flash Vol*/
+#CompagniesWrapper > div{
+    flex-basis:0;
+    flex-grow:1;
+}
+
+/*CSS : Alerte Flash Vol*/
+.titleFindNumVol{
+    padding-bottom:10px;
+    font-family:'Tahoma';
+}
+
+/*CSS : Alerte Flash Vol*/
+#CompagniesList{
+    margin-right:10px;
+    /*align-self:flex-end;*/
+}
+
+/*CSS : Alerte Flash Vol*/
+#CompagniesList > h3{
+    font-size:16px;
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+/*CSS : Alerte Flash Vol*/
+.DateWrapper > label{
+    margin-bottom:10px;
+    font-size:16px;
+}
+
+/*CSS : Alerte Flash Vol*/
+.DateWrapper{
+    margin-right:10px;
+}
+
+/*CSS : Alerte Flash Vol*/
+#DateVol::after{
+    color:black;
+}
+
+/*CSS : Alerte Flash Vol*/
+#DateVol > input{
+    margin-bottom:0px;
+}
+
+/*CSS : Alerte Flash Vol*/
+#DateResultat{
+    display:flex;
+    justify-content:space-between;
+}
+
+/*CSS : Alerte Flash Vol*/
+#DateResultat > div{
+    flex-grow:1;
+}
+
+/*CSS : Alerte Flash Vol*/
+.buttonValidate {
+    align-self: flex-end;
+}
+
+/*CSS : Alerte Flash Vol*/
+.buttonValidate > button {
+    line-height: 19.6px;
+    min-height: 55px;
+    display:flex;
+    align-items:center;
+    transition:all 0.3s ease-in-out;
+}
+
+/*CSS : Alerte Flash Vol*/
+.buttonValidate > button:hover {
+    transition: all 0.3s ease-in-out;
+    color:white;
+    background-color:black;
+}
+
+/*CSS : Alerte Flash Vol*/
+.buttonValidate > button > i{
+    font-size:40px;
+    padding-left:15px;
+}
+
+
+
+

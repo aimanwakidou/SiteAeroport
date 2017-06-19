@@ -21,6 +21,15 @@
 	.RechercheVolSuivi{
 		padding-bottom:0px;
 	}
+
+    #CompagniesWrapper {
+        flex-direction: column;
+    }
+
+    #CompagniesList {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
 }
 
 /*CSS : Mobile + Tablette*/
@@ -127,17 +136,13 @@
         overflow:visible;
     }
 
-    .DepartsArrivésContainer{
-		flex-direction:column;
-	}
+    .DepartsArrivésContainer, .suiviAndAlert {
+        flex-direction: column;
+    }
 
 	.DatePicker{
 		margin-left:0px;
 		max-width:100%;
-	}
-
-	.suiviAndAlert{
-		flex-direction:column;
 	}
 
 	.suiviBagages{
@@ -147,6 +152,15 @@
 	.QuestionVol{
 		padding-top:10px;
 	}
+
+    #CompagniesWrapper{
+        flex-direction:row;
+    }
+
+    #CompagniesList{
+        margin-right:10px;
+        margin-bottom:0px;
+    }
 
 }
 
@@ -264,4 +278,35 @@
 	#MessageErreurProvDest{
 		max-height:100px;
 	}
+
+    #CompagniesWrapper {
+        flex-direction: column;
+    }
+
+    #CompagniesList {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+}
+
+/*CSS : Mobile*/
+@media screen and (max-width:350px){
+    #DateResultat{
+        flex-direction:column;
+    }
+
+    .DateWrapper{
+        margin-right:0px;
+        margin-bottom:10px;
+    }
+
+    .buttonValidate {
+        align-self:auto;
+        padding-top: 10px;
+    }
+
+    .buttonValidate > button{
+        justify-content:center;
+    }
+
 }

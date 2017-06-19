@@ -12,6 +12,8 @@ $(document).ready(function(){
 	.done(function(data){
 		data.Compagnies.forEach(function(compagnie){
 			AjoutCompagnie(compagnie);
-		});
+        });
+        $('#Compagnies select[name="compagnies"]').selectpicker('refresh');
 	});
 });	
+

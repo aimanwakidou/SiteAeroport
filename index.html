@@ -8,12 +8,15 @@
             <link rel="icon" type="image/png" href="img/Airport-32.png"/>
             
             <!-- Bootstrap Core CSS -->
-            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-            
+            <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+            <!-- Boostrap Select CSS -->
+            <link href="vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
+
             <!-- Custom Fonts -->
-            <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
-            <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-            <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+            <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+            <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
+            <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'/>
             <link href='https://fonts.googleapis.com/css?family=Titillium+Web:300' rel='stylesheet' type='text/css'>
             
             <!-- Plugin CSS -->
@@ -388,6 +391,7 @@
                 <section id="suiviAndAlertBox">
                     <form name="zoneAlerteSuivi" id="zoneAlerteSuivi" method="POST">
                         <div class="container suiviAndAlert">
+                            <!-- Suivi Bagages -->
                             <div class="suiviBagages nonHighlight">
                                 <div class="suiviBagages_content">
                                     <h2 class="section-heading">
@@ -455,6 +459,7 @@
                                     </div>  
                                 </div>
                             </div>
+                            <!-- Flash Alert -->
                             <div class="flash-alert">
                                 <div class="form-wrapper">
                                     <h2 class="section-heading">
@@ -462,11 +467,44 @@
                                         <span class="section-heading-title">Alerte flash vol</span>
                                     </h2>
                                     <div class="flash_alert-num_vol">
-                                          <div id="Compagnies" class="form-group">
-                                                <h3>Liste des compagnies</h3>
-                                                <select name="compagnies" class="form-control" data-live-search="true">
-                                                      <option selected="selected">Selectionnez une compagnie </option>
-                                                </select>
+                                            <div class="FlashAlert-num_vol">
+                                                <div class="QuestionVol">
+                                                    <span>Avez-vous le (ou les) numéro(s) de vol ?</span>
+                                                    <div id="flash" class="RadioButtonSuivi">
+                                                        <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
+                                                        <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          <div id="Compagnies" class="form-group noDisplayGenerique">
+                                              <h3 class="titleFindNumVol">Trouver le (ou les) numéro(s) de vol</h3>
+                                              <div id="CompagniesWrapper">
+                                                  <div id="CompagniesList">
+                                                      <h3>Liste des compagnies</h3>
+                                                      <select name="compagnies" class="form-control selectpicker" data-live-search="true">
+                                                          <option selected="selected">Selectionnez une compagnie </option>
+                                                      </select>
+                                                  </div>
+                                                  <div id="DateResultat">
+                                                      <div class="DateWrapper">
+                                                          <label for="dateVolFind">Jour du vol</label>
+                                                          <div id="DateVol" class="DatePickerInput">
+                                                              <input type="text" id="datepicker3" name="dateVolFind" class="form-control" placeholder="JJ/MM/AAAA">
+                                                          </div>
+                                                      </div>
+                                                      <div class="buttonValidate">
+                                                          <button class="btn btn-block" type="submit" id="validate"><span>Trouver le vol</span><i class="fa fa-search" aria-hidden="true"></i></button>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div id="FindResult" class="form-group noDisplayGenerique">
+                                              <select name="FindResult" class="form-control selectpicker" multiple data-live-search="true">
+                                                  <option selected="selected" value="">Résultat de la recherche</option>
+                                                  <option value="OK1">OK</option>
+                                                  <option value="OK2">OK54</option>
+                                                  <option value="OK3">OK62</option>
+                                              </select>
                                           </div>
                                           <div class="flash_alert-num_vol-content">
                                                 <label for="num_vol" class="flash_alert-num_vol-label">Liste des numéros de vol</label>
@@ -689,6 +727,9 @@
             
             <!-- Bootstrap Core JavaScript -->
             <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+            <!-- Boostrap Select JavaScript -->
+            <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
             
             <!-- Plugin JavaScript -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>

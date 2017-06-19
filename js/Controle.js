@@ -139,10 +139,11 @@ $(".RadioButton button").each(function () {
 });
 
 /*Controle bouton suivi question*/
-$(".RadioButtonSuivi button").each(function(){
-    $(this).click(function(){
+$(".RadioButtonSuivi button").each(function () {
+    $(this).click(function () {
+        var parentID = $(this).parent().attr('id');
         ToggleButton($(this));
-        ControleButtonWithoutSubmit($(this),$(".RechercheVolSuivi"),$(this).hasClass("OK"));
+        ControleButtonWithoutSubmit($(this),parentID == "flash" ? $("#Compagnies,#FindResult") : $(".RechercheVolSuivi"),$(this).hasClass("OK"));
     });
 });
 

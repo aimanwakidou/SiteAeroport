@@ -27,6 +27,14 @@
     justify-content:space-between;
 }
 
+.bootstrap-select > .dropdown-toggle {
+    max-height: 55px;
+    border: 1px solid #EDEDED;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
 .uselessNav{
 	display:none;
 }
