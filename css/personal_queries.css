@@ -29,14 +29,10 @@
 	}
 }
 
-@media screen and (max-width: 900px){
-	.flash_alert-num_vol-content{
-		padding-top:25px;
-	}
-
-	.RechercheVolSuivi{
-		padding-bottom:0px;
-	}
+@media screen and (max-width:1300px){
+    #CompagniesWrapper {
+        flex-direction: column;
+    }
 
     #CompagniesWrapper {
         flex-direction: column;
@@ -46,11 +42,21 @@
         margin-right: 0px;
         margin-bottom: 10px;
     }
-	
-	#CompagniesList > .bootstrap-select{
-		margin-bottom:30px;
+
+    #CompagniesList > .bootstrap-select {
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 900px){
+	.flash_alert-num_vol-content{
+		padding-top:25px;
 	}
-	
+
+	.RechercheVolSuivi{
+		padding-bottom:0px;
+	}
+
 	#DateResultat{
         flex-direction:column;
     }

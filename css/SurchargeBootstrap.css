@@ -39,6 +39,10 @@
 	font-weight:normal;
 }
 
+.datepicker,.table-condensed{
+    font-family:Arial,'Segoe UI';
+}
+
 .uselessNav{
 	display:none;
 }

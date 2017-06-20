@@ -13,6 +13,9 @@
             <!-- Boostrap Select CSS -->
             <link href="vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css"/>
 
+            <!-- Bootstrap DatePicker CSS -->
+            <link href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
+
             <!-- Custom Fonts -->
             <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
@@ -26,7 +29,7 @@
             <link href="css/JQuery_UI_css/jquery-ui.theme.min.css" rel="stylesheet">
             
             <!-- Theme CSS -->
-            <link href="css/creative.min.css" rel="stylesheet" type="text/css">
+            <link href="vendor/thème/css/creative.min.css" rel="stylesheet" type="text/css">
             <link href="css/css_caroussel.css" rel="stylesheet" type="text/css">
             <link href="css/personal.css" rel="stylesheet" type="text/css">
             <link href="css/GenericClass.css" rel="stylesheet" type="text/css">
@@ -206,7 +209,7 @@
                                                 <div class="form-group"> <!-- Date input -->
                                                       <label class="control-label" for="datepicker">Jour du vol</label>
                                                       <div class="DatePickerInput">
-                                                            <input type="text" id="datepicker" name="dateVol" class="form-control" placeholder="JJ/MM/AAAA">
+                                                            <input type="text" name="dateVol" class="form-control" placeholder="JJ/MM/AAAA">
                                                       </div>
                                                 </div>
                                           </div>
@@ -222,27 +225,6 @@
                                     </div>
                               </form>
                         </div>
-                        <!--<div id="RechercheCompagnie" class="container">
-                              <h2 class="section-heading">Rechercher les vols d'une compagnie</h2>
-                              <form name="zoneRechercheCompagnies" id="zoneRechercheCompagnies">
-                                    <div>
-                                          <div id="CompagniesRecherche" class="form-group">
-                                                <h3>Compagnies</h3>
-                                                <select name="compagnies" class="form-control" data-live-search="true">
-                                                      <option selected="selected">Selectionnez une compagnie </option>
-                                                </select>
-                                          </div>
-                                          <div class="DatePicker">
-                                                <div class="form-group"> <!-- Date input 
-                                                      <label class="control-label" for="datepicker3">Jour du vol (optionnel)</label>
-                                                      <div class="DatePickerInput">
-                                                            <input type="text" id="datepicker3" name="dateVolCompagnie" class="form-control" placeholder="JJ/MM/AAAA">
-                                                      </div>
-                                                </div>
-                                          </div>
-                                    </div>
-                              </form>
-                        </div>-->
                   </section>
 
                   <!-- Résultat de la recherche vol -->
@@ -422,7 +404,7 @@
                                             <div class="JourHeure">
                                                 <div class="JourInput">
                                                     <label for="jour">Jour du vol</label>
-                                                    <input name="jour" id="jour" class="form-control datepicker2" type="text" placeholder="JJ/MM/AAAA"/>
+                                                    <input name="jour" id="jour" class="form-control" type="text" placeholder="JJ/MM/AAAA"/>
                                                 </div>
                                                 <div class="HeureInput">
                                                     <label for="heure">Heure de départ</label>
@@ -489,7 +471,7 @@
                                                       <div class="DateWrapper">
                                                           <label for="dateVolFind">Jour du vol</label>
                                                           <div id="DateVol" class="DatePickerInput">
-                                                              <input type="text" id="datepicker3" name="dateVolFind" class="form-control" placeholder="JJ/MM/AAAA">
+                                                              <input type="text" name="dateVolFind" class="form-control" placeholder="JJ/MM/AAAA">
                                                           </div>
                                                       </div>
                                                       <div class="buttonValidate">
@@ -727,13 +709,21 @@
             <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
             <script src="vendor/jquery/jquery-ui.min.js"></script>
             <script src="vendor/jquery/jquery-migrate-3.0.0.js"></script>
-            <script src="vendor/jQuery-Mobile/jquery.mobile.custom.js"></script>	
+            <script src="vendor/jQuery-Mobile/jquery.mobile.custom.js"></script>
+          
+            <!-- Script jQuery Cookie -->
+            <script src="vendor/jQueryCookie/js.cookie.js"></script>
             
             <!-- Bootstrap Core JavaScript -->
             <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
             <!-- Boostrap Select JavaScript -->
             <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+            <!-- Bootstrap Datepicker JavaScript -->
+            <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+            <script src="vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" charset="utf-8"></script>
+            <script src="vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.min.js" charset="utf-8"></script>
             
             <!-- Plugin JavaScript -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -741,16 +731,16 @@
             <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
             
             <!-- Theme JavaScript -->
-            <script src="js/creative.min.js"></script>
+            <script src="vendor/thème/js/creative.min.js"></script>
             
             <!-- Script Caroussel -->
             <script src="js/slide.js"></script>
 
-            <!-- Script jQuery Widget -->
-            <script src="js/jQueryWidget.js"></script>
-            
+            <!-- Script Lancement DatePicker -->
+            <script src="js/DatePicker.js"></script>
+
             <!-- Script personnel -->
-            <script src="js/js.cookie.js"></script>
+            <script src="js/Aeroports.js"></script>
             <script src="js/flash.js"></script>
             <script src="js/ShowHide.js"></script>
             <script src="js/Controle.js"></script>
