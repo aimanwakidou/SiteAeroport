@@ -175,6 +175,9 @@ function MessageErreurRecherche(toCheckLength,message,messageText){
 function CompareProvDest(provenance,destination){
 	var message = $("#MessageErreurProvDest");
 	
+	if(provenance.length === 0 && destination.length === 0)
+		return false;
+	
 	if(provenance == destination){
 		if($("#search-flight").hasClass("relativeBody"))
 			$("#search-flight").addClass("relativeBody");
@@ -191,6 +194,7 @@ function CompareProvDest(provenance,destination){
 		if($("#search-flight").hasClass("relativeBody"))
 			$("#search-flight").removeClass("relativeBody");
 	}
+	
 	return (provenance != destination);
 }
 

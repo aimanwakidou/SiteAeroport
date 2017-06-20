@@ -180,7 +180,6 @@
               
             <!-- Contenu de la page -->
             <main>
-
                   <!-- Zone : Rechercher un vol -->
                   <section class="bg-primary search-flight" id="search-flight">
                         <div id="RechercheProvDest" class="container">
@@ -230,188 +229,187 @@
                   <!-- Résultat de la recherche vol -->
                   <div id="ResultatVol" class="modal fade" role="dialog">
                         <div id="ContentArrivesDepart" class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                                  <div id="ResultatVolHeader" class="modal-header">
-                                        <div class="modal-title"><h4>Résultat de la recherche des vols</h4></div>
-                                        <div class="useless"></div>
-                                        <div class="switchArrivéeDépart">
-                                              <select name="resultatVol" class="form-control" data-live-search="true">
-                                                  <option value="" selected="selected" id="default">Arrivée et Départ</option>
-                                                  <option value="Arrivée">Arrivée</option>
-                                                  <option value="Départ">Départ</option>
-                                              </select>
-                                        </div>
-                                  </div>
-                                <form class="modal-body">
-                                    <table id="ArrivesDepart" class="ResultatSearchVol">
-                                        <thead>
-                                            <tr class="ArrivesDepartTitreColumn">
-                                                    <th id="ResultArrivéeOuDépart">Arrivée et départ</th>
-                                                    <th>Compagnie</th>
-                                                    <th>N° de Vol</th>
-                                                    <th>Provenance</th>
-                                                    <th>Destination</th>
-                                                    <th>Jour du vol</th>
-                                                    <th>Heure</th>
-                                                    <th>Statut</th>                                           
-                                                    <th>Alerte Flash Vol</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody id="RechercheVol" class="ArrivesDepartData">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div id="ResultatVolHeader" class="modal-header">
+                                          <div class="modal-title"><h4>Résultat de la recherche des vols</h4></div>
+                                          <div class="useless"></div>
+                                          <div class="switchArrivéeDépart">
+                                                <select name="resultatVol" class="form-control" data-live-search="true">
+                                                      <option value="" selected="selected" id="default">Arrivée et Départ</option>
+                                                      <option value="Arrivée">Arrivée</option>
+                                                      <option value="Départ">Départ</option>
+                                                </select>
+                                          </div>
+                                    </div>
+                                    <form class="modal-body">
+                                          <table id="ArrivesDepart" class="ResultatSearchVol">
+                                                <thead>
+                                                      <tr class="ArrivesDepartTitreColumn">
+                                                            <th id="ResultArrivéeOuDépart">Arrivée et départ</th>
+                                                            <th>Compagnie</th>
+                                                            <th>N° de Vol</th>
+                                                            <th>Provenance</th>
+                                                            <th>Destination</th>
+                                                            <th>Jour du vol</th>
+                                                            <th>Heure</th>
+                                                            <th>Statut</th>                                           
+                                                            <th>Alerte Flash Vol</th>
+                                                      </tr>
+                                                </thead>
+                                                <tbody id="RechercheVol" class="ArrivesDepartData">
                                           
-                                        </tbody>
-                                    </table>
-                                </form>
-                                <div class="modal-footer">
-                                    <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkRechercheVol noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
-                                    <div class="useless"></div>
-                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                                </div>
+                                                </tbody>
+                                          </table>
+                                    </form>
+                                    <div class="modal-footer">
+                                          <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkRechercheVol noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                          <div class="useless"></div>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                    </div>
+                              </div>
                         </div>
-                    </div>
                   </div>
                   
-                <!-- Vols du jour -->
-                <section id="vols_du_jour">
-                    <div class="container">
-                        <h2 class="section-heading title_vols">Vols du jour</h2>
-                        <div class="CoteACote">
-                            <div class="CoteACote-inner">
-                                <div class="button_arr">
-                                    <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal"
-                                    data-target="#Arrivés" role="button">
-                                      <img src="img/arrivals.svg" alt="Avion arrivée" height="55" width="55"/>
-                                      <span>Arrivés</span>
-                                    </a>
-                                </div>
-                                <div class="button_dep">
-                                    <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal" data-target="#Départs" role="button">
-                                      <img src="img/departures.svg" alt="Avion départ" height="55" width="55"/>
-                                      <span>Départs</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div> 
-                    </div>
-                </section>
-
-                <!-- Fenêtre modal : Arrivés et départ -->
-                <!-- Arrivés -->
-                <div id="Arrivés" class="modal fade" role="dialog">
-                    <div id="ContentArrivesDepart" class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Arrivés</h4>
-                            </div>
-                            <form class="modal-body">
-                                <table id="ArrivesDepart">
-                                    <thead>
-                                        <tr class="ArrivesDepartTitreColumn">
-                                            <th>Compagnie</th>
-                                            <th>N° de Vol</th>
-                                            <th>Provenance</th>
-                                            <th>Destination</th>
-                                            <th>Heure d'arrivée</th>
-                                            <th>Statut</th>
-                                            <th>Alerte Flash Vol</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="ArriveeBody" class="ArrivesDepartData">
-                                        
-                                    </tbody>
-                                </table>
-                            </form>
-                            <div class="modal-footer">
-                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkArrive noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
-                                <div class="useless"></div>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                            </div>
+                  <!-- Vols du jour -->
+                  <section id="vols_du_jour">
+                        <div class="container">
+                              <h2 class="section-heading title_vols">Vols du jour</h2>
+                              <div class="CoteACote">
+                                    <div class="CoteACote-inner">
+                                          <div class="button_arr">
+                                                <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal" data-target="#Arrivés" role="button">
+                                                      <img src="img/arrivals.svg" alt="Avion arrivée" height="55" width="55"/>
+                                                      <span>Arrivés</span>
+                                                </a>
+                                          </div>
+                                          <div class="button_dep">
+                                                <a href="#" class="btn btn-block button_dep_arr_label" data-toggle="modal" data-target="#Départs" role="button">
+                                                      <img src="img/departures.svg" alt="Avion départ" height="55" width="55"/>
+                                                      <span>Départs</span>
+                                                </a>
+                                          </div>
+                                    </div>
+                              </div> 
                         </div>
-                    </div>
-                </div>
+                  </section>
 
-                <!-- Départs -->
-                <div id="Départs" class="modal fade" role="dialog">
-                    <div id="ContentArrivesDepart" class="modal-dialog">
-                        <!-- Modal content-->
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                <h4 class="modal-title">Départs</h4>
-                            </div>
-                            <form class="modal-body">
-                                <table id="ArrivesDepart">
-                                    <thead>
-                                        <tr class="ArrivesDepartTitreColumn">
-                                            <th>Compagnie</th>
-                                            <th>N° de Vol</th>
-                                            <th>Provenance</th>
-                                            <th>Destination</th>
-                                            <th>Heure de départ</th>
-                                            <th>Statut</th>
-                                            <th>Alerte Flash Vol</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="DepartBody" class="ArrivesDepartData">
-                                        
-                                    </tbody>
-                                </table>
-                            </form>
-                            <div class="modal-footer">
-                                <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
-                                <div class="useless"></div>
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
-                            </div>
+                  <!-- Fenêtre modal : Arrivés et départ -->
+                  <!-- Arrivés -->
+                  <div id="Arrivés" class="modal fade" role="dialog">
+                        <div id="ContentArrivesDepart" class="modal-dialog">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title">Arrivés</h4>
+                                    </div>
+                                    <form class="modal-body">
+                                          <table id="ArrivesDepart">
+                                                <thead>
+                                                      <tr class="ArrivesDepartTitreColumn">
+                                                            <th>Compagnie</th>
+                                                            <th>N° de Vol</th>
+                                                            <th>Provenance</th>
+                                                            <th>Destination</th>
+                                                            <th>Heure d'arrivée</th>
+                                                            <th>Statut</th>
+                                                            <th>Alerte Flash Vol</th>
+                                                      </tr>
+                                                </thead>
+                                                <tbody id="ArriveeBody" class="ArrivesDepartData">
+                                              
+                                                </tbody>
+                                          </table>
+                                    </form>
+                                    <div class="modal-footer">
+                                          <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkArrive noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                          <div class="useless"></div>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                    </div>
+                              </div>
                         </div>
-                    </div>
-                </div>
+                  </div>
 
-                <!-- Zone : Alerte flash vol + Suivi bagages -->
-                <section id="suiviAndAlertBox">
-                    <form name="zoneAlerteSuivi" id="zoneAlerteSuivi" method="POST">
-                        <div class="container suiviAndAlert">
-                            <!-- Suivi Bagages -->
-                            <div class="suiviBagages nonHighlight">
-                                <div class="suiviBagages_content">
-                                    <h2 class="section-heading">
-                                        <i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i>
-                                        <span>Suivi de vos bagages</span>
-                                    </h2>
-                                    <div class="SuiviBagages_form-content">
-                                        <div class="SuiviBagages-num_vol"> 
-                                            <div class="QuestionVol">
-                                                <span>Avez-vous le numéro de vol ?</span>
-                                                <div class="RadioButtonSuivi">
-                                                  <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
-                                                  <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
-                                                </div> 
-                                            </div>
-                                        </div>
-                                        <div class="RechercheVolSuivi noDisplayGenerique">
-                                            <div class="ProvenanceDestination">
-                                                <div class="ProvenanceInput">
-                                                    <label for="provenance">Provenance</label>
-                                                    <div class="WrapperSuccess"><input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/></div>
+                  <!-- Départs -->
+                  <div id="Départs" class="modal fade" role="dialog">
+                        <div id="ContentArrivesDepart" class="modal-dialog">
+                              <!-- Modal content-->
+                              <div class="modal-content">
+                                    <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title">Départs</h4>
+                                    </div>
+                                    <form class="modal-body">
+                                          <table id="ArrivesDepart">
+                                                <thead>
+                                                      <tr class="ArrivesDepartTitreColumn">
+                                                            <th>Compagnie</th>
+                                                            <th>N° de Vol</th>
+                                                            <th>Provenance</th>
+                                                            <th>Destination</th>
+                                                            <th>Heure de départ</th>
+                                                            <th>Statut</th>
+                                                            <th>Alerte Flash Vol</th>
+                                                      </tr>
+                                                </thead>
+                                                <tbody id="DepartBody" class="ArrivesDepartData">
+                                        
+                                                </tbody>
+                                          </table>
+                                    </form>
+                                    <div class="modal-footer">
+                                          <button type="button" id="EnvoiOkArrivesDepart" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                          <div class="useless"></div>
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+
+                  <!-- Zone : Alerte flash vol + Suivi bagages -->
+                  <section id="suiviAndAlertBox">
+                        <form name="zoneAlerteSuivi" id="zoneAlerteSuivi" method="POST">
+                              <div class="container suiviAndAlert">
+                                    <!-- Suivi Bagages -->
+                                    <div class="suiviBagages nonHighlight">
+                                          <div class="suiviBagages_content">
+                                                <h2 class="section-heading">
+                                                      <i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i>
+                                                      <span>Suivi de vos bagages</span>
+                                                </h2>
+                                                <div class="SuiviBagages_form-content">
+                                                      <div class="SuiviBagages-num_vol"> 
+                                                            <div class="QuestionVol">
+                                                                  <span>Avez-vous le numéro de vol ?</span>
+                                                            <div class="RadioButtonSuivi">
+                                                            <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
+                                                            <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
+                                                      </div> 
                                                 </div>
-                                                <div class="DestinationInput">
-                                                    <label for="destination">Destination</label>
-                                                    <div class="WrapperSuccess"><input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/></div>
+                                          </div>
+                                          <div class="RechercheVolSuivi noDisplayGenerique">
+                                                <div class="ProvenanceDestination">
+                                                      <div class="ProvenanceInput">
+                                                            <label for="provenance">Provenance</label>
+                                                            <div class="WrapperSuccess"><input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/></div>
+                                                      </div>
+                                                      <div class="DestinationInput">
+                                                            <label for="destination">Destination</label>
+                                                            <div class="WrapperSuccess"><input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/></div>
+                                                      </div>
                                                 </div>
-                                            </div>
-                                            <div class="JourHeure">
-                                                <div class="JourInput">
-                                                    <label for="jour">Jour du vol</label>
-                                                    <input name="jour" id="jour" class="form-control" type="text" placeholder="JJ/MM/AAAA"/>
+                                                <div class="JourHeure">
+                                                      <div class="JourInput">
+                                                            <label for="jour">Jour du vol</label>
+                                                            <input name="jour" id="jour" class="form-control" type="text" placeholder="JJ/MM/AAAA"/>
+                                                      </div>
+                                                      <div class="HeureInput">
+                                                            <label for="heure">Heure de départ</label>
+                                                            <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
+                                                      </div>
                                                 </div>
-                                                <div class="HeureInput">
-                                                    <label for="heure">Heure de départ</label>
-                                                    <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
-                                                </div>
-                                            </div>
-                                        </div>
+                                          </div>
                                           <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
                                                 <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                                                 <span>La provenance et la destination ne doivent pas être identiques</span>
@@ -485,12 +483,12 @@
                                               </div>
                                           </div>
                                           <div id="FindResult" class="form-group noDisplayGenerique2">
-                                              <select name="FindResult" class="form-control selectpicker" multiple data-live-search="true">
-                                                  <option selected="selected" value="" disabled="disabled">Résultat de la recherche</option>
-                                                  <option value="OK1">OK</option>
-                                                  <option value="OK2">OK54</option>
-                                                  <option value="OK3">OK62</option>
-                                              </select>
+                                                <select name="FindResult" class="form-control selectpicker" multiple data-live-search="true">
+                                                      <option selected="selected" value="" disabled="disabled">Résultat de la recherche</option>
+                                                      <option value="OK1">OK</option>
+                                                      <option value="OK2">OK54</option>
+                                                      <option value="OK3">OK62</option>
+                                                </select>
                                           </div>
                                           <div class="flash_alert-num_vol-content">
                                                 <label for="num_vol" class="flash_alert-num_vol-label">Liste des numéros de vol</label>
