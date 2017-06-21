@@ -161,10 +161,10 @@ $("#Provenance,#Destination").on("change blur",function(){
 /*Fonction d'affiche message erreur : Recherche Vol*/
 function MessageErreurRecherche(toCheckLength,message,messageText){
 	if(toCheckLength.length === 0){
-		var messageErreur = message.find('span[messageErreur="2"]');
+		var messageErreur = message.find('span[itemprop="2"]');
 		messageErreur.find('mark').text(messageText);
-        AfficheMessageGenerique2(message.find('span[messageErreur="1"]'), 'noDisplayGenerique2');
-        AfficheMessageGenerique2(message.find('span[messageErreur="3"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[itemprop="1"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[itemprop="3"]'), 'noDisplayGenerique2');
 		AfficheMessageGenerique(message,"displayGenerique");
 		AfficheMessageGenerique2(messageErreur,"displayGenerique2");
 	}
@@ -183,13 +183,13 @@ function CompareProvDest(provenance,destination){
 			$("#search-flight").addClass("relativeBody");
 			
 		AfficheMessageGenerique(message,"displayGenerique");
-        AfficheMessageGenerique2(message.find('span[messageErreur="1"]'), "displayGenerique2");
-        AfficheMessageGenerique2(message.find('span[messageErreur="2"]'), "noDisplayGenerique2");
-        AfficheMessageGenerique2(message.find('span[messageErreur="3"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[itemprop="1"]'), "displayGenerique2");
+        AfficheMessageGenerique2(message.find('span[itemprop="2"]'), "noDisplayGenerique2");
+        AfficheMessageGenerique2(message.find('span[itemprop="3"]'), 'noDisplayGenerique2');
 	}
 	else{
 		AfficheMessageGenerique(message,"noDisplayGenerique");
-		AfficheMessageGenerique2(message.find('span[messageErreur="1"]'),"noDisplayGenerique2");
+		AfficheMessageGenerique2(message.find('span[itemprop="1"]'),"noDisplayGenerique2");
 		
 		if($("#search-flight").hasClass("relativeBody"))
 			$("#search-flight").removeClass("relativeBody");

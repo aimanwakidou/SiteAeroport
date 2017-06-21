@@ -88,10 +88,10 @@ function DefaultSelect(){
 /* Message Erreur Invalide */
 function MessageErreurInvalide(message, checkValid, messageText) {
     if (!checkValid) {
-        var messageErreur = message.find('span[messageErreur="3"]');
+        var messageErreur = message.find('span[itemprop="3"]');
         messageErreur.find('mark').text(messageText);
-        AfficheMessageGenerique2(message.find('span[messageErreur="1"]'), 'noDisplayGenerique2');
-        AfficheMessageGenerique2(message.find('span[messageErreur="2"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[itemprop="1"]'), 'noDisplayGenerique2');
+        AfficheMessageGenerique2(message.find('span[itemprop="2"]'), 'noDisplayGenerique2');
         AfficheMessageGenerique(message, "displayGenerique");
         AfficheMessageGenerique2(messageErreur, "displayGenerique2");
     }
