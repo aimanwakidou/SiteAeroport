@@ -62,7 +62,7 @@
 }
 
 @media screen and (min-width:768px){
-    #ContentArrivesDepart {
+    .modal-dialog {
         width:100%;
     }
 }
@@ -78,7 +78,7 @@
 		width:870px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width:750px;
     }
 }
@@ -88,7 +88,7 @@
 		width:970px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 850px;
     }
 }
@@ -98,7 +98,7 @@
 		width:1070px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 950px;
     }
 }
@@ -108,7 +108,7 @@
 		width:1170px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 1050px;
     }
 }
@@ -118,7 +118,7 @@
 		width:1270px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 1150px;
     }
 }
@@ -128,7 +128,7 @@
 		width:1370px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 1250px;
     }
 }
@@ -138,7 +138,7 @@
 		width:1570px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 1450px;
     }
 }
@@ -148,7 +148,7 @@
 		width:1770px;
 	}
 
-    #ContentArrivesDepart {
+    .modal-dialog {
         width: 1650px;
     }
 }
