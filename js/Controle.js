@@ -271,23 +271,16 @@ function ToggleButton(buttonJQuery){
 /*Fonction de contrôle des boutons Oui/Non sans submit*/
 function ControleButtonWithoutSubmit(button,elemToShow,test){
     if(test){
-        if (button.attr("id") == "non") {
-			AfficheMessageGenerique(elemToShow,"displayGenerique");
-        }
-
-        if (button.attr("id") == "oui") {
-			AfficheMessageGenerique(elemToShow,"noDisplayGenerique");
-        }
+        AfficheMessageGenerique(elemToShow, (button.text().toLowerCase() == "non") ? "displayGenerique" : "noDisplayGenerique");
     }
 }
 
 /*Fonction de contrôle des boutons Oui/Non avec submit*/
 function ControleButton(button,elemToShow,test,onShow,submitButton){
     var testOnShow = onShow ? "oui" : "non";
-    var notToShow = (testOnShow == "oui") ? "non" : "oui";
 
     if(test){
-        if (button.attr("id") == testOnShow) {
+        if (button.text().toLowerCase() == testOnShow) {
             if (elemToShow.hasClass("noDisplayGenerique")){
                 elemToShow.removeClass("noDisplayGenerique");
                 elemToShow.addClass("displayGenerique");
@@ -299,7 +292,7 @@ function ControleButton(button,elemToShow,test,onShow,submitButton){
             }
         }
 
-        if (button.attr("id") == notToShow) {
+        else{
             if (elemToShow.hasClass("displayGenerique")) {
                 elemToShow.removeClass("displayGenerique");
                 elemToShow.addClass("noDisplayGenerique");
