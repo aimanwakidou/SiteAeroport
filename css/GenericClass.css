@@ -59,13 +59,18 @@
 	position:relative;
 }
 
-/*CSS : class fail2*/
+/*CSS : class success + fail2 + Warning*/
 .fail2::after,.success::after,.Warning::after{
 	font-family:'FontAwesome';
 	font-size:30px;
 	position:absolute;
 	right:10px;
 	top:6px;
+}
+
+/*CSS : class success + fail2 --> bootstrap select*/
+button.fail2::after,button.success::after{
+    right:25px;
 }
 
 /*CSS : class fail2*/
@@ -80,6 +85,12 @@
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9) !important;
 }
 
+/*CSS : class fail2*/
+button.fail2 {
+    border-color: red !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9) !important;
+}
+
 /*CSS : class success*/
 .success::after{
 	content:"\f058" !important;
@@ -90,6 +101,12 @@
 .success > input:hover,.success > input:focus,.success > input{
 	border-color:#1E9E1E !important;
 	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E !important;
+}
+
+/*CSS : class success*/
+button.success {
+    border-color: #1E9E1E !important;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E !important;
 }
 
 /*CSS : class KO*/

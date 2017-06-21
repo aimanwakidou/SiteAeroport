@@ -320,38 +320,54 @@ function Controle(elementJQuery,regex){
 }
 
 /*Fonction de controle --> Non regex*/
-function ControleAeroport(elementJQuery,source){
-    if (elementJQuery.val().length) {
-        AjoutResult(elementJQuery, (source.indexOf(elementJQuery.val()) !== -1), true);
+function ControleAeroport(elementJQuery, source) {
+    var toCheckElement = elementJQuery.find("option:selected");
+    if (toCheckElement.val().length) {
+        AjoutResultBootstrapSelect(elementJQuery.parent(), (source.indexOf(toCheckElement.val()) !== -1), true);
     }
 	else
 		ToggleClassControle(elementJQuery);
 }
 
+/*Fonction d'ajout du résultat de contrôle --> bootstrap-select*/
+function AjoutResultBootstrapSelect(elemParent, result, failType) {
+    if (result) {
+        AjoutSucces(elemParent.find('button'), elemParent.find('button'), failType);
+    } 
+    else {
+        AjoutFail(elemParent.find('button'),elemParent.find('button'), failType);
+    }
+}
+
 /*Fontion d'ajout du résultat de contrôle*/
 function AjoutResult(elementJQuery,result,failType){
-	if(typeof(result) == "boolean"){
-		if(result){
-            elementJQuery.parent().addClass('success');
-            if (!failType) {
-                if (elementJQuery.hasClass('fail'))
-                    elementJQuery.removeClass('fail');
-            }
-            else {
-                if (elementJQuery.parent().hasClass('fail2'))
-                    elementJQuery.parent().removeClass('fail2');
-            }
-		}
-        else {
-            var elemToAddFail = (failType) ? elementJQuery.parent() : elementJQuery;
-			elemToAddFail.addClass((failType) ? 'fail2' : 'fail');	
-			if(elementJQuery.hasClass('success'))
-				elementJQuery.removeClass('success');
-		}
+    if (result) {
+        AjoutSucces(elementJQuery.parent(), elementJQuery, failType);      
 	}
-	else{
-		console.log("Erreur script");
+    else {
+        AjoutFail(elementJQuery.parent(),elementJQuery, failType);
 	}
+}
+
+/*Fonction Ajout Succes*/
+function AjoutSucces(elemParent, elemFils, failType) {
+    elemParent.addClass('success');
+    if (!failType) {
+        if (elemFils.hasClass('fail'))
+            elemFils.removeClass('fail');
+    }
+    else {
+        if (elemParent.hasClass('fail2'))
+            elemParent.removeClass('fail2');
+    }
+}
+
+/*Fonction Ajout Fail*/
+function AjoutFail(elemParent,elemFils, failType) {
+    var elemToAddFail = (failType) ? elemParent : elemFils;
+    elemToAddFail.addClass((failType) ? 'fail2' : 'fail');
+    if (elemParent.hasClass('success'))
+        elemParent.removeClass('success');
 }
 
 /*Fonction ToggleClassControle*/

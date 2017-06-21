@@ -168,6 +168,10 @@
         flex-direction: column;
     }
 
+    .DepartsArrivésContainer > .DatePicker{
+        margin-top:15px;
+    }
+
 	.DatePicker{
 		margin-left:0px;
 		max-width:100%;
@@ -288,6 +292,14 @@
 	.second{
 		order:3;
 	}
+
+    .DepartsInput > .bootstrap-select, .ArrivésInput > .bootstrap-select {
+        margin-bottom: 20px !important;
+    }
+
+    .DepartsArrivésContainer > .DatePicker {
+        margin-top:0px;
+    }
  
 }
 

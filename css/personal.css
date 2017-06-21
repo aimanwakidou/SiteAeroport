@@ -39,6 +39,7 @@ label,.labelPerso{
 	font-size:16px;
 	font-weight:normal;
     margin-bottom:0px;
+    padding-bottom:5px;
 }
 
 mark{
@@ -1079,6 +1080,9 @@ form.modal-body > table {
 	margin-bottom:15px;
 }
 
-
+/*CSS : Suivi Bagages*/
+.ProvenanceInput > .bootstrap-select,.DestinationInput > .bootstrap-select{
+    margin-bottom:25px !important;
+}
 
 

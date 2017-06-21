@@ -24,10 +24,7 @@
             
             <!-- Plugin CSS -->
             <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-            <link href="css/JQuery_UI_css/jquery-ui.min.css" rel="stylesheet">
-            <link href="css/JQuery_UI_css/jquery-ui.structure.min.css" rel="stylesheet">
-            <link href="css/JQuery_UI_css/jquery-ui.theme.min.css" rel="stylesheet">
-            
+
             <!-- Theme CSS -->
             <link href="vendor/thème/css/creative.min.css" rel="stylesheet" type="text/css">
             <link href="css/css_caroussel.css" rel="stylesheet" type="text/css">
@@ -190,15 +187,19 @@
                                                 <div class="Departs">
                                                       <span class="labelPerso">Provenance</span>
                                                       <div class="DepartsInput form-group">
-                                                            <input id="Provenance" name="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text"/>
+                                                          <!--<input id="Provenance" name="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text"/>-->
+                                                          <select name="Provenance" id="ProvSearch"class="form-control selectpicker" data-live-search="true">
+                                                              <option selected="selected" disabled="disabled" value="">Entrez la provenance</option>
+                                                          </select> 
                                                       </div>
                                                 </div> 
                                                 <div class="Arrivés">
-                                                      <label for="Destination" class="Destination-label">
-                                                            <span>Destination</span>
-                                                      </label>
+                                                      <span class="labelPerso">Destination</span>
                                                       <div class="ArrivésInput form-group">
-                                                            <input id="Destination" name="Destionation" class="Destination-input form-control" placeholder="Entrez la destination" type="text"/>
+                                                          <!--<input id="Destination" name="Destionation" class="Destination-input form-control" placeholder="Entrez la destination" type="text"/>-->
+                                                          <select name="Destination" id="DestSearch" class="form-control selectpicker" data-live-search="true">
+                                                              <option selected="selected" disabled="disabled" value="">Entrez la destination</option>
+                                                          </select>
                                                       </div>
                                                 </div>
                                           </div>
@@ -389,12 +390,18 @@
                                           <div class="RechercheVolSuivi noDisplayGenerique">
                                                 <div class="ProvenanceDestination">
                                                       <div class="ProvenanceInput">
-                                                            <label for="provenance">Provenance</label>
-                                                            <div class="WrapperSuccess"><input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/></div>
+                                                            <span class="labelPerso">Provenance</span>
+                                                            <!--<div class="WrapperSuccess"><input name="provenance" id="provenance" class="form-control" type="text" placeholder="Entrez la provenance du vol"/></div>-->
+                                                            <select name="Provenance" class="form-control selectpicker" data-live-search="true">
+                                                                 <option selected="selected" disabled="disabled" value="">Entrez la provenance</option>
+                                                            </select>
                                                       </div>
                                                       <div class="DestinationInput">
-                                                            <label for="destination">Destination</label>
-                                                            <div class="WrapperSuccess"><input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/></div>
+                                                            <span class="labelPerso">Destination</span>
+                                                            <!--<div class="WrapperSuccess"><input name="destination" id="destination" class="form-control" type="text" placeholder="Entrez la destination du vol"/></div>-->
+                                                            <select name="Destination" class="form-control selectpicker" data-live-search="true">
+                                                                <option selected="selected" disabled="disabled" value="">Entrez la destination</option>
+                                                            </select>
                                                       </div>
                                                 </div>
                                                 <div class="JourHeure">
@@ -699,7 +706,6 @@
       
             <!-- jQuery -->
             <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-            <script src="vendor/jquery/jquery-ui.min.js"></script>
             <script src="vendor/jquery/jquery-migrate-3.0.0.js"></script>
             <script src="vendor/jQuery-Mobile/jquery.mobile.custom.js"></script>
           

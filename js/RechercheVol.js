@@ -100,12 +100,12 @@ function MessageErreurInvalide(message, checkValid, messageText) {
 /* Recherche des vols */
 $("#zoneRecherche").submit(function (event) {
     event.preventDefault();
-    var provenance = $("#Provenance");
-    var destination = $("#Destination");
+    var provenance = $("#ProvSearch option:selected");
+    var destination = $("#DestSearch option:selected");
     var dateVol = $('input[name="dateVol"]').val();
     var message = $('#MessageErreurProvDest');
-    var provSuccess = provenance.parent().hasClass('success');
-    var destSuccess = destination.parent().hasClass('success');
+    var provSuccess = $("#ProvSearch").siblings('button').hasClass('success');
+    var destSuccess = $("#DestSearch").siblings('button').hasClass('success');
 
     dateVol = dateVol.replace(/[/]/g, '-');
 
