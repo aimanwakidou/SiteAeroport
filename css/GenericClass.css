@@ -16,6 +16,7 @@
 
 /*CSS : classe générique*/
 .useless {
+    display:block;
     flex-grow: 1;
 }
 
