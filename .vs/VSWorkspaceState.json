@@ -1,16 +1,12 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
-    "\\js",
-    "\\vendor",
-    "\\vendor\\bootstrap-datepicker",
     "\\vendor\\bootstrap-datepicker\\css",
     "\\vendor\\bootstrap-datepicker\\js",
     "\\vendor\\bootstrap-datepicker\\locales",
     "\\vendor\\thème\\css",
     "\\vendor\\thème\\js"
   ],
-  "SelectedNode": "\\css\\SurchargeBootstrap.css",
+  "SelectedNode": "\\js",
   "PreviewInSolutionExplorer": false
 }
