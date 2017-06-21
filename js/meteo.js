@@ -1,3 +1,13 @@
+function addMeteo(imgSrc, ile, temp,hour) {
+
+    var meteoString = '<span class="temperature">' + ((hour > 6 && hour < 18) ? 'Jour : ' : 'Nuit : ') + temp + '°C </span>'+   
+        '<img src="' + imgSrc + '" alt="icone"/>';
+
+    var meteo = $.parseHTML(meteoString);
+
+    $("#" + ile + " .météoContent").append(meteo);
+}
+
 $(document).ready(function () {
     var iles = ['Anjouan', 'Moroni', 'Mayotte', 'Moheli'];
     var hour = new Date().getHours();
@@ -11,11 +21,9 @@ $(document).ready(function () {
         $.getJSON(url, {
         })
 
-        .done(function (data) {
-            $("#" + ile + " .météoContent img").attr("src", data.url_icone);
-            $("#" + ile + " .météoContent .temperature .temp_c").text(data.temperature + "°C");
-            $("#" + ile + " .météoContent .temperature .DayOrNight").text((hour < 18 && hour > 6) ? "Jour : " : "Nuit : ");
-        });
+            .done(function (data) {
+                addMeteo(data.url_icone, ile,data.temperature,hour);
+            });
 
         
     });
