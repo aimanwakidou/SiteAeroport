@@ -653,7 +653,7 @@ tr[active="OK"]:last-child > td{
 }
 
 /*CSS : Vols du jour*/
-#EnvoiOkArrivesDepart:hover {
+.bindAlert:hover {
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px #1E9E1E;
 }
 
