@@ -86,6 +86,12 @@ $("input").each(function(){
 	});
 });
 
+/*Nettoyage en cas de clique --> bootstrap select*/
+$(".bootstrap-select button").click(function () {
+    if ($(this).hasClass('success'))
+        $(this).removeClass('success');
+})
+
 /*Contrôle pour la météo*/
 $(".choixIles").change(function(){
 	var selected = $(".choixIles option:selected");
@@ -320,13 +326,13 @@ function Controle(elementJQuery,regex){
 }
 
 /*Fonction de controle --> Non regex*/
-function ControleAeroport(elementJQuery, source) {
-    var toCheckElement = elementJQuery.find("option:selected");
+function ControleAeroport(elementjQuery, source) {
+    var toCheckElement = elementjQuery.find("option:selected");
     if (toCheckElement.val().length) {
-        AjoutResultBootstrapSelect(elementJQuery.parent(), (source.indexOf(toCheckElement.val()) !== -1), true);
+        AjoutResultBootstrapSelect(elementjQuery.parent(), (source.indexOf(toCheckElement.val()) !== -1), true);
     }
-	else
-		ToggleClassControle(elementJQuery);
+    else
+        ToggleClassBootstrapControle(elementjQuery.siblings('button'), true);
 }
 
 /*Fonction d'ajout du résultat de contrôle --> bootstrap-select*/
@@ -337,6 +343,16 @@ function AjoutResultBootstrapSelect(elemParent, result, failType) {
     else {
         AjoutFail(elemParent.find('button'),elemParent.find('button'), failType);
     }
+}
+
+/*Fonction ToggleClassBootstrapSelectControle*/
+function ToggleClassBootstrapControle(elementjQuery, failType) {
+    var classFail = (failType) ? 'fail2' : 'fail';
+    if (elementjQuery.hasClass(classFail))
+        elementjQuery.removeClass(classFail);
+
+    if (elementjQuery.hasClass('success'))
+        elementjQuery.removeClass('success');
 }
 
 /*Fontion d'ajout du résultat de contrôle*/
