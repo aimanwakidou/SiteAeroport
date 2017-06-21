@@ -606,7 +606,7 @@ tr[active="OK"]:last-child > td{
 }
 
 /*CSS : Vols du jour*/
-#ArrivesDepart {
+form.modal-body > table {
     margin-right: auto;
     margin-left: auto;
 }

@@ -47,10 +47,6 @@
 	display:none;
 }
 
-.useless{
-    flex-grow:1;
-}
-
 .checkbox > input[type="checkbox"]{
 	position:static;
 }
