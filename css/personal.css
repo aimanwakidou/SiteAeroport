@@ -35,11 +35,12 @@ input{
 	padding:13px 10px 13px 10px;
 }
 
-label,.labelPerso{
-	font-size:16px;
-	font-weight:normal;
-    margin-bottom:0px;
-    padding-bottom:5px;
+label, .labelPerso {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 0px;
+    padding-bottom: 5px;
+    word-wrap: break-word;
 }
 
 mark{
@@ -469,8 +470,8 @@ tr[active="OK"]:last-child > td{
 	padding-bottom:15px;
 }
 
-/*CSS : Alerte Flash Vol + Suivi Bagages*/
-.flash_alert-num_vol-label,.suiviBagages_num_vol-label{
+/*CSS : Suivi Bagages*/
+.suiviBagages_num_vol-label{
 	font-size:18px;
 	white-space:nowrap;
 	word-wrap:break-word;
