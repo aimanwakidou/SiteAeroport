@@ -16,6 +16,9 @@
             <!-- Bootstrap DatePicker CSS -->
             <link href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
 
+            <!-- Bootstrap TimePicker CSS -->
+            <link href="vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"/>
+
             <!-- Custom Fonts -->
             <link href="vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
             <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'/>
@@ -406,9 +409,9 @@
                                                             <label for="jour">Jour du vol</label>
                                                             <input name="jour" id="jour" class="form-control" type="text" placeholder="JJ/MM/AAAA"/>
                                                       </div>
-                                                      <div class="HeureInput">
+                                                      <div class="TimePickerInput HeureInput">
                                                             <label for="heure">Heure de départ</label>
-                                                            <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
+                                                            <input name="heure" id="heure" class="form-control" type="text" placeholder="HH:MM"/>
                                                       </div>
                                                 </div>
                                                 <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
@@ -726,6 +729,9 @@
             <script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
             <script src="vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" charset="utf-8"></script>
             <script src="vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.min.js" charset="utf-8"></script>
+
+            <!-- Bootstrap Timepicker JavaScript -->
+            <script src="vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
             
             <!-- Plugin JavaScript -->
             <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
@@ -740,6 +746,9 @@
 
             <!-- Script Lancement DatePicker -->
             <script src="js/DatePicker.js"></script>
+
+            <!-- Script Lancement TimePicker -->
+            <script src="js/TimePicker.js"></script>
 
             <!-- Script personnel -->
             <script src="js/Aeroports.js"></script>

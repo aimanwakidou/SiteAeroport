@@ -3,22 +3,12 @@
 	input[type=date],input[type=time]{
 		padding:15px 0px 15px 15px;
 	}
-
-    .HeureInput::after{
-        right:15px;
-    }
 }
 
 /*CSS : Météo --> PC*/
 @media screen and (min-width:768px){
     header{
         min-height:0%;
-    }
-}
-
-@media screen and (min-width:820px){
-    #SuiviButtonVol{
-        margin-top:15px !important;
     }
 }
 
@@ -114,6 +104,10 @@
 	.JourHeure > div{
 		width:100%;
 	}
+
+    #SuiviButtonVol{
+        padding-top:0px;
+    }
 }
 
 /*CSS : Météo --> Tablette et mobile*/

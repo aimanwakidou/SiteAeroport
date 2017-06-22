@@ -473,6 +473,7 @@ tr[active="OK"]:last-child > td{
 
 /*CSS : Suivi Bagages*/
 #SuiviButtonVol{
+    margin-top:15px;
     padding-bottom:15px;
     width:100%;
 }
