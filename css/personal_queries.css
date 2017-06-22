@@ -3,6 +3,10 @@
 	input[type=date],input[type=time]{
 		padding:15px 0px 15px 15px;
 	}
+
+    .HeureInput::after{
+        right:15px;
+    }
 }
 
 /*CSS : Météo --> PC*/
