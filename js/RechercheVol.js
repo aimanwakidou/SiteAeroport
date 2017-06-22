@@ -104,8 +104,8 @@ $("#zoneRecherche").submit(function (event) {
     var destination = $('select[name="DestSearch"] option:selected');
     var dateVol = $('input[name="dateVol"]').val();
     var message = $('#MessageErreurProvDest');
-    var provSuccess = $("#ProvSearch").siblings('button').hasClass('success');
-    var destSuccess = $("#DestSearch").siblings('button').hasClass('success');
+    var provSuccess = $('select[name="ProvSearch"]').siblings('button').hasClass('success');
+    var destSuccess = $('select[name="DestSearch"]').siblings('button').hasClass('success');
 
     dateVol = dateVol.replace(/[/]/g, '-');
 
