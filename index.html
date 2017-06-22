@@ -187,7 +187,7 @@
                                                 <div class="Departs">
                                                       <span class="labelPerso">Provenance</span>
                                                       <div class="DepartsInput form-group">
-                                                          <select name="Provenance" id="ProvSearch" class="form-control selectpicker" data-live-search="true">
+                                                          <select name="ProvSearch" class="form-control selectpicker" data-live-search="true">
                                                               <option selected="selected" value="">Entrez la provenance</option>
                                                           </select> 
                                                       </div>
@@ -196,7 +196,7 @@
                                                       <span class="labelPerso">Destination</span>
                                                       <div class="ArrivésInput form-group">
                                                           <!--<input id="Destination" name="Destionation" class="Destination-input form-control" placeholder="Entrez la destination" type="text"/>-->
-                                                          <select name="Destination" id="DestSearch" class="form-control selectpicker" data-live-search="true">
+                                                          <select name="DestSearch" class="form-control selectpicker" data-live-search="true">
                                                               <option selected="selected" value="">Entrez la destination</option>
                                                           </select>
                                                       </div>
@@ -390,13 +390,13 @@
                                                 <div class="ProvenanceDestination">
                                                       <div class="ProvenanceInput">
                                                             <span class="labelPerso">Provenance</span>
-                                                            <select name="Provenance" class="form-control selectpicker" data-live-search="true">
+                                                            <select name="ProvSuivi" class="form-control selectpicker" data-live-search="true">
                                                                  <option selected="selected" value="">Entrez la provenance</option>
                                                             </select>
                                                       </div>
                                                       <div class="DestinationInput">
                                                             <span class="labelPerso">Destination</span>
-                                                            <select name="Destination" class="form-control selectpicker" data-live-search="true">
+                                                            <select name="DestSuivi" class="form-control selectpicker" data-live-search="true">
                                                                 <option selected="selected" value="">Entrez la destination</option>
                                                             </select>
                                                       </div>
@@ -411,19 +411,26 @@
                                                             <input name="heure" id="heure" class="form-control" type="time" placeholder="HH:MM"/>
                                                       </div>
                                                 </div>
-                                          </div>
-                                          <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
-                                                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-                                                <span>La provenance et la destination ne doivent pas être identiques</span>
+                                                <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
+                                                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                                    <span>La provenance et la destination ne doivent pas être identiques</span>
+                                                </div>
+                                                <div id="SuiviButtonVol" class="buttonValidate">
+                                                    <button class="btn btn-block" type="submit" id="validate">
+                                                        <span>Trouver le vol </span>
+                                                        <span class="useless"></span>
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
                                           </div>
                                           <div class="search-box">
-                                                <span class="suiviBagages_num_vol-label">N° vol</span>  
+                                                <span class="labelPerso">N° vol</span>  
                                                 <div class="search-box-inner form-group">
                                                       <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" name="num_vol" placeholder="Entrez le numéro de vol" type="text"/>
                                                 </div>
                                           </div>
                                           <div class="BagagesBox">
-                                                <h3>Liste de vos bagages</h3>
+                                                <span class="labelPerso">Liste de vos bagages</span>
                                                 <div id="BagagesBoxInner">
                                                       <div id="BagagesFirst" class="BagagesInput form-group">
                                                             <div class="BagagesWrapper"><input type="text" class="form-control" name="bagages" placeholder="Entrez le numéro de votre bagage"/></div>
@@ -462,7 +469,7 @@
                                               <h3 class="titleFindNumVol">Trouver le (ou les) numéro(s) de vol</h3>
                                               <div id="CompagniesWrapper">
                                                   <div id="CompagniesList">
-                                                      <h3>Liste des compagnies</h3>
+                                                      <span class="labelPerso">Liste des compagnies</span>
                                                       <select name="compagnies" class="form-control selectpicker" data-live-search="true">
                                                           <option selected="selected" disabled="disabled">Selectionnez une compagnie </option>
                                                       </select>

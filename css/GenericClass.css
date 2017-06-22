@@ -162,10 +162,13 @@ button.success {
 }
 
 /*CSS : Cach Message*/
-.noDisplayGenerique, .noDisplayButton ,.noDisplayMessage{
+.noDisplayGenerique, .noDisplayButton, .noDisplayMessage {
     height: 0;
     opacity: 0;
     overflow: hidden;
+    margin: 0 !important;
+    padding: 0 !important;
+    transition: all 0.3s ease-in-out;
 }
 
 /*CSS : Cache Message*/
@@ -173,6 +176,7 @@ button.success {
     height: 100%;
     opacity: 1;
     overflow: visible;
+    transition: all 0.3s ease-in-out;
 }
 
 /*CSS : Cache Message2*/

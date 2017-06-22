@@ -222,7 +222,6 @@ tr[active="OK"]:last-child > td{
 	display:flex;
 	flex-direction:column;
 	padding-bottom:10px;
-    transition:all 0.4s ease-in-out;
 }
 
 /*CSS : SuiviBagages*/
@@ -247,11 +246,6 @@ tr[active="OK"]:last-child > td{
 	position:relative;	
 }
 
-/*CSS :Suivi Bagages*/
-.HeureInput > input{
-	text-indent:25px;
-}
-
 /*CSS : SuiviBagages*/
 .JourHeure{
 	display:flex;
@@ -264,23 +258,22 @@ tr[active="OK"]:last-child > td{
 }
 
 /*CSS : Suivi Bagages*/
-.JourInput::after,.HeureInput::before{
-	position:absolute;
-	font-family:'FontAwesome';
-	font-size:30px;
+.JourInput::after, .HeureInput::after {
+    position: absolute;
+    font-family: 'FontAwesome';
+    font-size: 30px;
+    right: 10px;
+    top: 32px;
 }
 
 /*CSS : SuiviBagages*/
-.JourInput::after{
-	content:"\f073";
-	right:10px;
-	top:32px;
+.JourInput::after {
+    content: "\f073";
 }
 
 /*CSS : SuiviBagages*/
-.HeureInput::before{
-	top:33px;
-	left:10px;
+.HeureInput::after{
+    top:33px;
 	content:"\f017";
 	transform:rotate(30deg);
 }
@@ -470,19 +463,18 @@ tr[active="OK"]:last-child > td{
 	padding-bottom:15px;
 }
 
-/*CSS : Suivi Bagages*/
-.suiviBagages_num_vol-label{
-	font-size:18px;
-	white-space:nowrap;
-	word-wrap:break-word;
-}
-
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .search-box {
     color: rgb(45,42,44);
     flex: 1 1 auto;
     font-size: 15px;
     -webkit-box-flex: 1;
+}
+
+/*CSS : Suivi Bagages*/
+#SuiviButtonVol{
+    padding-bottom:15px;
+    width:100%;
 }
 
 /*CSS : Alerte Flash Vol + Suivi Bagages*/

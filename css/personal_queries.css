@@ -1,7 +1,6 @@
 /*Correction input date et time*/
 @media only screen and (max-width:550px){
 	input[type=date],input[type=time]{
-		text-indent:30px;
 		padding:15px 0px 15px 15px;
 	}
 }
@@ -10,6 +9,12 @@
 @media screen and (min-width:768px){
     header{
         min-height:0%;
+    }
+}
+
+@media screen and (min-width:820px){
+    #SuiviButtonVol{
+        margin-top:15px !important;
     }
 }
 
@@ -100,7 +105,6 @@
 
 	.JourHeure{
 		margin-top:10px;
-		padding-bottom:15px;
 	}
 
 	.JourHeure > div{

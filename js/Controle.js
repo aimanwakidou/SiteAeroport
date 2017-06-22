@@ -147,22 +147,15 @@ $(".RadioButton button").each(function () {
 /*Controle bouton suivi question*/
 $(".RadioButtonSuivi button").each(function () {
     $(this).click(function () {
-        var parentID = $(this).parent().attr('id');
         ToggleButton($(this));
-        ControleButtonWithoutSubmit($(this),parentID == "flash" ? $("#Compagnies,#FindResult") : $(".RechercheVolSuivi"),$(this).hasClass("OK"));
+        ControleButtonWithoutSubmit($(this), $(this).parent().attr('id') == "flash" ? $("#Compagnies,#FindResult") : $(".RechercheVolSuivi"),$(this).hasClass("OK"));
     });
 });
 
-/*Controle Recherche Vol*/
-$("#provenance,#destination").on("change blur",function(){
-	ControleValeurProvDest($(this));
-});
-
-/*Controle Recherche Vol*/
-$("#Provenance,#Destination").on("change blur",function(){
-	var toCompare = ($(this).attr('id') == "Provenance") ? $("#Destination") : $("#Provenance");
-	CompareProvDest($(this).val(),toCompare.val());
-});
+/*Fonction de contrôle Trouver le numéro de vol -> suivi Bagages*/
+function CompareProvDestSuiviBagages(provenance, destination) {
+    MessageErreurProvDestSuiviBagages(provenance != destination);
+}
 
 /*Fonction d'affiche message erreur : Recherche Vol*/
 function MessageErreurRecherche(toCheckLength,message,messageText){
@@ -433,12 +426,13 @@ function ClearWarning(infoWarning){
 	AfficheMessageGenerique(message,"noDisplayGenerique");
 }
 
-/*Fonction pour afficher/retirer le message d'erreur*/
-function MessageErreurProvDest(id,result){
+/*Fonction pour afficher/retirer le message d'erreur pour le suivi bagages*/
+function MessageErreurProvDestSuiviBagages(result){
 	var message = $("#msgErrSuivi");
 	AfficheMessageGenerique(message,(result) ? "noDisplayGenerique" : "displayGenerique");
 }
 
+/*Fonction pour afficher/retirer le message d'erreur*/
 function AfficheMessageGenerique(messageJQuery,classToAdd){
 	var classToRemove = (classToAdd == "displayGenerique") ? "noDisplayGenerique" : "displayGenerique";
 	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
@@ -447,6 +441,7 @@ function AfficheMessageGenerique(messageJQuery,classToAdd){
 	}
 }
 
+/*Fonction pour afficher/retirer le message d'erreur*/
 function AfficheMessageGenerique2(messageJQuery,classToAdd){
 	var classToRemove = (classToAdd == "displayGenerique2") ? "noDisplayGenerique2" : "displayGenerique2";
 	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
