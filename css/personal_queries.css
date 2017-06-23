@@ -28,16 +28,12 @@
 	}
 }
 
-@media screen and (max-width:1300px){
+@media screen and (max-width:1500px){
     #CompagniesWrapper {
         flex-direction: column;
     }
 
-    #CompagniesWrapper {
-        flex-direction: column;
-    }
-
-    #CompagniesList {
+	#CompagniesList {
         margin-right: 0px;
         margin-bottom: 10px;
     }
