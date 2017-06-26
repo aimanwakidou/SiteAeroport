@@ -8,7 +8,7 @@ var bindTypeEnum = {
     Default:0,
     AlertFlash: 1,
     FindResult:2
-}
+};
 
 /*Ajout ou suppression de numero de vol*/
 $("#first_vol .buttonAjoutSuppr .AjoutWrapper").click(function () {
@@ -16,7 +16,7 @@ $("#first_vol .buttonAjoutSuppr .AjoutWrapper").click(function () {
 });
 
 $("#first_vol .buttonAjoutSuppr .SupprWrapper").click(function () {
-    SuppressionVol();
+    SuppressionVolParClick();
 });
 
 /*Ajout ou suppression d'un bagages*/
@@ -25,7 +25,7 @@ $("#BagagesFirst .buttonAjoutSuppr .AjoutWrapper").click(function(){
 });
 
 $("#BagagesFirst .buttonAjoutSuppr .SupprWrapper").click(function(){
-   SuppressionBagages(); 
+   SuppressionBagagesParClick(); 
 });
 
 /*Bind -> Alerte Flash <-> Num vol input*/
@@ -49,13 +49,14 @@ $(".bindAlert").each(function () {
 /*Bind -> Resultat recherche vol <-> Num Vol input*/
 $('select[name="FindResult"]').change(function () {
     var selectedArray = $(this).find('option:selected');
+    
     if (selectedArray.length === 0) {
         $(this).siblings('button').attr('title', 'Aucun élément n\'a été séléctionné');
         return;
     }
 
     selectedArray.each(function () {
-        if ($(this).val() != '') {
+        if ($(this).val() !== '') {
             BindAlert($(this), bindTypeEnum.FindResult);
         }
     });
@@ -63,15 +64,15 @@ $('select[name="FindResult"]').change(function () {
     /*Check en cas de déselection*/
     var lastSelected = Cookies.get('lastSelected');
     if (lastSelected !== '') {
+        console.log(lastSelected);
         if (IsInVolInputs(lastSelected) && !IsInSelectResult(lastSelected)) {
-            console.log('supp');
             SuppressionVolParNumVol(lastSelected);
         }
     }
 
     /*Mis à jour Cookie*/
-    console.log('Valeur LastSelected : '+Cookies.get('lastSelected'));
     Cookies.set('lastSelected', $(this).find('option:selected:last').val());
+    
 });
 
 /*Fonction : Ajout d'un bagage*/
@@ -88,17 +89,8 @@ function AjoutBagages(){
 }
 
 /*Fonction : Suppression d'un bagages*/
-function SuppressionBagages(){
-    var lastBagages = $("#BagagesBoxInner .BagagesInput").last();
-    if(lastBagages.attr('id') != "BagagesFirst")
-        lastBagages.remove();
-    else {
-        var inputLastBagages = lastBagages.find('input');
-        if (inputLastBagages.val() != '') {
-            inputLastBagages.val('');
-            inputLastBagages.attr('value', '');
-        }
-    }
+function SuppressionBagagesParClick(){
+    SuppressionVol($("#BagagesBoxInner .BagagesInput").last());
 }
 
 /*Fonction : Ajout d'un vol*/
@@ -115,17 +107,8 @@ function AjoutVol() {
 }
 
 /*Fonction : Suppression d'un vol*/
-function SuppressionVol() {
-    var lastButton = $("#BoxFlashAlert .search-box-inner").last();
-    if (lastButton.attr('id') != "first_vol")
-        lastButton.remove();
-    else {
-        var inputLastButton = lastButton.find('input');
-        if (inputLastButton.val() != '') {
-            inputLastButton.val('');
-            inputLastButton.attr('value', '');
-        }
-    }
+function SuppressionVolParClick() {
+    SuppressionVol($("#BoxFlashAlert .search-box-inner").last());
 }
 
 /*Fonction : isInVolsInputs */
@@ -140,7 +123,20 @@ function IsInSelectResult(num_vol) {
 
 /*Fonction : Suppression d'un vol par num_vol*/
 function SuppressionVolParNumVol(num_vol) {
-    $('#BoxFlashAlert .search-box-inner input[value="'+num_vol+'"]').parent().remove();
+    SuppressionVol($('#BoxFlashAlert .search-box-inner input[value="'+num_vol+'"]').parent());  
+}
+
+/*Fonction : SuppressionVol*/
+function SuppressionVol(vol){
+    if(vol.attr('id') == 'first_vol' || vol.attr('id') == 'BagagesFirst'){
+        var volInput = vol.find('input');
+        if(volInput.val() !== ''){
+            volInput.val('');
+            volInput.attr('value','');
+        }
+    }
+    else
+        vol.remove();
 }
 
 /*Fonction de liaison Modal --> Alerte Flash*/

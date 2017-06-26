@@ -126,6 +126,8 @@ $("#zoneRecherche").submit(function (event) {
         /*Lancement de la recherche*/
         if (!CookiesExists() || !IsSetCookies(provenance.val(), destination.val(), dateVol)) {
 
+            console.log(Cookies.get());
+            
             /*Enregistrement des valeurs de la recherche*/
             SetCookies(provenance.val(), destination.val(),dateVol);
 
