@@ -135,7 +135,7 @@ tr[active="OK"]:last-child > td{
 
 /*CSS : Suivi bagages*/
 .suitcase{
-	margin-right:10px;
+	margin-right:20px;
 	vertical-align: baseline;
 }
 
@@ -463,6 +463,11 @@ tr[active="OK"]:last-child > td{
 	padding-bottom:15px;
 }
 
+/*CSS : Alerte Flash Vol*/
+#CompagniesList > .bootstrap-select{
+    margin-top:5px;
+}
+
 /*CSS : Alerte Flash Vol + Suivi Bagages*/
 .search-box {
     color: rgb(45,42,44);
@@ -594,6 +599,13 @@ tr[active="OK"]:last-child > td{
 /*CSS : Alerte Flash Vol*/
 .messageBox > div > span{
     margin-right:30px;
+}
+
+/*CSS : Suivi Bagages*/
+.suiviHeading{
+    display:flex;
+    align-items:center;
+    margin-top:0px;
 }
 
 /*CSS : Vols du jour*/
@@ -945,11 +957,6 @@ form.modal-body > table {
 	font-size:20px;
 }
 
-/*CSS : Alerte Flash Vol + Recherche Vol*/
-#Compagnies,#CompagniesRecherche{
-	padding-bottom:10px;
-}
-
 /*CSS : Alerte Flash Vol*/
 #Compagnies{
     padding-top:10px;
@@ -1056,7 +1063,13 @@ form.modal-body > table {
 }
 
 /*CSS : Alerte Flash Vol*/
+#FindResult{
+    margin-top:10px;
+}
+
+/*CSS : Alerte Flash Vol*/
 #FindResult > .bootstrap-select{
+    margin-top:5px;
 	margin-bottom:15px;
 }
 

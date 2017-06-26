@@ -1,3 +1,4 @@
+/*Media Queries --> MIN*/
 /*Correction input date et time*/
 @media only screen and (max-width:550px){
 	input[type=date],input[type=time]{
@@ -9,6 +10,29 @@
 @media screen and (min-width:768px){
     header{
         min-height:0%;
+    }
+}
+
+/*CSS : Alignement Alerte et Suivi --> PC*/
+@media screen and (min-width:1000px){
+    .flash_alert-num_vol-content{
+        padding-top:0px;
+    }
+}
+
+/*Media Queriques : MAX*/
+@media screen and (max-width:1500px) {
+    #CompagniesWrapper {
+        flex-direction: column;
+    }
+
+    #CompagniesList {
+        margin-right: 0px;
+        margin-bottom: 10px;
+    }
+
+    #CompagniesList > .bootstrap-select {
+        margin-bottom: 30px;
     }
 }
 
@@ -28,20 +52,7 @@
 	}
 }
 
-@media screen and (max-width:1500px){
-    #CompagniesWrapper {
-        flex-direction: column;
-    }
 
-	#CompagniesList {
-        margin-right: 0px;
-        margin-bottom: 10px;
-    }
-
-    #CompagniesList > .bootstrap-select {
-        margin-bottom: 30px;
-    }
-}
 
 @media screen and (max-width: 900px){
 	.flash_alert-num_vol-content{
@@ -201,14 +212,14 @@
         padding-top:0px;
     }
 
-    #CompagniesWrapper{
+    /*#CompagniesWrapper{
         flex-direction:row;
     }
 
     #CompagniesList{
         margin-right:10px;
         margin-bottom:0px;
-    }
+    }*/
 
 }
 

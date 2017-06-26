@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\js"
+    "\\css",
+    "\\js",
+    "\\vendor\\bootstrap-datepicker"
   ],
-  "SelectedNode": "\\js\\Controle.js",
+  "SelectedNode": "\\js\\TimePicker.js",
   "PreviewInSolutionExplorer": false
 }

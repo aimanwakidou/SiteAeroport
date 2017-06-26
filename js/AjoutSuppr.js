@@ -1,3 +1,15 @@
+/*Création Cookie*/
+$(document).ready(function () {
+    Cookies.set('lastSelected', '');
+});
+
+/*Enum Bind*/
+var bindTypeEnum = {
+    Default:0,
+    AlertFlash: 1,
+    FindResult:2
+}
+
 /*Ajout ou suppression de numero de vol*/
 $("#first_vol .buttonAjoutSuppr .AjoutWrapper").click(function () {
     AjoutVol();
@@ -16,7 +28,7 @@ $("#BagagesFirst .buttonAjoutSuppr .SupprWrapper").click(function(){
    SuppressionBagages(); 
 });
 
-/*Bind*/
+/*Bind -> Alerte Flash <-> Num vol input*/
 $(".bindAlert").each(function () {
     $(this).click(function () {
         var vols;
@@ -29,9 +41,35 @@ $(".bindAlert").each(function () {
         
         vols.each(function () {
             if ($(this).find("td div input").is(":checked"))
-                BindModalAlert($(this));
+                BindAlert($(this),bindTypeEnum.AlertFlash);
         });
     });
+});
+
+/*Bind -> Resultat recherche vol <-> Num Vol input*/
+$('select[name="FindResult"]').change(function () {
+    var selectedArray = $(this).find('option:selected');
+    if (selectedArray.length === 0) {
+        $(this).siblings('button').attr('title', 'Aucun élément n\'a été séléctionné');
+        return;
+    }
+
+    selectedArray.each(function () {
+        if ($(this).val() != '') {
+            BindAlert($(this), bindTypeEnum.FindResult);
+        }
+    });
+
+    /*Check en cas de déselection*/
+    var lastSelected = Cookies.get('lastSelected');
+    if (lastSelected !== '') {
+        if (checkVolInputs(lastSelected) && !checkSelectResult(lastSelected))
+            SuppressionVolParNumVol(lastSelected);
+    }
+
+    /*Mis à jour Cookie*/
+    console.log('Valeur LastSelected : '+Cookies.get('lastSelected'));
+    Cookies.set('lastSelected', $(this).find('option:selected:last').val());
 });
 
 /*Fonction : Ajout d'un bagage*/
@@ -52,9 +90,16 @@ function SuppressionBagages(){
     var lastBagages = $("#BagagesBoxInner .BagagesInput").last();
     if(lastBagages.attr('id') != "BagagesFirst")
         lastBagages.remove();
+    else {
+        var inputLastBagages = lastBagages.find('input');
+        if (inputLastBagages.val() != '') {
+            inputLastBagages.val('');
+            inputLastBagages.attr('value', '');
+        }
+    }
 }
 
-/*Fonction : Ajout d'un bouton*/
+/*Fonction : Ajout d'un vol*/
 function AjoutVol() {
     var buttonHtmlString = "<div class=\"search-box-inner form-group\">" +
         "<input class=\"flash_alert-num_vol-input form-control\" id=\"num_vol\" name=\"num_vol\" placeholder=\"Entrez un num&#233ro du vol\" type=\"text\"/>" +
@@ -67,16 +112,44 @@ function AjoutVol() {
     $("#BoxFlashAlert").append(buttonHtml);
 }
 
-/*Fonction : Suppression d'un bouton*/
+/*Fonction : Suppression d'un vol*/
 function SuppressionVol() {
     var lastButton = $("#BoxFlashAlert .search-box-inner").last();
     if (lastButton.attr('id') != "first_vol")
         lastButton.remove();
+    else {
+        var inputLastButton = lastButton.find('input');
+        if (inputLastButton.val() != '') {
+            inputLastButton.val('');
+            inputLastButton.attr('value', '');
+        }
+    }
+}
+
+/*Fonction : isInVolsInputs */
+function IsInVolInputs(num_vol) {
+    console.log($('#BoxFlashAlert .search-box-inner input[value="' + num_vol + '"]'));
+    return $('#BoxFlashAlert .search-box-inner input[value="' + num_vol + '"]').length !== 0;
+}
+
+/*Fonction : checkSelectResult*/
+function checkSelectResult(num_vol) {
+    return $('select[name="FindResult"] option[value="' + num_vol + '"]:selected').length !== 0 ;
+}
+
+/*Fonction : Suppression d'un vol par num_vol*/
+function SuppressionVolParNumVol(num_vol) {
+    $('#BoxFlashAlert search-box-inner input[value="'+num_vol+'"]').remove();
 }
 
 /*Fonction de liaison Modal --> Alerte Flash*/
-function BindModalAlert(caseTable) {
-    var num_vol = caseTable.find(".numVol").html();
+function BindAlert(caseTable,bindType) {
+    var num_vol;
+    if (bindType == bindTypeEnum.Default)
+        return;
+    else
+        num_vol = (bindType == bindTypeEnum.AlertFlash) ? caseTable.find(".numVol").html() : caseTable.val();
+
     var inputsNumVol = $("#BoxFlashAlert .search-box-inner");
     var flagFree = false;
     var flagFind = false;
@@ -90,6 +163,7 @@ function BindModalAlert(caseTable) {
         else{
             if (input.val().length === 0 && !flagFree) {
                 input.val(num_vol);
+                input.attr('value', num_vol);
                 flagFree = true;
                 return;
             }
@@ -102,6 +176,8 @@ function BindModalAlert(caseTable) {
     AjoutVol();
     var inputsNumVolLast = $("#BoxFlashAlert .search-box-inner").last().find("input");
     inputsNumVolLast.val(num_vol);
+    inputsNumVolLast.attr('value', num_vol);
+ 
 }
 
 /*Fonction de controle --> checkBok = ok*/
