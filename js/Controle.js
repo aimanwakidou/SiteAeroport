@@ -90,7 +90,7 @@ $("input").each(function(){
 $(".bootstrap-select button").click(function () {
     if ($(this).hasClass('success'))
         $(this).removeClass('success');
-})
+});
 
 /*Contrôle pour la météo*/
 $(".choixIles").change(function(){
@@ -114,6 +114,13 @@ $('select[name="resultatVol"]').change(function(){
 	var selected = $('select[name="resultatVol"] option:selected');
 	var selectedValue = selected.val();
 	$("#ResultArrivéeOuDépart").text(selectedValue.length !== 0 ? selectedValue : selected.text());
+	
+	if(selectedValue.length !== 0){
+		var text = selectedValue == "Arrivée" ? "Heure d'arrivée" : "Heure de départ";
+		$("#heureVol").text(text);
+	}
+	else
+		$("#heureVol").text("Heure");
 	
 	/*Affichage Arrivée Ou Départ*/
 	if(selectedValue.length === 0){

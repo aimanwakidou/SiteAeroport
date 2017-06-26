@@ -83,6 +83,7 @@ function DefaultSelect(){
         $('select[name="resultatVol"] #default').attr('selected','selected');
     }
     $("#ResultArrivéeOuDépart").text($('select[name="resultatVol"] #default').text());
+    $("#heureVol").text('Heure');
 }
 
 /* Message Erreur Invalide */
@@ -124,10 +125,7 @@ $("#zoneRecherche").submit(function (event) {
         var url = "https://5.196.225.5/api/RechercheVols/" + provenance.val() + "/" + destination.val() + "/" + dateVol;
 
         /*Lancement de la recherche*/
-        if (!CookiesExists() || !IsSetCookies(provenance.val(), destination.val(), dateVol)) {
-
-            console.log(Cookies.get());
-            
+        if (!CookiesExists() || !IsSetCookies(provenance.val(), destination.val(), dateVol)) { 
             /*Enregistrement des valeurs de la recherche*/
             SetCookies(provenance.val(), destination.val(),dateVol);
 
