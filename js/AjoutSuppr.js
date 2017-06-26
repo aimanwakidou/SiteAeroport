@@ -63,8 +63,10 @@ $('select[name="FindResult"]').change(function () {
     /*Check en cas de déselection*/
     var lastSelected = Cookies.get('lastSelected');
     if (lastSelected !== '') {
-        if (checkVolInputs(lastSelected) && !checkSelectResult(lastSelected))
+        if (IsInVolInputs(lastSelected) && !IsInSelectResult(lastSelected)) {
+            console.log('supp');
             SuppressionVolParNumVol(lastSelected);
+        }
     }
 
     /*Mis à jour Cookie*/
@@ -128,18 +130,17 @@ function SuppressionVol() {
 
 /*Fonction : isInVolsInputs */
 function IsInVolInputs(num_vol) {
-    console.log($('#BoxFlashAlert .search-box-inner input[value="' + num_vol + '"]'));
     return $('#BoxFlashAlert .search-box-inner input[value="' + num_vol + '"]').length !== 0;
 }
 
 /*Fonction : checkSelectResult*/
-function checkSelectResult(num_vol) {
+function IsInSelectResult(num_vol) {
     return $('select[name="FindResult"] option[value="' + num_vol + '"]:selected').length !== 0 ;
 }
 
 /*Fonction : Suppression d'un vol par num_vol*/
 function SuppressionVolParNumVol(num_vol) {
-    $('#BoxFlashAlert search-box-inner input[value="'+num_vol+'"]').remove();
+    $('#BoxFlashAlert .search-box-inner input[value="'+num_vol+'"]').parent().remove();
 }
 
 /*Fonction de liaison Modal --> Alerte Flash*/
