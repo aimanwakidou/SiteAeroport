@@ -954,6 +954,11 @@ form.modal-body > table {
 }
 
 /*CSS : Météo*/
+.bootstrap-select.choixIles > button{
+    line-height:20px !important;
+}
+
+/*CSS : Météo*/
 .temperature > mark{
 	background-color:inherit;
 	font-size:20px;
