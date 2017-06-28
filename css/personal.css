@@ -903,6 +903,7 @@ form.modal-body > table {
 .title_météo{
 	display:flex;
 	justify-content:space-between;
+    align-items:center;
 	line-height:30px;
 }
 
@@ -910,6 +911,7 @@ form.modal-body > table {
 .title_météo > h2{
 	line-height:30px;
 	vertical-align:middle;
+    margin-bottom:0;
 }
 
 /*CSS : Météo*/
