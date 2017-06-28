@@ -49,7 +49,7 @@ $(".bindAlert").each(function () {
 /*Bind -> Resultat recherche vol <-> Num Vol input*/
 $('select[name="FindResult"]').change(function () {
     var selectedArray = $(this).find('option:selected');
-    
+
     if (selectedArray.length === 0) {
         $(this).siblings('button').attr('title', 'Aucun élément n\'a été séléctionné');
         return;
@@ -64,7 +64,6 @@ $('select[name="FindResult"]').change(function () {
     /*Check en cas de déselection*/
     var lastSelected = Cookies.get('lastSelected');
     if (lastSelected !== '') {
-        console.log(lastSelected);
         if (IsInVolInputs(lastSelected) && !IsInSelectResult(lastSelected)) {
             SuppressionVolParNumVol(lastSelected);
         }
@@ -127,9 +126,8 @@ function SuppressionVolParNumVol(num_vol) {
 }
 
 /*Fonction : SuppressionVol*/
-function SuppressionVol(vol){
-    if (vol.attr('id') == 'first_vol' || vol.attr('id') == 'BagagesFirst') {
-        console.log(vol);
+function SuppressionVol(vol) {
+    if (vol.attr('id') == 'first_vol' || vol.attr('id') == 'BagagesFirst') {  
         var volInput = vol.find('input');
         if(volInput.val() !== ''){
             volInput.val('');
