@@ -128,7 +128,7 @@
 	}
 
 	.choixIles{
-		display:block;
+		display:inline-block !important;
 	}
 
 	.météoWrapper > div{

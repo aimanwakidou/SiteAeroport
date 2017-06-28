@@ -1,6 +1,6 @@
 /*Création Cookie*/
 $(document).ready(function () {
-    Cookies.set('lastSelected', '');
+    Cookies.set('lastSelectedArray',[]);
 });
 
 /*Enum Bind*/
@@ -48,29 +48,31 @@ $(".bindAlert").each(function () {
 
 /*Bind -> Resultat recherche vol <-> Num Vol input*/
 $('select[name="FindResult"]').change(function () {
-    var selectedArray = $(this).find('option:selected');
-
-    if (selectedArray.length === 0) {
+    var selectedArrayJQuery = $(this).find('option:selected');
+    var selectedArray = [];
+    
+    if (selectedArrayJQuery.length === 0) {
         $(this).siblings('button').attr('title', 'Aucun élément n\'a été séléctionné');
         return;
     }
 
-    selectedArray.each(function () {
+    selectedArrayJQuery.each(function () {
         if ($(this).val() !== '') {
             BindAlert($(this), bindTypeEnum.FindResult);
         }
+        selectedArray.push($(this).val());
     });
 
     /*Check en cas de déselection*/
-    var lastSelected = Cookies.get('lastSelected');
-    if (lastSelected !== '') {
-        if (IsInVolInputs(lastSelected) && !IsInSelectResult(lastSelected)) {
-            SuppressionVolParNumVol(lastSelected);
-        }
+    var lastSelectedArray = GetArrayFromString(Cookies.get('lastSelectedArray'));
+    var lastSelected = GetOptionUnselected(selectedArray,lastSelectedArray);
+    
+    if (lastSelected !== null) {
+        SuppressionVolParNumVol(lastSelected);
     }
 
     /*Mis à jour Cookie*/
-    Cookies.set('lastSelected', $(this).find('option:selected:last').val());
+    Cookies.set('lastSelectedArray', selectedArray);
     
 });
 
@@ -110,14 +112,28 @@ function SuppressionVolParClick() {
     SuppressionVol($("#BoxFlashAlert .search-box-inner").last());
 }
 
-/*Fonction : isInVolsInputs */
-function IsInVolInputs(num_vol) {
-    return $('#BoxFlashAlert .search-box-inner input[value="' + num_vol + '"]').length !== 0;
+/*Fonction : GetArrayFromString*/
+function GetArrayFromString(arrayString){
+    return $.parseJSON(arrayString);
 }
 
-/*Fonction : checkSelectResult*/
-function IsInSelectResult(num_vol) {
-    return $('select[name="FindResult"] option[value="' + num_vol + '"]:selected').length !== 0 ;
+/*Fonction : GetOptionSelected*/
+function GetOptionUnselected(selectedArray,lastSelectedArray){
+    var toReturn = null;
+    if(lastSelectedArray.length !== 0){
+        lastSelectedArray.forEach(function(item){
+            if(!IsInArray(item,selectedArray)){
+                toReturn = item;
+                return;
+            }
+        });
+    }
+    return toReturn;
+}
+
+/*Fonction : IsInArray*/
+function IsInArray(element,array){
+    return array.indexOf(element) !== -1;
 }
 
 /*Fonction : Suppression d'un vol par num_vol*/

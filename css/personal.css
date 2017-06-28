@@ -916,7 +916,7 @@ form.modal-body > table {
 
 /*CSS : Météo*/
 .choixIles{
-	display:none;
+	display:none !important;
 	padding:5px 10px 5px 10px;
 	min-height:30px;
 }
