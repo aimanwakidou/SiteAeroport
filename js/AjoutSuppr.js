@@ -128,7 +128,8 @@ function SuppressionVolParNumVol(num_vol) {
 
 /*Fonction : SuppressionVol*/
 function SuppressionVol(vol){
-    if(vol.attr('id') == 'first_vol' || vol.attr('id') == 'BagagesFirst'){
+    if (vol.attr('id') == 'first_vol' || vol.attr('id') == 'BagagesFirst') {
+        console.log(vol);
         var volInput = vol.find('input');
         if(volInput.val() !== ''){
             volInput.val('');

@@ -32,7 +32,7 @@
     }
 
     #CompagniesList > .bootstrap-select {
-        margin-bottom: 30px;
+        margin-bottom: 20px;
     }
 }
 
@@ -197,10 +197,6 @@
 	#DateResultat{
         flex-direction:row;
     }
-	
-	#CompagniesList > .bootstrap-select {
-		margin-bottom:0px;
-	}
 	
 	.DateWrapper{
 		margin-right:10px;
