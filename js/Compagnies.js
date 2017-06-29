@@ -14,6 +14,11 @@ $(document).ready(function(){
 			AjoutCompagnie(compagnie);
         });
         $('#Compagnies select[name="compagnies"]').selectpicker('refresh');
+
+        /*Controle*/
+        $('#Compagnies select[name="compagnies"]').change(function () {
+            ControleAeroport($(this), data.Compagnies);
+        });
 	});
 });	
 

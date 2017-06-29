@@ -6,7 +6,6 @@ $(document).ready(function () {
     });
 });
 
-
 /*Ajout des vols dans la recherche*/
 function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep,imgArrDep){    
     var trString = '<tr class="'+ArrDep+'" active="OK">'+
