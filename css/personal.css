@@ -617,6 +617,7 @@ tr[active="OK"]:last-child > td{
 form.modal-body > table {
     margin-right: auto;
     margin-left: auto;
+    width:100%;
 }
 
 /*CSS : Vols du jour*/

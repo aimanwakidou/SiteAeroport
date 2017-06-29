@@ -1,6 +1,6 @@
 /*Création Cookie*/
 $(document).ready(function () {
-    Cookies.set('lastSelectedArray',[]);
+    Cookies.set('lastSelectedArray', []);
 });
 
 /*Enum Bind*/
@@ -50,30 +50,36 @@ $(".bindAlert").each(function () {
 $('select[name="FindResult"]').change(function () {
     var selectedArrayJQuery = $(this).find('option:selected');
     var selectedArray = [];
-    
-    if (selectedArrayJQuery.length === 0) {
-        $(this).siblings('button').attr('title', 'Aucun élément n\'a été séléctionné');
-        return;
-    }
+    var lastSelectedArray = GetArrayFromString(Cookies.get('lastSelectedArray'));
 
+    /*Init selectedArray*/
     selectedArrayJQuery.each(function () {
-        if ($(this).val() !== '') {
-            BindAlert($(this), bindTypeEnum.FindResult);
-        }
         selectedArray.push($(this).val());
     });
 
-    /*Check en cas de déselection*/
-    var lastSelectedArray = GetArrayFromString(Cookies.get('lastSelectedArray'));
-    var lastSelected = GetOptionUnselected(selectedArray,lastSelectedArray);
-    
-    if (lastSelected !== null) {
-        SuppressionVolParNumVol(lastSelected);
+    if (selectedArrayJQuery.length === 0 && lastSelectedArray.length === 1) {
+        SuppressionVolParNumVol(lastSelectedArray[0]);
+        return;
+    }
+
+    /*Cas de sélection*/
+    if (lastSelectedArray.length < selectedArrayJQuery.length) {
+        selectedArrayJQuery.each(function () {
+            if ($(this).val() !== '') {
+                BindAlert($(this), bindTypeEnum.FindResult);
+            }
+        });
+    }
+    else {
+        /*Check en cas de déselection*/
+        var lastSelected = GetOptionUnselected(selectedArray, lastSelectedArray);
+        if (lastSelected !== null) {
+            SuppressionVolParNumVol(lastSelected);
+        }
     }
 
     /*Mis à jour Cookie*/
-    Cookies.set('lastSelectedArray', selectedArray);
-    
+    Cookies.set('lastSelectedArray', selectedArray);  
 });
 
 /*Fonction : Ajout d'un bagage*/
@@ -114,7 +120,7 @@ function SuppressionVolParClick() {
 
 /*Fonction : GetArrayFromString*/
 function GetArrayFromString(arrayString){
-    return $.parseJSON(arrayString);
+    return JSON.parse(arrayString);
 }
 
 /*Fonction : GetOptionSelected*/
