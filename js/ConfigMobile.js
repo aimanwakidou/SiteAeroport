@@ -8,13 +8,8 @@ $(document).ready(function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('.selectpicker').selectpicker('mobile');
 
-        var PCinputs = $(".PC");
+        $(".PC").remove();
         var mobileInputs = $(".mobile");
-
-        PCinputs.each(function () {
-            AfficheInput($(this), AfficheEnum.Hide);
-            $(this).remove();
-        });
 
         mobileInputs.each(function () {
             AfficheInput($(this), AfficheEnum.Show);
