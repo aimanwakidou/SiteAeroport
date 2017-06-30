@@ -7,13 +7,6 @@ var AfficheEnum = {
 $(document).ready(function () {
     if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         $('.selectpicker').selectpicker('mobile');
-
-        $(".PC").remove();
-        var mobileInputs = $(".mobile");
-
-        mobileInputs.each(function () {
-            AfficheInput($(this), AfficheEnum.Show);
-        });
     }
 });
 
