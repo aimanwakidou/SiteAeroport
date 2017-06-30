@@ -27,6 +27,7 @@ function AfficheInput(elemjQuery,AfficheEnumType) {
 
     if (elemjQuery.hasClass(classToRemove)) {
         elemjQuery.remove();
+        return;
     }
 
     elemjQuery.addClass(classToAdd);
