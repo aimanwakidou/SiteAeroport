@@ -200,7 +200,6 @@
                                                 <div class="Arrivés">
                                                       <span class="labelPerso">Destination</span>
                                                       <div class="ArrivésInput form-group">
-                                                          <!--<input id="Destination" name="Destionation" class="Destination-input form-control" placeholder="Entrez la destination" type="text"/>-->
                                                           <select name="DestSearch" class="form-control selectpicker" data-live-search="true" title="Entrez la destination">
                                                               
                                                           </select>
@@ -210,8 +209,9 @@
                                           <div class="DatePicker">
                                                 <div class="form-group"> <!-- Date input -->
                                                       <span class="labelPerso">Jour du vol</span>
-                                                      <div class="DatePickerInput">
-                                                            <input type="text" name="dateVol" class="form-control" placeholder="JJ/MM/AAAA"/>
+                                                      <div class="DatePickerInput" id="dateVolRecherche">
+                                                            <input type="text" name="dateVolPC" class="form-control PC displayGenerique2" placeholder="JJ/MM/AAAA"/>
+                                                            <input type="date" name="dateVolMobile" class="form-control mobile noDisplayGenerique2" placeholder="JJ/MM/AAAA"/> 
                                                       </div>
                                                 </div>
                                           </div>
@@ -409,11 +409,13 @@
                                                 <div class="JourHeure">
                                                       <div class="JourInput">
                                                             <label for="jour">Jour du vol</label>
-                                                            <input name="jour" id="jour" class="form-control" type="text" placeholder="JJ/MM/AAAA"/>
+                                                            <input name="jour" id="jourPC" class="form-control PC displayGenerique2" type="text" placeholder="JJ/MM/AAAA"/>
+                                                            <input name="jour" id="jourMobile" class="form-control mobile noDisplayGenerique2" type="date" placeholder="JJ/MM/AAAA"/>
                                                       </div>
                                                       <div class="TimePickerInput HeureInput">
                                                             <label for="heure">Heure de départ</label>
-                                                            <input name="heure" id="heure" class="form-control" type="text" placeholder="HH:MM"/>
+                                                            <input name="heure" id="heurePC" class="form-control PC displayGenerique2" type="text" placeholder="HH:MM"/>
+                                                            <input name="heure" id="heureMobile" class="form-control mobile noDisplayGenerique2" type="time"/>
                                                       </div>
                                                 </div>
                                                 <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
@@ -483,7 +485,8 @@
                                                       <div class="DateWrapper">
                                                           <span class="labelPerso">Jour du vol</span>
                                                           <div id="DateVol" class="DatePickerInput">
-                                                              <input type="text" name="dateVolFind" class="form-control" placeholder="JJ/MM/AAAA">
+                                                              <input type="text" name="dateVolFind" class="form-control PC displayGenerique2" placeholder="JJ/MM/AAAA" />
+                                                              <input type="date" name="dateVolFind" class="form-control mobile noDisplayGenerique2" placeholder="JJ/MM/AAAA" /> 
                                                           </div>
                                                       </div>
                                                       <div class="buttonValidate">
@@ -495,7 +498,7 @@
                                                       </div>
                                                   </div>
                                               </div>
-                                              <div id="FindResult" class="form-group">
+                                              <div id="FindResult" class="form-group noDisplayGenerique2">
                                                   <span class="labelPerso">Résultat de la recherche</span>
                                                   <select name="FindResult" class="form-control selectpicker" multiple="multiple" data-live-search="true" title="Vols">
                                                       
@@ -748,8 +751,8 @@
             <!-- Script Lancement DatePicker -->
             <script src="js/DatePicker.js"></script>
 
-             <!-- Script Lancement SelectPicker -->
-            <script src="js/SelectPicker.js"></script>
+             <!-- Script pour les input version mobile/tablette -->
+            <script src="js/ConfigMobile.js"></script>
 
             <!-- Script Lancement TimePicker -->
             <script src="js/TimePicker.js"></script>

@@ -102,7 +102,16 @@ $("#zoneRecherche").submit(function (event) {
     event.preventDefault();
     var provenance = $('select[name="ProvSearch"] option:selected');
     var destination = $('select[name="DestSearch"] option:selected');
-    var dateVol = $('input[name="dateVol"]').val();
+    var dateVol;
+
+    /*Récupération dateVol*/
+    $("#dateVolRecherche input").each(function () {
+        if ($(this).hasClass('displayGenerique2')) {
+            dateVol = $(this).val();
+            return;
+        }
+    })
+
     var message = $('#MessageErreurProvDest');
     var provSuccess = $('select[name="ProvSearch"]').siblings('button').hasClass('success');
     var destSuccess = $('select[name="DestSearch"]').siblings('button').hasClass('success');

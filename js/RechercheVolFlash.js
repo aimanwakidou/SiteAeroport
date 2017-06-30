@@ -71,6 +71,12 @@ $("#validateAlert").click(function (event) {
             $.getJSON(url, {})
 
                 .done(function (data) {
+                    var findResult = $('#FindResult');
+                    if (findResult.hasClass("noDisplayGenerique2")) {
+                        findResult.show(200);
+                        findResult.removeClass("noDisplayGenerique2");
+                    }
+
                     if (Object.keys(data).indexOf('message') == -1) {
                         Object.keys(data).forEach(function (key) {
                             addResultVolsFlash(data[key].CodeVol, compagnie.val(),
