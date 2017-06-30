@@ -27,7 +27,7 @@ function IsSetCookiesFlash(compagnie,date) {
 }
 
 /*Ajout select*/
-function addResultVols(codeVol,compagnie, provenance, destination, heure, arrDep) {
+function addResultVolsFlash(codeVol,compagnie, provenance, destination, heure, arrDep) {
     var arrDepAffiche = arrDep == "Arr" ? "Arrivée" : "Départ";
     var optionString = '<option value="' + codeVol + '">'
         + codeVol + ','+ compagnie + ',' + provenance + '=>' + destination
@@ -73,7 +73,7 @@ $("#validateAlert").click(function (event) {
                 .done(function (data) {
                     if (Object.keys(data).indexOf('message') == -1) {
                         Object.keys(data).forEach(function (key) {
-                            addResultVols(data[key].CodeVol, compagnie.val(),
+                            addResultVolsFlash(data[key].CodeVol, compagnie.val(),
                                 data[key].Provenance, data[key].Destination,
                                 data[key].Heure, data[key].ArrDep
                             );
