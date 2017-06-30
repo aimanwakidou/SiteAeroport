@@ -13,6 +13,7 @@ $(document).ready(function () {
 
         PCinputs.each(function () {
             AfficheInput($(this), AfficheEnum.Hide);
+            $(this).remove();
         });
 
         mobileInputs.each(function () {
@@ -26,8 +27,7 @@ function AfficheInput(elemjQuery,AfficheEnumType) {
     var classToRemove = AfficheEnumType == AfficheEnum.Hide ? "displayGenerique2" : "noDisplayGenerique2";
 
     if (elemjQuery.hasClass(classToRemove)) {
-        elemjQuery.remove();
-        return;
+        elemjQuery.removeClass(classToRemove);
     }
 
     elemjQuery.addClass(classToAdd);
