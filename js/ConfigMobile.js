@@ -23,13 +23,12 @@ $(document).ready(function () {
 
 function AfficheInput(elemjQuery,AfficheEnumType) {
     var classToAdd = AfficheEnumType == AfficheEnum.Hide ? "noDisplayGenerique2" : "displayGenerique2";
-    var classToRemove = AfficheEnumType != AfficheEnum.Hide ? "displayGenerique2" : "noDisplayGenerique2";
+    var classToRemove = AfficheEnumType == AfficheEnum.Hide ? "displayGenerique2" : "noDisplayGenerique2";
 
     if (elemjQuery.hasClass(classToRemove)) {
         elemjQuery.removeClass(classToRemove);
     }
 
-    if (!elemjQuery.hasClass(classToAdd)) {
-        elemjQuery.addClass(classToAdd);
-    }
+    elemjQuery.addClass(classToAdd);
+
 }
