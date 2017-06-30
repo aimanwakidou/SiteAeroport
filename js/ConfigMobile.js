@@ -26,7 +26,7 @@ function AfficheInput(elemjQuery,AfficheEnumType) {
     var classToRemove = AfficheEnumType == AfficheEnum.Hide ? "displayGenerique2" : "noDisplayGenerique2";
 
     if (elemjQuery.hasClass(classToRemove)) {
-        elemjQuery.removeClass(classToRemove);
+        elemjQuery.remove();
     }
 
     elemjQuery.addClass(classToAdd);
