@@ -107,8 +107,12 @@ tr[active="OK"]:last-child > td{
 	order:0;
 }
 
-#search-flight,#suiviAndAlertBox,.general-news{
-	order:2;
+#search-flight, #suiviAndAlertBox, .general-news{
+    order: 2;
+}
+
+#testAPIairportTIA{
+    order:3;
 }
 
 /*CSS : Suivi bagages + Alerte flash Vol*/
