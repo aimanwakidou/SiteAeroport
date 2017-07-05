@@ -223,6 +223,7 @@
 @media screen and (max-width:650px){
 	#DateResultat{
 		flex-direction:column;
+        padding-top:0px;
 	}
 	
 	.DateWrapper{

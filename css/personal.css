@@ -1036,6 +1036,7 @@ form.modal-body > table {
 #DateResultat{
     display:flex;
     justify-content:space-between;
+    padding-top:5px;
 }
 
 /*CSS : Alerte Flash Vol*/
