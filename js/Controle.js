@@ -221,24 +221,37 @@ function ControleValeurProvDest(elementJQuery){
 /*Contrôle submit*/
 function ControleSubmit(vol) {
 	var submitButton = $("#submit");
-    var infoRequired = (vol.attr('id') == "num_vol_flash") ? [$("#email"),$("#tel")] : [$("#nom"),$("#prénom")];
+    var infoRequired = (vol.attr('id') == "num_vol_flash") ? $("#email,#tel") : $("#nom,#prénom");
     var testValue = true;
     var testSuccess = true;
 
-    for(var info of infoRequired){
+    infoRequired.each(function () {
+        if (!$(this).val().length) {
+            testValue = false;
+            return;
+        }
+    });
+
+    /*for(var info of infoRequired){
         if(!info.val().length){
             testValue = false;
             break;
         }
-    }
+    }*/
 
 	if (testValue && vol.val().length) {
-        for(info of infoRequired){
+        /*for(info of infoRequired){
             if(!info.parent().hasClass('success')){
                 testSuccess = false;
                 break;
             }       
-        }
+        }*/
+        infoRequired.each(function () {
+            if (!$(this).parent().hasClass("success")) {
+                testSuccess = false;
+                return;
+            }
+        });
 
         var classToAdd = (testSuccess) ? "EnvoiOK" : "EnvoiNonOK";
         var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
