@@ -232,20 +232,7 @@ function ControleSubmit(vol) {
         }
     });
 
-    /*for(var info of infoRequired){
-        if(!info.val().length){
-            testValue = false;
-            break;
-        }
-    }*/
-
 	if (testValue && vol.val().length) {
-        /*for(info of infoRequired){
-            if(!info.parent().hasClass('success')){
-                testSuccess = false;
-                break;
-            }       
-        }*/
         infoRequired.each(function () {
             if (!$(this).parent().hasClass("success")) {
                 testSuccess = false;
