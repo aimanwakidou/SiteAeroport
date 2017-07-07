@@ -1,9 +1,9 @@
 /*Activation css pour le chargement de requete CSS*/
 $(document).ajaxStart(function(){
-	var loader = '<tr id="Spinner">'+
-				 '<div style="display:flex;align-items:center;">'+
-				 '<i class="fa fa-spinner fa-spin fa-4x" aria-hidden="true"></i></div>'+
-				 '</tr>';
+	var loader = "<tr id=\"Spinner\">"+
+	             "<div style=\"display:flex;align-items:center;\">"+
+				 "<i class=\"fa fa-spinner fa-spin fa-4x\" aria-hidden=\"true\"></i></div>"+
+				 "</tr>";
 				 
 	$("#ArriveeBody,#DepartBody,#RechercheVol").append($.parseHTML(loader));
 });
@@ -88,8 +88,8 @@ $("input").each(function(){
 
 /*Nettoyage en cas de clique --> bootstrap select*/
 $(".bootstrap-select button").click(function () {
-    if ($(this).hasClass('success'))
-        $(this).removeClass('success');
+    if ($(this).hasClass("success"))
+        $(this).removeClass("success");
 });
 
 /*Contrôle pour la météo*/
