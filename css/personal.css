@@ -317,6 +317,22 @@ tr[active="OK"]:last-child > td{
     flex-grow: 1;
 }
 
+/*Recherche Vol*/
+#switchArrivéeDépart{
+    flex-grow:0;
+    font-size:35px;
+    align-self:center;
+    transform:rotate(90deg);
+    padding-left:8px;
+    padding-top:5px;
+    cursor:pointer;
+}
+
+/*Recherche Vol*/
+.Arrivés{
+    margin-left:10px;
+}
+
 /*Vols du jour*/
 .ArrivesDepartData > tr:last-child > td{
 	border-bottom:none;
