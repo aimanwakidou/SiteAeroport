@@ -554,7 +554,7 @@
                                         <div class="WarningMessage noDisplayGenerique">Champs requis</div>
                                     </div>
                                 </div>
-                                <div id="Column400" class="CoteACote-inner">
+                                <div class="CoteACote-inner Column400">
                                     <div class="NomInput form-group">
                                         <label for="nom">Nom</label>
                                         <div class="WrapperNom">
@@ -669,20 +669,67 @@
             <footer class="footer-distributed">
                 <div class="container">
                   <div class="footer-left">
-                        <p class="footer-links">
-                              <a href="#">Home</a>
-                              ·
-                              <a href="#">Blog</a>
-                              ·
-                              <a href="#">Pricing</a>
-                              ·
-                              <a href="#">About</a>
-                              ·
-                              <a href="#">Faq</a>
-                              ·
-                              <a href="#">Contact</a>
-                        </p>
-                        <p class="footer-company-name">Company Name &copy; 2017</p>
+                    <p class="footer-links">
+                        <a href="#">Home</a>
+                        ·
+                        <a href="#">A propos</a>
+                        ·
+                        <a href="#">Contacts</a>
+                        .
+                        <a href="#" data-toggle="modal" data-target="#ContactUs" role="button">Nous Contacter</a> 
+                    </p>
+                    <div id="ContactUs" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div id="ContactUsHeader" class="modal-header">                                    
+                                    <div class="modal-title"><h4>Nous Contacter</h4></div>
+                                    <div class="useless"></div>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+                                <form class="modal-body" id="ContactUsForm">
+                                    <div id="WrapperContactUs">
+                                        <div id="CoordonneesContactUs">
+                                            <div class="NomInput form-group">
+                                                <span class="labelPerso">Nom</span>
+                                                <div class="WrapperNom">
+                                                    <input name="nom" class="form-control required" placeholder="Entrez votre nom" type="text" required />
+                                                </div>
+                                            </div>
+                                            <div class="PrénomInput form-group">
+                                                <span class="labelPerso">Prénom</span>
+                                                <div class="WrapperPrénom">
+                                                    <input name="prénom" class="form-control required" placeholder="Entrez votre prénom" type="text" required/>
+                                                </div>
+                                            </div>
+                                            <div id="EmailTelContactUs" class="CoteACote-inner Column400">
+                                                <div class="EmailInput">
+                                                    <span class="labelPerso">E-mail</span>
+                                                    <div class="email form-group">
+                                                        <input name="email" class="emailInput form-control required" placeholder="Entrez votre e-mail" type="email" required />
+                                                    </div>
+                                                </div>
+                                                <div class="TelInput">
+                                                    <span class="labelPerso">Téléphone</span>
+                                                    <div class="tel form-group">
+                                                        <input name="tel" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="MessageContactUs">
+                                            <span class="labelPerso">Votre Message</span>
+                                            <textarea class="form-control" placeholder="Entrez votre message ici" maxlength="250" rows="10" required></textarea>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="modal-footer">
+                                    <button form="ContactUsForm" type="submit" class="btn btn-block btn-default" data-dismiss="modal">Envoyer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="footer-company-name">Company Name &copy; 2017</p>
                   </div>
                   <div class="footer-center">
                         <div>

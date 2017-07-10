@@ -16,26 +16,31 @@ $(document).ajaxComplete(function(){
 var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]{2,})$/;
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
-$('#email,#tel').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel") ? /^[0-9]{10}$/ : emailRegex;
+$("input[name=\"email\"],input[name=\"tel\"]").on("change blur", function () {
+    var regex = ($(this).attr("name") == "tel") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
-    ControleSubmit($("#first_vol input"));
+
+    if($(this).attr("id") == "email" || $(this).attr("id") == "tel")
+        ControleSubmit($("#first_vol input"));
+
+    //if(!$(this).val.length && $(this).hasClass("required"))
 });
 
-$("#email,#tel").click(function(){
-    ControleSubmit($("#first_vol input"));
+$("input[name=\"email\"],input[name=\"tel\"]").click(function () {
+    if ($(this).attr("id") == "email" || $(this).attr("id") == "tel")
+        ControleSubmit($("#first_vol input"));
     ClearWarning($(this));
 });
 
 /*Controle nom et prénom*/
-$("#nom,#prénom").on("change blur", function () {
+$("input[name=\"nom\"],input[name=\"prénom\"]").on("change blur", function () {
     Controle($(this), checkNomPrenom);
     if (!$(this).parent().hasClass("success") && $("#submit").hasClass("EnvoiOK")){
         $("#submit").removeClass("EnvoiOK");
     }
 });
 
-$("#nom,#prénom").click(function(){
+$("input[name=\"nom\"],input[name=\"prénom\"]").click(function(){
     ClearWarning($(this));
 });
 

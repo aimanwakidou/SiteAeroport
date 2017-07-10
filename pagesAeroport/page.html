@@ -10,6 +10,15 @@
 		<!-- Bootstrap Core CSS -->
 	    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+        <!-- Boostrap Select CSS -->
+        <link href="../vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap DatePicker CSS -->
+        <link href="../vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
+
+        <!-- Bootstrap TimePicker CSS -->
+        <link href="../vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+
 	    <!-- Custom Fonts -->
 	    <link href="../vendor/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -18,15 +27,16 @@
 
 	    <!-- Plugin CSS -->
 	    <link href="../vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
-	    <link href="../css/JQuery_UI_css/jquery-ui.min.css" rel="stylesheet">
-	    <link href="../css/JQuery_UI_css/jquery-ui.structure.min.css" rel="stylesheet">
-	    <link href="../css/JQuery_UI_css/jquery-ui.theme.min.css" rel="stylesheet">
-
+	   
 	    <!-- Theme CSS -->
-	    <link href="../css/creative.min.css" rel="stylesheet" type="text/css">
+	    <link href="../vendor/thème/css/creative.min.css" rel="stylesheet" type="text/css">
 	    <link href="../css/css_caroussel.css" rel="stylesheet" type="text/css">
-	    <link href="../css/personal.css" rel="stylesheet" type="text/css">
-	    <link href="css/pageAeroport.css" rel="stylesheet" type="text/css" />
+	    
+        <!-- Personal CSS-->
+        <link href="../css/personal.css" rel="stylesheet" type="text/css">
+        <link href="../css/GenericClass.css" rel="stylesheet" type="text/css" />
+        <link href="css/pageAeroport.css" rel="stylesheet" type="text/css" />
+        <link href="../css/personal_queries.css" rel="stylesheet" type="text/css" />
 
 	    <!-- Footer CSS -->
 	    <link href="../css/footer-distributed-with-address-and-phones.css" rel="stylesheet">
@@ -147,44 +157,87 @@
 
             <!-- Zone : Rechercher un vol -->
             <section class="bg-primary search-flight" id="search-flight">
-                <div class="container">
-                    <form name="zoneRecherche" class="form-flight-search">
+                <div id="RechercheProvDest" class="container">
+                    <form name="zoneRecherche" id="zoneRecherche" class="form-flight-search">
                         <h2 class="section-heading">Rechercher un vol</h2>
                         <div class="DepartsArrivésContainer">
                             <div class="WrapperDépartsArrivés">
                                 <div class="Departs">
-                                    <label for="Provenance" class="Provenance-label">
-                                        <span>Provenance</span>
-                                    </label>
+                                    <span class="labelPerso">Provenance</span>
                                     <div class="DepartsInput form-group">
-                                        <input id="Provenance" class="Provenance-input form-control" placeholder="Entrez la provenance" type="text">
+                                        <select name="ProvSearch" class="form-control selectpicker show-tick" data-live-search="true" title="Entrez la provenance"></select>
                                     </div>
                                 </div>
+                                <div id="switchArrivéeDépart">
+                                    <span class="glyphicon glyphicon-sort" title="Echanger les valeurs"></span>
+                                </div>
                                 <div class="Arrivés">
-                                    <label for="Destination" class="Destination-label">
-                                        <span>Destination</span>
-                                    </label>
+                                    <span class="labelPerso">Destination</span>
                                     <div class="ArrivésInput form-group">
-                                        <input id="Destination" class="Destination-input form-control" placeholder="Entrez la destination" type="text">
+                                        <select name="DestSearch" class="form-control selectpicker" data-live-search="true" title="Entrez la destination"></select>
                                     </div>
                                 </div>
                             </div>
                             <div class="DatePicker">
                                 <div class="form-group">
                                     <!-- Date input -->
-                                    <label class="control-label" for="datepicker">Jour</label>
-                                    <div class="DatePickerInput">
-                                        <input readonly="readonly" type="text" id="datepicker" name="date" class="form-control" placeholder="jj/mm/aaaa">
+                                    <span class="labelPerso">Jour du vol</span>
+                                    <div class="DatePickerInput" id="dateVolRecherche">
+                                        <input type="text" name="dateVolPC" class="form-control PC displayGenerique2" placeholder="JJ/MM/AAAA" />
+                                        <input type="date" name="dateVolMobile" class="form-control mobile noDisplayGenerique2" placeholder="JJ/MM/AAAA" />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="Rechercher">
-                            <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher" />
+                            <input class="RechercherVol btn btn-block" type="Submit" value="Rechercher" data-target="#ResultatVol" role="button" />
                         </div>
                     </form>
                 </div>
             </section>
+
+            <!-- Résultat de la recherche vol -->
+            <div id="ResultatVol" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div id="ResultatVolHeader" class="modal-header">
+                            <div class="modal-title"><h4>Résultat de la recherche des vols</h4></div>
+                            <div class="useless"></div>
+                            <div class="switchArrivéeDépart">
+                                <select name="resultatVol" class="form-control" data-live-search="true">
+                                    <option value="" selected="selected" id="default">Arrivée et Départ</option>
+                                    <option value="Arrivée">Arrivée</option>
+                                    <option value="Départ">Départ</option>
+                                </select>
+                            </div>
+                        </div>
+                        <form class="modal-body">
+                            <table class="ResultatSearchVol">
+                                <thead>
+                                    <tr class="ArrivesDepartTitreColumn">
+                                        <th id="ResultArrivéeOuDépart">Arrivée et départ</th>
+                                        <th>Compagnie</th>
+                                        <th>N° de Vol</th>
+                                        <th>Provenance</th>
+                                        <th>Destination</th>
+                                        <th>Jour du vol</th>
+                                        <th id="heureVol">Heure</th>
+                                        <th>Statut</th>
+                                        <th>Alerte Flash Vol</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="RechercheVol" class="ArrivesDepartData"></tbody>
+                            </table>
+                        </form>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default EnvoiOK EnvoiOkRechercheVol noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                            <div class="useless"></div>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Vols du jour -->
             <section id="vols_du_jour">
@@ -313,113 +366,208 @@
 
             <!-- Zone : Alerte flash vol + Suivi bagages -->
             <section id="suiviAndAlertBox">
-                <div class="container suiviAndAlert">
-                    <div class="suiviBagages">
-                        <div class="suiviBagages_content">
-                            <h2 class="section-heading"><i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i><span>Suivi de vos bagages</span></h2>
-                            <form name="zoneSuiviBagages" class="SuiviBagages_form">
+                <form name="zoneAlerteSuivi" id="zoneAlerteSuivi" method="POST">
+                    <div class="container suiviAndAlert">
+                        <!-- Suivi Bagages -->
+                        <div class="suiviBagages nonHighlight">
+                            <div class="suiviBagages_content">
+                                <span class="suiviHeading h2">
+                                    <i class="fa fa-suitcase fa-2x suitcase" aria-hidden="true"></i>
+                                    <span>Suivi de vos bagages</span>
+                                </span>
                                 <div class="SuiviBagages_form-content">
                                     <div class="SuiviBagages-num_vol">
-                                        <label for="num_vol" class="suiviBagages_num_vol-label">
-                                            <span class="SuiviBagages-num_vol-label-inner">N° vol</span>
-                                        </label>
-                                        <div class="SuiviBagages-num_vol-search_box search-box">
-                                            <div class="search-box-inner SuiviBagages-num_vol-search_box-inner form-group">
-                                                <input class="suiviBagages-num_vol-input form-control" id="num_vol" placeholder="Entrez le numéro de vol" type="text" />
+                                        <div class="QuestionVol">
+                                            <span>Avez-vous le numéro de vol ?</span>
+                                            <div class="RadioButtonSuivi">
+                                                <button type="button" class="btn btn-primary btn-sm OK">Oui</button>
+                                                <button type="button" class="btn btn-secondary btn-sm KO">Non</button>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="SuiviBagages-coordonnees">
-                                        <div class="CoteACote">
-                                            <label class="coordonnees-label">
-                                                <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés</span>
-                                            </label>
-                                            <div id="Column400" class="CoteACote-inner">
-                                                <div class="SuiviBagages-nom form-group">
-                                                    <label for="nom" class="SuiviBagages-nom-label">
-                                                        <span>Nom</span>
-                                                    </label>
-                                                    <input id="nom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre nom" type="text" />
-                                                </div>
-                                                <div class="SuiviBagages-prénom form-group">
-                                                    <label for="prénom" class="SuiviBagages-prénom-label">
-                                                        <span>Prénom</span>
-                                                    </label>
-                                                    <input id="prénom" class="SuiviBagages-coordonnees-input form-control" placeholder="Entrez votre prénom" type="text" />
+                                    <div class="RechercheVolSuivi noDisplayGenerique">
+                                        <div class="ProvenanceDestination">
+                                            <div class="ProvenanceInput">
+                                                <span class="labelPerso">Provenance</span>
+                                                <select name="ProvSuivi" class="form-control selectpicker" data-live-search="true" title="Entrez la provenance"></select>
+                                            </div>
+                                            <div class="DestinationInput">
+                                                <span class="labelPerso">Destination</span>
+                                                <select name="DestSuivi" class="form-control selectpicker show-tick" data-live-search="true" title="Entrez la destination"></select>
+                                            </div>
+                                        </div>
+                                        <div class="JourHeure">
+                                            <div class="JourInput">
+                                                <label for="jour">Jour du vol</label>
+                                                <input name="jour" id="jourPC" class="form-control PC displayGenerique2" type="text" placeholder="JJ/MM/AAAA" />
+                                                <input name="jour" id="jourMobile" class="form-control mobile noDisplayGenerique2" type="date" placeholder="JJ/MM/AAAA" />
+                                            </div>
+                                            <div class="TimePickerInput HeureInput">
+                                                <label for="heure">Heure de départ</label>
+                                                <input name="heure" id="heurePC" class="form-control PC displayGenerique2" type="text" placeholder="HH:MM" />
+                                                <input name="heure" id="heureMobile" class="form-control mobile noDisplayGenerique2" type="time" />
+                                            </div>
+                                        </div>
+                                        <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
+                                            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                                            <span>La provenance et la destination ne doivent pas être identiques</span>
+                                        </div>
+                                        <div id="SuiviButtonVol" class="buttonValidate">
+                                            <button class="btn btn-block" type="submit" id="validateSuivi">
+                                                <span>Trouver le vol </span>
+                                                <span class="useless"></span>
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="search-box">
+                                        <span class="labelPerso">N° vol</span>
+                                        <div class="search-box-inner form-group">
+                                            <input class="suiviBagages-num_vol-input form-control" id="num_vol_suivi" name="num_vol" placeholder="Entrez le numéro de vol" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="BagagesBox">
+                                        <span class="labelPerso">Liste de vos bagages</span>
+                                        <div id="BagagesBoxInner">
+                                            <div id="BagagesFirst" class="BagagesInput form-group">
+                                                <div class="BagagesWrapper"><input type="text" class="form-control" name="bagages" placeholder="Entrez le numéro de votre bagage" /></div>
+                                                <div class="buttonAjoutSuppr">
+                                                    <span class="AjoutWrapper">
+                                                        <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
+                                                    </span>
+                                                    <span class="SupprWrapper">
+                                                        <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="ChoixSuivi">
-                                        <span>Notification par E-mail/Tel ? </span>
-                                        <div class="RadioButton">
-                                            <button type="button" id="oui" class="btn btn-primary btn-sm OK">Oui</button>
-                                            <button type="button" id="non" class="btn btn-secondary btn-sm KO">Non</button>
-                                        </div>
-                                    </div>
-                                    <div class="SuiviBagages-EmailTel displayEmailTel">
-                                        <div class="CoteACote">
-                                            <div id="Column" class="CoteACote-inner">
-                                                <div id="ColumnEmail" class="email form-group">
-                                                    <input id="email1" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
-                                                </div>
-                                                <div class="tel form-group">
-                                                    <input id="tel1" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div id="submit" class="submit">
-                                        <input type="submit" id="submit1" class="btn btn-block submit-button" disabled value="Envoyer" />
                                     </div>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flash-alert">
-                        <div class="form-wrapper">
-                            <form name="zoneFlashAlert" class="flash_alert-form">
-                                <h2 class="section-heading"><i class="fa fa-2x fa-plane plane" aria-hidden="true"></i><span class="section-heading-title">Alerte flash vol</span></h2>
+                        <!-- Flash Alert -->
+                        <div class="flash-alert">
+                            <div class="form-wrapper">
+                                <h2 class="section-heading">
+                                    <i class="fa fa-2x fa-plane plane" aria-hidden="true"></i>
+                                    <span class="section-heading-title">Alerte flash vol</span>
+                                </h2>
                                 <div class="flash_alert-num_vol">
+                                    <div class="FlashAlert-num_vol">
+                                        <div class="QuestionVol">
+                                            <span>Avez-vous le (ou les) numéro(s) de vol ?</span>
+                                            <div id="flash" class="RadioButtonSuivi">
+                                                <button type="button" class="btn btn-primary btn-sm OK">Oui</button>
+                                                <button type="button" class="btn btn-secondary btn-sm KO">Non</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="Compagnies" class="form-group noDisplayGenerique">
+                                        <h3 class="titleFindNumVol">Trouver le (ou les) numéro(s) de vol</h3>
+                                        <div id="CompagniesWrapper">
+                                            <div id="CompagniesList">
+                                                <span class="labelPerso">Liste des compagnies</span>
+                                                <select name="compagnies" class="form-control selectpicker show-tick" data-live-search="true" title="Selectionnez une compagnie"></select>
+                                            </div>
+                                            <div id="DateResultat">
+                                                <div class="DateWrapper">
+                                                    <span class="labelPerso">Jour du vol</span>
+                                                    <div id="DateVol" class="DatePickerInput">
+                                                        <input type="text" name="dateVolFind" class="form-control PC displayGenerique2" placeholder="JJ/MM/AAAA" />
+                                                        <input type="date" name="dateVolFind" class="form-control mobile noDisplayGenerique2" placeholder="JJ/MM/AAAA" />
+                                                    </div>
+                                                </div>
+                                                <div class="buttonValidate">
+                                                    <button class="btn btn-block" type="submit" id="validateAlert">
+                                                        <span>Trouver le (ou les) vol(s)</span>
+                                                        <span class="useless"></span>
+                                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div id="FindResult" class="form-group noDisplayGenerique2">
+                                            <span class="labelPerso">Résultat de la recherche</span>
+                                            <select name="FindResult" class="form-control selectpicker" multiple="multiple" data-live-search="true" title="Vols"></select>
+                                        </div>
+                                    </div>
+
                                     <div class="flash_alert-num_vol-content">
-                                        <label for="num_vol" class="flash_alert-num_vol-label">
-                                            <span class="flash_alert-num_vol-label-inner">N° vol</span>
-                                        </label>
+                                        <span class="labelPerso">Liste des numéros de vol</span>
                                         <div id="BoxFlashAlert" class="search-box">
                                             <div id="first_vol" class="search-box-inner form-group">
-                                                <input class="flash_alert-num_vol-input form-control " id="num_vol" placeholder="Entrez un numéro du vol" type="text" />
+                                                <input class="flash_alert-num_vol-input form-control" id="num_vol_flash" name="num_vol_flash" placeholder="Entrez un numéro de vol" type="text" />
                                                 <div class="buttonAjoutSuppr">
-                                                    <span class="AjoutWrapper"><i class="fa fa-plus-circle Ajout" aria-hidden="true"></i></span>
-                                                    <span class="SupprWrapper"><i class="fa fa-minus-circle Suppr" aria-hidden="true"></i></span>
+                                                    <span class="AjoutWrapper">
+                                                        <i class="fa fa-plus-circle Ajout" aria-hidden="true"></i>
+                                                    </span>
+                                                    <span class="SupprWrapper">
+                                                        <i class="fa fa-minus-circle Suppr" aria-hidden="true"></i>
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="flash_alert-coordonnees">
-                                    <div class="CoteACote">
-                                        <label class="coordonnees-label">
-                                            <i class="fa fa-user user" aria-hidden="true"></i><span>Vos coordonnés : e-mail et/ou tel</span>
-                                        </label>
-                                        <div id="CoteACote-inner" class="CoteACote-inner">
-                                            <div class="email form-group">
-                                                <input id="email2" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
-                                            </div>
-                                            <div class="tel form-group">
-                                                <input id="tel2" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="submit">
-                                        <input type="submit" id="submit2" class="btn btn-block submit-button" disabled value="Envoyer" />
-                                    </div>
-                                </div>
-                            </form>
+                            </div>
                         </div>
                     </div>
-                </div>
+                    <div class="container coordonnees">
+                        <div class="CoteACote">
+                            <label class="coordonnees-label">
+                                <i class="fa fa-address-card-o" aria-hidden="true"></i>
+                                <span>Vos coordonnés</span>
+                            </label>
+                            <div id="EmailTel" class="CoteACote-inner">
+                                <div class="EmailInput">
+                                    <label for="email">E-mail</label>
+                                    <div class="email form-group">
+                                        <input id="email" name="email" class="emailInput form-control" placeholder="Entrez votre e-mail" type="email" />
+                                    </div>
+                                    <div class="WarningMessage noDisplayGenerique">Champs requis</div>
+                                </div>
+                                <div class="TelInput">
+                                    <label for="tel">Téléphone</label>
+                                    <div class="tel form-group">
+                                        <input id="tel" name="tel" class="telInput form-control" placeholder="Entrez votre n° de téléphone" type="tel" />
+                                    </div>
+                                    <div class="WarningMessage noDisplayGenerique">Champs requis</div>
+                                </div>
+                            </div>
+                            <div id="Column400" class="CoteACote-inner">
+                                <div class="NomInput form-group">
+                                    <label for="nom">Nom</label>
+                                    <div class="WrapperNom">
+                                        <input id="nom" name="nom" class="form-control" placeholder="Entrez votre nom" type="text" />
+                                    </div>
+                                    <div class="WarningMessage noDisplayGenerique">Champs requis</div>
+                                </div>
+                                <div class="PrénomInput form-group">
+                                    <label for="prénom">Prénom</label>
+                                    <div class="WrapperPrénom">
+                                        <input id="prénom" name="prénom" class="form-control" placeholder="Entrez votre prénom" type="text" />
+                                    </div>
+                                    <div class="WarningMessage noDisplayGenerique">Champs requis</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container messageBox">
+                        <div class="messageSuccess noDisplayMessage">
+                            <span class="messageInner">Les données ont bien été envoyés</span>
+                            <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                        </div>
+                        <div class="messageFail noDisplayMessage">
+                            <span class="messageInner">Une erreur est survenue. <mark></mark></span>
+                            <i class="fa fa-frown-o" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="container submit">
+                        <input type="submit" id="submit" class="btn btn-block submit-button" disabled value="Envoyer" />
+                    </div>
+                </form>
             </section>
-
+            
             <!-- News Général -->
             <aside class="bg-primary general-news">
                 <div class="container news">
@@ -558,21 +706,34 @@
         </footer>
 
         <!-- jQuery -->
-        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-        <script src="../vendor/jquery/jquery-ui.min.js"></script>
+        <script src="../vendor/jquery/jquery-3.2.1.min.js"></script>
         <script src="../vendor/jquery/jquery-migrate-3.0.0.js"></script>
         <script src="../vendor/jQuery-Mobile/jquery.mobile.custom.js"></script>
 
+        <!-- jQuery Cookie -->
+        <script src="../vendor/jQueryCookie/js.cookie.js"></script>
+
         <!-- Bootstrap Core JavaScript -->
         <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Boostrap Select JavaScript -->
+        <script src="../vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+
+        <!-- Bootstrap Datepicker JavaScript -->
+        <script src="../vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+        <script src="../vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr.min.js" charset="utf-8"></script>
+        <script src="../vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.min.js" charset="utf-8"></script>
+
+        <!-- Bootstrap Timepicker JavaScript -->
+        <script src="../vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
 
         <!-- Plugin JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
         <script src="../vendor/scrollreveal/scrollreveal.min.js"></script>
         <script src="../vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
-
+        
         <!-- Theme JavaScript -->
-        <script src="../js/creative.min.js"></script>
+        <script src="../vendor/thème/js/creative.min.js"></script>
 
         <!-- Script Caroussel -->
         <script src="../js/slide.js"></script>

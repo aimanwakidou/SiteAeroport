@@ -1,3 +1,7 @@
+input[required] ,.required{
+    border-color: red !important;
+}
+
 /*CSS : classe générique*/
 .section-heading{
     line-height:25px;
@@ -42,7 +46,7 @@
 }
 
 /*CSS : classe fail*/
-.fail:hover, .fail:focus {
+.fail:hover, .fail:focus ,.required{
     border-color: red;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(230, 0, 0, 0.9);
     transition: background-color 0.5s ease-in-out !important;

@@ -382,7 +382,7 @@
 
 /*CSS : Mobile*/
 @media screen and (max-width:400px){
-    #Column400{
+    .Column400{
         flex-direction:column;
     }
 

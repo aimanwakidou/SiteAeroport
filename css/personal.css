@@ -712,7 +712,7 @@ form.modal-body > table {
 .CoteACote-inner {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 /*CSS : Alerte Flash Vol + Vols du jour*/
@@ -857,8 +857,9 @@ form.modal-body > table {
 /*CSS : Style pour les inputs*/
 .tel::before{
 	left:10px;
-	top:12px;
-	content:"\f095";
+	top:0px;
+    font-size:40px;
+	content:"\f10b";
 }
 
 /*CSS : Style pour les inputs*/
@@ -1106,5 +1107,4 @@ form.modal-body > table {
 .ProvenanceInput > .bootstrap-select,.DestinationInput > .bootstrap-select{
     margin-bottom:25px !important;
 }
-
 
