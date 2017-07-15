@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
-    "\\css",
+    "",
     "\\js",
-    "\\pagesAeroport",
-    "\\vendor\\thème\\css"
+    "\\pagesAeroport"
   ],
+  "SelectedNode": "\\js\\DatePicker.js",
   "PreviewInSolutionExplorer": false
 }

@@ -221,4 +221,9 @@ thead.displayGenerique{
     top:2px;
 }
 
+/*Affichage Résultat Vol*/
+.resultVolFlash{
+    display:flex;
+    flex-direction:column;
+}
 

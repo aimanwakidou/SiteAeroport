@@ -28,10 +28,15 @@ function IsSetCookiesFlash(compagnie,date) {
 
 /*Ajout select*/
 function addResultVolsFlash(codeVol,compagnie, provenance, destination, heure, arrDep) {
-    var arrDepAffiche = arrDep == "Arr" ? "Arrivée" : "Départ";
-    var optionString = '<option value="' + codeVol + '">'
-        + codeVol + ','+ compagnie + ',' + provenance + '=>' + destination
-        + ',' + arrDepAffiche + ' : ' + heure + '</option>';
+    var arrDepAffiche = arrDep == "Arr" ? "Arrivée à " : "Départ à ";
+    var optionString = '<option value="' + codeVol + '">' +
+        '<div class="resultVolFlash">' +
+        '<span>' + codeVol + '</span>' +
+        '<span>Provenance : ' + provenance + ' => Destination : ' + destination + '</span>' +
+        '<span>'+ arrDepAffiche + heure + '</span>' +
+        '</div>' +
+        '</option>';
+        
 
     $('#FindResult select[name="FindResult"]').append($.parseHTML(optionString));
 }
