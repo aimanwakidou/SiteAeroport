@@ -95,6 +95,10 @@
     .ArrivesDepartTitreColumn > th, .ArrivesDepartData > tr > td {
         padding: 0px 15px 10px 15px;
     }
+
+    .imgArrDep{
+        padding:0 10px !important;
+    }
 }
 
 
