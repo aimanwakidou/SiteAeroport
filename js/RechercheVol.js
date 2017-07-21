@@ -17,7 +17,7 @@ function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,A
         '<td>'+date+'</td>'+
         '<td>'+heure+'</td>'+
         '<td></td>'+
-        '<td><div class="checkbox"><input type="checkbox" name="Alert" class="AlertRechercheVol"/></div></td>'+
+        '<td class="ToggleTd"><input type="checkbox" name="Alert" class="AlertRechercheVol toggleCheckBox" data-vols="Search"/></td>'+
         '</tr>';
         
     var tr = $.parseHTML(trString);
@@ -165,6 +165,16 @@ $("#zoneRecherche").submit(function (event) {
                                 CheckButtonCheckBox(EnvoiOk, $(this));
                                 ControleCheckBox(EnvoiOk, 'RechercheVol');
                             });
+                        });
+
+                        /*Paramétrage Bootstrap Toggle Checkbox*/
+                        $('.toggleCheckBox[data-vols="Search"]').bootstrapToggle({
+                            on: 'Suivi',
+                            off: 'Non Suivi',
+                            onstyle: "success",
+                            size: "small",
+                            height: 60,
+                            width: 85
                         });
                     }
                     else {

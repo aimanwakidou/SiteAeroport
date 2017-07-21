@@ -657,14 +657,19 @@ form.modal-body > table {
 }
 
 /*CSS : Vols du jour*/
+.ArrivesDepartData > tr > td:last-child{
+    padding:10px 0;
+}
+
+/*CSS : Vols du jour*/
 .ArrivesDepartTitreColumn > th:last-child{
     padding-right: 10px;
 }
 
 /*CSS : Vols du jour*/
-.ArrivesDepartData > tr > td:last-child{
-    padding:10px 0;
-} 
+.ToggleTd{
+    padding-right:10px !important;
+}
 
 /*CSS : Vols du jour*/
 .ArrivesDepartData > tr > td {
