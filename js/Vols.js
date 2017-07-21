@@ -9,7 +9,7 @@ function addVols(code,provenance,destination,heure,imgSrc,ArrDep){
 		'<td>'+destination+'</td>'+
 		'<td>'+heure+'</td>'+
 		'<td></td>'+
-		'<td><div class="checkbox"><input type="checkbox" name="Alert" class="'+classAlert+'"/></div></td>'+
+		'<td><input type="checkbox" data-toggle="toggle" name="Alert" class="'+classAlert+' toggleCheckBox" data-vols="day"/></td>'+
 		'</tr>';
 	
 	var tr = $.parseHTML(trString);
@@ -34,6 +34,16 @@ ArrDepTab.forEach(function(ArrDep){
 				CheckButtonCheckBox(EnvoiOk, $(this));
 				ControleCheckBox(EnvoiOk,selector);
 			});
-		});
+        });
+
+        /*Paramétrage Bootstrap Toggle Checkbox*/
+        $('.toggleCheckBox[data-vols="day"]').bootstrapToggle({
+            on: 'Suivi',
+            off: 'Non Suivi',
+            onstyle: "success",
+            size:"small",
+            height: 60,
+            width:85
+        });
 	});
 });
