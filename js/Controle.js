@@ -16,26 +16,31 @@ $(document).ajaxComplete(function(){
 var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)\.([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]{2,})$/;
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
-$('#email,#tel').on("change blur", function () {
-    var regex = ($(this).attr("id") == "tel") ? /^[0-9]{10}$/ : emailRegex;
+$("input[name=\"email\"],input[name=\"tel\"]").on("change blur", function () {
+    var regex = ($(this).attr("name") == "tel") ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
-    ControleSubmit($("#first_vol input"));
+
+    if($(this).attr("id") == "email" || $(this).attr("id") == "tel")
+        ControleSubmit($("#first_vol input"));
+
+    //if(!$(this).val.length && $(this).hasClass("required"))
 });
 
-$("#email,#tel").click(function(){
-    ControleSubmit($("#first_vol input"));
+$("input[name=\"email\"],input[name=\"tel\"]").click(function () {
+    if ($(this).attr("id") == "email" || $(this).attr("id") == "tel")
+        ControleSubmit($("#first_vol input"));
     ClearWarning($(this));
 });
 
 /*Controle nom et prénom*/
-$("#nom,#prénom").on("change blur", function () {
+$("input[name=\"nom\"],input[name=\"prénom\"]").on("change blur", function () {
     Controle($(this), checkNomPrenom);
     if (!$(this).parent().hasClass("success") && $("#submit").hasClass("EnvoiOK")){
         $("#submit").removeClass("EnvoiOK");
     }
 });
 
-$("#nom,#prénom").click(function(){
+$("input[name=\"nom\"],input[name=\"prénom\"]").click(function(){
     ClearWarning($(this));
 });
 
@@ -158,6 +163,37 @@ $(".RadioButtonSuivi button").each(function () {
         ControleButtonWithoutSubmit($(this), $(this).parent().attr('id') == "flash" ? $("#Compagnies,#FindResult") : $(".RechercheVolSuivi"),$(this).hasClass("OK"));
     });
 });
+
+/*Toggle provenance/destination en cas de clique*/
+$("#switchArrivéeDépart span").click(function () {
+    ToggleProvDestSearch();
+});
+
+/*Fonction ToggleProvDestSearch*/
+function ToggleProvDestSearch() {
+    var provenance = $("select[name=\"ProvSearch\"] option:selected");
+    var destination = $("select[name=\"DestSearch\"] option:selected");
+
+    if (provenance.val().length !== 0 && destination.val().length !== 0) {
+        console.log("prov : " + provenance.val());
+        console.log("dest : " + destination.val());
+
+        /*Déselection*/
+        provenance.attr("selected", false);
+        destination.attr("selected", false);
+
+        /*Echange*/
+        $("select[name=\"ProvSearch\"] option[value=\"" + destination.val() + "\"]").attr("selected", true);
+        $("select[name=\"DestSearch\"] option[value=\"" + provenance.val() + "\"]").attr("selected", true);
+
+        /*Après echange*/
+        console.log("prov : " + $("select[name=\"ProvSearch\"] option:selected").val());
+        console.log("dest : " + $("select[name=\"DestSearch\"] option:selected").val());
+
+        /*Refresh des valeurs*/
+        $("select[name=\"ProvSearch\"],select[name=\"DestSearch\"]").selectpicker('refresh');
+    }
+}
 
 /*Fonction de contrôle Trouver le numéro de vol -> suivi Bagages*/
 function CompareProvDestSuiviBagages(provenance, destination) {

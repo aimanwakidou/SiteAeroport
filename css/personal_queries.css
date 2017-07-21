@@ -95,6 +95,10 @@
     .ArrivesDepartTitreColumn > th, .ArrivesDepartData > tr > td {
         padding: 0px 15px 10px 15px;
     }
+
+    .imgArrDep{
+        padding:0 10px !important;
+    }
 }
 
 
@@ -119,6 +123,11 @@
 
 /*CSS : Météo --> Tablette et mobile*/
 @media screen and (max-width:768px){
+    #switchArrivéeDépart{
+        align-self:flex-end;
+        padding-left:20px;
+    }
+
 	.météoWrapper{
 		flex-direction:column;
 	}
@@ -207,16 +216,7 @@
         align-self:flex-end;
         padding-top:0px;
     }
-
-    /*#CompagniesWrapper{
-        flex-direction:row;
-    }
-
-    #CompagniesList{
-        margin-right:10px;
-        margin-bottom:0px;
-    }*/
-
+  
 }
 
 /*CSS : Mobile*/
@@ -255,6 +255,17 @@
 
 /*CSS : Mobile*/
 @media screen and (max-width:640px){
+    .Arrivés{
+        margin-left:0px;
+    }
+
+    #switchArrivéeDépart{
+        align-self:center;
+        padding-top:8px;
+        padding-left:0px;
+        transform:rotate(0deg);
+    }
+
 	.WrapperDépartsArrivés{
 		flex-direction:column;
 	}
@@ -305,6 +316,13 @@
 
     .DepartsArrivésContainer > .DatePicker {
         margin-top:0px;
+    }
+
+    .datepicker,
+    .table-condensed {
+        width: 400px;
+        height: 300px;
+        font-size: 17px;
     }
  
 }
@@ -357,9 +375,18 @@
 	}
 }
 
+@media screen and (max-width:450px){
+    .datepicker,
+    .table-condensed {
+        width: 320px;
+        height: 270px;
+        font-size: 15px;
+    }
+}
+
 /*CSS : Mobile*/
 @media screen and (max-width:400px){
-    #Column400{
+    .Column400{
         flex-direction:column;
     }
 
@@ -383,5 +410,14 @@
     #CompagniesList {
         margin-right: 0px;
         margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:350px){
+    .datepicker,
+    .table-condensed {
+        width: 250px;
+        height: 250px;
+        font-size: 15px;
     }
 }

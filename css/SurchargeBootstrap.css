@@ -1,3 +1,10 @@
+.datepicker,
+.table-condensed {
+    width: 500px;
+    height: 450px;
+    font-size: 20px;
+}
+
 .modal-title > h4{
     margin-top:0px;
 	margin-bottom:0px;
@@ -160,3 +167,4 @@
         width: 1650px;
     }
 }
+

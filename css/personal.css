@@ -317,6 +317,22 @@ tr[active="OK"]:last-child > td{
     flex-grow: 1;
 }
 
+/*Recherche Vol*/
+#switchArrivéeDépart{
+    flex-grow:0;
+    font-size:35px;
+    align-self:center;
+    transform:rotate(90deg);
+    padding-left:8px;
+    padding-top:5px;
+    cursor:pointer;
+}
+
+/*Recherche Vol*/
+.Arrivés{
+    margin-left:10px;
+}
+
 /*Vols du jour*/
 .ArrivesDepartData > tr:last-child > td{
 	border-bottom:none;
@@ -696,7 +712,7 @@ form.modal-body > table {
 .CoteACote-inner {
     display: flex;
     justify-content: space-between;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 /*CSS : Alerte Flash Vol + Vols du jour*/
@@ -841,8 +857,9 @@ form.modal-body > table {
 /*CSS : Style pour les inputs*/
 .tel::before{
 	left:10px;
-	top:12px;
-	content:"\f095";
+	top:0px;
+    font-size:40px;
+	content:"\f10b";
 }
 
 /*CSS : Style pour les inputs*/
@@ -1090,5 +1107,4 @@ form.modal-body > table {
 .ProvenanceInput > .bootstrap-select,.DestinationInput > .bootstrap-select{
     margin-bottom:25px !important;
 }
-
 

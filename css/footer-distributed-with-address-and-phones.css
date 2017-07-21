@@ -149,11 +149,75 @@
 	margin-bottom: 5px;
 }
 
+button[form="ContactUsForm"] {
+    background-color: #337AB7;
+    color: white;
+}
+
+button[form="ContactUsForm"]:hover {
+    background-color: black;
+    color: white;
+}
+
+#WrapperContactUs {
+    display: flex;
+    flex-basis: 0;
+    justify-content: space-between;
+}
+
+#WrapperContactUs > div {
+    flex-grow: 1;
+}
+
+#ContactUsHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ContactUsHeader > div > h4 {
+    font-size: 25px !important;
+}
+
+#ContactUsHeader > button {
+    font-size: 45px;
+    float: none;
+}
+
+#CoordonneesContactUs {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+    border-right:1px solid black;
+}
+
+#CoordonneesContactUs > .NomInput {
+    margin-right: 0px;
+}
+
+#MessageContactUs {
+    padding-left: 20px;
+}
+
+#MessageContactUs > textarea {
+    margin-top: 5px;
+}
+
+#ContactUsForm {
+    font-family: 'Segoe UI','Tahoma',Verdana;
+}
+
+#EmailTelContactUs > div{
+    flex-grow:1;
+}
+
+#EmailTelContactUs > .EmailInput{
+    margin-right:10px;
+}
+
 /* If you don't want the footer to be responsive, remove these media queries */
-
 @media (max-width: 880px) {
-
-	.footer-distributed{
+    .footer-distributed{
 		font-weight:bold;
 		font-size:14px;
 	}
@@ -171,4 +235,34 @@
 		margin-left: 0;
 	}
 
+    #ContactUsForm{
+        text-align:left !important;
+    }
+
 }
+
+@media screen and (max-width:500px){
+    #WrapperContactUs {
+        flex-basis: auto;
+        flex-direction:column;
+    }
+
+    #CoordonneesContactUs {
+        padding-right: 0px;
+        border-right:none;
+    }
+
+    #MessageContactUs{
+        padding-left:0px;
+    }
+}
+
+@media screen and (max-width:400px){
+    #EmailTelContactUs > .EmailInput {
+        margin-right: 0px;
+    }
+}
+
+
+
+
