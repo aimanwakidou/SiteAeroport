@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\js"
+    "\\js",
+    "\\pagesAeroport",
+    "\\vendor",
+    "\\vendor\\bootstrap-timepicker\\css"
   ],
-  "SelectedNode": "\\js\\Controle.js",
+  "SelectedNode": "\\js\\InitWidgetBootstrap.js",
   "PreviewInSolutionExplorer": false
 }

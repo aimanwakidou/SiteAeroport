@@ -171,27 +171,20 @@ $("#switchArrivéeDépart span").click(function () {
 
 /*Fonction ToggleProvDestSearch*/
 function ToggleProvDestSearch() {
+    var provSelect = $("select[name=\"ProvSearch\"]");
+    var destSelect = $("select[name=\"DestSearch\"]");
     var provenance = $("select[name=\"ProvSearch\"] option:selected");
     var destination = $("select[name=\"DestSearch\"] option:selected");
 
     if (provenance.val().length !== 0 && destination.val().length !== 0) {
-        console.log("prov : " + provenance.val());
-        console.log("dest : " + destination.val());
 
         /*Déselection*/
         provenance.attr("selected", false);
         destination.attr("selected", false);
 
         /*Echange*/
-        $("select[name=\"ProvSearch\"] option[value=\"" + destination.val() + "\"]").attr("selected", true);
-        $("select[name=\"DestSearch\"] option[value=\"" + provenance.val() + "\"]").attr("selected", true);
-
-        /*Après echange*/
-        console.log("prov : " + $("select[name=\"ProvSearch\"] option:selected").val());
-        console.log("dest : " + $("select[name=\"DestSearch\"] option:selected").val());
-
-        /*Refresh des valeurs*/
-        $("select[name=\"ProvSearch\"],select[name=\"DestSearch\"]").selectpicker('refresh');
+        provSelect.selectpicker('val', destination.val());
+        destSelect.selectpicker('val', provenance.val());
     }
 }
 
