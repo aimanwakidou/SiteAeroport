@@ -18,6 +18,11 @@ $(".TimePickerInput input").timepicker({
     }
 });
 
+/*Paramètrage selectpicker*/
+$(".selectpicker").selectpicker({
+    noneSelectedText: 'Aucun élément sélectionné'
+});
+
 
 /*Init On ready*/
 $(document).ready(function () {
@@ -32,3 +37,5 @@ $(document).ready(function () {
         $('.selectpicker').selectpicker('mobile');
     }
 }); 
+
+

@@ -177,11 +177,6 @@ function ToggleProvDestSearch() {
     var destination = $("select[name=\"DestSearch\"] option:selected");
 
     if (provenance.val().length !== 0 && destination.val().length !== 0) {
-
-        /*Déselection*/
-        provenance.attr("selected", false);
-        destination.attr("selected", false);
-
         /*Echange*/
         provSelect.selectpicker('val', destination.val());
         destSelect.selectpicker('val', provenance.val());
