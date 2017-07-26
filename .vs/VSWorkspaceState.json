@@ -4,8 +4,7 @@
     "\\css",
     "\\js",
     "\\pagesAeroport",
-    "\\vendor",
-    "\\vendor\\bootstrap-timepicker\\css"
+    "\\vendor"
   ],
   "SelectedNode": "\\js\\InitWidgetBootstrap.js",
   "PreviewInSolutionExplorer": false
