@@ -74,6 +74,11 @@
     margin-top: -9px;
 }
 
+/*IE*/
+.toggle-group > label{
+    line-height:inherit !important;
+}
+
 /*CSS : Surchage caroussel*/
 #slider{
 	padding:0;
