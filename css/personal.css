@@ -412,6 +412,7 @@ tr[active="OK"]:last-child > td{
 	display:flex;
 	justify-content: space-between;
     align-items:center;
+    padding:20px 15px;
 }
 
 /*Recherche Vol*/

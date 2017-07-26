@@ -20,7 +20,8 @@ $(".TimePickerInput input").timepicker({
 
 /*Paramètrage selectpicker*/
 $(".selectpicker").selectpicker({
-    noneSelectedText: 'Aucun élément sélectionné'
+    noneSelectedText: 'Aucun élément sélectionné',
+    dropdownAlignRight: 'auto'
 });
 
 

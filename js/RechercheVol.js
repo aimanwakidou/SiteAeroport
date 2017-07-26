@@ -79,7 +79,7 @@ function DefaultSelect(){
     var selected = $('select[name="resultatVol"] option:selected');
     if(selected.attr('id') != "default"){
         selected.removeAttr("selected");
-        $('select[name="resultatVol"] #default').attr('selected','selected');
+        $('select[name="resultatVol"]').selectpicker('val', $('select[name="resultatVol"] #default').text());
     }
     $("#ResultArrivéeOuDépart").text($('select[name="resultatVol"] #default').text());
     $("#heureVol").text('Heure');

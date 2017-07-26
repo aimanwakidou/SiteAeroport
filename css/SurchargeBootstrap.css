@@ -70,6 +70,10 @@
 	position:static;
 }
 
+.modal-header > div > .bootstrap-select > button {
+    margin-top: -9px;
+}
+
 /*CSS : Surchage caroussel*/
 #slider{
 	padding:0;
