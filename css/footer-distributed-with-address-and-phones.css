@@ -160,13 +160,12 @@ button[form="ContactUsForm"]:hover {
 }
 
 #WrapperContactUs {
-    display: flex;
-    flex-basis: 0;
-    justify-content: space-between;
+    display: flex;  
 }
 
 #WrapperContactUs > div {
     flex-grow: 1;
+    flex-basis: 0;
 }
 
 #ContactUsHeader {
@@ -215,6 +214,16 @@ button[form="ContactUsForm"]:hover {
     margin-right:10px;
 }
 
+@media screen and (max-width:1000px){
+    #EmailTelContactUs > .EmailInput {
+        margin-right: 0px;
+    }
+
+    #EmailTelContactUs{
+        flex-direction:column;
+    }
+}
+
 /* If you don't want the footer to be responsive, remove these media queries */
 @media (max-width: 880px) {
     .footer-distributed{
@@ -241,10 +250,13 @@ button[form="ContactUsForm"]:hover {
 
 }
 
-@media screen and (max-width:500px){
+@media screen and (max-width:550px){
     #WrapperContactUs {
-        flex-basis: auto;
         flex-direction:column;
+    }
+
+    #WrapperContactUs > div{
+        flex-basis:auto;
     }
 
     #CoordonneesContactUs {
@@ -256,13 +268,6 @@ button[form="ContactUsForm"]:hover {
         padding-left:0px;
     }
 }
-
-@media screen and (max-width:400px){
-    #EmailTelContactUs > .EmailInput {
-        margin-right: 0px;
-    }
-}
-
 
 
 

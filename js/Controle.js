@@ -1,10 +1,10 @@
 /*Activation css pour le chargement de requete CSS*/
 $(document).ajaxStart(function(){
-	var loader = "<tr id=\"Spinner\">"+
-	             "<div style=\"display:flex;align-items:center;\">"+
-				 "<i class=\"fa fa-spinner fa-spin fa-4x\" aria-hidden=\"true\"></i></div>"+
-				 "</tr>";
-				 
+    var loader = "<tr id=\"Spinner\">" +
+        "<div style=\"display:flex;align-items:center;\">" +
+        "<i class=\"fa fa-spinner fa-spin fa-4x\" aria-hidden=\"true\"></i></div>" +
+        "</tr>";
+    
 	$("#ArriveeBody,#DepartBody,#RechercheVol").append($.parseHTML(loader));
 });
 
@@ -17,17 +17,17 @@ var emailRegex = /^([a-zA-Z0-9àäéèëêïîöôüûÿŷ\.\-_]+)@([a-zA-Z0-9à
 var checkNomPrenom = /^[a-zA-Zéèïëêâî ]+$/;
 
 $("input[name=\"email\"],input[name=\"tel\"]").on("change blur", function () {
-    var regex = ($(this).attr("name") == "tel") ? /^[0-9]{10}$/ : emailRegex;
+    var regex = $(this).attr("name") === "tel" ? /^[0-9]{10}$/ : emailRegex;
     Controle($(this), regex);
 
-    if($(this).attr("id") == "email" || $(this).attr("id") == "tel")
+    if($(this).attr("id") === "email" || $(this).attr("id") === "tel")
         ControleSubmit($("#first_vol input"));
 
     //if(!$(this).val.length && $(this).hasClass("required"))
 });
 
 $("input[name=\"email\"],input[name=\"tel\"]").click(function () {
-    if ($(this).attr("id") == "email" || $(this).attr("id") == "tel")
+    if ($(this).attr("id") === "email" || $(this).attr("id") === "tel")
         ControleSubmit($("#first_vol input"));
     ClearWarning($(this));
 });
@@ -45,7 +45,7 @@ $("input[name=\"nom\"],input[name=\"prénom\"]").click(function(){
 });
 
 $("#nom,#prénom,#email,#tel").blur(function(){
-    var vol = ($(this).attr('id') == "nom" || $(this).attr('id') == "prénom") ? "#num_vol_suivi" : "#first_vol input";
+    var vol = $(this).attr('id') === "nom" || $(this).attr('id') === "prénom" ? "#num_vol_suivi" : "#first_vol input";
     Warning($(vol)); 
 });
 
@@ -69,7 +69,7 @@ $(".flash-alert,.suiviBagages").click(function(){
         $(this).addClass("highlight");
     }
 
-    var divToRemoveHighlight = ($(this).hasClass("flash-alert")) ? $(".suiviBagages") : $(".flash-alert");
+    var divToRemoveHighlight = $(this).hasClass("flash-alert") ? $(".suiviBagages") : $(".flash-alert");
 
     if(divToRemoveHighlight.hasClass("highlight")){
         divToRemoveHighlight.removeClass("highlight");
@@ -86,7 +86,7 @@ $("input").each(function(){
 	});
 
 	$(this).blur(function(){
-		if(!($(this).val().length))
+		if(!$(this).val().length)
 			Nettoyage($(this));
 	});
 });
@@ -101,7 +101,7 @@ $(".bootstrap-select button").click(function () {
 $(".choixIles").change(function(){
 	var selected = $(".choixIles option:selected");
 	$(".météoWrapper div").each(function(){
-		if(($(this).attr('id') == selected.val()) && (selected.val() != "Iles")){
+		if($(this).attr('id') === selected.val() && selected.val() !== "Iles"){
 			$(this).show(100);
 			$(this).addClass('activeIle');
 		}
@@ -121,7 +121,7 @@ $('select[name="resultatVol"]').change(function(){
 	$("#ResultArrivéeOuDépart").text(selectedValue.length !== 0 ? selectedValue : selected.text());
 	
 	if(selectedValue.length !== 0){
-		var text = selectedValue == "Arrivée" ? "Heure d'arrivée" : "Heure de départ";
+		var text = selectedValue === "Arrivée" ? "Heure d'arrivée" : "Heure de départ";
 		$("#heureVol").text(text);
 	}
 	else
@@ -134,13 +134,13 @@ $('select[name="resultatVol"]').change(function(){
 		});
 	}
 	else{
-		var oppositeValue = selectedValue == "Arrivée" ? "Départ" : "Arrivée";
+		var oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
 		$("#RechercheVol tr").each(function(){
-			if($(this).attr('active') == 'KO' && $(this).hasClass(selectedValue)){
+			if($(this).attr('active') === 'KO' && $(this).hasClass(selectedValue)){
 				$(this).attr('active','OK');
 			}
 			else{
-				if($(this).attr('active') == 'OK' && $(this).hasClass(oppositeValue)){
+				if($(this).attr('active') === 'OK' && $(this).hasClass(oppositeValue)){
 					$(this).attr('active','KO');
 				}
 			}
@@ -160,7 +160,7 @@ $(".RadioButton button").each(function () {
 $(".RadioButtonSuivi button").each(function () {
     $(this).click(function () {
         ToggleButton($(this));
-        ControleButtonWithoutSubmit($(this), $(this).parent().attr('id') == "flash" ? $("#Compagnies,#FindResult") : $(".RechercheVolSuivi"),$(this).hasClass("OK"));
+        ControleButtonWithoutSubmit($(this), $(this).parent().attr('id') === "flash" ? $("#Compagnies,#FindResult") : $(".RechercheVolSuivi"),$(this).hasClass("OK"));
     });
 });
 
@@ -185,7 +185,7 @@ function ToggleProvDestSearch() {
 
 /*Fonction de contrôle Trouver le numéro de vol -> suivi Bagages*/
 function CompareProvDestSuiviBagages(provenance, destination) {
-    MessageErreurProvDestSuiviBagages(provenance != destination);
+    MessageErreurProvDestSuiviBagages(provenance !== destination);
 }
 
 /*Fonction d'affiche message erreur : Recherche Vol*/
@@ -208,7 +208,7 @@ function CompareProvDest(provenance,destination){
 	if(provenance.length === 0 && destination.length === 0)
 		return false;
 	
-	if(provenance == destination){
+	if(provenance === destination){
 		if($("#search-flight").hasClass("relativeBody"))
 			$("#search-flight").addClass("relativeBody");
 			
@@ -225,16 +225,16 @@ function CompareProvDest(provenance,destination){
 			$("#search-flight").removeClass("relativeBody");
 	}
 	
-	return (provenance != destination);
+	return provenance !== destination;
 }
 
 /*Fonction de controle Recherche Vol*/
 function ControleValeurProvDest(elementJQuery){
 	var id = elementJQuery.attr('id');
-	var toCompare = (id == "provenance") ? "#destination" : "#provenance";
+	var toCompare = id === "provenance" ? "#destination" : "#provenance";
 	var result;
 	if(elementJQuery.val().length){
-		result = (elementJQuery.val() != $(toCompare).val());
+		result = elementJQuery.val() !== $(toCompare).val();
 		AjoutResult(elementJQuery,result,false);
 		MessageErreurProvDest(id,result);
 	}
@@ -245,7 +245,7 @@ function ControleValeurProvDest(elementJQuery){
 /*Contrôle submit*/
 function ControleSubmit(vol) {
 	var submitButton = $("#submit");
-    var infoRequired = (vol.attr('id') == "num_vol_flash") ? $("#email,#tel") : $("#nom,#prénom");
+    var infoRequired = vol.attr('id') === "num_vol_flash" ? $("#email,#tel") : $("#nom,#prénom");
     var testValue = true;
     var testSuccess = true;
 
@@ -264,10 +264,10 @@ function ControleSubmit(vol) {
             }
         });
 
-        var classToAdd = (testSuccess) ? "EnvoiOK" : "EnvoiNonOK";
-        var classToRemove = (classToAdd == "EnvoiOK") ? "EnvoiNonOK" : "EnvoiOK";
+        var classToAdd = testSuccess ? "EnvoiOK" : "EnvoiNonOK";
+        var classToRemove = classToAdd === "EnvoiOK" ? "EnvoiNonOK" : "EnvoiOK";
 
-        if (classToAdd == "EnvoiOK")
+        if (classToAdd === "EnvoiOK")
             submitButton.removeAttr("disabled");
 
         if (submitButton.hasClass(classToRemove))
@@ -301,7 +301,7 @@ function ToggleButton(buttonJQuery){
 /*Fonction de contrôle des boutons Oui/Non sans submit*/
 function ControleButtonWithoutSubmit(button,elemToShow,test){
     if(test){
-        AfficheMessageGenerique(elemToShow, (button.text().toLowerCase() == "non") ? "displayGenerique" : "noDisplayGenerique");
+        AfficheMessageGenerique(elemToShow, button.text().toLowerCase() === "non" ? "displayGenerique" : "noDisplayGenerique");
     }
 }
 
@@ -310,7 +310,7 @@ function ControleButton(button,elemToShow,test,onShow,submitButton){
     var testOnShow = onShow ? "oui" : "non";
 
     if(test){
-        if (button.text().toLowerCase() == testOnShow) {
+        if (button.text().toLowerCase() === testOnShow) {
             if (elemToShow.hasClass("noDisplayGenerique")){
                 elemToShow.removeClass("noDisplayGenerique");
                 elemToShow.addClass("displayGenerique");
@@ -344,7 +344,7 @@ function ControleButton(button,elemToShow,test,onShow,submitButton){
 function Controle(elementJQuery,regex){
 	var result = elementJQuery.val().match(regex);
 	if(elementJQuery.val().length)
-		AjoutResult(elementJQuery,(result !== null),false);
+		AjoutResult(elementJQuery,result !== null,false);
 	else
 		ToggleClassControle(elementJQuery);
 }
@@ -353,7 +353,7 @@ function Controle(elementJQuery,regex){
 function ControleAeroport(elementjQuery, source) {
     var toCheckElement = elementjQuery.find("option:selected");
     if (toCheckElement.val().length) {
-        AjoutResultBootstrapSelect(elementjQuery.parent(), (source.indexOf(toCheckElement.val()) !== -1), true);
+        AjoutResultBootstrapSelect(elementjQuery.parent(), source.indexOf(toCheckElement.val()) !== -1, true);
     }
     else
         ToggleClassBootstrapControle(elementjQuery.siblings('button'), true);
@@ -371,7 +371,7 @@ function AjoutResultBootstrapSelect(elemParent, result, failType) {
 
 /*Fonction ToggleClassBootstrapSelectControle*/
 function ToggleClassBootstrapControle(elementjQuery, failType) {
-    var classFail = (failType) ? 'fail2' : 'fail';
+    var classFail = failType ? 'fail2' : 'fail';
     if (elementjQuery.hasClass(classFail))
         elementjQuery.removeClass(classFail);
 
@@ -404,8 +404,8 @@ function AjoutSucces(elemParent, elemFils, failType) {
 
 /*Fonction Ajout Fail*/
 function AjoutFail(elemParent,elemFils, failType) {
-    var elemToAddFail = (failType) ? elemParent : elemFils;
-    elemToAddFail.addClass((failType) ? 'fail2' : 'fail');
+    var elemToAddFail = failType ? elemParent : elemFils;
+    elemToAddFail.addClass(failType ? 'fail2' : 'fail');
     if (elemParent.hasClass('success'))
         elemParent.removeClass('success');
 }
@@ -432,7 +432,7 @@ function Nettoyage(elementJQuery){
 
 /*Fonction pour les informations importantes*/
 function Warning(vol){
-    var infoWarning = (vol.attr('id') == 'num_vol_flash') ? $("#email,#tel") : $("#nom,#prénom");
+    var infoWarning = vol.attr('id') === 'num_vol_flash' ? $("#email,#tel") : $("#nom,#prénom");
     var message = infoWarning.parent().siblings(".WarningMessage"); 
     if(vol.val().length){
         if(!(infoWarning.parent().hasClass('success') || infoWarning.hasClass('fail'))){
@@ -460,12 +460,12 @@ function ClearWarning(infoWarning){
 /*Fonction pour afficher/retirer le message d'erreur pour le suivi bagages*/
 function MessageErreurProvDestSuiviBagages(result){
 	var message = $("#msgErrSuivi");
-	AfficheMessageGenerique(message,(result) ? "noDisplayGenerique" : "displayGenerique");
+	AfficheMessageGenerique(message,result ? "noDisplayGenerique" : "displayGenerique");
 }
 
 /*Fonction pour afficher/retirer le message d'erreur*/
 function AfficheMessageGenerique(messageJQuery,classToAdd){
-	var classToRemove = (classToAdd == "displayGenerique") ? "noDisplayGenerique" : "displayGenerique";
+	var classToRemove = classToAdd === "displayGenerique" ? "noDisplayGenerique" : "displayGenerique";
 	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
 		messageJQuery.removeClass(classToRemove);
 		messageJQuery.addClass(classToAdd);
@@ -474,7 +474,7 @@ function AfficheMessageGenerique(messageJQuery,classToAdd){
 
 /*Fonction pour afficher/retirer le message d'erreur*/
 function AfficheMessageGenerique2(messageJQuery,classToAdd){
-	var classToRemove = (classToAdd == "displayGenerique2") ? "noDisplayGenerique2" : "displayGenerique2";
+	var classToRemove = classToAdd === "displayGenerique2" ? "noDisplayGenerique2" : "displayGenerique2";
 	if(messageJQuery.hasClass(classToRemove) && !messageJQuery.hasClass(classToAdd)){
 		messageJQuery.removeClass(classToRemove);
 		messageJQuery.addClass(classToAdd);

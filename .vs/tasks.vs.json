@@ -1,0 +1,14 @@
+{
+  "tasks": [
+    {
+      "taskName": "Show Page",
+      "appliesTo": "index.html",
+      "type": "command",
+      "command": "start chrome",
+      "args": [
+        "index.html"
+      ]
+    }
+  ],
+  "version": "0.2.1"
+}

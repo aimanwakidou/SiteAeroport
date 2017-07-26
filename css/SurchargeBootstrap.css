@@ -6,8 +6,8 @@
 }
 
 .modal-title > h4{
-    margin-top:0px;
-	margin-bottom:0px;
+    margin-top:0;
+	margin-bottom:0;
 	vertical-align: middle;
 }
 
@@ -35,6 +35,10 @@
 
 .bg-primary{
 	padding:20px 0;
+}
+
+.modal{
+    padding-right:0 !important;
 }
 
 .modal-footer{

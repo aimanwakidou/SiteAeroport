@@ -23,12 +23,12 @@ function SetCookieFlash(compagnie, date) {
 
 /*Cookies pour flash*/
 function IsSetCookiesFlash(compagnie,date) {
-    return Cookies.get('compagnie') == compagnie && Cookies.get('dateVolFlash') == date;
+    return Cookies.get('compagnie') === compagnie && Cookies.get('dateVolFlash') === date;
 }
 
 /*Ajout select*/
 function addResultVolsFlash(codeVol,compagnie, provenance, destination, heure, arrDep) {
-    var arrDepAffiche = arrDep == "Arr" ? "Arrivée à " : "Départ à ";
+    var arrDepAffiche = arrDep === "Arr" ? "Arrivée à " : "Départ à ";
     var optionString = '<option value="' + codeVol + '">' +
         '<div class="resultVolFlash">' +
         '<span>' + codeVol + '</span>' +
@@ -82,7 +82,7 @@ $("#validateAlert").click(function (event) {
                         findResult.removeClass("noDisplayGenerique2");
                     }
 
-                    if (Object.keys(data).indexOf('message') == -1) {
+                    if (Object.keys(data).indexOf('message') === -1) {
                         Object.keys(data).forEach(function (key) {
                             addResultVolsFlash(data[key].CodeVol, compagnie.val(),
                                 data[key].Provenance, data[key].Destination,
