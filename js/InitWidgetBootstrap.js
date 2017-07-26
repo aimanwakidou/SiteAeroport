@@ -4,7 +4,8 @@ $(".DatePickerInput input,.JourInput input").datepicker({
     startDate: "new Date()",
     language: "fr",
     disableTouchKeyboard: true,
-    todayHighlight:true
+    todayHighlight:true,
+    autoclose:true
 });
 
 /*Paramétrage TimePicker*/
