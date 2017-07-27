@@ -697,11 +697,6 @@ form.modal-body > table {
     padding-bottom: 10px;
 }
 
-/*CSS : Vols du jour*/
-.modal-body{
-    overflow-x:auto;
-}
-
 /*CSS : Alerte Flash Vol + Vols du jour + Suivi Bagages*/
 .CoteACote {
     font-size: 15px;
