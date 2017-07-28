@@ -74,6 +74,10 @@
     margin-top: -9px;
 }
 
+a.page-scroll{
+    font-family:'Segoe UI','Tahoma',Verdana !important;
+}
+
 /*CSS : Vols du jour*/
 .modal-body {
     overflow-x: auto;
