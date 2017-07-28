@@ -1,5 +1,5 @@
 /*Ajout vol*/
-function addVols(code,provenance,destination,heure,imgSrc,ArrDep){
+function addVols(code,provenance,destination,statut,heure,imgSrc,ArrDep){
 	var classTr = (ArrDep == "Arrivée") ? "avionArrive" : "avionDepart";
 	var classAlert = (ArrDep == "Arrivée") ? "AlertArrivee" : "AlertDepart";
 	var trString = '<tr class="'+classTr+'">'+
@@ -8,7 +8,7 @@ function addVols(code,provenance,destination,heure,imgSrc,ArrDep){
 		'<td>'+provenance+'</td>'+
 		'<td>'+destination+'</td>'+
 		'<td>'+heure+'</td>'+
-		'<td></td>'+
+		'<td>'+statut+'</td>'+
 		'<td class="ToggleTd"><input type="checkbox" data-toggle="toggle" name="Alert" class="'+classAlert+' toggleCheckBox" data-vols="day"/></td>'+
 		'</tr>';
 	
@@ -24,7 +24,7 @@ ArrDepTab.forEach(function(ArrDep){
 	
 	.done(function(data){
 		Object.keys(data).forEach(function(key){
-			addVols(data[key].CodeVol,data[key].Provenance,data[key].Destination,data[key].Heure,data[key].Img,ArrDep);
+			addVols(data[key].CodeVol,data[key].Provenance,data[key].Destination,data[key].Statut,data[key].Heure,data[key].Img,ArrDep);
 		});
 		/*Contrôle fenetre modal*/
 		$(".AlertArrivee,.AlertDepart").each(function () {

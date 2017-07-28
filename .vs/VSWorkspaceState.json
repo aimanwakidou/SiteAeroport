@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\js",
-    "\\pagesAeroport",
-    "\\vendor"
+    "\\js"
   ],
-  "SelectedNode": "\\js\\InitWidgetBootstrap.js",
+  "SelectedNode": "\\css\\SurchargeBootstrap.css",
   "PreviewInSolutionExplorer": false
 }
