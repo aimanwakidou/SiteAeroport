@@ -17,7 +17,7 @@
             <link href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css"/>
 
             <!-- Bootstrap TimePicker CSS -->
-            <link href="vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css"/>
+            <link href="vendor/bootstrap-timepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css"/>
 
             <!-- Bootstrap Toggle CSS -->
             <link href="vendor/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css"/>
@@ -286,7 +286,7 @@
                   </div>
                   
                   <!-- Vols du jour -->
-                  <section id="vols_du_jour">
+                  <section id="vols_du_jour" class="well">
                         <div class="container">
                               <h2 class="section-heading title_vols">Vols du jour</h2>
                               <div class="CoteACote">
@@ -423,10 +423,12 @@
                                                             <input name="jour" id="jourPC" class="form-control PC displayGenerique2" type="text" placeholder="JJ/MM/AAAA"/>
                                                             <input name="jour" id="jourMobile" class="form-control mobile noDisplayGenerique2" type="date" placeholder="JJ/MM/AAAA"/>
                                                       </div>
-                                                      <div class="TimePickerInput HeureInput">
+                                                      <div class="TimePickerInput HeureInput input-append">
                                                             <label for="heure">Heure de départ</label>
-                                                            <input name="heure" id="heurePC" class="form-control PC displayGenerique2" type="text" placeholder="HH:MM"/>
-                                                            <input name="heure" id="heureMobile" class="form-control mobile noDisplayGenerique2" type="time"/>
+                                                            <input name="heure" id="heurePC" data-format="HH:mm" class="form-control" type="text" placeholder="HH:MM"/>
+                                                            <span class="add-on">
+                                                                <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+                                                            </span>
                                                       </div>
                                                 </div>
                                                 <div id="msgErrSuivi" class="noDisplayGenerique erreurProvDest">
@@ -793,7 +795,7 @@
             <script src="vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.min.js" charset="utf-8"></script>
 
             <!-- Bootstrap Timepicker JavaScript -->
-            <script src="vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+            <script src="vendor/bootstrap-timepicker/js/bootstrap-datetimepicker.min.js"></script>
 
             <!-- Bootstrap Toggle Javascript -->
             <script src="vendor/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>

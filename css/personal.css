@@ -101,6 +101,7 @@ tr[active="OK"]:last-child > td{
 /*Structure Mobile et tablette*/
 #vols_du_jour{
 	order:1;
+    margin-bottom:0;
 }
 
 #météo{
