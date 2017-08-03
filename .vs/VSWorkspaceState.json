@@ -2,8 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\css",
-    "\\js"
+    "\\js",
+    "\\vendor",
+    "\\vendor\\bootstrap-timepicker",
+    "\\vendor\\bootstrap-timepicker\\css",
+    "\\vendor\\bootstrap-timepicker\\js"
   ],
-  "SelectedNode": "\\meteo.log",
+  "SelectedNode": "\\js\\InitWidgetBootstrap.js",
   "PreviewInSolutionExplorer": false
 }

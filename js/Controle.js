@@ -115,27 +115,31 @@ $(".choixIles").change(function(){
 });
 
 /*Contrôle pour la recherche vol*/
-$('select[name="resultatVol"]').change(function(){
-	var selected = $('select[name="resultatVol"] option:selected');
-	var selectedValue = selected.val();
-	$("#ResultArrivéeOuDépart").text(selectedValue.length !== 0 ? selectedValue : selected.text());
-	
+$('select[name="resultatVol"],select[name="searchByAirline"]').change(function () {
+    var selectName = $(this).attr('name');
+    var selected = $(this).find('option:selected');
+    var selectedValue = selected.val();
+    var resultText = selectName == "resultatVol" ? $("#ResultatSearchVol > thead > tr > .ResultArrivéeOuDépart") : $("#ResultatVolByAirline > thead > tr > .ResultArrivéeOuDépart");
+    var heureVol = selectName == "resultatVol" ? $("#heureVol") : $("#heureVolByAirline");
+    var trs = selectName == "resultatVol" ? $("#RechercheVol tr") : $("#FindResultBody tr");
+
+    resultText.text(selectedValue.length !== 0 ? selectedValue : selected.text());
 	if(selectedValue.length !== 0){
 		var text = selectedValue === "Arrivée" ? "Heure d'arrivée" : "Heure de départ";
-		$("#heureVol").text(text);
+		heureVol.text(text);
 	}
 	else
-		$("#heureVol").text("Heure");
-	
+		heureVol.text("Heure");
+
 	/*Affichage Arrivée Ou Départ*/
-	if(selectedValue.length === 0){
-		$("#RechercheVol tr").each(function(){
+    if (selectedValue.length === 0) {
+		trs.each(function(){
 			$(this).attr('active','OK');
 		});
 	}
 	else{
 		var oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
-		$("#RechercheVol tr").each(function(){
+		trs.each(function(){
 			if($(this).attr('active') === 'KO' && $(this).hasClass(selectedValue)){
 				$(this).attr('active','OK');
 			}

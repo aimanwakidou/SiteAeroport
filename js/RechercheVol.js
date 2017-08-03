@@ -7,32 +7,33 @@ $(document).ready(function () {
 });
 
 /*Ajout des vols dans la recherche*/
-function addResultVols(compagnie,code,provenance,destination,imgSrc,date,heure,ArrDep,imgArrDep){    
+function addResultVols(toAppend, compagnie, code, provenance, destination, imgSrc, date, heure, ArrDep, imgArrDep,data_vols,typeAlert) {    
+    var dateTd = (date === null) ? '' : '<td>' + date + '</td>'; 
     var trString = '<tr class="'+ArrDep+'" active="OK">'+
         '<td class="imgArrDep"><img src="'+imgArrDep+'"/></td>'+
         '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
         '<td class="numVol">'+code+'</td>'+
         '<td>'+provenance+'</td>'+
         '<td>'+destination+'</td>'+
-        '<td>'+date+'</td>'+
+        dateTd+
         '<td>'+heure+'</td>'+
         '<td></td>'+
-        '<td class="ToggleTd"><input type="checkbox" name="Alert" class="AlertRechercheVol toggleCheckBox" data-vols="Search"/></td>'+
+        '<td class="ToggleTd"><input type="checkbox" name="Alert" class="Alert'+typeAlert+' toggleCheckBox" data-vols="'+data_vols+'"/></td>'+
         '</tr>';
         
     var tr = $.parseHTML(trString);
-    $("#RechercheVol").append(tr);
+    toAppend.append(tr);
 
 }
 
 /*Ajout message -> Aucun Vol*/
-function addNoVol() {      
+function addNoVol(toAppend) {      
     var trString = '<tr class="NoResultVol">' +
         '<td colspan="9" style="text-align:center;">Aucun vol ne correspond à la provenance et à la destination soumise ou à la date soumise </td>' +
         '</tr>';
 
     var tr = $.parseHTML(trString);
-    $("#RechercheVol").append(tr);
+    toAppend.append(tr);
     
 }
 
@@ -61,28 +62,24 @@ function SetCookies(prov, dest, date) {
 }
 
 /*Nettoyage précédent résultat*/
-function NettoyageResult() {
-    $("#RechercheVol tr").remove();
-    var envoiOk = $(".EnvoiOkRechercheVol");
-    
+function NettoyageResult(trs,envoiOk) {
+    trs.remove();   
     if(envoiOk.hasClass("displayButton"))
         envoiOk.removeClass("displayButton");
     
     if(!envoiOk.hasClass('noDisplayButton'))
         envoiOk.addClass('noDisplayButton');
-
-    DefaultSelect();
 }
 
 /*Select -> set à défaut*/
-function DefaultSelect(){
-    var selected = $('select[name="resultatVol"] option:selected');
+function DefaultSelect(heureVol, textArriveeDepart, selectName) {
+    var selected = $('select[name="'+selectName+'"] option:selected');
     if(selected.attr('id') != "default"){
         selected.removeAttr("selected");
-        $('select[name="resultatVol"]').selectpicker('val', $('select[name="resultatVol"] #default').text());
+        $('select[name="' + selectName + '"]').selectpicker('val', $('select[name="' + selectName +'"] #default').text());
     }
-    $("#ResultArrivéeOuDépart").text($('select[name="resultatVol"] #default').text());
-    $("#heureVol").text('Heure');
+    heureVol.text('Heure');
+    textArriveeDepart.text($('select[name="' + selectName +'"] #default').text());  
 }
 
 /* Message Erreur Invalide */
@@ -138,17 +135,20 @@ $("#zoneRecherche").submit(function (event) {
             SetCookies(provenance.val(), destination.val(),dateVol);
 
             /*Nettoyage précédente recherche*/
-            NettoyageResult();
+            NettoyageResult($("#RechercheVol tr"), $(".EnvoiOkRechercheVol"));
+            DefaultSelect($("#heureVol"), $("#ResultatSearchVol > thead > tr > .ResultArrivéeOuDépart"), "resultatVol");
 
             /*Appel API*/
             $.getJSON(url, {})
 
                 .done(function (data) {
                     if (Object.keys(data).indexOf("message") == -1) {
-                        DefaultSelect();
+                        DefaultSelect($("#heureVol"), $("#ResultatSearchVol > thead > tr > .ResultArrivéeOuDépart"), "resultatVol");
                         Object.keys(data).forEach(function (key) {
                             var ArrDep = (Object.keys(data[key]).indexOf("Arr") !== -1) ? "Arrivée" : "Départ";
-                            addResultVols(data[key].Compagnie,
+                            addResultVols(
+                                $("#RechercheVol"),
+                                data[key].Compagnie,
                                 data[key].CodeVol,
                                 data[key].Provenance,
                                 data[key].Destination,
@@ -156,7 +156,10 @@ $("#zoneRecherche").submit(function (event) {
                                 data[key].Date,
                                 (ArrDep == "Arrivée") ? data[key].Arr : data[key].Dep,
                                 ArrDep,
-                                data[key].imgArrDep);
+                                data[key].imgArrDep,
+                                "Search",
+                                'RechercheVol'
+                            );
                         });
                         /*Contrôle fenetre modal*/
                         $(".AlertRechercheVol").each(function () {
@@ -178,7 +181,7 @@ $("#zoneRecherche").submit(function (event) {
                         });
                     }
                     else {
-                        addNoVol();
+                        addNoVol($("#RechercheVol"));
                         return;
                     }
                 });

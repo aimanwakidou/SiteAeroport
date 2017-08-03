@@ -409,16 +409,16 @@ tr[active="OK"]:last-child > td{
 }
 
 /*Recherche Vol*/
-#ResultatVolHeader{
-	display:flex;
-	justify-content: space-between;
-    align-items:center;
-    padding:20px 15px;
+#ResultatVolHeader, #ResultatVolByAirlineHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 15px;
 }
 
 /*Recherche Vol*/
-#ResultatVolHeader > .modal-title{
-	flex-grow:1;
+#ResultatVolHeader > .modal-title, #ResultatVolByAirlineHeader > .modal-title{
+    flex-grow: 1;
 }
 
 /*Recherche Vol*/
@@ -1092,17 +1092,6 @@ form.modal-body > table {
 /*CSS : Alerte Flash Vol*/
 .buttonValidate > button > i{
     font-size:40px;
-}
-
-/*CSS : Alerte Flash Vol*/
-#FindResult{
-    margin-top:10px;
-}
-
-/*CSS : Alerte Flash Vol*/
-#FindResult > .bootstrap-select{
-    margin-top:5px;
-	margin-bottom:15px;
 }
 
 /*CSS : Suivi Bagages*/

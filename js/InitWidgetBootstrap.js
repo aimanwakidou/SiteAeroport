@@ -1,4 +1,4 @@
-/*Paramètre DatePicker*/
+ï»¿/*ParamÃ¨tre DatePicker*/
 $(".DatePickerInput input,.JourInput input").datepicker({
     format: "dd/mm/yyyy",
     startDate: "new Date()",
@@ -9,9 +9,9 @@ $(".DatePickerInput input,.JourInput input").datepicker({
 });
 
 
-/*Paramètrage selectpicker*/
+/*ParamÃ¨trage selectpicker*/
 $(".selectpicker").selectpicker({
-    noneSelectedText: 'Aucun élément sélectionné',
+    noneSelectedText: 'Aucun Ã©lÃ©ment sÃ©lectionnÃ©',
     dropdownAlignRight: 'auto'
 });
 
@@ -29,7 +29,7 @@ $(document).ready(function () {
         $('.selectpicker').selectpicker('mobile');
     }
 
-    /*Paramétrage TimePicker*/
+    /*ParamÃ©trage TimePicker*/
     $(".TimePickerInput").datetimepicker({
         pickDate: false,
         pickSeconds: false

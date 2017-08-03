@@ -257,10 +257,10 @@
                                           </div>
                                     </div>
                                     <form class="modal-body">
-                                          <table class="ResultatSearchVol">
+                                          <table id="ResultatSearchVol">
                                                 <thead>
                                                       <tr class="ArrivesDepartTitreColumn">
-                                                            <th id="ResultArrivéeOuDépart">Arrivée et départ</th>
+                                                            <th class="ResultArrivéeOuDépart">Arrivée et départ</th>
                                                             <th>Compagnie</th>
                                                             <th>N° de Vol</th>
                                                             <th>Provenance</th>
@@ -373,13 +373,55 @@
                                           </table>
                                     </form>
                                     <div class="modal-footer">
-                                          <button type="button" class="btn btn-default EnvoiOK EnvoiOkDepart noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                          <button type="button" class="btn btn-default EnvoiOK EnvoiOkRechercheByAirline noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
                                           <div class="useless"></div>
                                           <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
                                     </div>
                               </div>
                         </div>
                   </div>
+
+                    <!-- Résultat Recherche vol par compagnie -->
+                    <div id="FindResult" class="modal fade" role="dialog">
+                        <div class="modal-dialog">
+                            <!-- Modal content-->
+                            <div class="modal-content">
+                                <div id="ResultatVolByAirlineHeader" class="modal-header">
+                                    <div class="modal-title"><h4>Résultat recherche vol par compagnie</h4></div>
+                                    <div class="useless"></div>
+                                    <div class="switchArrivéeDépart">
+                                        <select name="searchByAirline" class="form-control selectpicker" data-live-search="true">
+                                            <option value="" selected="selected" id="default">Arrivée et Départ</option>
+                                            <option value="Arrivée">Arrivée</option>
+                                            <option value="Départ">Départ</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <form class="modal-body">
+                                    <table id="ResultatVolByAirline">
+                                        <thead>
+                                            <tr class="ArrivesDepartTitreColumn">
+                                                <th class="ResultArrivéeOuDépart">Arrivée et départ</th>
+                                                <th>Compagnie</th>
+                                                <th>N° de Vol</th>
+                                                <th>Provenance</th>
+                                                <th>Destination</th>
+                                                <th id="heureVolByAirline">Heure</th>
+                                                <th>Statut</th>
+                                                <th>Alerte Flash Vol</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="FindResultBody" class="ArrivesDepartData"></tbody>
+                                    </table>
+                                </form>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default EnvoiOK EnvoiOkRechercheByAirline noDisplayButton bindAlert" data-dismiss="modal">Envoyer</button>
+                                    <div class="useless"></div>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
 
                   <!-- Zone : Alerte flash vol + Suivi bagages -->
                   <section id="suiviAndAlertBox">
@@ -503,19 +545,13 @@
                                                           </div>
                                                       </div>
                                                       <div class="buttonValidate">
-                                                            <button class="btn btn-block" type="submit" id="validateAlert">
+                                                            <button class="btn btn-block" type="submit" id="validateAlert" data-target="#FindResult" role="button">
                                                                   <span>Trouver le (ou les) vol(s)</span>
                                                                   <span class="useless"></span>
                                                                   <i class="fa fa-search" aria-hidden="true"></i>
                                                             </button>
                                                       </div>
                                                   </div>
-                                              </div>
-                                              <div id="FindResult" class="form-group noDisplayGenerique2">
-                                                  <span class="labelPerso">Résultat de la recherche</span>
-                                                  <select name="FindResult" class="form-control selectpicker" multiple="multiple" data-live-search="true" title="Vols">
-                                                      
-                                                  </select>
                                               </div>
                                           </div>
                                                                                  

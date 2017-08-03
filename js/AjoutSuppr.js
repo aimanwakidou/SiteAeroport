@@ -35,6 +35,9 @@ $(".bindAlert").each(function () {
         if($(this).hasClass("EnvoiOkRechercheVol")){
             vols = $("#RechercheVol tr");  
         }
+        else if ($(this).hasClass("EnvoiOkRechercheByAirline")) {
+            vols = $("#FindResultBody tr"); 
+        }
         else{
             vols = $(this).hasClass("EnvoiOkDepart") ? $(".avionDepart") : $(".avionArrive");
         }
@@ -44,42 +47,6 @@ $(".bindAlert").each(function () {
                 BindAlert($(this),bindTypeEnum.AlertFlash);
         });
     });
-});
-
-/*Bind -> Resultat recherche vol <-> Num Vol input*/
-$('select[name="FindResult"]').change(function () {
-    var selectedArrayJQuery = $(this).find('option:selected');
-    var selectedArray = [];
-    var lastSelectedArray = GetArrayFromString(Cookies.get('lastSelectedArray'));
-
-    /*Init selectedArray*/
-    selectedArrayJQuery.each(function () {
-        selectedArray.push($(this).val());
-    });
-
-    if (selectedArrayJQuery.length === 0 && lastSelectedArray.length === 1) {
-        SuppressionVolParNumVol(lastSelectedArray[0]);
-        return;
-    }
-
-    /*Cas de sélection*/
-    if (lastSelectedArray.length < selectedArrayJQuery.length) {
-        selectedArrayJQuery.each(function () {
-            if ($(this).val() !== '') {
-                BindAlert($(this), bindTypeEnum.FindResult);
-            }
-        });
-    }
-    else {
-        /*Check en cas de déselection*/
-        var lastSelected = GetOptionUnselected(selectedArray, lastSelectedArray);
-        if (lastSelected !== null) {
-            SuppressionVolParNumVol(lastSelected);
-        }
-    }
-
-    /*Mis à jour Cookie*/
-    Cookies.set('lastSelectedArray', selectedArray);  
 });
 
 /*Fonction : Ajout d'un bagage*/
@@ -208,7 +175,7 @@ function CheckButtonCheckBox(envoiButtonJQuery, checkButtonJQuery) {
 
 /*Fonction de controle --> Si aucun bouton n'est checké*/
 function ControleCheckBox(envoiButtonJQuery, selector) {
-    var allowSelector = ['Arrivee','Depart','RechercheVol'];
+    var allowSelector = ['Arrivee','Depart','RechercheVol','RechercheByAirline'];
     if (allowSelector.indexOf(selector) !== -1){
         var checkedInput = $(".Alert" + selector);
         var flag = true;

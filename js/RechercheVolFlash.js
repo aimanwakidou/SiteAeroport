@@ -26,36 +26,6 @@ function IsSetCookiesFlash(compagnie,date) {
     return Cookies.get('compagnie') === compagnie && Cookies.get('dateVolFlash') === date;
 }
 
-/*Ajout select*/
-function addResultVolsFlash(codeVol,compagnie, provenance, destination, heure, arrDep) {
-    var arrDepAffiche = arrDep === "Arr" ? "Arrivée à " : "Départ à ";
-    var optionString = '<option value="' + codeVol + '">' +
-        '<div class="resultVolFlash">' +
-        '<span>' + codeVol + '</span>' +
-        '<span>Provenance : ' + provenance + ' => Destination : ' + destination + '</span>' +
-        '<span>'+ arrDepAffiche + heure + '</span>' +
-        '</div>' +
-        '</option>';
-        
-
-    $('#FindResult select[name="FindResult"]').append($.parseHTML(optionString));
-}
-
-/*Aucun Vol*/
-function AucunVol() {
-    var optionString = '<option value="">Aucun vol n\'a été trouvée</option>';
-    $('#FindResult select[name="FindResult"]').append($.parseHTML(optionString));
-}
-
-/*Purge des précédents résultats*/
-function PurgeSelect() {
-    $('#FindResult select[name="FindResult"] option').each(function () {
-        $(this).remove();
-    });
-    $('#FindResult select[name="FindResult"]').selectpicker('refresh');
-}
-
-
 /*Recherche des vols*/
 $("#validateAlert").click(function (event) {
     event.preventDefault();
@@ -63,12 +33,14 @@ $("#validateAlert").click(function (event) {
     var date = $('input[name="dateVolFind"]');
     
     if (compagnie.length !== 0 && date.val().length !== 0) {
+        $("#FindResult").modal("show");
         if (!IsSetCookiesFlash(compagnie.val(), date.val())) {
             /*Enregistrement valeur recherche*/
             SetCookieFlash(compagnie.val(), date.val());
 
-            /*Nettoyage précédent résultat*/
-            PurgeSelect();
+            /*Nettoyage précédente recherche*/
+            NettoyageResult($("#FindResultBody tr"), $(".EnvoiOkRechercheByAirline"));
+            DefaultSelect($("#heureVolByAirline"), $("#ResultatVolByAirline > thead > tr > .ResultArrivéeOuDépart"), 'searchByAirline');
 
             /*Appel à l'api -> recherche*/
             var url = "https://5.196.225.5/api/RechercheVolsFlashAlert/" + compagnie.val() + "/" + date.val().replace(/[/]/g, '-');
@@ -76,24 +48,49 @@ $("#validateAlert").click(function (event) {
             $.getJSON(url, {})
 
                 .done(function (data) {
-                    var findResult = $('#FindResult');
-                    if (findResult.hasClass("noDisplayGenerique2")) {
-                        findResult.show(200);
-                        findResult.removeClass("noDisplayGenerique2");
-                    }
-
                     if (Object.keys(data).indexOf('message') === -1) {
+                        DefaultSelect($("#heureVolByAirline"), $("#ResultatVolByAirline > thead > tr > .ResultArrivéeOuDépart"), 'searchByAirline');
                         Object.keys(data).forEach(function (key) {
-                            addResultVolsFlash(data[key].CodeVol, compagnie.val(),
-                                data[key].Provenance, data[key].Destination,
-                                data[key].Heure, data[key].ArrDep
+                            var ArrDep = data[key].ArrDep ==  "Arr" ? "Arrivée" : "Départ";
+                            addResultVols(
+                                $("#FindResultBody"),
+                                compagnie.val(),
+                                data[key].CodeVol,
+                                data[key].Provenance,
+                                data[key].Destination,
+                                data[key].Img,
+                                null,
+                                data[key].Heure,
+                                ArrDep,
+                                data[key].imgArrDep,
+                                "SearchByAirline",
+                                'RechercheByAirline'
                             );
+                        });
+
+                        /*Contrôle fenetre modal*/
+                        $(".AlertRechercheByAirline").each(function () {
+                            var EnvoiOk = $(".EnvoiOkRechercheByAirline");
+                            $(this).change(function () {
+                                CheckButtonCheckBox(EnvoiOk, $(this));
+                                ControleCheckBox(EnvoiOk, 'RechercheByAirline');
+                            });
+                        });
+
+                        /*Paramétrage Bootstrap Toggle Checkbox*/
+                        $('.toggleCheckBox[data-vols="SearchByAirline"]').bootstrapToggle({
+                            on: 'Suivi',
+                            off: 'Non Suivi',
+                            onstyle: "success",
+                            size: "small",
+                            height: 60,
+                            width: 85
                         });
                     }
                     else {
-                        AucunVol();
+                        addNoVol($("#FindResultBody"));
+                        return;
                     }
-                    $('#FindResult select[name="FindResult"]').selectpicker('refresh');
                 });
         }
     }
