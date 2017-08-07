@@ -2,7 +2,7 @@
 function addVols(code,provenance,destination,statut,heure,imgSrc,ArrDep){
 	var classTr = (ArrDep == "Arrivée") ? "avionArrive" : "avionDepart";
 	var classAlert = (ArrDep == "Arrivée") ? "AlertArrivee" : "AlertDepart";
-	var trString = '<tr class="'+classTr+'">'+
+    var trString = '<tr class="' + classTr + '"  data-codevol="' + code +'" data-typevols="jour">'+
 		'<td class="logoCompany"><img src="'+imgSrc+'" style="height:50px;width:100px;"/></td>'+
 		'<td class="numVol">'+code+'</td>'+
 		'<td>'+provenance+'</td>'+

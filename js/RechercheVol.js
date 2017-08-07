@@ -9,7 +9,7 @@ $(document).ready(function () {
 /*Ajout des vols dans la recherche*/
 function addResultVols(toAppend, compagnie, code, provenance, destination, imgSrc, date, heure, ArrDep, imgArrDep,data_vols,typeAlert) {    
     var dateTd = (date === null) ? '' : '<td>' + date + '</td>'; 
-    var trString = '<tr class="'+ArrDep+'" active="OK">'+
+    var trString = '<tr class="'+ArrDep+'" active="OK" data-codevol="'+code+'" data-typevols="result">'+
         '<td class="imgArrDep"><img src="'+imgArrDep+'"/></td>'+
         '<td class="logoCompagny"><img src="'+imgSrc+'"/></td>'+
         '<td class="numVol">'+code+'</td>'+

@@ -3,11 +3,8 @@
     "",
     "\\css",
     "\\js",
-    "\\vendor",
-    "\\vendor\\bootstrap-timepicker",
-    "\\vendor\\bootstrap-timepicker\\css",
-    "\\vendor\\bootstrap-timepicker\\js"
+    "\\vendor"
   ],
-  "SelectedNode": "\\js\\InitWidgetBootstrap.js",
+  "SelectedNode": "\\js\\RechercheVolFlash.js",
   "PreviewInSolutionExplorer": false
 }
