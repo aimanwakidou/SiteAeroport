@@ -64,7 +64,8 @@ $("#validateAlert").click(function (event) {
                                 ArrDep,
                                 data[key].imgArrDep,
                                 "SearchByAirline",
-                                'RechercheByAirline'
+                                'RechercheByAirline',
+                                data[key].Statut
                             );
                         });
 

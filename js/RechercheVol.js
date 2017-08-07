@@ -7,7 +7,7 @@ $(document).ready(function () {
 });
 
 /*Ajout des vols dans la recherche*/
-function addResultVols(toAppend, compagnie, code, provenance, destination, imgSrc, date, heure, ArrDep, imgArrDep,data_vols,typeAlert) {    
+function addResultVols(toAppend, compagnie, code, provenance, destination, imgSrc, date, heure, ArrDep, imgArrDep,data_vols,typeAlert,statut) {    
     var dateTd = (date === null) ? '' : '<td>' + date + '</td>'; 
     var trString = '<tr class="'+ArrDep+'" active="OK" data-codevol="'+code+'" data-typevols="result">'+
         '<td class="imgArrDep"><img src="'+imgArrDep+'"/></td>'+
@@ -17,7 +17,7 @@ function addResultVols(toAppend, compagnie, code, provenance, destination, imgSr
         '<td>'+destination+'</td>'+
         dateTd+
         '<td>'+heure+'</td>'+
-        '<td></td>'+
+        '<td>'+statut+'</td>'+
         '<td class="ToggleTd"><input type="checkbox" name="Alert" class="Alert'+typeAlert+' toggleCheckBox" data-vols="'+data_vols+'"/></td>'+
         '</tr>';
         
@@ -158,7 +158,8 @@ $("#zoneRecherche").submit(function (event) {
                                 ArrDep,
                                 data[key].imgArrDep,
                                 "Search",
-                                'RechercheVol'
+                                'RechercheVol',
+                                data[key].Statut
                             );
                         });
                         /*Contrôle fenetre modal*/
