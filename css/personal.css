@@ -86,8 +86,8 @@ tr[active="KO"]{
 	display:none;
 }
 
-tr[active="OK"]:last-child > td{
-	border-bottom:none !important; 
+tr.activeTr:last-child{
+    border: 0 !important;
 }
 
 #Column {

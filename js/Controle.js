@@ -141,11 +141,14 @@ $('select[name="resultatVol"],select[name="searchByAirline"]').change(function (
 		var oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
 		trs.each(function(){
 			if($(this).attr('active') === 'KO' && $(this).hasClass(selectedValue)){
-				$(this).attr('active','OK');
+                $(this).attr('active', 'OK');
+                $(this).addClass("activeTr");
 			}
 			else{
 				if($(this).attr('active') === 'OK' && $(this).hasClass(oppositeValue)){
-					$(this).attr('active','KO');
+                    $(this).attr('active', 'KO');
+                    if($(this).hasClass("activeTr"))
+                        $(this).removeClass("activeTr");
 				}
 			}
 		});

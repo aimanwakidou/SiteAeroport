@@ -327,13 +327,6 @@
  
 }
 
-/*CSS : Vols du jour*/
-@media screen and (max-width:600px){
-    .ArrivesDepartData > tr{
-        width:600px;
-    }
-}
-
 /*CSS : Mobile*/
 @media screen and (max-width:550px){
     /*CSS : SuiviBagages*/
