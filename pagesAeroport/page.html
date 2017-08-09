@@ -40,6 +40,7 @@
         <link href="../css/GenericClass.css" rel="stylesheet" type="text/css" />
         <link href="css/pageAeroport.css" rel="stylesheet" type="text/css" />
         <link href="../css/personal_queries.css" rel="stylesheet" type="text/css" />
+        <link href="css/pageAeroport_queries.css" rel="stylesheet" type="text/css"/>
 
 	    <!-- Footer CSS -->
 	    <link href="../css/footer-distributed-with-address-and-phones.css" rel="stylesheet">
@@ -606,46 +607,26 @@
             <!-- Météo -->
             <section id="météo">
                 <div class="container">
-                    <div class="title_météo">
-                        <h2 class="section-heading">Météo du <mark id="DayOrNight"></mark></h2>
-                        <div class="form-group">
-                            <select name="choixIles" class="hideMétéo choixIles form-control" data-live-search="true">
-                                <option selected="selected">Iles</option>
-                                <option value="Anjouan">Anjouan</option>
-                                <option value="Moroni">Moroni</option>
-                                <option value="Moheli">Mohéli</option>
-                                <option value="Mayotte">Mayotte</option>
-                            </select>
+                    <div class="meteoContant">
+                        <div class="title_météo">
+                            <h2 class="section-heading">Météo du <mark id="DayOrNight"></mark></h2>
+                        </div>
+                        <div class="météoWrapper">
+                            <div id="MeteoPage">
+                                <h3></h3>
+                                <div class="météoContent">
+                                    <span class="temperature"> <mark class="DayOrNight"></mark> <mark class="temp_c"></mark> </span>
+                                    <img src="" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="météoWrapper">
-                        <div id="Anjouan">
-                            <h3>Anjouan</h3>
-                            <div class="météoContent">
-                                <span class="temperature"> <mark class="DayOrNight"></mark> <mark class="temp_c"></mark> </span>
-                                <img src="" />
-                            </div>
+                    <div class="perturbation">
+                        <div id="title_perturbation">
+                            <h2 class="section-heading">Perturbation Météo <mark class="nameIle"></mark></h2>
                         </div>
-                        <div id="Moroni">
-                            <h3>Moroni</h3>
-                            <div class="météoContent">
-                                <span class="temperature"> <mark class="DayOrNight"></mark> <mark class="temp_c"></mark> </span>
-                                <img src="" />
-                            </div>
-                        </div>
-                        <div id="Moheli">
-                            <h3>Mohéli</h3>
-                            <div class="météoContent">
-                                <span class="temperature"> <mark class="DayOrNight"></mark> <mark class="temp_c"></mark></span>
-                                <img src="" />
-                            </div>
-                        </div>
-                        <div id="Mayotte">
-                            <h3>Mayotte</h3>
-                            <div class="météoContent">
-                                <span class="temperature"> <mark class="DayOrNight"></mark>  <mark class="temp_c"></mark> </span>
-                                <img src="" />
-                            </div>
+                        <div class="perturbationContent">
+
                         </div>
                     </div>
                 </div>
@@ -749,7 +730,6 @@
         <script src="../js/flash.js"></script>
         <script src="../js/ShowHide.js"></script>
         <script src="../js/Controle.js"></script>
-        <script src="../js/meteo.js"></script>
         <script src="../js/AjoutSuppr.js"></script>
         <script src="../js/Vols.js"></script>
         <script src="../js/RechercheVol.js"></script>

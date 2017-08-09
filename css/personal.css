@@ -86,10 +86,6 @@ tr[active="KO"]{
 	display:none;
 }
 
-tr.activeTr:last-child{
-    border: 0 !important;
-}
-
 #Column {
     flex-direction:column;
 }
@@ -110,10 +106,6 @@ tr.activeTr:last-child{
 
 #search-flight, #suiviAndAlertBox, .general-news{
     order: 2;
-}
-
-#testAPIairportTIA{
-    order:3;
 }
 
 /*CSS : Suivi bagages + Alerte flash Vol*/

@@ -1,5 +1,8 @@
-@media screen and (max-width:440px){
-    .navPageAeroport{
-        padding-top:8px;
-    }
+﻿#météo > .container{
+    display:flex;
+}
+
+#météo > .container > div{
+    flex-basis:0;
+    flex-grow:1;
 }

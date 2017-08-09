@@ -138,20 +138,24 @@ $('select[name="resultatVol"],select[name="searchByAirline"]').change(function (
 		});
 	}
 	else{
-		var oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
+        var oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
+        var lastActive = null;
 		trs.each(function(){
-			if($(this).attr('active') === 'KO' && $(this).hasClass(selectedValue)){
-                $(this).attr('active', 'OK');
-                $(this).addClass("activeTr");
+            if ($(this).hasClass(selectedValue)) {
+                if($(this).attr('active') === 'KO')
+                    $(this).attr('active', 'OK');
+                lastActive = $(this);
 			}
 			else{
 				if($(this).attr('active') === 'OK' && $(this).hasClass(oppositeValue)){
                     $(this).attr('active', 'KO');
-                    if($(this).hasClass("activeTr"))
-                        $(this).removeClass("activeTr");
 				}
 			}
-		});
+        });
+        if (lastActive != null)
+            lastActive.find("td").each(function () {
+                $(this).css("border-bottom", 0);
+            });
 	}
 });
 
