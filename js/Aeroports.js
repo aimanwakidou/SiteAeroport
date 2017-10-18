@@ -1,7 +1,7 @@
 /*Fonction Ajout ProvDest*/
 function AjoutProvDest(provDest) {
     var compagnieHtml = '<option value="' + provDest + '">' + provDest + '</option>';
-    $(".DepartsInput select,.ArrivésInput select,.ProvenanceInput select,.DestinationInput select").append($.parseHTML(compagnieHtml));
+    $(".aeroport select").append($.parseHTML(compagnieHtml));
 }
 
 $(document).ready(function () {
@@ -14,10 +14,11 @@ $(document).ready(function () {
             AjoutProvDest(aeroport);
         });
 
-        $(".DepartsInput select,.ArrivésInput select,.ProvenanceInput select,.DestinationInput select").selectpicker('refresh');
+        /*Mise à jour données select*/
+        $(".aeroport select").selectpicker('refresh');
 
         /*Contrôle Recherche vol*/
-        $(".DepartsInput select,.ArrivésInput select,.ProvenanceInput select,.DestinationInput select").change(function () {
+        $(".aeroport select").change(function () {
             ControleAeroport($(this), data.Aeroports);
             var toCompare;
             if ($(this).attr('name') == 'ProvSearch' || $(this).attr('name') == 'DestSearch') {
@@ -28,6 +29,10 @@ $(document).ready(function () {
                 toCompare = ($(this).attr('name') == 'ProvSuivi') ? $('select[name="DestSuivi"] option:selected').val() : $('select[name="ProvSuivi"] option:selected').val();
                 CompareProvDestSuiviBagages($(this).find('option:selected').val(), toCompare);
             }
+        });
+        
+        $(".aeroport button").blur(function(){
+            ControleAeroport($(this).siblings("select"),data.Aeroports);
         });
     });
 });
