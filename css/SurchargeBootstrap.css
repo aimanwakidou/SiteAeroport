@@ -154,3 +154,7 @@ a.page-scroll{
 	}
 }
 
+.modal-content{
+	border-radius:0;
+}
+
