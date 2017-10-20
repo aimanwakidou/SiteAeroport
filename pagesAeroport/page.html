@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>page Aéroport</title>
+		<title>Aéroport</title>
 		<link rel="icon" type="image/png" href="../img/Airport-32.png" />
 
 		<!-- Bootstrap Core CSS -->
@@ -17,7 +17,7 @@
         <link href="../vendor/bootstrap-datepicker/css/bootstrap-datepicker3.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap TimePicker CSS -->
-        <link href="../vendor/bootstrap-timepicker/css/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css" />
+        <link href="../vendor/bootstrap-timepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
 
         <!-- Bootstrap Toggle CSS -->
         <link href="../vendor/bootstrap-toggle/css/bootstrap-toggle.min.css" rel="stylesheet" type="text/css" />
@@ -59,7 +59,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header myNav">
                 <div class="navbar-toggle collapsed second">
-                    <span class="sr-only">Toggle navigation</span>pageTestAéroport
+                    <span class="sr-only">Toggle navigation</span><mark class="aeroport"></mark>
                 </div>
                 <div class="uselessNav"></div>
                 <a class="navbar-brand page-scroll first navPageAeroport" href="../index.html">Aéroports des Comores</a>
@@ -168,16 +168,16 @@
                             <div class="WrapperDépartsArrivés">
                                 <div class="Departs">
                                     <span class="labelPerso">Provenance</span>
-                                    <div class="DepartsInput form-group">
-                                        <select name="ProvSearch" class="form-control selectpicker show-tick" data-live-search="true" title="Entrez la provenance"></select>
-                                    </div>
+									<div class="DepartsInput">
+										<input class="form-control" name="aeroport" id="aeroport" type="text" disabled="disabled"/>
+									</div>
                                 </div>
                                 <div id="switchArrivéeDépart">
                                     <span class="glyphicon glyphicon-sort" title="Echanger les valeurs"></span>
                                 </div>
                                 <div class="Arrivés">
                                     <span class="labelPerso">Destination</span>
-                                    <div class="ArrivésInput form-group">
+                                    <div class="ArrivésInput form-group aeroport">
                                         <select name="DestSearch" class="form-control selectpicker" data-live-search="true" title="Entrez la destination"></select>
                                     </div>
                                 </div>
@@ -246,7 +246,7 @@
             <!-- Vols du jour -->
             <section id="vols_du_jour">
                 <div class="container">
-                    <h2 class="section-heading title_vols">Vols du jour</h2>
+                    <h2 class="section-heading title_vols">Vols du jour à <mark class="aeroport"></mark></h2>
                     <div class="CoteACote">
                         <div class="CoteACote-inner">
                             <div class="button_arr">
@@ -391,11 +391,11 @@
                                     </div>
                                     <div class="RechercheVolSuivi noDisplayGenerique">
                                         <div class="ProvenanceDestination">
-                                            <div class="ProvenanceInput">
+                                            <div class="ProvenanceInput aeroport">
                                                 <span class="labelPerso">Provenance</span>
                                                 <select name="ProvSuivi" class="form-control selectpicker" data-live-search="true" title="Entrez la provenance"></select>
                                             </div>
-                                            <div class="DestinationInput">
+                                            <div class="DestinationInput aeroport">
                                                 <span class="labelPerso">Destination</span>
                                                 <select name="DestSuivi" class="form-control selectpicker" data-live-search="true" title="Entrez la destination"></select>
                                             </div>
@@ -615,15 +615,15 @@
                             <div id="MeteoPage">
                                 <h3></h3>
                                 <div class="météoContent">
-                                    <span class="temperature"> <mark class="DayOrNight"></mark> <mark class="temp_c"></mark> </span>
-                                    <img src="" />
+                                    <span class="temperature"> <mark class="temp_c"></mark> </span>
+                                    <img src=""/>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="perturbation">
                         <div id="title_perturbation">
-                            <h2 class="section-heading">Perturbation Météo <mark class="nameIle"></mark></h2>
+                            <h2 class="section-heading">Perturbation météo à <mark class="aeroport"></mark></h2>
                         </div>
                         <div class="perturbationContent">
 
@@ -709,7 +709,7 @@
         <script src="../vendor/bootstrap-datepicker/locales/bootstrap-datepicker.fr-CH.min.js" charset="utf-8"></script>
 
         <!-- Bootstrap Timepicker JavaScript -->
-        <script src="../vendor/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+        <script src="../vendor/bootstrap-timepicker/js/bootstrap-datetimepicker.min.js"></script>
 
         <!-- Bootstrap Toggle Javascript -->
         <script src="../vendor/bootstrap-toggle/js/bootstrap-toggle.min.js"></script>
@@ -735,5 +735,7 @@
         <script src="../js/RechercheVol.js"></script>
         <script src="../js/Compagnies.js"></script>
         <script src="../js/RechercheVolFlash.js"></script>
+		<script src="js/getAeroportParam.js"></script>
+		<script src="js/meteoPage.js"></script>
     </body>
 </html>

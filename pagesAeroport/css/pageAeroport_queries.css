@@ -3,3 +3,13 @@
         padding-top: 8px;
     }
 }
+
+@media screen and (max-width:768px){
+    #switchArrivéeDépart{
+        align-self: center;
+    }
+    
+    .météoWrapper > div{
+        display:block;
+    }
+}

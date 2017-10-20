@@ -9,14 +9,14 @@ function addMeteo(imgSrc, ile, temp,hour) {
 }
 
 $(document).ready(function () {
-    var iles = ['Anjouan', 'Moroni', 'Mayotte', 'Moheli'];
-    var hour = new Date().getHours();
+    let iles = ['Anjouan', 'Moroni', 'Mayotte', 'Moheli'];
+    let hour = new Date().getHours();
 
     /*Mis à jour titre météo*/
     $("#DayOrNightMeteo").text((hour < 18 && hour > 6) ? "jour" : "soir");
 
     iles.forEach(function (ile) {
-        var url = "https://5.196.225.5/api/Meteo/"+ile;
+        let url = "https://5.196.225.5/api/Meteo/"+ile;
 
         $.getJSON(url, {
         })
