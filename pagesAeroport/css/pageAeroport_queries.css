@@ -1,6 +1,11 @@
 @media screen and (max-width:440px) {
     .navPageAeroport {
-        padding-top: 8px;
+        display:flex;
+        align-items:center;
+    }
+    
+    .navPageAeroport > a{
+        height:auto;
     }
 }
 
@@ -19,5 +24,9 @@
     
     #météo > .container > div{
         flex-basis:auto;
+    }
+    
+    #météo > .container > div:first-child{
+        padding-bottom:20px;
     }
 }
