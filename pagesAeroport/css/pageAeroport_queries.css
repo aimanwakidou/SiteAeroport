@@ -12,4 +12,12 @@
     .météoWrapper > div{
         display:block;
     }
+    
+    #météo > .container{
+        flex-direction:column;
+    }
+    
+    #météo > .container > div{
+        flex-basis:auto;
+    }
 }
