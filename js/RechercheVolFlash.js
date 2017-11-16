@@ -43,9 +43,9 @@ $("#validateAlert").click(function (event) {
             DefaultSelect($("#heureVolByAirline"), $("#ResultatVolByAirline > thead > tr > .ResultArrivéeOuDépart"), 'searchByAirline');
 
             /*Appel à l'api -> recherche*/
-            var url = "https://5.196.225.5/api/RechercheVolsFlashAlert/" + compagnie.val() + "/" + date.val().replace(/[/]/g, '-');
+            let urlRechercheFlash = urlApi+"/RechercheVolsFlashAlert/" + compagnie.val() + "/" + date.val().replace(/[/]/g, '-');
 
-            $.getJSON(url, {})
+            $.getJSON(urlRechercheFlash, {})
 
                 .done(function (data) {
                     if (Object.keys(data).indexOf('message') === -1) {

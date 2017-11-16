@@ -5,9 +5,8 @@ function AjoutProvDest(provDest) {
 }
 
 $(document).ready(function () {
-    var url = "https://5.196.225.5/api/Aeroports";
-
-    $.getJSON(url,{})
+ 
+    $.getJSON(urlApi+"/Aeroports",{})
 
     .done(function(data){
         data.Aeroports.forEach(function (aeroport) {

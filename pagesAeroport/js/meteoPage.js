@@ -5,9 +5,9 @@ $(document).ready(function(){
 	/*Mis à jour titre météo*/
     $("#DayOrNight").text((hour < 18 && hour > 6) ? "jour" : "soir");
 	
-	let url = "https://5.196.225.5/api/Meteo/"+aeroport;
+	let urlMeteo = urlApi+"/Meteo/"+aeroport;
 	
-	$.getJSON(url,{})
+	$.getJSON(urlMeteo,{})
 	
 	.done(function(data){
 		$("mark.temp_c").text(data.temperature+" °C");

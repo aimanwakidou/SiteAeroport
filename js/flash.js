@@ -2,14 +2,14 @@ $('#zoneAlerteSuivi').submit(function (event) {
     event.preventDefault();
     var first_vol = $("#first_vol input");
     if (first_vol.val().length) {
-        var url = "https://5.196.225.5/api/Flash/";
-        var tabVols = [];
+        let urlFlash = urlApi+"/Flash/";
+        let tabVols = [];
 
         $('#BoxFlashAlert .search-box-inner input').each(function () {
             tabVols.push($(this).val());
         });
 
-        $.post(url,
+        $.post(urlFlash,
             {
                 vols: tabVols,
                 email: $("#email").val(),

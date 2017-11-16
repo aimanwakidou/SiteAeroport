@@ -1,13 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\css",
-    "\\js",
+    "\\aspnet_client\\system_web",
     "\\vendor",
-    "\\vendor\\bootstrap-timepicker",
-    "\\vendor\\bootstrap-timepicker\\css",
-    "\\vendor\\bootstrap-timepicker\\js"
+    "\\vendor\\bootstrap-select\\css",
+    "\\vendor\\bootstrap-select\\js"
   ],
-  "SelectedNode": "\\css\\personal_queries.css",
+  "SelectedNode": "\\meteo.log",
   "PreviewInSolutionExplorer": false
 }

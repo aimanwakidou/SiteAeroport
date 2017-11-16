@@ -116,16 +116,16 @@ $(".choixIles").change(function(){
 
 /*Contrôle pour la recherche vol*/
 $('select[name="resultatVol"],select[name="searchByAirline"]').change(function () {
-    var selectName = $(this).attr('name');
-    var selected = $(this).find('option:selected');
-    var selectedValue = selected.val();
-    var resultText = selectName == "resultatVol" ? $("#ResultatSearchVol > thead > tr > .ResultArrivéeOuDépart") : $("#ResultatVolByAirline > thead > tr > .ResultArrivéeOuDépart");
-    var heureVol = selectName == "resultatVol" ? $("#heureVol") : $("#heureVolByAirline");
-    var trs = selectName == "resultatVol" ? $("#RechercheVol tr") : $("#FindResultBody tr");
+    let selectName = $(this).attr('name');
+    let selected = $(this).find('option:selected');
+    let selectedValue = selected.val();
+    let resultText = selectName == "resultatVol" ? $("#ResultatSearchVol > thead > tr > .ResultArrivéeOuDépart") : $("#ResultatVolByAirline > thead > tr > .ResultArrivéeOuDépart");
+    let heureVol = selectName == "resultatVol" ? $("#heureVol") : $("#heureVolByAirline");
+    let trs = selectName == "resultatVol" ? $("#RechercheVol tr") : $("#FindResultBody tr");
 
     resultText.text(selectedValue.length !== 0 ? selectedValue : selected.text());
 	if(selectedValue.length !== 0){
-		var text = selectedValue === "Arrivée" ? "Heure d'arrivée" : "Heure de départ";
+		let text = selectedValue === "Arrivée" ? "Heure d'arrivée" : "Heure de départ";
 		heureVol.text(text);
 	}
 	else
@@ -138,8 +138,8 @@ $('select[name="resultatVol"],select[name="searchByAirline"]').change(function (
 		});
 	}
 	else{
-        var oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
-        var lastActive = null;
+        let oppositeValue = selectedValue === "Arrivée" ? "Départ" : "Arrivée";
+        let lastActive = null;
 		trs.each(function(){
             if ($(this).hasClass(selectedValue)) {
                 if($(this).attr('active') === 'KO')

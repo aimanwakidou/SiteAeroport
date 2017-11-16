@@ -1,8 +1,8 @@
 /*Ajout vol*/
 function addVols(code,provenance,destination,statut,heure,imgSrc,ArrDep){
-	var classTr = (ArrDep == "Arrivée") ? "avionArrive" : "avionDepart";
-	var classAlert = (ArrDep == "Arrivée") ? "AlertArrivee" : "AlertDepart";
-    var trString = '<tr class="' + classTr + '"  data-codevol="' + code +'" data-typevols="jour">'+
+	let classTr = (ArrDep == "Arrivée") ? "avionArrive" : "avionDepart";
+	let classAlert = (ArrDep == "Arrivée") ? "AlertArrivee" : "AlertDepart";
+    let trString = '<tr class="' + classTr + '"  data-codevol="' + code +'" data-typevols="jour">'+
 		'<td class="logoCompany"><img src="'+imgSrc+'" style="height:50px;width:100px;"/></td>'+
 		'<td class="numVol">'+code+'</td>'+
 		'<td>'+provenance+'</td>'+
@@ -12,15 +12,14 @@ function addVols(code,provenance,destination,statut,heure,imgSrc,ArrDep){
 		'<td class="ToggleTd"><input type="checkbox" data-toggle="toggle" name="Alert" class="'+classAlert+' toggleCheckBox" data-vols="day"/></td>'+
 		'</tr>';
 	
-	var tr = $.parseHTML(trString);
+	let tr = $.parseHTML(trString);
 	$((ArrDep == "Arrivée") ? "#ArriveeBody" : "#DepartBody").append(tr);	
 }
 
 var ArrDepTab = ["Arrivée","Départ"];
-var url = "https://5.196.225.5/api/Vols/";
 
 ArrDepTab.forEach(function(ArrDep){
-	$.getJSON(url+ArrDep,{})
+	$.getJSON(urlApi+"/Vols/"+ArrDep,{})
 	
 	.done(function(data){
 		Object.keys(data).forEach(function(key){

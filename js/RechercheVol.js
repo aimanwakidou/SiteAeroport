@@ -127,7 +127,7 @@ $("#zoneRecherche").submit(function (event) {
    
     if (provSuccess && destSuccess) {
         $("#ResultatVol").modal("show");
-        var url = "https://5.196.225.5/api/RechercheVols/" + provenance.val() + "/" + destination.val() + "/" + dateVol;
+        let urlRechercheVol = urlApi+"/RechercheVols/" + provenance.val() + "/" + destination.val() + "/" + dateVol;
 
         /*Lancement de la recherche*/
         if (!CookiesExists() || !IsSetCookies(provenance.val(), destination.val(), dateVol)) { 
@@ -139,7 +139,7 @@ $("#zoneRecherche").submit(function (event) {
             DefaultSelect($("#heureVol"), $("#ResultatSearchVol > thead > tr > .ResultArrivéeOuDépart"), "resultatVol");
 
             /*Appel API*/
-            $.getJSON(url, {})
+            $.getJSON(urlRechercheVol, {})
 
                 .done(function (data) {
                     if (Object.keys(data).indexOf("message") == -1) {
