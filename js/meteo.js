@@ -16,7 +16,7 @@ $(document).ready(function () {
     $("#DayOrNightMeteo").text((hour < 18 && hour > 6) ? "jour" : "soir");
 
     iles.forEach(function (ile) {
-        let url = urlApi+"/"+ile;
+        let url = urlApi+"/Meteo/"+ile;
 
         $.getJSON(url, {
         })
