@@ -1,11 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\aspnet_client\\system_web",
-    "\\vendor",
-    "\\vendor\\bootstrap-select\\css",
-    "\\vendor\\bootstrap-select\\js"
+    "\\img",
+    "\\js",
+    "\\pagesAeroport",
+    "\\pagesAeroport\\js"
   ],
-  "SelectedNode": "\\meteo.log",
+  "SelectedNode": "\\js\\meteo.js",
   "PreviewInSolutionExplorer": false
 }

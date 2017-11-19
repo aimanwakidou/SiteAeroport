@@ -124,36 +124,6 @@ a.page-scroll{
 	}
 }
 
-@media screen and (min-width:1200px){
-	.container{
-		width:1170px;
-	}
-}
-
-@media screen and (min-width:1300px){
-	.container{
-		width:1270px;
-	}
-}
-
-@media screen and (min-width:1400px){
-	.container{
-		width:1370px;
-	}
-}
-
-@media screen and (min-width:1600px){
-	.container{
-		width:1570px;
-	}
-}
-
-@media screen and (min-width:1800px){
-	.container{
-		width:1770px;
-	}
-}
-
 .modal-content{
 	border-radius:0;
 }
