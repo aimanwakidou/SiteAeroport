@@ -93,6 +93,10 @@ a.page-scroll{
 	padding:0;
 }
 
+.modal-dialog{
+    width:85%;
+}
+
 @media screen and (min-width:768px){
     .modal-dialog {
         width:95% !important;
@@ -122,6 +126,12 @@ a.page-scroll{
 	.container{
 		width:1070px;
 	}
+}
+
+@media screen and (min-width:1200px){
+    .container{
+        width:90%;
+    }
 }
 
 .modal-content{

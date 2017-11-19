@@ -1,11 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\img",
-    "\\js",
+    "\\css",
     "\\pagesAeroport",
     "\\pagesAeroport\\js"
   ],
-  "SelectedNode": "\\js\\meteo.js",
+  "SelectedNode": "\\css\\SurchargeBootstrap.css",
   "PreviewInSolutionExplorer": false
 }
