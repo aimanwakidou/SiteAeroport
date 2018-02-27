@@ -88,6 +88,10 @@ a.page-scroll{
     line-height:inherit !important;
 }
 
+.bootstrap-select > button{
+    border-radius: 0 !important;
+}
+
 /*CSS : Surchage caroussel*/
 #slider{
 	padding:0;
